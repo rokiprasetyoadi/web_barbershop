@@ -11,7 +11,7 @@
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Hairy is a pixel perfect creative barber html5 tempalte  based on designed with great attention to details, flexibility and performance. It is ultra professional, smooth and sleek, with a clean modern layout.">
-    <link href="web_profile/assets/images/favicon/favicon.png" rel="icon">
+    <link href="<?= base_url() ?>web_profile/assets/images/favicon/favicon.png" rel="icon">
 
     <!-- Fonts
     ============================================= -->
@@ -19,9 +19,9 @@
 
     <!-- Stylesheets
     ============================================= -->
-    <link href="web_profile/assets/css/external.css" rel="stylesheet">
-    <link href="web_profile/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="web_profile/assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>web_profile/assets/css/external.css" rel="stylesheet">
+    <link href="<?= base_url() ?>web_profile/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>web_profile/assets/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -85,8 +85,8 @@
 				<span class="icon-bar"></span>
 				</button>
 				<a class="logo" href="index.html">
-					<img class="logo-light" src="web_profile/assets/images/logo/logo-light.png" alt="Hairy Logo">
-					<img class="logo-dark" src="web_profile/assets/images/logo/logo-light.png" alt="Hairy Logo">
+					<img class="logo-light" src="<?= base_url() ?>web_profile/assets/images/logo/logo-light.png" alt="Hairy Logo">
+					<img class="logo-dark" src="<?= base_url() ?>web_profile/assets/images/logo/logo-light.png" alt="Hairy Logo">
 				</a>
 			</div>
 
@@ -231,7 +231,7 @@
             <ul class="list-unstyled">
                 <li>
                     <a href="#">
-						<img class="img-responsive" src="web_profile/assets/images/shop/thumb/1.jpg" alt="product"/>
+						<img class="img-responsive" src="<?= base_url() ?>web_profile/assets/images/shop/thumb/1.jpg" alt="product"/>
 					</a>
                     <div class="product-meta">
                         <h5 class="product-title"><a href="#">Gel Cream</a></h5>
@@ -241,7 +241,7 @@
                 </li>
                 <li>
                     <a href="#">
-						<img class="img-responsive" src="web_profile/assets/images/shop/thumb/2.jpg" alt="product"/>
+						<img class="img-responsive" src="<?= base_url() ?>web_profile/assets/images/shop/thumb/2.jpg" alt="product"/>
 					</a>
                     <div class="product-meta">
                         <h5 class="product-title"><a href="#">Hair Dryer</a></h5>
@@ -251,7 +251,7 @@
                 </li>
                 <li>
                     <a href="#">
-						<img class="img-responsive" src="web_profile/assets/images/shop/thumb/3.jpg" alt="product"/>
+						<img class="img-responsive" src="<?= base_url() ?>web_profile/assets/images/shop/thumb/3.jpg" alt="product"/>
 					</a>
                     <div class="product-meta">
                         <h5 class="product-title"><a href="#">Beard Razor</a></h5>
@@ -327,7 +327,7 @@
     <!-- Slide #1 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="web_profile/assets/images/sliders/slide-bg/1.jpg" alt="background">
+            <img src="<?= base_url() ?>web_profile/assets/images/sliders/slide-bg/1.jpg" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -353,7 +353,7 @@
     <!-- Slide #2 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="web_profile/assets/images/sliders/slide-bg/2.jpg" alt="background">
+            <img src="<?= base_url() ?>web_profile/assets/images/sliders/slide-bg/2.jpg" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -379,7 +379,7 @@
     <!-- Slide #3 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="web_profile/assets/images/sliders/slide-bg/3.jpg" alt="background">
+            <img src="<?= base_url() ?>web_profile/assets/images/sliders/slide-bg/3.jpg" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -424,7 +424,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="service-panel">
                     <div class="service--img">
-                        <img src="web_profile/assets/images/services/4.png" alt="img">
+                        <img src="<?= base_url() ?>web_profile/assets/images/services/4.png" alt="img">
                     </div>
                     <h3>Haircut Styles</h3>
                     <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore fugiat nulla.</p>
@@ -437,7 +437,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="service-panel">
                     <div class="service--img">
-                        <img src="web_profile/assets/images/services/5.png" alt="img">
+                        <img src="<?= base_url() ?>web_profile/assets/images/services/5.png" alt="img">
                     </div>
                     <h3>Beard Trim</h3>
                     <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore fugiat nulla.</p>
@@ -450,7 +450,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="service-panel">
                     <div class="service--img">
-                        <img src="web_profile/assets/images/services/6.png" alt="img">
+                        <img src="<?= base_url() ?>web_profile/assets/images/services/6.png" alt="img">
                     </div>
                     <h3>Hot Shave</h3>
                     <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore fugiat nulla.</p>
@@ -469,7 +469,7 @@
 ============================================= -->
 <section id="working-time" class="working-time text-center bg-overlay bg-overlay-dark bg-parallax">
     <div class="bg-section">
-        <img src="web_profile/assets/images/background/2.jpg" alt="Background" />
+        <img src="<?= base_url() ?>web_profile/assets/images/background/2.jpg" alt="Background" />
     </div>
     <div class="container">
         <div class="row">
@@ -706,7 +706,7 @@
 ============================================= -->
 <section id="testimonial2" class="testimonial testimonial-1 bg-overlay bg-overlay-dark bg-parallax text-center">
     <div class="bg-section">
-        <img src="web_profile/assets/images/testimonial/bg-1.jpg" alt="Background" />
+        <img src="<?= base_url() ?>web_profile/assets/images/testimonial/bg-1.jpg" alt="Background" />
     </div>
     <div class="container">
         <div class="row">
@@ -727,7 +727,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="web_profile/assets/images/testimonial/1.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/1.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -745,7 +745,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="web_profile/assets/images/testimonial/2.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/2.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -763,7 +763,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="web_profile/assets/images/testimonial/3.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/3.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -781,7 +781,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="web_profile/assets/images/testimonial/2.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/2.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -826,7 +826,7 @@
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-							<img src="web_profile/assets/images/blog/grid/1.jpg" alt="entry image"/>
+							<img src="<?= base_url() ?>web_profile/assets/images/blog/grid/1.jpg" alt="entry image"/>
 						</a>
                         <div class="entry--overlay">
                             <a href="#"><i class="fa fa-chain"></i></a>
@@ -857,7 +857,7 @@
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-							<img src="web_profile/assets/images/blog/grid/2.jpg" alt="entry image"/>
+							<img src="<?= base_url() ?>web_profile/assets/images/blog/grid/2.jpg" alt="entry image"/>
 						</a>
                         <div class="entry--overlay">
                             <a href="#"><i class="fa fa-chain"></i></a>
@@ -888,7 +888,7 @@
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-							<img src="web_profile/assets/images/blog/grid/3.jpg" alt="entry image"/>
+							<img src="<?= base_url() ?>web_profile/assets/images/blog/grid/3.jpg" alt="entry image"/>
 						</a>
                         <div class="entry--overlay">
                             <a href="#"><i class="fa fa-chain"></i></a>
@@ -936,27 +936,27 @@
                 <div class="carousel carousel-dots" data-slide="5" data-slide-rs="2" data-autoplay="true" data-nav="false" data-dots="false" data-space="30" data-loop="true" data-speed="1000">
                     <!-- Client #1 -->
                     <div class="client">
-                        <img class="center-block" src="web_profile/assets/images/clients/1.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/1.png" alt="client">
                     </div>
 
                     <!-- Client #2 -->
                     <div class="client">
-                        <img class="center-block" src="web_profile/assets/images/clients/2.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/2.png" alt="client">
                     </div>
 
                     <!-- Client #3 -->
                     <div class="client">
-                        <img class="center-block" src="web_profile/assets/images/clients/3.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/3.png" alt="client">
                     </div>
 
                     <!-- Client #4 -->
                     <div class="client">
-                        <img class="center-block" src="web_profile/assets/images/clients/4.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/4.png" alt="client">
                     </div>
 
                     <!-- Client #5 -->
                     <div class="client">
-                        <img class="center-block" src="web_profile/assets/images/clients/5.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/5.png" alt="client">
                     </div>
                 </div>
             </div>
@@ -978,7 +978,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4 footer--widget-about">
                     <div class="footer--widget-content">
-                        <img class="mb-20" src="web_profile/assets/images/logo/logo-light.png" alt="logo">
+                        <img class="mb-20" src="<?= base_url() ?>web_profile/assets/images/logo/logo-light.png" alt="logo">
                         <p>Proin gravida nibh vel velit auctor aliquet anean lorem quis. bindum auctor, nisi elite conset ipsums sagtis id duis sed odio sit.</p>
                         <div class="work--schedule clearfix">
                             <ul class="list-unstyled">
@@ -998,7 +998,7 @@
                         <div class="entry">
                             <div class="entry--img">
                                 <a href="#">
-									<img src="web_profile/assets/images/blog/thumb/5.jpg" alt="entry">
+									<img src="<?= base_url() ?>web_profile/assets/images/blog/thumb/5.jpg" alt="entry">
 								</a>
                             </div>
                             <div class="entry--content">
@@ -1015,7 +1015,7 @@
                         <div class="entry">
                             <div class="entry--img">
                                 <a href="#">
-									<img src="web_profile/assets/images/blog/thumb/4.jpg" alt="entry">
+									<img src="<?= base_url() ?>web_profile/assets/images/blog/thumb/4.jpg" alt="entry">
 								</a>
                             </div>
                             <div class="entry--content">
@@ -1032,7 +1032,7 @@
                         <div class="entry">
                             <div class="entry--img">
                                 <a href="#">
-									<img src="web_profile/assets/images/blog/thumb/3.jpg" alt="entry">
+									<img src="<?= base_url() ?>web_profile/assets/images/blog/thumb/3.jpg" alt="entry">
 								</a>
                             </div>
                             <div class="entry--content">
@@ -1096,9 +1096,9 @@
 
 <!-- Footer Scripts
 ============================================= -->
-<script src="web_profile/assets/js/jquery-2.2.4.min.js"></script>
-<script src="web_profile/assets/js/plugins.js"></script>
-<script src="web_profile/assets/js/functions.js"></script>
+<script src="<?= base_url() ?>web_profile/assets/js/jquery-2.2.4.min.js"></script>
+<script src="<?= base_url() ?>web_profile/assets/js/plugins.js"></script>
+<script src="<?= base_url() ?>web_profile/assets/js/functions.js"></script>
 </body>
 
 

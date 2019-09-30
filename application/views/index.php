@@ -1,324 +1,3 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
-
-<!-- Mirrored from demo.zytheme.com/hairy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Sep 2019 04:28:23 GMT -->
-<head>
-    <!-- Document Meta
-    ============================================= -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--IE Compatibility Meta-->
-    <meta name="author" content="zytheme" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Hairy is a pixel perfect creative barber html5 tempalte  based on designed with great attention to details, flexibility and performance. It is ultra professional, smooth and sleek, with a clean modern layout.">
-    <link href="<?= base_url() ?>web_profile/assets/images/favicon/favicon.png" rel="icon">
-
-    <!-- Fonts
-    ============================================= -->
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i' rel='stylesheet' type='text/css'>
-
-    <!-- Stylesheets
-    ============================================= -->
-    <link href="<?= base_url() ?>web_profile/assets/css/external.css" rel="stylesheet">
-    <link href="<?= base_url() ?>web_profile/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>web_profile/assets/css/style.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="web_profile/assets/js/html5shiv.js"></script>
-      <script src="web_profile/assets/js/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Hairy | Barber Html5 Template</title>
-</head>
-
-<body>
-    <div class="preloader">
-    <div class="spinner">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-    </div>
-</div>
-    <!-- Document Wrapper
-	============================================= -->
-    <div id="wrapper" class="wrapper clearfix">
-<header id="navbar-spy" class="header header-topbar header-transparent header-fixed">
-	<div id="top-bar" class="top-bar">
-	<div class="container">
-		<div class="bottom-bar-border">
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6 top--contact hidden-xs">
-					<ul class="list-inline mb-0 ">
-						<li>
-							<i class="lnr lnr-clock"></i><span>Mon - Fri  9.00 : 17.00</span>
-						</li>
-						<li>
-							<i class="lnr lnr-phone-handset"></i> <span>(04) 491 570 110</span>
-						</li>
-					</ul>
-				</div><!-- .col-md-6 end -->
-				<div class="col-xs-12 col-sm-6 col-md-6 top--info text-right text-center-xs">
-					<span class="top--login"><i class="lnr lnr-exit"></i><a href="#">Login</a> / <a href="#">Register</a></span>
-					<span class="top--social">
-						<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-					<a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
-					</span>
-				</div><!-- .col-md-6 end -->
-			</div>
-		</div>
-	</div>
-</div>
-	<nav id="primary-menu" class="navbar navbar-fixed-top">
-		<div class="container">
-			<div class="">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
-				<a class="logo" href="index.html">
-					<img class="logo-light" src="<?= base_url() ?>web_profile/assets/images/logo/logo-light.png" alt="Hairy Logo">
-					<img class="logo-dark" src="<?= base_url() ?>web_profile/assets/images/logo/logo-light.png" alt="Hairy Logo">
-				</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
-				<ul class="nav navbar-nav nav-pos-right nav-bordered-right snavbar-left">
-				<!-- Home Menu -->
-<li class="has-dropdown active">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">home</a>
-    <ul class="dropdown-menu">
-        <li><a href="index.html">homepage 1</a></li>
-        <li><a href="homepage-2.html">homepage 2</a></li>
-        <li><a href="homepage-3.html">homepage 3</a></li>
-        <li><a href="landing.html">landing</a></li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- Pages Menu -->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle link-hover" data-hover="pages">pages</a>
-    <ul class="dropdown-menu">
-        <li><a href="page-about-us.html">about us</a></li>
-        <li><a href="page-book-online.html">book online</a></li>
-        <li><a href="page-our-staff.html">our staff</a></li>
-        <li><a href="page-services.html">our services</a></li>
-        <li><a href="page-contact.html">contact us</a></li>
-        <li><a href="page-404.html">404</a></li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- Features Menu-->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">elements</a>
-    <ul class="dropdown-menu">
-        <li><a href="elements-buttons.html">buttons</a></li>
-        <li><a href="elements-columns-grids.html">grid system</a></li>
-        <li><a href="elements-typography.html">typography</a></li>
-        <li><a href="elements-form.html">forms</a></li>
-        <li><a href="elements-heading.html">heading</a></li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- Gallery Menu-->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">Gallery</a>
-    <ul class="dropdown-menu">
-        <li><a href="gallery-3cols.html">gallery 3 columns</a></li>
-        <li><a href="gallery-4cols.html">gallery 4 columns</a></li>
-        <li><a href="gallery-masonry.html">gallery masonry</a></li>
-        <li><a href="gallery-single-images.html">single images</a></li>
-        <li><a href="gallery-single-slider.html">single slider</a></li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- Blog Menu-->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">Blog</a>
-    <ul class="dropdown-menu">
-        <li class="dropdown-submenu">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog grid</a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="blog-grid.html">fullwidth</a>
-                </li>
-                <li>
-                    <a href="blog-grid-sidebar-left.html">left sidebar</a>
-                </li>
-                <li>
-                    <a href="blog-grid-sidebar-right.html">right sidebar</a>
-                </li>
-            </ul>
-        </li>
-        <li class="dropdown-submenu">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog masonry</a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="blog-masonry.html">fullwidth</a>
-                </li>
-                <li>
-                    <a href="blog-masonry-sidebar-left.html">left sidebar</a>
-                </li>
-                <li>
-                    <a href="blog-masonry-sidebar-right.html">right sidebar</a>
-                </li>
-            </ul>
-        </li>
-        <li class="dropdown-submenu">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog standard</a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="blog-standard-sidebar-left.html">left sidebar</a>
-                </li>
-                <li>
-                    <a href="blog-standard-sidebar-right.html">right sidebar</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="blog-single.html">blog single</a>
-        </li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- shop Menu -->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">shop</a>
-    <ul class="dropdown-menu">
-        <li>
-            <a href="shop-3columns.html">shop 3 columns</a>
-        </li>
-        <li>
-            <a href="shop-4columns.html">shop 4 columns</a>
-        </li>
-        <li>
-            <a href="shop-sidebar-left.html">shop products LS</a>
-        </li>
-        <li>
-            <a href="shop-sidebar-right.html">shop products RS</a>
-        </li>
-        <li>
-            <a href="shop-single.html">shop single</a>
-        </li>
-        <li>
-            <a href="shop-cart.html">shop cart</a>
-        </li>
-        <li>
-            <a href="shop-checkout.html">shop checkout</a>
-        </li>
-    </ul>
-</li>
-<!-- li end -->
-				</ul>
-				<!-- Module Cart -->
-<div class="module module-cart pull-left">
-    <div class="module-icon cart-icon">
-        <i class="lnr lnr-store"></i>
-        <span class="title">shop cart</span>
-        <label class="module-label">2</label>
-    </div>
-    <div class="module-content module-box cart-box">
-        <div class="cart-overview">
-            <ul class="list-unstyled">
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="<?= base_url() ?>web_profile/assets/images/shop/thumb/1.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Gel Cream</a></h5>
-                        <p class="product-price">1 × $7.50</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="<?= base_url() ?>web_profile/assets/images/shop/thumb/2.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Hair Dryer</a></h5>
-                        <p class="product-price">2 × $35.00</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="<?= base_url() ?>web_profile/assets/images/shop/thumb/3.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Beard Razor</a></h5>
-                        <p class="product-price">1 × $39.00</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-            </ul>
-        </div>
-        <div class="cart-total">
-            <div class="total-desc">
-                Subtotal:
-            </div>
-            <div class="total-price">
-                $100.50
-            </div>
-        </div>
-        <div class="clearfix">
-        </div>
-        <div class="cart--control">
-            <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="#">View Cart & Checkout</a>
-        </div>
-    </div>
-</div>
-<!-- .module-cart end -->
-				<!-- Module Search -->
-<div class="module module-search pull-left">
-    <div class="module-icon search-icon">
-        <i class="lnr lnr-magnifier"></i>
-        <span class="title">search</span>
-    </div>
-    <div class="module-content module-fullscreen module--search-box">
-        <div class="pos-vertical-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-                        <form class="form-search">
-                            <input type="text" class="form-control" placeholder="Search..">
-                            <button class="btn" type="button"><i class="lnr lnr-magnifier"></i></button>
-                        </form>
-                        <!-- .form-search end -->
-                    </div>
-                    <!-- .col-md-8 end -->
-                </div>
-                <!-- .row end -->
-            </div>
-            <!-- .container end -->
-        </div>
-        <a class="module-cancel" href="#"><i class="lnr lnr-cross"></i></a>
-    </div>
-</div>
-<!-- .module-search end -->
-				<!-- Module Cart -->
-				<div class="module module-cart pull-left">
-					<div class="module-icon">
-						<a class="btn btn--white btn--bordered btn--rounded" href="#">Book Online</a>
-					</div>
-				</div>
-				<!-- .module-cart end -->
-			</div>
-			<!-- /.navbar-collapse -->
-			</div>
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
-
-</header>
 
 <!-- Slider #1
 ============================================= -->
@@ -327,7 +6,7 @@
     <!-- Slide #1 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="<?= base_url() ?>web_profile/assets/images/sliders/slide-bg/1.jpg" alt="background">
+            <img src="<?= base_url() ?>assets/web_profile/images/sliders/slide-bg/1.jpg" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -353,7 +32,7 @@
     <!-- Slide #2 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="<?= base_url() ?>web_profile/assets/images/sliders/slide-bg/2.jpg" alt="background">
+            <img src="<?= base_url() ?>assets/web_profile/images/sliders/slide-bg/2.jpg" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -379,7 +58,7 @@
     <!-- Slide #3 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="<?= base_url() ?>web_profile/assets/images/sliders/slide-bg/3.jpg" alt="background">
+            <img src="<?= base_url() ?>assets/web_profile/images/sliders/slide-bg/3.jpg" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -424,7 +103,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="service-panel">
                     <div class="service--img">
-                        <img src="<?= base_url() ?>web_profile/assets/images/services/4.png" alt="img">
+                        <img src="<?= base_url() ?>assets/web_profile/images/services/4.png" alt="img">
                     </div>
                     <h3>Haircut Styles</h3>
                     <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore fugiat nulla.</p>
@@ -437,7 +116,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="service-panel">
                     <div class="service--img">
-                        <img src="<?= base_url() ?>web_profile/assets/images/services/5.png" alt="img">
+                        <img src="<?= base_url() ?>assets/web_profile/images/services/5.png" alt="img">
                     </div>
                     <h3>Beard Trim</h3>
                     <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore fugiat nulla.</p>
@@ -450,7 +129,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="service-panel">
                     <div class="service--img">
-                        <img src="<?= base_url() ?>web_profile/assets/images/services/6.png" alt="img">
+                        <img src="<?= base_url() ?>assets/web_profile/images/services/6.png" alt="img">
                     </div>
                     <h3>Hot Shave</h3>
                     <p>Duis aute irure dolor in reprehenderit in volupte velit esse cillum dolore fugiat nulla.</p>
@@ -469,7 +148,7 @@
 ============================================= -->
 <section id="working-time" class="working-time text-center bg-overlay bg-overlay-dark bg-parallax">
     <div class="bg-section">
-        <img src="<?= base_url() ?>web_profile/assets/images/background/2.jpg" alt="Background" />
+        <img src="<?= base_url() ?>assets/web_profile/images/background/2.jpg" alt="Background" />
     </div>
     <div class="container">
         <div class="row">
@@ -706,7 +385,7 @@
 ============================================= -->
 <section id="testimonial2" class="testimonial testimonial-1 bg-overlay bg-overlay-dark bg-parallax text-center">
     <div class="bg-section">
-        <img src="<?= base_url() ?>web_profile/assets/images/testimonial/bg-1.jpg" alt="Background" />
+        <img src="<?= base_url() ?>assets/web_profile/images/testimonial/bg-1.jpg" alt="Background" />
     </div>
     <div class="container">
         <div class="row">
@@ -727,7 +406,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/1.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/1.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -745,7 +424,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/2.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/2.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -763,7 +442,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/3.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/3.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -781,7 +460,7 @@
                     <div class="testimonial-panel">
                         <div class="testimonial--meta">
                             <div class="testimonial--meta-img">
-                                <img src="<?= base_url() ?>web_profile/assets/images/testimonial/2.png" alt="Testimonial Author">
+                                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/2.png" alt="Testimonial Author">
                             </div>
                         </div>
                         <!-- .testimonial-meta end -->
@@ -826,7 +505,7 @@
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-							<img src="<?= base_url() ?>web_profile/assets/images/blog/grid/1.jpg" alt="entry image"/>
+							<img src="<?= base_url() ?>assets/web_profile/images/blog/grid/1.jpg" alt="entry image"/>
 						</a>
                         <div class="entry--overlay">
                             <a href="#"><i class="fa fa-chain"></i></a>
@@ -857,7 +536,7 @@
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-							<img src="<?= base_url() ?>web_profile/assets/images/blog/grid/2.jpg" alt="entry image"/>
+							<img src="<?= base_url() ?>assets/web_profile/images/blog/grid/2.jpg" alt="entry image"/>
 						</a>
                         <div class="entry--overlay">
                             <a href="#"><i class="fa fa-chain"></i></a>
@@ -888,7 +567,7 @@
                 <div class="blog-entry">
                     <div class="entry--img">
                         <a href="#">
-							<img src="<?= base_url() ?>web_profile/assets/images/blog/grid/3.jpg" alt="entry image"/>
+							<img src="<?= base_url() ?>assets/web_profile/images/blog/grid/3.jpg" alt="entry image"/>
 						</a>
                         <div class="entry--overlay">
                             <a href="#"><i class="fa fa-chain"></i></a>
@@ -936,27 +615,27 @@
                 <div class="carousel carousel-dots" data-slide="5" data-slide-rs="2" data-autoplay="true" data-nav="false" data-dots="false" data-space="30" data-loop="true" data-speed="1000">
                     <!-- Client #1 -->
                     <div class="client">
-                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/1.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>assets/web_profile/images/clients/1.png" alt="client">
                     </div>
 
                     <!-- Client #2 -->
                     <div class="client">
-                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/2.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>assets/web_profile/images/clients/2.png" alt="client">
                     </div>
 
                     <!-- Client #3 -->
                     <div class="client">
-                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/3.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>assets/web_profile/images/clients/3.png" alt="client">
                     </div>
 
                     <!-- Client #4 -->
                     <div class="client">
-                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/4.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>assets/web_profile/images/clients/4.png" alt="client">
                     </div>
 
                     <!-- Client #5 -->
                     <div class="client">
-                        <img class="center-block" src="<?= base_url() ?>web_profile/assets/images/clients/5.png" alt="client">
+                        <img class="center-block" src="<?= base_url() ?>assets/web_profile/images/clients/5.png" alt="client">
                     </div>
                 </div>
             </div>
@@ -978,7 +657,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4 footer--widget-about">
                     <div class="footer--widget-content">
-                        <img class="mb-20" src="<?= base_url() ?>web_profile/assets/images/logo/logo-light.png" alt="logo">
+                        <img class="mb-20" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="logo">
                         <p>Proin gravida nibh vel velit auctor aliquet anean lorem quis. bindum auctor, nisi elite conset ipsums sagtis id duis sed odio sit.</p>
                         <div class="work--schedule clearfix">
                             <ul class="list-unstyled">
@@ -998,7 +677,7 @@
                         <div class="entry">
                             <div class="entry--img">
                                 <a href="#">
-									<img src="<?= base_url() ?>web_profile/assets/images/blog/thumb/5.jpg" alt="entry">
+									<img src="<?= base_url() ?>assets/web_profile/images/blog/thumb/5.jpg" alt="entry">
 								</a>
                             </div>
                             <div class="entry--content">
@@ -1015,7 +694,7 @@
                         <div class="entry">
                             <div class="entry--img">
                                 <a href="#">
-									<img src="<?= base_url() ?>web_profile/assets/images/blog/thumb/4.jpg" alt="entry">
+									<img src="<?= base_url() ?>assets/web_profile/images/blog/thumb/4.jpg" alt="entry">
 								</a>
                             </div>
                             <div class="entry--content">
@@ -1032,7 +711,7 @@
                         <div class="entry">
                             <div class="entry--img">
                                 <a href="#">
-									<img src="<?= base_url() ?>web_profile/assets/images/blog/thumb/3.jpg" alt="entry">
+									<img src="<?= base_url() ?>assets/web_profile/images/blog/thumb/3.jpg" alt="entry">
 								</a>
                             </div>
                             <div class="entry--content">
@@ -1096,9 +775,9 @@
 
 <!-- Footer Scripts
 ============================================= -->
-<script src="<?= base_url() ?>web_profile/assets/js/jquery-2.2.4.min.js"></script>
-<script src="<?= base_url() ?>web_profile/assets/js/plugins.js"></script>
-<script src="<?= base_url() ?>web_profile/assets/js/functions.js"></script>
+<script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
+<script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
+<script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
 </body>
 
 

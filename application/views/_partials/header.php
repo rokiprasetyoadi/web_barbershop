@@ -101,12 +101,7 @@
                   <!-- li end -->
                   <!-- Pages Menu -->
                   <li>
-                    <a href="#" class="link-hover" data-hover="pages">pages</a>
-                  </li>
-                  <!-- li end -->
-                  <!-- Features Menu-->
-                  <li>
-                    <a href="#" class="menu-item">elements</a>
+                    <a href="#" class="link-hover" data-hover="pages">Layanan</a>
                   </li>
                   <!-- li end -->
                   <!-- Gallery Menu-->
@@ -116,7 +111,7 @@
                   <!-- li end -->
                   <!-- shop Menu -->
                   <li>
-                    <a href="#" class="menu-item">shop</a>
+                    <a href="#" class="menu-item">Shop</a>
                   </li>
                   <!-- li end -->
                 </ul>

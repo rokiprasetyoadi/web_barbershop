@@ -23,5 +23,7 @@ class Home extends CI_Controller
     {
         $this->load->view('_partials/header');
         $this->load->view('index');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/footerscript');
     }
 }

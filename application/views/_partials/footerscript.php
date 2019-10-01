@@ -1,4 +1,3 @@
-
 <!-- Footer Scripts
 ============================================= -->
 <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>

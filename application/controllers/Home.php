@@ -20,10 +20,7 @@ class Home extends CI_Controller
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
     public function index()
-    {
-        $this->load->view('_partials/header');
-        $this->load->view('index');
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/footerscript');
+    {   
+		$this->temp->load('partials', 'index');
     }
 }

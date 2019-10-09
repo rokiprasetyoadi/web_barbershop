@@ -154,6 +154,7 @@
       <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
         <div class="heading text--center mb-80">
           <h2 class="heading--title text-white">Jam Kerja</h2>
+          <p class="heading--desc">Kami buka setiap hari</p>
           <div class="divider--line"></div>
         </div>
       </div>
@@ -161,19 +162,106 @@
     </div>
     <!-- .row end -->
     <div class="row">
+
       <!-- Service #1 -->
-      <div class="">
+      <div class="col-md-2 col-md-offset-2">
         <div class="time-panel">
-          <h3>Setiap Hari</h3>
+          <h3>Senin</h3>
           <ul class="list-unstyled mb-0">
-            <li>10.00 wib</li>
+            <li>10.00 WIB</li>
             <li>-</li>
-            <li>22.00 wib</li>
+            <li>22.00 WIB</li>
           </ul>
         </div>
         <!-- .time-panel end -->
       </div>
       <!-- .col-md-2 end -->
+
+      <!-- Service #1 -->
+      <div class="col-md-2">
+        <div class="time-panel">
+          <h3>Selasa</h3>
+          <ul class="list-unstyled mb-0">
+            <li>10.00 WIB</li>
+            <li>-</li>
+            <li>22.00 WIB</li>
+          </ul>
+        </div>
+        <!-- .time-panel end -->
+      </div>
+      <!-- .col-md-2 end -->
+
+      <!-- Service #1 -->
+      <div class="col-md-2">
+        <div class="time-panel">
+          <h3>Rabu</h3>
+          <ul class="list-unstyled mb-0">
+            <li>10.00 WIB</li>
+            <li>-</li>
+            <li>22.00 WIB</li>
+          </ul>
+        </div>
+        <!-- .time-panel end -->
+      </div>
+      <!-- .col-md-2 end -->
+
+      <!-- Service #1 -->
+      <div class="col-md-2">
+        <div class="time-panel">
+          <h3>Kamis</h3>
+          <ul class="list-unstyled mb-0">
+            <li>10.00 WIB</li>
+            <li>-</li>
+            <li>22.00 WIB</li>
+          </ul>
+        </div>
+        <!-- .time-panel end -->
+      </div>
+      <!-- .col-md-2 end -->
+
+      <!-- Service #1 -->
+      <div class="col-md-2 col-md-offset-3 mt-20">
+        <div class="time-panel">
+          <h3>Jumat</h3>
+          <ul class="list-unstyled mb-0">
+            <li>10.00 WIB</li>
+            <li>-</li>
+            <li>22.00 WIB</li>
+          </ul>
+        </div>
+        <!-- .time-panel end -->
+      </div>
+      <!-- .col-md-2 end -->
+
+      <!-- Service #1 -->
+      <div class="col-md-2 mt-20">
+        <div class="time-panel">
+          <h3>Sabtu</h3>
+          <ul class="list-unstyled mb-0">
+            <li>10.00 WIB</li>
+            <li>-</li>
+            <li>22.00 WIB</li>
+          </ul>
+        </div>
+        <!-- .time-panel end -->
+      </div>
+      <!-- .col-md-2 end -->
+
+      <!-- Service #1 -->
+      <div class="col-md-2 mt-20">
+        <div class="time-panel">
+          <h3>Minggu</h3>
+          <ul class="list-unstyled mb-0">
+            <li>10.00 WIB</li>
+            <li>-</li>
+            <li>22.00 WIB</li>
+          </ul>
+        </div>
+        <!-- .time-panel end -->
+      </div>
+      <!-- .col-md-2 end -->
+
+    </div>
 
     </div>
     <!-- .row end -->

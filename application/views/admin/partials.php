@@ -12,7 +12,9 @@
     <meta http-equiv=”X-UA-Compatible” content=”IE=9”>
 
     <link rel="shortcut icon" href="<?= base_url('assets/adm/images/favicon.html') ?>">
+
     <title>SevenHead</title>
+
     <!--Core CSS -->
     <link href="<?php echo base_url('assets/adm/bs3/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/adm/js/jquery-ui/jquery-ui-1.10.1.custom.min.css') ?>" rel="stylesheet">
@@ -20,6 +22,7 @@
     <link href="<?php echo base_url('assets/adm/font-awesome/css/font-awesome.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/adm/js/jvector-map/jquery-jvectormap-1.2.2.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/adm/css/clndr.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('assets/adm/js/data-tables/DT_bootstrap.css') ?>" />
     <!--clock css-->
     <link href="<?php echo base_url('assets/adm/js/css3clock/css/style.css') ?>" rel="stylesheet">
     <!--Morris Chart CSS -->
@@ -44,7 +47,7 @@
 <div class="brand">
 
     <a href="index-2.html" class="logo">
-        <img src="<?= base_url('assets/adm/images/logo.png') ?>" alt="">
+        <img src="<?= base_url('assets/adm/images/logo1.png') ?>" alt="">
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -267,7 +270,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="index-2.html">
+                    <a class="active" href="<?php echo base_url('admin') ?>">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -275,128 +278,42 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop"></i>
-                        <span>Layouts</span>
+                        <span>Data Master</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="boxed_page.html">Boxed Page</a></li>
-                        <li><a href="horizontal_menu.html">Horizontal Menu</a></li>
-                        <li><a href="language_switch.html">Language Switch Bar</a></li>
+                        <li><a href="<?php echo base_url('admin/barang') ?>">Data Produk</a></li>
+                        <li><a href="<?php echo base_url('admin/admin') ?>"">Data Admin</a></li>
+                        <li><a href="<?php echo base_url('admin/member') ?>"">Data Member</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>UI Elements</span>
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Transaksi</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="general.html">General</a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-<li><a href="typography.html">Typography</a></li>
-                        <li><a href="widget.html">Widget</a></li>
-                        <li><a href="slider.html">Slider</a></li>
-                        <li><a href="tree_view.html">Tree View</a></li>
-                        <li><a href="nestable.html">Nestable</a></li>
-                        <li><a href="grids.html">Grids</a></li>
-                        <li><a href="calendar.html">Calender</a></li>
-                        <li><a href="draggable_portlet.html">Draggable Portlet</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="fontawesome.html">
-                        <i class="fa fa-bullhorn"></i>
-                        <span>Fontawesome </span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-th"></i>
-                        <span>Data Tables</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="basic_table.html">Basic Table</a></li>
-                        <li><a href="responsive_table.html">Responsive Table</a></li>
-                        <li><a href="dynamic_table.html">Dynamic Table</a></li>
-                        <li><a href="editable_table.html">Editable Table</a></li>
+                        <li><a href="general.html">Transaksi</a></li>
+                        <li><a href="buttons.html">Verifikasi</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-tasks"></i>
-                        <span>Form Components</span>
+                        <i class="fa fa-dollar"></i>
+                        <span>Laporan Keuangan</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="form_component.html">Form Elements</a></li>
-                        <li><a href="advanced_form.html">Advanced Components</a></li>
-                        <li><a href="form_wizard.html">Form Wizard</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="file_upload.html">Muliple File Upload</a></li>
-
-                        <li><a href="dropzone.html">Dropzone</a></li>
-                        <li><a href="inline_editor.html">Inline Editor</a></li>
-
+                        <li><a href="responsive_table.html">Laporan Transaksi</a></li>
+                        <li><a href="dynamic_table.html">Laporan Pendapatan</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-envelope"></i>
-                        <span>Mail </span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="mail.html">Inbox</a></li>
-                        <li><a href="mail_compose.html">Compose Mail</a></li>
-                        <li><a href="mail_view.html">View Mail</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="morris.html">Morris</a></li>
-                        <li><a href="chartjs.html">Chartjs</a></li>
-                        <li><a href="flot_chart.html">Flot Charts</a></li>
-                        <li><a href="c3_chart.html">C3 Chart</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Maps</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="google_map.html">Google Map</a></li>
-                        <li><a href="vector_map.html">Vector Map</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-glass"></i>
-                        <span>Extra</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="blank.html">Blank Page</a></li>
-                        <li><a href="lock_screen.html">Lock Screen</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="invoice.html">Invoice</a></li>
-                        <li><a href="pricing_table.html">Pricing Table</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>                    
-<li><a href="gallery.html">Media Gallery</a></li><li><a href="404.html">404 Error</a></li>
-                        <li><a href="500.html">500 Error</a></li>
-                        <li><a href="registration.html">Registration</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="login.html">
-                        <i class="fa fa-user"></i>
-                        <span>Login Page</span>
-                    </a>
-                </li>
-            </ul>            </div>
+                
+            </ul>            
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>
 <!--sidebar end-->
+
 
 <?= $contents; ?>
 
@@ -449,9 +366,9 @@
                 </div>
                 <div class="side-mini-graph">
                     <div class="p-collection">
-						<span class="pc-epie-chart" data-percent="45">
-						<span class="percent"></span>
-						</span>
+                        <span class="pc-epie-chart" data-percent="45">
+                        <span class="percent"></span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -698,9 +615,23 @@
 
     <script src="<?php echo base_url('assets/adm/js/dashboard.js') ?>"></script>
     <script src="<?php echo base_url('assets/adm/js/jquery.customSelect.min.js') ?>"></script>
+
+    <script type="text/javascript" src="<?php echo base_url('assets/adm/js/data-tables/jquery.dataTables.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/adm/js/data-tables/DT_bootstrap.js') ?>"></script>
+
     <!--common script init for all pages-->
     <script src="<?php echo base_url('assets/adm/js/scripts.js') ?>"></script>
     <!--script for this page-->
+
+    <!--script for this page only-->
+<script src="<?php echo base_url('assets/adm/js/table-editable.js') ?>"></script>
+
+    <script>
+    jQuery(document).ready(function() {
+        EditableTable.init();
+    });
+</script>
+
 </body>
 
 <!-- Mirrored from bucketadmin.themebucket.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Sep 2019 14:06:04 GMT -->

@@ -1,15 +1,15 @@
-<?php   
+<?php
 
-    Class Temp  {
-        
-        var $template_data = array();
+    class Temp
+    {
+        public $template_data = array();
 
-        function set($name, $value) 
+        public function set($name, $value)
         {
             $this->template_data[$name] = $value;
         }
 
-        function load($template = '', $view = '', $view_data = array(), $return = false)
+        public function load($template = '', $view = '', $view_data = array(), $return = false)
         {
             $this->CI =& get_instance();
             $this->set('contents', $this->CI->load->view($view, $view_data, true));

@@ -19,18 +19,19 @@ class Login_admin extends CI_Controller{
 	}
  
 	function aksi_login(){
-		$crew_email = $this->input->post('crew_email');
-		$crew_password = $this->input->post('crew_password');
+		$admin_email = $this->input->post('admin_email');
+		$admin_password = $this->input->post('admin_password');
 		$where = array(
-			'crew_email' => $crew_email,
-			'crew_password' => md5($crew_password)
+			'admin_email' => $admin_email,
+			'admin_password' => md5($admin_password)
 			);
-		$cek = $this->M_loginadmin->cek_login("crew",$where)->row_array();
+		$cek = $this->M_loginadmin->cek_login("admin",$where)->row_array();
 		if($cek > 0){
  
 			$data_session = array(
-				'crew_email' => $cek['crew_email'],
-				'crew_nama' => $cek['crew_nama'],
+				'admin_email' => $cek['admin_email'],
+				'admin_nama' => $cek['admin_nama'],
+				'admin_image' => $cek['admin_image'],
 				'status' => "login"
 				);
  

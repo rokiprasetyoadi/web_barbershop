@@ -40,8 +40,8 @@
         <h2 class="form-signin-heading">sign in now</h2>
         <div class="login-wrap">
             <div class="user-login-info">
-                <input type="email" class="form-control" placeholder="Email" required="required" name="crew_email" autofocus>
-                <input type="password" class="form-control" placeholder="Password" required="required" name="crew_password">
+                <input type="email" class="form-control" placeholder="Email" required="required" name="admin_email" autofocus>
+                <input type="password" class="form-control" placeholder="Password" required="required" name="admin_password">
             </div>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me

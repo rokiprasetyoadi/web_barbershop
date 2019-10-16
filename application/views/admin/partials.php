@@ -242,8 +242,8 @@
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="images/avatar1_small.jpg">
-                <span class="username">John Doe</span>
+                <img alt="" src="<?php echo base_url() ?>assets/adm/upload/foto_profile/<?php echo $this->session->userdata('admin_image') ?>">
+                <span class="username"><?php echo $this->session->userdata('admin_nama') ?></span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
@@ -282,7 +282,6 @@
                     </a>
                     <ul class="sub">
                         <li><a href="<?php echo base_url('admin/barang') ?>">Data Produk</a></li>
-                        <li><a href="<?php echo base_url('admin/admin') ?>"">Data Admin</a></li>
                         <li><a href="<?php echo base_url('admin/member') ?>"">Data Member</a></li>
                     </ul>
                 </li>

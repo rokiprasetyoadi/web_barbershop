@@ -14,14 +14,14 @@
     <meta name="description"
         content="Hairy is a pixel perfect creative barber html5 tempalte  based on designed with great attention to details, flexibility and performance. It is ultra professional, smooth and sleek, with a clean modern layout.">
     <link href="<?= base_url() ?>assets/web_profile/images/favicon/favicon.png" rel="icon">
-    
+
     <!-- Fonts
     ============================================= -->
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i' rel='stylesheet' type='text/css'>
 
     <!-- Stylesheets
     ============================================= -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.1/css/all.css"><link href="<?= base_url() ?>assets/web_profile/css/external.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/web_profile/css/external.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/style.css" rel="stylesheet">
 
@@ -63,8 +63,8 @@
                                 </ul>
                             </div><!-- .col-md-6 end -->
                             <div class="col-xs-12 col-sm-6 col-md-6 top--info text-right text-center-xs">
-                                <span class="top--login"><i class="lnr lnr-exit"></i><a href="<?= base_url() ?>login">Login</a> / <a
-                                        href="<?= base_url() ?>register">Register</a></span>
+                                <span class="top--login"><i class="lnr lnr-exit"></i><a href="#">Login</a> / <a
+                                        href="#">Register</a></span>
                                 <span class="top--social">
                                     <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
                                     <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
@@ -108,7 +108,7 @@
                                 <!-- li end -->
                                 <!-- Pages Menu -->
                                 <li>
-                                    <a href="#service1" class="link-hover" data-hover="pages">Layanan</a>
+                                    <a href="#" class="link-hover" data-hover="pages">Layanan</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- Gallery Menu-->

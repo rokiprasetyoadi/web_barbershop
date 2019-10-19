@@ -11,6 +11,6 @@ class ShopList extends CI_Controller
 
     public function index()
     {
-        $this->temp->load('partials', 'shop');
+        $this->temp->load('shop/partials', 'shop/index');
     }
 }

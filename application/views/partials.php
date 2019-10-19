@@ -231,7 +231,6 @@
 
         </header>
 
-
         <?= $contents ?>
 
         <!-- Footer #5

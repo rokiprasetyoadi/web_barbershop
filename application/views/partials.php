@@ -37,13 +37,7 @@
 </head>
 
 <body>
-    <div class="preloader">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </div>
+
     <!-- Document Wrapper
 	============================================= -->
     <div id="wrapper" class="wrapper clearfix">
@@ -108,7 +102,7 @@
                                 <!-- li end -->
                                 <!-- Pages Menu -->
                                 <li>
-                                    <a href="#" class="link-hover" data-hover="pages">Layanan</a>
+                                    <a href="#service1" class="link-hover" data-hover="pages">Layanan</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- Gallery Menu-->
@@ -118,7 +112,7 @@
                                 <!-- li end -->
                                 <!-- shop Menu -->
                                 <li>
-                                    <a href="#" class="menu-item">Shop</a>
+                                    <a href="<?= base_url('shop/ShopList') ?>" class="menu-item">Shop</a>
                                 </li>
                                 <!-- li end -->
                             </ul>

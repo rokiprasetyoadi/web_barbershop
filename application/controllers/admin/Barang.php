@@ -9,11 +9,14 @@ class Barang extends CI_Controller {
 	 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("admin/Login_admin"));
 			}
+			$this->load->model("M_barang");
+	 			$this->load->helper('url');
 	 	}
 
     public function index()
     {
-        $this->temp->load('admin/partials', 'admin/barang');
+        $data['tbl_barang']=$this->M_barang->tampil_data();
+        $this->temp->load('admin/partials', 'admin/barang', $data);
     }
 
 }

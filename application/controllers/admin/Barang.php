@@ -10,7 +10,6 @@ class Barang extends CI_Controller {
 			redirect(base_url("admin/Login_admin"));
 			}
 			$this->load->model("M_barang");
-	 			$this->load->helper('url');
 	 	}
 
     public function index()

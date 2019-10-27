@@ -6,12 +6,6 @@ class Login_admin extends CI_Controller{
 		parent::__construct();
 		$this->load->model('M_loginadmin');
 
-		// load Session Library
-        $this->load->library('session');
-
-        // load url helper
-        $this->load->helper('url');
-
 	}
 
 	function index(){
@@ -40,7 +34,8 @@ class Login_admin extends CI_Controller{
 			redirect(base_url("admin"));
 
 		}else{
-			$this->load->view('admin/v_login_admin');
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Username / Password salah!</div>');
+				redirect('admin/Login_admin');
 		}
 	}
 

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from bucketadmin.themebucket.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Sep 2019 14:05:27 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +9,7 @@
     <meta http-equiv=”X-UA-Compatible” content=”IE=EmulateIE9”>
     <meta http-equiv=”X-UA-Compatible” content=”IE=9”>
 
-    <link rel="shortcut icon" href="<?= base_url('assets/adm/images/favicon.html') ?>">
+    <link rel="shortcut icon" href="<?= base_url('assets/adm/images/logo_favicon.png') ?>">
 
     <title>SevenHead</title>
 
@@ -30,14 +28,7 @@
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url('assets/adm/css/style.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/adm/css/style-responsive.css') ?>" rel="stylesheet" />
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]>
-    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+
 </head>
 <body>
 <section id="container">
@@ -47,7 +38,7 @@
 <div class="brand">
 
     <a href="index-2.html" class="logo">
-        <img src="<?= base_url('assets/adm/images/logo1.png') ?>" alt="">
+        <img src="<?= base_url('assets/adm/images/logo.png') ?>" alt="">
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -139,7 +130,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <span class="photo"><img alt="avatar" src="images/avatar-mini.jpg"></span>
+                        <span class="photo"><img alt="avatar" src="<?= base_url('assets/adm/images/avatar-mini.jpg') ?>"></span>
                                 <span class="subject">
                                 <span class="from">Jonathan Smith</span>
                                 <span class="time">Just now</span>
@@ -253,11 +244,13 @@
             </ul>
         </li>
         
+        <div hidden>
         <li>
             <div class="toggle-right-box">
                 <div class="fa fa-bars"></div>
             </div>
         </li>
+        </div>
     </ul>
     <!--search & user info end-->
 </div>
@@ -632,6 +625,4 @@
 </script>
 
 </body>
-
-<!-- Mirrored from bucketadmin.themebucket.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Sep 2019 14:06:04 GMT -->
 </html>

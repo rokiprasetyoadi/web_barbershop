@@ -10,7 +10,7 @@
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="images/favicon.html">
 
-    <title>Login</title>
+    <title>SevenHead</title>
 
     <!--Core CSS -->
     <link href="<?php echo base_url('assets/adm/bs3/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -37,11 +37,12 @@
     <div class="container">
 
       <form class="form-signin" method="post" action="<?php echo base_url('admin/Login_admin/aksi_login'); ?>">
-        <h2 class="form-signin-heading">sign in now</h2>
+        <h2 class="form-signin-heading"><b>Login</b></h2>
         <div class="login-wrap">
             <div class="user-login-info">
+              <?= $this->session->flashdata('pesan'); ?>
                 <input type="email" class="form-control" placeholder="Email" required="required" name="admin_email" autofocus>
-                <input type="password" class="form-control" placeholder="Password" required="required" name="admin_password">
+                <input type="password" class="form-control" placeholder="Password" required="required" name="admin_password" style="margin-top: 10px;">
             </div>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
@@ -52,12 +53,6 @@
             </label>
             <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
 
-            <div class="registration">
-                Don't have an account yet?
-                <a class="" href="registration.html">
-                    Create an account
-                </a>
-            </div>
 
         </div>
 

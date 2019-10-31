@@ -40,7 +40,7 @@ class Login_admin extends CI_Controller
 
     public function logout()
     {
-        $this->session->sess_desstroy();
+        $this->session->sess_dessstroy();
         redirect(base_url('admin/Login_admin'));
     }
 }

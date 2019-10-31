@@ -14,7 +14,7 @@
     <meta name="description"
         content="Hairy is a pixel perfect creative barber html5 tempalte  based on designed with great attention to details, flexibility and performance. It is ultra professional, smooth and sleek, with a clean modern layout.">
     <link href="<?= base_url() ?>assets/web_profile/images/favicon/favicon.png" rel="icon">
-    
+
     <!-- Fonts
     ============================================= -->
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i' rel='stylesheet' type='text/css'>
@@ -316,6 +316,9 @@
     <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
+
+
+    <script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="eb520ee9-b0f5-4ddf-be58-578ef5d25fff";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
 </body>
 
 

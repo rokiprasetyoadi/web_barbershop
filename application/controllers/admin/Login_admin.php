@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?php
-
 class Login_admin extends CI_Controller
 {
     public function __construct()
@@ -17,17 +14,18 @@ class Login_admin extends CI_Controller
 
     public function aksi_login()
     {
-        $crew_email = $this->input->post('crew_email');
-        $crew_password = $this->input->post('crew_password');
+        $admin_email = $this->input->post('admin_email');
+        $admin_password = $this->input->post('admin_password');
         $where = array(
-            'crew_email' => $crew_email,
-            'crew_password' => md5($crew_password)
+            'admin_email' => $admin_email,
+            'admin_password' => md5($admin_password)
             );
-        $cek = $this->M_loginadmin->cek_login("crew", $where)->row_array();
+        $cek = $this->M_loginadmin->cek_login("admin", $where)->row_array();
         if ($cek > 0) {
             $data_session = array(
-                'crew_email' => $cek['crew_email'],
-                'crew_nama' => $cek['crew_nama'],
+                'admin_email' => $cek['admin_email'],
+                'admin_nama' => $cek['admin_nama'],
+                'admin_image' => $cek['admin_image'],
                 'status' => "login"
                 );
 
@@ -35,7 +33,8 @@ class Login_admin extends CI_Controller
 
             redirect(base_url("admin"));
         } else {
-            $this->load->view('admin/v_login_admin');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Username / Password salah!</div>');
+            redirect('admin/Login_admin');
         }
     }
 
@@ -44,51 +43,4 @@ class Login_admin extends CI_Controller
         $this->session->sess_destroy();
         redirect(base_url('admin/Login_admin'));
     }
-=======
-<?php
-
-class Login_admin extends CI_Controller{
-
-	function __construct(){
-		parent::__construct();
-		$this->load->model('M_loginadmin');
-
-	}
-
-	function index(){
-		$this->load->view('admin/v_login_admin');
-	}
-
-	function aksi_login(){
-		$admin_email = $this->input->post('admin_email');
-		$admin_password = $this->input->post('admin_password');
-		$where = array(
-			'admin_email' => $admin_email,
-			'admin_password' => md5($admin_password)
-			);
-		$cek = $this->M_loginadmin->cek_login("admin",$where)->row_array();
-		if($cek > 0){
-
-			$data_session = array(
-				'admin_email' => $cek['admin_email'],
-				'admin_nama' => $cek['admin_nama'],
-				'admin_image' => $cek['admin_image'],
-				'status' => "login"
-				);
-
-			$this->session->set_userdata($data_session);
-
-			redirect(base_url("admin"));
-
-		}else{
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Username / Password salah!</div>');
-				redirect('admin/Login_admin');
-		}
-	}
-
-	function logout(){
-		$this->session->sess_destroy();
-		redirect(base_url('admin/Login_admin'));
-	}
->>>>>>> 892032ee8e10d61805ebe7d5a8c97df279421398
 }

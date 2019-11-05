@@ -28,6 +28,12 @@
                 <form class="mb-0">
                     <div class="col-md-6">
                         <div class="row inline-block">
+                        <div class="col-xs-8 col-sm-8 col-md-8">
+                                <input type="name" class="form-control" name="name" id="name" placeholder="Nama Lengkap:" required>
+                            </div>
+                            <div class="col-xs-8 col-sm-8 col-md-8">
+                                <input type="alamat" class="form-control" name="alamat" id="alamat" placeholder="Alamat:" required>
+                            </div>
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email:" required>
                             </div>
@@ -39,20 +45,6 @@
                             </div>
 
                             <p class="col-xs-12 col-sm-12 col-md-12 mt-40">Atau, masuk dengan</p>
-                            
-                            <div class="col-xs-8 col-sm-8 col-md-8">
-                                <a href="#" class="btn btn--secondary btn--rounded btn--block">
-                                    <i class="fab fa-facebook-f"></i>   Facebook 
-                                </a>
-                            </div>
-                            <div class="col-xs-8 col-sm-8 col-md-8 mt-10">
-                                <a href="#" class="btn btn--secondary btn--rounded btn--block">
-                                    <i class="fab fa-google-plus-g"></i>   Google 
-                                </a>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 mt-10">
-                                <p>Belum punya akun ? <a href="<?= base_url() ?>register">Register</a></p>
-                            </div>
                         </div>
                     </div>
                 </form>

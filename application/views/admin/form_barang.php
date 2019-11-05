@@ -121,76 +121,85 @@
     </div>
     </div>
 
-<!-- Content Start -->
-<div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    <header class="panel-heading">
-                        Data Barang
-                        <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-cog"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
-                         </span>
-                    </header>
-                    <div class="panel-body">
-                        <div class="adv-table editable-table ">
-                            <div class="clearfix">
-                                <div class="btn-group">
-                                    <a class="btn btn-primary" href="<?= site_url() ?>admin/barang/add">
-                                        Add New <i class="fa fa-plus"></i>
-                                    </a>
-                                </div>
-                                <?= $this->session->flashdata('pesan'); ?>
-                                <div class="btn-group pull-right">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="#">Print</a></li>
-                                        <li><a href="#">Save as PDF</a></li>
-                                        <li><a href="#">Export to Excel</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="space15"></div>
-                            <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                                <thead>
-                                <tr>
-                                    <th>Id Barang</th>
-                                    <th>Nama Barang</th>
-                                    <th>Harga Grosir</th>
-                                    <th>Harga Ecer</th>
-                                    <th>Stok</th>
-                                    <th>Tanggal Input</th>
-                                    <th>Tanggal Update</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($tbl_barang as $row):?>
-                                <tr class="">
-                                    <td><?php echo $row->barang_id; ?></td>
-                                    <td><?php echo $row->barang_nama; ?></td>
-                                    <td><?php echo $row->barang_harjul_grosir; ?></td>
-                                    <td><?php echo $row->barang_harjul; ?></td>
-                                    <td><?php echo $row->barang_stok; ?></td>
-                                    <td><?php echo $row->barang_tgl_input; ?></td>
-                                    <td><?php echo $row->barang_tgl_update; ?></td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <?php endforeach; ?>
-        
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+        <!-- Content Start -->
+        <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Tambah Barang
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-cog" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="post" action="<?= site_url() ?>admin/barang/add">
+                                    <div class="form-group ">
+                                        <label for="barang_id" class="control-label col-lg-3">Id Barang</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="barang_id" name="barang_id" type="text" value="<?= $kode; ?>" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_kategori_id" class="control-label col-lg-3">Kategori</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="barang_kategori_id" name="barang_kategori_id" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_nama" class="control-label col-lg-3">Nama Barang</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="barang_nama" name="barang_nama" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_harjul_grosir" class="control-label col-lg-3">Harga Grosir</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="barang_harjul_grosir" name="barang_harjul_grosir" type="number" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_harjul" class="control-label col-lg-3">Harga Ecer</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="barang_harjul" name="barang_harjul" type="number" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_image" class="control-label col-lg-3">Foto</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="barang_image" name="barang_image" type="file" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_stok" class="control-label col-lg-3">Stok</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="barang_stok" name="barang_stok" type="number" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="barang_min_stok" class="control-label col-lg-3">Minimal Stok Barang</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="barang_min_stok" name="barang_min_stok" type="number" />
+                                        </div>
+                                    </div>
 
-<!-- Content End -->
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-6">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-default" type="cancel">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+
+        <!-- Content End -->
 
 </div>
 </section>

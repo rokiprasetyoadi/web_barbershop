@@ -17,14 +17,13 @@ class Barang extends CI_Controller
         $data['tbl_barang']=$this->M_barang->tampil_data();
         $this->temp->load('admin/partials', 'admin/barang', $data);
     }
-<<<<<<< HEAD
-=======
+
 
     public function add()
     {
         $this->M_barang->rulesNew();
         $data['kode'] = $this->M_barang->kode();
-        
+
         if ($this->form_validation->run() == false) {
             $this->temp->load('admin/partials', 'admin/form_barang', $data);
         } else {
@@ -33,8 +32,6 @@ class Barang extends CI_Controller
             redirect('admin/barang');
         }
     }
-
->>>>>>> 560009e33ecd235747f33cefe8104cf76925b444
 }
 
 /* End of file Controllername.php */

@@ -177,8 +177,8 @@
                                     <td><?php echo $row->barang_stok; ?></td>
                                     <td><?php echo $row->barang_tgl_input; ?></td>
                                     <td><?php echo $row->barang_tgl_update; ?></td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
+                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $row->barang_id ?>">Edit</a></td>
+                                    <td><a class="delete" href="<?= site_url(); ?>admin/barang/delete/<?= $row->barang_id ?>">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

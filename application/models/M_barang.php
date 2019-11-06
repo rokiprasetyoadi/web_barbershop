@@ -1,9 +1,13 @@
 <?php
 	class M_barang extends CI_Model
 	{
-			public function tampil_data(){
-				// kalo di native : mysql_query("select *from barang")
-				return $this->db->get('tbl_barang')->result();
+			public function tampil_data($id = null){
+				$this->db->from('tbl_barang');
+		        if($id != null) {
+		            $this->db->where('barang_id', $id);
+		        }
+		        $query = $this->db->get();
+		        return $query;
 			}
 
 			public function rulesNew(){
@@ -88,6 +92,28 @@
 
 		        $this->db->insert('tbl_barang', $data); // query untuk insert data ke tabel barang
 		    }
+
+		    public function editData($post)
+		    {
+		        $data = [
+		            'barang_kategori_id' => $post['barang_kategori_id'],
+		            'barang_nama' => $post['barang_nama'],
+		            'barang_harjul_grosir' => $post['barang_harjul_grosir'],
+		            'barang_harjul' => $post['barang_harjul'],
+		            'barang_image' => $post['barang_image'],
+		            'barang_stok' => $post['barang_stok'],
+		            'barang_min_stok' => $post['barang_min_stok'],
+		            'barang_tgl_update' => date('Y-m-d H:i:s')
+		        ];
+				$this->db->where('barang_id', $post['id']);
+		        $this->db->update('tbl_barang', $data);
+		    }
+
+		    public function deleteData($id)
+			{
+				$this->db->where('barang_id', $id);
+				$this->db->delete('tbl_barang');
+			}
 
 	}
 ?>

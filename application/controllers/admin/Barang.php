@@ -10,6 +10,7 @@ class Barang extends CI_Controller {
 			redirect(base_url("admin/Login_admin"));
 			}
 			$this->load->model("M_barang");
+            date_default_timezone_set('Asia/Jakarta');
 	 	}
 
     public function index()
@@ -21,8 +22,6 @@ class Barang extends CI_Controller {
     public function add()
     {
         $this->M_barang->rulesNew();
-        //$data['kode'] = $this->M_barang->kode();
-        
         if ($this->form_validation->run() == false) {
             $data = [
                 'page' => 'add',
@@ -38,7 +37,7 @@ class Barang extends CI_Controller {
 
     public function edit($id)
     {
-        $this->M_barang->rulesNew();
+        $this->M_barang->rulesEdit();
         $query = $this->M_barang->tampil_data($id);
         if ($this->form_validation->run() == false) {
             if ($query->num_rows() > 0) {
@@ -69,7 +68,10 @@ class Barang extends CI_Controller {
     {
         $this->M_barang->deleteData($id);
         redirect('admin/barang');
-    }
+   }
+
+    
+
 
 }
 

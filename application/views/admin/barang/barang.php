@@ -168,17 +168,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($tbl_barang as $row):?>
+                                    <?php foreach($tbl_barang as $data):?>
                                 <tr class="">
-                                    <td><?php echo $row->barang_id; ?></td>
-                                    <td><?php echo $row->barang_nama; ?></td>
-                                    <td><?php echo $row->barang_harjul_grosir; ?></td>
-                                    <td><?php echo $row->barang_harjul; ?></td>
-                                    <td><?php echo $row->barang_stok; ?></td>
-                                    <td><?php echo $row->barang_tgl_input; ?></td>
-                                    <td><?php echo $row->barang_tgl_update; ?></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $row->barang_id ?>">Edit</a></td>
-                                    <td><a class="delete" href="<?= site_url(); ?>admin/barang/delete/<?= $row->barang_id ?>">Delete</a></td>
+                                    <td><?php echo $data->barang_id; ?></td>
+                                    <td><?php echo $data->barang_nama; ?></td>
+                                    <td><?php echo $data->barang_harjul_grosir; ?></td>
+                                    <td><?php echo $data->barang_harjul; ?></td>
+                                    <td><?php echo $data->barang_stok; ?></td>
+                                    <td><?php echo $data->barang_tgl_input; ?></td>
+                                    <td><?php echo $data->barang_tgl_update; ?></td>
+                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $data->barang_id ?>">Edit</a></td>
+                                    <td><a class="delete" href="<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

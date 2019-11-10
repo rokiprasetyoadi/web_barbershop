@@ -1,6 +1,8 @@
 <?php
 	class M_barang extends CI_Model
 	{
+			private $_table = "tbl_barang";
+
 			public function tampil_data($id = null){
 				$this->db->from('tbl_barang');
 		        if($id != null) {
@@ -9,6 +11,11 @@
 		        $query = $this->db->get();
 		        return $query;
 			}
+
+			public function getById($id)
+		    {
+		        return $this->db->get_where($this->_table, ["barang_id" => $id])->row();
+		    }
 
 			public function rulesNew(){
 		        $data = [
@@ -46,14 +53,47 @@
 		                'field' => 'barang_min_stok',
 		                'label' => 'Stok Minimal Barang',
 		                'rules' => 'required'
+		            ]
+		        ];
+		        $this->form_validation->set_rules($data);
+		    }
+
+		    public function rulesEdit(){
+		        $data = [
+		            [
+		                'field' => 'barang_id',
+		                'label' => 'ID Barang',
+		                'rules' => 'required'
 		            ],
 		            [
-		                'field' => 'barang_tgl_input',
-		                'label' => 'Tanggal Barang Input'
+		                'field' => 'barang_kategori_id',
+		                'label' => 'Kategori Barang',
+		                'rules' => 'required'
 		            ],
 		            [
-		                'field' => 'barang_tgl_last_update',
-		                'label' => 'Tanggal Barang Update',
+		                'field' => 'barang_nama',
+		                'label' => 'Nama Barang',
+		                'rules' => 'required'
+		            ],
+		            [
+		                'field' => 'barang_harjul_grosir',
+		                'label' => 'Harga Jual Grosir Barang',
+		                'rules' => 'required'
+		            ],
+		            [
+		                'field' => 'barang_harjul',
+		                'label' => 'Harga Jual Barang',
+		                'rules' => 'required'
+		            ],
+		            [
+		                'field' => 'barang_stok',
+		                'label' => 'Stok Barang',
+		                'rules' => 'required'
+		            ],
+		            [
+		                'field' => 'barang_min_stok',
+		                'label' => 'Stok Minimal Barang',
+		                'rules' => 'required'
 		            ]
 		        ];
 		        $this->form_validation->set_rules($data);
@@ -81,39 +121,70 @@
 		    {
 		        $data = [
 		            'barang_id' => htmlspecialchars($this->input->post('barang_id', true)),
-		            'barang_kategori_id' => $this->input->post('barang_kategori_id', true),
-		            'barang_nama' => $this->input->post('barang_nama', true),
-		            'barang_harjul_grosir' => $this->input->post('barang_harjul_grosir', true),
-		            'barang_harjul' => $this->input->post('barang_harjul', true),
-		            'barang_image' => $this->input->post('barang_image', true),
-		            'barang_stok' => $this->input->post('barang_stok', true),
-		            'barang_min_stok' => $this->input->post('barang_min_stok', true),
+		            'barang_kategori_id' => htmlspecialchars($this->input->post('barang_kategori_id', true)),
+		            'barang_nama' => htmlspecialchars($this->input->post('barang_nama', true)),
+		            'barang_harjul_grosir' => htmlspecialchars($this->input->post('barang_harjul_grosir', true)),
+		            'barang_harjul' => htmlspecialchars($this->input->post('barang_harjul', true)),
+		            'barang_image' => $this->_uploadImage(),
+		            'barang_stok' => htmlspecialchars($this->input->post('barang_stok', true)),
+		            'barang_min_stok' => htmlspecialchars($this->input->post('barang_min_stok', true)),
+		            'barang_tgl_input' => date('Y-m-d H:i:s')
 		        ];
 
 		        $this->db->insert('tbl_barang', $data); // query untuk insert data ke tabel barang
 		    }
 
-		    public function editData($post)
+		    public function editData()
 		    {
 		        $data = [
-		            'barang_kategori_id' => $post['barang_kategori_id'],
-		            'barang_nama' => $post['barang_nama'],
-		            'barang_harjul_grosir' => $post['barang_harjul_grosir'],
-		            'barang_harjul' => $post['barang_harjul'],
-		            'barang_image' => $post['barang_image'],
-		            'barang_stok' => $post['barang_stok'],
-		            'barang_min_stok' => $post['barang_min_stok'],
+		            'barang_kategori_id' => htmlspecialchars($this->input->post('barang_kategori_id', true)),
+		            'barang_nama' => htmlspecialchars($this->input->post('barang_nama', true)),
+		            'barang_harjul_grosir' => htmlspecialchars($this->input->post('barang_harjul_grosir', true)),
+		            'barang_harjul' => htmlspecialchars($this->input->post('barang_harjul', true)),
+		            'barang_image' => $this->_uploadImage(),
+		            'barang_stok' => htmlspecialchars($this->input->post('barang_stok', true)),
+		            'barang_min_stok' => htmlspecialchars($this->input->post('barang_min_stok', true)),
 		            'barang_tgl_update' => date('Y-m-d H:i:s')
 		        ];
-				$this->db->where('barang_id', $post['id']);
+				$this->db->where('barang_id', $this->input->post('barang_id'));
 		        $this->db->update('tbl_barang', $data);
 		    }
 
-		    public function deleteData($id)
+		    //public function deleteData($id)
+			//{
+				//$this->db->where('barang_id', $id);
+				//$this->db->delete('tbl_barang');
+			//}
+
+			public function deleteData($id)
 			{
-				$this->db->where('barang_id', $id);
-				$this->db->delete('tbl_barang');
+				$this->_deleteImage($id);
+				return $this->db->delete('tbl_barang', ['barang_id => $id']);
 			}
 
+			private function _deleteImage()
+		    {
+		        $barang = $this->getById($id);
+		        if ($barang['barang_image'] != "default.jpg") {
+		            $filename = explode(".", $barang['barang_image'])[0];
+		            return array_map('unlink', glob(FCPATH."assets/adm/upload/barang/$filename.*"));
+		        }
+		    }
+
+			private function _uploadImage()
+		    {
+		        $config['upload_path']          = './assets/adm/upload/barang/';
+			    $config['allowed_types']        = 'gif|jpg|png|jpeg';
+			    $config['file_name']            = $this->input->post('barang_id');
+			    $config['overwrite']			= true;
+			    $config['max_size']             = 5024; // 1MB
+
+		        $this->load->library('upload', $config);
+
+		        if ($this->upload->do_upload('barang_image')) {
+		            return $this->upload->data("file_name");
+		        }
+		        return "default.jpg";
+		    }
 	}
 ?>

@@ -139,7 +139,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal " id="signupForm" method="post" action="<?= site_url() ?>admin/barang/add">
+                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= site_url() ?>admin/barang/add">
                                     <div class="form-group ">
                                         <label for="barang_id" class="control-label col-lg-3">Id Barang</label>
                                         <div class="col-lg-6">
@@ -221,7 +221,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal " id="signupForm" method="post" action="<?php echo site_url('admin/barang/edit/'.$row->barang_id); ?>">
+                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?php echo site_url('admin/barang/edit/'.$row->barang_id); ?>">
                                     <div class="form-group ">
                                         <label for="barang_id" class="control-label col-lg-3">Id Barang</label>
                                         <div class="col-lg-6">

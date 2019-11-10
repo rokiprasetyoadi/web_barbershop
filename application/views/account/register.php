@@ -23,22 +23,22 @@
     <!--One Half-->
     <div class="container">
         <div class="row">
-            <h4 class="text-capitalize text--center">Login</h4>
+            <h4 class="text-capitalize text--center">Register</h4>
             <div class="col-xs-12 col-sm-12 col-md-12 col-md-offset-4 " >
                 <form class="mb-0">
                     <div class="col-md-6">
                         <div class="row inline-block">
-                        <div class="col-xs-8 col-sm-8 col-md-8">
-                                <input type="name" class="form-control" name="name" id="name" placeholder="Nama Lengkap:" required>
+                            <div class="col-xs-8 col-sm-8 col-md-8">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap:" required>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8">
-                                <input type="alamat" class="form-control" name="alamat" id="alamat" placeholder="Alamat:" required>
+                                <input type="email" class="form-control" name="email" placeholder="Email:" required>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email:" required>
+                                <input type="password" class="form-control" name="password1" placeholder="Password:" required>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password:" required>
+                                <input type="password" class="form-control" name="password2" placeholder="Konfirmasi Password:" required>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <input type="submit" value="Login" name="submit" class="btn btn--secondary btn--rounded btn--block">

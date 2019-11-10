@@ -45,25 +45,15 @@
 ============================================= -->
         <div class="widget widget-categories">
           <div class="widget--title">
-            <h5>categories</h5>
+            <h5>kategori</h5>
           </div>
           <div class="widget--content">
             <ul class="list-unstyled">
+              <?php foreach ($kategori as $kat): ?>
               <li>
-                <a href="#">Clippers</a>
+                  <a href="<?= base_url(); ?>toko/<?= strtolower($kat['kategori_nama']) ?>"><?= $kat['kategori_nama'] ?></a>
               </li>
-              <li>
-                <a href="#">Brushes</a>
-              </li>
-              <li>
-                <a href="#">Creams & Soaps</a>
-              </li>
-              <li>
-                <a href="#">After Shaves</a>
-              </li>
-              <li>
-                <a href="#">Razors</a>
-              </li>
+              <?php endforeach ?>
             </ul>
           </div>
         </div>

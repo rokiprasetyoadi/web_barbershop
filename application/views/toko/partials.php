@@ -118,7 +118,7 @@
                                 <!-- li end -->
                                 <!-- shop Menu -->
                                 <li>
-                                    <a href="<?= base_url('shop/Shoplist') ?>" class="menu-item">Shop</a>
+                                    <a href="<?= base_url('toko') ?>" class="menu-item">Toko</a>
                                 </li>
                                 <!-- li end -->
                             </ul>

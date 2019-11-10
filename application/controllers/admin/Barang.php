@@ -15,7 +15,7 @@ class Barang extends CI_Controller {
     public function index()
     {
         $data['tbl_barang']=$this->M_barang->tampil_data()->result();
-        $this->temp->load('admin/partials', 'admin/barang', $data);
+        $this->temp->load('admin/partials', 'admin/barang/barang', $data);
     }
 
     public function add()
@@ -28,7 +28,7 @@ class Barang extends CI_Controller {
                 'page' => 'add',
                 'kode' => $this->M_barang->kode(),
             ];
-            $this->temp->load('admin/partials', 'admin/form_barang', $data);
+            $this->temp->load('admin/partials', 'admin/barang/form_barang', $data);
         } else {
             $this->M_barang->addNew();
             $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
@@ -47,7 +47,7 @@ class Barang extends CI_Controller {
                     'page' => 'edit',
                     'row' => $tbl_barang
                 ];
-                $this->temp->load('admin/partials', 'admin/form_barang', $data);
+                $this->temp->load('admin/partials', 'admin/barang/form_barang', $data);
             }
         } else {
             $post = $this->input->post(null, true);

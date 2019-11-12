@@ -1,4 +1,5 @@
 <?php class M_barang extends CI_Model {
+	
 	private $_table="tbl_barang";
 
 	public function tampil_data($id=null) {
@@ -17,66 +18,84 @@
 	}
 
 	public function rulesNew() {
-		$data=[ [ 'field'=>'barang_id',
-		'label'=>'ID Barang',
-		'rules'=>'required|is_unique[tbl_barang.barang_id]'
-		],
-		[ 'field'=>'barang_kategori_id',
-		'label'=>'Kategori Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_nama',
-		'label'=>'Nama Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul_grosir',
-		'label'=>'Harga Jual Grosir Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul',
-		'label'=>'Harga Jual Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_stok',
-		'label'=>'Stok Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_min_stok',
-		'label'=>'Stok Minimal Barang',
-		'rules'=>'required'
-		]];
+		$data=[ 
+			[ 	
+				'field'=>'barang_id',
+				'label'=>'ID Barang',
+				'rules'=>'required|is_unique[tbl_barang.barang_id]'
+			],
+			[ 	
+				'field'=>'barang_kategori_id',
+				'label'=>'Kategori Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_nama',
+				'label'=>'Nama Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_harjul_grosir',
+				'label'=>'Harga Jual Grosir Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_harjul',
+				'label'=>'Harga Jual Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_stok',
+				'label'=>'Stok Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_min_stok',
+				'label'=>'Stok Minimal Barang',
+				'rules'=>'required'
+			]
+			];
 		$this->form_validation->set_rules($data);
 	}
 
 	public function rulesEdit() {
-		$data=[ [ 'field'=>'barang_id',
-		'label'=>'ID Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_kategori_id',
-		'label'=>'Kategori Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_nama',
-		'label'=>'Nama Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul_grosir',
-		'label'=>'Harga Jual Grosir Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul',
-		'label'=>'Harga Jual Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_stok',
-		'label'=>'Stok Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_min_stok',
-		'label'=>'Stok Minimal Barang',
-		'rules'=>'required'
-		]];
+		$data=[ 
+			[ 
+				'field'=>'barang_id',
+				'label'=>'ID Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_kategori_id',
+				'label'=>'Kategori Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_nama',
+				'label'=>'Nama Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_harjul_grosir',
+				'label'=>'Harga Jual Grosir Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_harjul',
+				'label'=>'Harga Jual Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_stok',
+				'label'=>'Stok Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_min_stok',
+				'label'=>'Stok Minimal Barang',
+				'rules'=>'required'
+			]
+			];
 		$this->form_validation->set_rules($data);
 	}
 

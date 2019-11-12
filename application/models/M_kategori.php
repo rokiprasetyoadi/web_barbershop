@@ -59,8 +59,8 @@
 			$kode=1; //cek jika kode belum terdapat pada table
 		}
 
-		$batas=str_pad($kode, 4, "0", STR_PAD_LEFT);
-		$kodetampil="K".$batas; //format kode
+		$batas=str_pad($kode, 3, "0", STR_PAD_LEFT);
+		$kodetampil=$batas; //format kode
 		return $kodetampil;
 	}
 
@@ -84,7 +84,8 @@
 	}
 
 	public function deleteData($id) {
-		return $this->db->delete('kategori', ['kategori_id => $id']);
+		$this->db->where('kategori_id', $id);
+		$this->db->delete('kategori');
 	}
 
 	}

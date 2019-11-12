@@ -148,15 +148,16 @@
 		$this->db->update('tbl_barang', $data);
 	}
 
-	//public function deleteData($id)
-	//{
-	//$this->db->where('barang_id', $id);
-	//$this->db->delete('tbl_barang');
-	//}
-
 	public function deleteData($id) {
 		$this->_deleteImage($id);
 		return $this->db->delete('tbl_barang', ['barang_id => $id']);
+	}
+
+	public function getkategoriData(){
+		$this->db->select('*');
+		$this->db->from('kategori');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 	private function _deleteImage() {

@@ -140,7 +140,7 @@
 		return $this->db->delete('tbl_barang', ['barang_id => $id']);
 	}
 
-	private function _deleteImage() {
+	private function _deleteImage($id) {
 		$barang=$this->getById($id);
 
 		if ($barang['barang_image'] !="default.jpg") {
@@ -155,6 +155,11 @@
 		$config['file_name']=$this->input->post('barang_id');
 		$config['overwrite']=true;
 		$config['max_size']=5024; // 1MB
+		$config['create_thumb']= FALSE;
+		$config['maintain_ratio']= FALSE;
+		$config['quality']= '50%';
+		$config['width']= 460;
+		$config['height']= 528;
 
 		$this->load->library('upload', $config);
 
@@ -168,7 +173,6 @@
 
 
 	//frontend
-	
 	public function getBarang()
 	{
 		$this->db->select('*');
@@ -192,6 +196,20 @@
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	
+    // tes pagination
+    public function getpage($limit, $start){
+		$this->db->select('*');
+  		$this->db->from('tbl_barang');
+		  $this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');	
+		  $this->db->order_by('barang_nama', 'asc');
+        $this->db->limit($limit, $start);
+        
+  		$query = $this->db->get();
+  		return $query->result_array();
+	
+    }
 }
 
 ?>

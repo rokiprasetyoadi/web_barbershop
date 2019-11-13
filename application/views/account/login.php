@@ -25,33 +25,40 @@
         <div class="row">
             <h4 class="text-capitalize text--center">Login</h4>
             <div class="col-xs-12 col-sm-12 col-md-12 col-md-offset-4 " >
-                <form class="mb-0">
+                <form class="mb-0" role="form" method="post" action="<?= base_url('account/login'); ?>">
                     <div class="col-md-6">
                         <div class="row inline-block">
-                            <div class="col-xs-8 col-sm-8 col-md-8">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email:" required>
+                            <div class="col-xs-8 cols-sm-8 col-md-8">
+                                <?= $this->session->flashdata('pesan'); ?>
                             </div>
+                            <div class="col-xs-8 col-sm-8 col-md-8">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email:" value="<?= set_value('email'); ?>" required>
+                                <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
+                            </div>
+
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password:" required>
+                                <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
                             </div>
+
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <input type="submit" value="Login" name="submit" class="btn btn--secondary btn--rounded btn--block">
                             </div>
 
                             <p class="col-xs-12 col-sm-12 col-md-12 mt-40">Atau, masuk dengan</p>
-                            
+
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <a href="#" class="btn btn--secondary btn--rounded btn--block">
-                                    <i class="fab fa-facebook-f"></i>   Facebook 
+                                    <i class="fab fa-facebook-f"></i>   Facebook
                                 </a>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8 mt-10">
                                 <a href="#" class="btn btn--secondary btn--rounded btn--block">
-                                    <i class="fab fa-google-plus-g"></i>   Google 
+                                    <i class="fab fa-google-plus-g"></i>   Google
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-10">
-                                <p>Belum punya akun ? <a href="<?= base_url() ?>register">Register</a></p>
+                                <p>Belum punya akun ? <a href="<?= base_url('account/register') ?>">Register</a></p>
                             </div>
                         </div>
                     </div>

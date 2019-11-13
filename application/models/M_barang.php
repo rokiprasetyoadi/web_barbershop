@@ -1,4 +1,5 @@
 <?php class M_barang extends CI_Model {
+	
 	private $_table="tbl_barang";
 
 	public function tampil_data($id=null) {
@@ -17,66 +18,84 @@
 	}
 
 	public function rulesNew() {
-		$data=[ [ 'field'=>'barang_id',
-		'label'=>'ID Barang',
-		'rules'=>'required|is_unique[tbl_barang.barang_id]'
-		],
-		[ 'field'=>'barang_kategori_id',
-		'label'=>'Kategori Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_nama',
-		'label'=>'Nama Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul_grosir',
-		'label'=>'Harga Jual Grosir Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul',
-		'label'=>'Harga Jual Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_stok',
-		'label'=>'Stok Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_min_stok',
-		'label'=>'Stok Minimal Barang',
-		'rules'=>'required'
-		]];
+		$data=[ 
+			[ 	
+				'field'=>'barang_id',
+				'label'=>'ID Barang',
+				'rules'=>'required|is_unique[tbl_barang.barang_id]'
+			],
+			[ 	
+				'field'=>'barang_kategori_id',
+				'label'=>'Kategori Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_nama',
+				'label'=>'Nama Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_harjul_grosir',
+				'label'=>'Harga Jual Grosir Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_harjul',
+				'label'=>'Harga Jual Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_stok',
+				'label'=>'Stok Barang',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'barang_min_stok',
+				'label'=>'Stok Minimal Barang',
+				'rules'=>'required'
+			]
+			];
 		$this->form_validation->set_rules($data);
 	}
 
 	public function rulesEdit() {
-		$data=[ [ 'field'=>'barang_id',
-		'label'=>'ID Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_kategori_id',
-		'label'=>'Kategori Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_nama',
-		'label'=>'Nama Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul_grosir',
-		'label'=>'Harga Jual Grosir Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_harjul',
-		'label'=>'Harga Jual Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_stok',
-		'label'=>'Stok Barang',
-		'rules'=>'required'
-		],
-		[ 'field'=>'barang_min_stok',
-		'label'=>'Stok Minimal Barang',
-		'rules'=>'required'
-		]];
+		$data=[ 
+			[ 
+				'field'=>'barang_id',
+				'label'=>'ID Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_kategori_id',
+				'label'=>'Kategori Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_nama',
+				'label'=>'Nama Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_harjul_grosir',
+				'label'=>'Harga Jual Grosir Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_harjul',
+				'label'=>'Harga Jual Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_stok',
+				'label'=>'Stok Barang',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'barang_min_stok',
+				'label'=>'Stok Minimal Barang',
+				'rules'=>'required'
+			]
+			];
 		$this->form_validation->set_rules($data);
 	}
 
@@ -129,18 +148,19 @@
 		$this->db->update('tbl_barang', $data);
 	}
 
-	//public function deleteData($id)
-	//{
-	//$this->db->where('barang_id', $id);
-	//$this->db->delete('tbl_barang');
-	//}
-
 	public function deleteData($id) {
 		$this->_deleteImage($id);
 		return $this->db->delete('tbl_barang', ['barang_id => $id']);
 	}
+	public function getkategoriData(){
+		$this->db->select('*');
+		$this->db->from('kategori');
+		$query = $this->db->get();
 
-	private function _deleteImage($id) {
+		return $query->result_array();
+	}
+
+	private function _deleteImage() {
 		$barang=$this->getById($id);
 
 		if ($barang['barang_image'] !="default.jpg") {
@@ -201,13 +221,13 @@
     // tes pagination
     public function getpage($limit, $start){
 		$this->db->select('*');
-  		$this->db->from('tbl_barang');
-		  $this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');	
-		  $this->db->order_by('barang_nama', 'asc');
+		$this->db->from('tbl_barang');
+		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');	
+		$this->db->order_by('barang_nama', 'asc');
         $this->db->limit($limit, $start);
         
-  		$query = $this->db->get();
-  		return $query->result_array();
+		$query = $this->db->get();
+		return $query->result_array();
 	
     }
 }

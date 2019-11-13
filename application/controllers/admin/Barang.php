@@ -26,6 +26,7 @@ class Barang extends CI_Controller {
             $data = [
                 'page' => 'add',
                 'kode' => $this->M_barang->kode(),
+                'kategori' => $this->M_barang->getkategoriData()
             ];
             $this->temp->load('admin/partials', 'admin/barang/form_barang', $data);
         } else {
@@ -44,7 +45,8 @@ class Barang extends CI_Controller {
                 $tbl_barang = $query->row();
                 $data = [
                     'page' => 'edit',
-                    'row' => $tbl_barang
+                    'row' => $tbl_barang,
+                    'kategori' => $this->M_barang->getkategoriData()
                 ];
                 $this->temp->load('admin/partials', 'admin/barang/form_barang', $data);
             }

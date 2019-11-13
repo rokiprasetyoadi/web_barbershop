@@ -1,7 +1,7 @@
-<?php
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_account extends CI_Model{
+class M_register extends CI_Model{
 
   public function ruleDaftarAkun()
   {
@@ -15,14 +15,14 @@ class M_account extends CI_Model{
                 [ // aturan untuk email
                   'field' => 'email',
                   'label' => 'Email',
-                  'rules' => 'required|trim|valid_email|is_unique[user.email]',
+                  'rules' => 'required|trim|valid_email|is_unique[customers.customers_email]',
                   'errors' => ['is_unique' => 'Email ini telah di gunakan']
                 ],
 
                 [ // aturan untuk password
                   'field' => 'password1',
                   'label' => 'Password',
-                  'rules' => 'required|trim|min_length[3]|matches[password2]',
+                  'rules' => 'required|trim|min_length[6]|matches[password2]',
                   'errors' => [
                                 'matches' => 'Password tidak sama',
                                 'min_length' => 'Password terlalu pendek (min 3 karakter)'
@@ -44,8 +44,8 @@ class M_account extends CI_Model{
       'customers_nama' => $this->input->post('nama', true),
       'customers_email' => $this->input->post('email', true),
       'customers_password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-      'id_level' => 2,
-      'aktiv' => 1,
+      'customers_status' => 1,
+      'customers_created' => time()
     ];
 
     $this->db->insert('customers', $data);

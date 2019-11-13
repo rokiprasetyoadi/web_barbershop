@@ -28,11 +28,11 @@
 ============================================= -->
         <div class="widget widget-search">
           <div class="widget--content">
-            <form class="form-search">
+            <form class="form-search" method="post" action="<?= base_url() ?>search">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search here..">
+                <input type="text" class="form-control" name="cari" placeholder="Search here..">
                 <span class="input-group-btn">
-                  <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                  <button class="btn" type="submit"><i class="fa fa-search"></i></button>
                 </span>
               </div>
               <!-- /input-group -->

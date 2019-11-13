@@ -160,7 +160,7 @@
 		return $query->result_array();
 	}
 
-	private function _deleteImage() {
+	private function _deleteImage($id) {
 		$barang=$this->getById($id);
 
 		if ($barang['barang_image'] !="default.jpg") {
@@ -229,6 +229,16 @@
 		$query = $this->db->get();
 		return $query->result_array();
 	
+	}
+	
+    public function searcp(){
+		$this->db->select('*');
+		$this->db->from('tbl_barang');
+		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');	
+		$this->db->order_by('barang_nama', 'asc');
+		$this->db->like('barang_nama',$this->input->post('cari'));
+		$query = $this->db->get();
+		return $query->result_array();
     }
 }
 

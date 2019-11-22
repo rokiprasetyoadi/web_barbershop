@@ -44,7 +44,7 @@ class M_register extends CI_Model{
       'customers_nama' => $this->input->post('nama', true),
       'customers_email' => $this->input->post('email', true),
       'customers_password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-      'customers_status' => 1,
+      'customers_status' => 0,
       'customers_created' => date()
     ];
 

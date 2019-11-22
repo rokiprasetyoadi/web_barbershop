@@ -24,34 +24,8 @@ class Register extends CI_Controller
               // jika rule terpenuhi
               $this->autentikasi->prosesDaftarAkun();
               $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-              Selamat! Akun anda berhasil di buat. Silakan Login</div>');
+              Selamat! Akun anda berhasil di buat. Silakan aktivasi terlebih dahulu</div>');
               redirect('account/login');
         }
-    }
-
-    private function _sendEmail($token, $type)
-    {
-        $config = [
-            'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'rachelallric@gmail.com',
-            'smtp_pass' => 'aditya123456',
-            'smtp_port' => 465,
-            'mailtype'  => 'html',
-            'charset'   => 'utf-8',
-            'newline'   => "\r\n"
-        ];
-
-        $this->load->library('email', $config);
-        $this->email->from('rachelallric@gmail.com', 'Official Tujuh Kepala');
-        $this->email->to($this->input->post('customers_email'));
-        $this->email->subject('Account Verification');
-        $this->email->message('Click this link to verify your fucking account : <a href=""></a>');
-
-        if ($this->email->send()) {
-          return true;
-        } else {
-          echo $this->email->print_debugger();
-        };
     }
 }

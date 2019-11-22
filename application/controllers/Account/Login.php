@@ -40,7 +40,7 @@ class Login extends CI_Controller
               'nama'   => $customers['customers_nama']
             ];
               $this->session->set_userdata($data);
-              redirect('account/user');
+              redirect('account/login');
           } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
             Password salah</div>');

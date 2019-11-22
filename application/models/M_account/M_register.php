@@ -9,7 +9,8 @@ class M_register extends CI_Model{
                 [ // aturan untuk nama
                   'field'  => 'nama',
                   'label'  => 'Nama',
-                  'rules'  => 'required|trim'
+                  'rules'  => 'required|trim|alpha_numeric'
+                  'errors' => ['alpha_numeric => Maaf, Kolom ini hanya boleh berisi huruf']
                 ],
 
                 [ // aturan untuk email
@@ -24,8 +25,8 @@ class M_register extends CI_Model{
                   'label' => 'Password',
                   'rules' => 'required|trim|min_length[6]|matches[password2]',
                   'errors' => [
-                                'matches' => 'Password tidak sama',
-                                'min_length' => 'Password terlalu pendek (min 3 karakter)'
+                                'matches' => 'Password yang anda masukkann tidak sama',
+                                'min_length' => 'Password terlalu pendek (min 6 karakter)'
                               ]
                 ],
 
@@ -40,15 +41,27 @@ class M_register extends CI_Model{
 
   public function prosesDaftarAkun()
   {
+    $email = $this->input->post('email', true);
     $data = [
-      'customers_nama' => $this->input->post('nama', true),
-      'customers_email' => $this->input->post('email', true),
+      'customers_nama' => htmlspecialchars($this->input->post('nama', true)),
+      'customers_email' => htmlspecialchars($email),
       'customers_password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-      'customers_status' => 1,
-      'customers_created' => time()
+      'customers_status' => 0,
+      'customers_created' => date('Y-m-d H:i:s')
     ];
 
+    //token
+    $token = base64_encode(random_bytes(4));
+    $customers_token = [
+        'email' => $email,
+        'token' => $token,
+        'date_created' => date()
+    ]
+
     $this->db->insert('customers', $data);
+    $this->db->insert('customers_token', $customers_token);
+
+    $this->_sendEmail($token, 'verify' );
   }
 
 }

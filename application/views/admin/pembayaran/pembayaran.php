@@ -40,7 +40,7 @@
                                 <tr class="">
                                     <td><?= $row['pembayaran_id'] ?></td>
                                     <td><?= $row['pembayaran_customers_id'] ?></td>
-                                    <td><?= $row['pembayaran_bukti'] ?></td>
+                                    <td><a href="<?= base_url('assets/upload/bukti_pembayaran/'.$row['pembayaran_bukti']) ?>" data-fancybox data-caption="Bukti Pembayaran"> <img style="height: 50px; width: 50px;" src="<?= base_url('assets/upload/bukti_pembayaran/'.$row['pembayaran_bukti']) ?>"></a></td>
                                     <td><?= $row['pembayaran_status'] ?></td>
                                     <td><a class="update" href="">Ubah Status</a></td>
                                     <td><a class="delete" href="<?= base_url(); ?>admin/pembayaran/delete/<?= $row['pembayaran_id'] ?>">Delete</a></td>

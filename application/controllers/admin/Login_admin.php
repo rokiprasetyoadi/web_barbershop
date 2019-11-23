@@ -4,12 +4,12 @@ class Login_admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_loginadmin');
+        $this->load->model('M_login');
     }
 
     public function index()
     {
-        $this->load->view('admin/v_login_admin');
+        $this->load->view('admin/auth/login_admin');
     }
 
     public function aksi_login()
@@ -20,7 +20,7 @@ class Login_admin extends CI_Controller
             'admin_email' => $admin_email,
             'admin_password' => md5($admin_password)
             );
-        $cek = $this->M_loginadmin->cek_login("admin", $where)->row_array();
+        $cek = $this->M_login->cek_login("admin", $where)->row_array();
         if ($cek > 0) {
             $data_session = array(
                 'admin_email' => $cek['admin_email'],

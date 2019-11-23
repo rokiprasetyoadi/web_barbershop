@@ -276,7 +276,7 @@
                     <ul class="sub">
                         <li><a href="<?php echo base_url('admin/barang') ?>">Data Produk</a></li>
                         <li><a href="<?php echo base_url('admin/kategori') ?>">Data Kategori</a></li>
-                        <li><a href="<?php echo base_url('admin/customers') ?>"">Data Customer</a></li>
+                        <li><a href="<?php echo base_url('admin/customers') ?>">Data Customer</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -286,7 +286,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="general.html">Transaksi</a></li>
-                        <li><a href="buttons.html">Verifikasi</a></li>
+                        <li><a href="<?php echo base_url('admin/pembayaran') ?>">Verifikasi</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

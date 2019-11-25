@@ -279,6 +279,7 @@
                         <li><a href="<?php echo base_url('admin/barang') ?>">Data Produk</a></li>
                         <li><a href="<?php echo base_url('admin/kategori') ?>">Data Kategori</a></li>
                         <li><a href="<?php echo base_url('admin/customers') ?>">Data Customer</a></li>
+                        <li><a href="<?php echo base_url('admin/supplier') ?>">Data Supplier</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

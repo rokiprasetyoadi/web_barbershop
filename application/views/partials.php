@@ -73,7 +73,7 @@
                                         <span style=' margin-right: 5px;'>My Account</span>
                                             <i class='lnr lnr-user'></i>
                                         </span></a>
-                                        |
+                                        /
                                         <a href='<?= base_url(); ?>logout'><span id="accountMenuName">
                                         <span style=' margin-right: 5px; margin-left: 10px;'>Logout</span>
                                             <i class='lnr lnr-exit'></i>

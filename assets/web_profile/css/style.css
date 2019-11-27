@@ -3788,11 +3788,14 @@ ul.dropdown-menu > li.has-dropdown > a:before {
 .top-bar .top--login i {
   margin-right: 10px;
 }
-.top-bar .top--login a {
-  color: #ffffff;
-}
 .top-bar .top--login a:hover {
   color: #bb8c4b;
+}
+.top-bar .top--login a {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.top-bar .top--login a:last-of-type {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 .top-bar .top--social a {
   border-left: 1px solid rgba(255, 255, 255, 0.2);

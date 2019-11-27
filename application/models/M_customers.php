@@ -31,10 +31,10 @@
 			[ // aturan untuk password
 			'field'=>'password1',
 			'label'=>'Password',
-			'rules'=>'required|trim|min_length[6]|password_check[1,1,1]',
+			'rules'=>'required|trim|min_length[6]|matches[password2]|alpha_numeric|password_check[1,1,1]',
 			'errors'=>
 			[	
-				'min_length'=>'Password needs to have minimal 6 lenght!'
+			'min_length'=>'Password needs to have minimal 6 lenght!'
 			]],
 
 			[ // aturan konfirmasi password
@@ -44,14 +44,6 @@
 			]
 		];
 		$this->form_validation->set_rules($rule);
-	}
-
-	public function password_check($str) {
-		if (preg_match('#[0-9]#', $str) && preg_match('#[a-zA-Z]#', $str)) {
-			return TRUE;
-		}
-
-		return FALSE;
 	}
 
 	public function prosesDaftarAkun() {
@@ -92,17 +84,17 @@
 		$this->load->library('email', $config);
 		$this->email->initialize($config);
 
-		$this->email->from('sevenhead@gmail.com', 'SiRantang');
+		$this->email->from('sevenhead@gmail.com', 'Sevenhead');
 		$this->email->to($this->input->post('email', TRUE));
 
 		if ($type == 'verify') {
 			$this->email->subject('Your registration');
 			$this->email->message('Click this link to verify your account : 
-				<a href="'. base_url() .'register/verify?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Activation time for 5 minutes.');
+				<a href="'. base_url() .'home/verify?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Activation time for 5 minutes.');
 		} elseif ($type == 'forgot') {
 			$this->email->subject('Reset Password');
 			$this->email->message('Click this link to reset your account password : 
-				<a href="'. base_url() .'login/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Reset password time for 24 hours.');
+				<a href="'. base_url() .'forgot/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Reset password time for 24 hours.');
 		}
 
 		if ($this->email->send()) {

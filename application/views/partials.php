@@ -17,11 +17,14 @@
 
     <!-- Fonts
     ============================================= -->
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i' rel='stylesheet' type='text/css'>
+    <link
+        href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900%7COpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i'
+        rel='stylesheet' type='text/css'>
 
     <!-- Stylesheets
     ============================================= -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.1/css/all.css"><link href="<?= base_url() ?>assets/web_profile/css/external.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.1/css/all.css">
+    <link href="<?= base_url() ?>assets/web_profile/css/external.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/style.css" rel="stylesheet">
 
@@ -63,14 +66,31 @@
                                 </ul>
                             </div><!-- .col-md-6 end -->
                             <div class="col-xs-12 col-sm-6 col-md-6 top--info text-right text-center-xs">
-                                <span class="top--login"><i class="lnr lnr-exit"></i><a href="<?= base_url() ?>login">Login</a> / <a
-                                        href="<?= base_url() ?>register">Register</a></span>
-                                <span class="top--social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
-                                </span>
+                                <div class="has-dropdown">
+                                    <span class="top--login">
+                                        <?php if ($this->session->userdata('email')) {?>
+                                        <a href='<?= base_url(); ?>view/account'><span id="accountMenuName">
+                                        <span style=' margin-right: 5px;'>My Account</span>
+                                            <i class='lnr lnr-user'></i>
+                                        </span></a>
+                                        |
+                                        <a href='<?= base_url(); ?>logout'><span id="accountMenuName">
+                                        <span style=' margin-right: 5px; margin-left: 10px;'>Logout</span>
+                                            <i class='lnr lnr-exit'></i>
+                                        </span></a>
+                                        <?php }else{ ?>
+                                            <a href="<?= base_url() ?>login">Login</a>
+                                            /
+                                            <a href="<?= base_url() ?>register">Register</a>
+                                        <?php } ?>
+                                    </span>
+                                    <span class="top--social">
+                                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                        <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
+                                    </span>
+                                </div>
                             </div><!-- .col-md-6 end -->
                         </div>
                     </div>
@@ -103,17 +123,18 @@
                             <ul class="nav navbar-nav nav-pos-right nav-bordered-right snavbar-left">
                                 <!-- Home Menu -->
                                 <li class="active">
-                                    <a href="#" class="menu-item">home</a>
+                                    <a href="<?= base_url() ?>" class="menu-item">Home</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- Pages Menu -->
                                 <li>
-                                    <a href="#service1" class="link-hover" data-hover="pages">Layanan</a>
+                                    <a href="<?= base_url() ?>#service1" class="link-hover"
+                                        data-hover="pages">Layanan</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- Gallery Menu-->
                                 <li>
-                                    <a href="#" class="menu-item">Gallery</a>
+                                    <a href="<?= base_url() ?>#" class="menu-item">Gallery</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- shop Menu -->
@@ -318,18 +339,20 @@
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
 
 
-    <script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="eb520ee9-b0f5-4ddf-be58-578ef5d25fff";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
+    <script type="text/javascript">
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "eb520ee9-b0f5-4ddf-be58-578ef5d25fff";
+        (function () {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
 </body>
 
 
 <!-- Mirrored from demo.zytheme.com/hairy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Sep 2019 04:34:57 GMT -->
 
 </html>
-
-    public function logout()
-    {
-        $this->session->sess_desstroy();
-        $this->session->sess_dessstroy();
-        redirect(base_url('admin/Login_admin'));
-    }
-}

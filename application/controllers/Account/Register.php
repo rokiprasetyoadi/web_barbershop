@@ -17,10 +17,10 @@ class Register extends CI_Controller
                 $this->temp->load('partials', 'account/register');
             } else {
               // jika rule terpenuhi
-              $this->autentikasi->prosesDaftarAkun();
+              $this->auth->prosesDaftarAkun();
               $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
               Selamat! Akun anda berhasil di buat. Silakan aktivasi terlebih dahulu</div>');
-              redirect('account/login');
+              redirect('login');
         }
     }
 
@@ -29,34 +29,34 @@ class Register extends CI_Controller
 		$email = $this->input->get('email', true);
 		$token = $this->input->get('token', true);
 
-		if ($this->db->get_where('customers', ['email' => $email])->row_array()) {
+		if ($this->db->get_where('customers', ['customers_email' => $email])->row_array()) {
 			$customers_token = $this->db->get_where('customers_token', ['token' => $token])->row_array();
 			if ($customers_token) {
 				if (time() - $customers_token['date_created'] < (60 * 5 * 1)) {
-					$this->db->set('status', 1);
-					$this->db->where('email', $email);
+					$this->db->set('customers_status', 1);
+					$this->db->where('customers_email', $email);
 					$this->db->update('customers');
 
 					$this->db->delete('customers_token', ['email' => $email]);
 					$this->session->set_flashdata('messagesuccess', '<div class="alert alert-success" role="alert">
 					' . $email . ' has been activated. Please login.</div>');
-					redirect('account');
+					redirect('login');
 				} else {
-					$this->db->delete('customers', ['email' => $email]);
+					$this->db->delete('customers', ['customers_email' => $email]);
 					$this->db->delete('customers_token', ['email' => $email]);
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 					Account activation failed! Wrong! Token expired</div>');
-					redirect('account');
+					redirect('login');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				Account activation failed! Wrong! Token invalid	</div>');
-				redirect('account');
+				redirect('login');
 			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 			Account activation failed! Wrong email</div>');
-			redirect('account');
+			redirect('login');
 		}
 	}
 }

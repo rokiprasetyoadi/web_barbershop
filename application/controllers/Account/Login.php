@@ -36,7 +36,7 @@ class Login extends CI_Controller
               'nama'   => $customers['customers_nama']
             ];
               $this->session->set_userdata($data);
-              redirect('account/login');
+              redirect('home');
           } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
             Password salah</div>');
@@ -57,8 +57,7 @@ class Login extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('email');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-        Anda telah logout!</div>');
-        redirect('account/login');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Anda telah logout!</div>');
+        redirect('login');
     }
 }

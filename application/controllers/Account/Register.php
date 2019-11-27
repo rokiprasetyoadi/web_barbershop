@@ -17,17 +17,10 @@ class Register extends CI_Controller
                 $this->temp->load('partials', 'account/register');
             } else {
               // jika rule terpenuhi
-<<<<<<< HEAD
-                $this->auth->prosesDaftarAkun();
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                Selamat! Akun anda berhasil di buat. Silakan Login</div>');
-                redirect('account/login');
-=======
               $this->autentikasi->prosesDaftarAkun();
               $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
               Selamat! Akun anda berhasil di buat. Silakan aktivasi terlebih dahulu</div>');
               redirect('account/login');
->>>>>>> 230f976b355744c9091f6d8839b6e86473f58131
         }
     }
 

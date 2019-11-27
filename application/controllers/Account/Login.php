@@ -16,11 +16,7 @@ class Login extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->form_validation->run() == false) {
-          $data['judul'] = "Login";
-            $this->load->view('_partials/header', $data);
-            $this->load->view('account/login');
-            $this->load->view('_partials/footerscript');
-            $this->load->view('_partials/footer');
+            $this->temp->load('partials', 'account/login');
         }else{
           $this->_login();
         }
@@ -43,17 +39,17 @@ class Login extends CI_Controller
           } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
             Password salah</div>');
-            redirect('account/login');
+            redirect('login');
           }
         } else {
           $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
           Email ini belum di aktifkan</div>');
-          redirect('account/login');
+          redirect('login');
         }
       } else {
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
         Email ini belum terdaftar</div>');
-        redirect('account/login');
+        redirect('login');
         }
     }
 

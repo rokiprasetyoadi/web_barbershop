@@ -24,11 +24,11 @@
     <div class="container">
         <div class="row">
             <h4 class="text-capitalize text--center">Login</h4>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-md-offset-4 " >
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-4 col-xs-offset-2" >
                 <form class="mb-0" role="form" method="post" action="<?= base_url('account/login'); ?>">
                     <div class="col-md-6">
                         <div class="row inline-block">
-                            <div class="col-xs-8 cols-sm-8 col-md-8">
+                            <div class="col-xs-8 cols-sm-8 col-md-8 col-lg-8">
                                 <?= $this->session->flashdata('pesan'); ?>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8">
@@ -45,16 +45,16 @@
                                 <input type="submit" value="Login" name="submit" class="btn btn--secondary btn--rounded btn--block">
                             </div>
 
-                            <p class="col-xs-12 col-sm-12 col-md-12 mt-40">Atau, masuk dengan</p>
+                            <p class="col-xs-12 col-sm-12 col-md-12 mt-20">Atau, masuk dengan</p>
 
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <a href="#" class="btn btn--secondary btn--rounded btn--block">
-                                    <i class="fab fa-facebook-f"></i>   Facebook
+                                    <i class="fa fa-facebook"></i>   Facebook
                                 </a>
                             </div>
-                            <div class="col-xs-8 col-sm-8 col-md-8 mt-10">
+                            <div class="col-xs-8 col-sm-8 col-md-8 mt-20">
                                 <a href="#" class="btn btn--secondary btn--rounded btn--block">
-                                    <i class="fab fa-google-plus-g"></i>   Google
+                                    <i class="fa fa-google-plus"></i>   Google
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-10">
@@ -66,6 +66,6 @@
             </div>
         </div>
     </div>
-    <div class="clearfix mb-50">
+    <div class="clearfix mb-30">
     </div>
 </section>

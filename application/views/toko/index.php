@@ -109,7 +109,7 @@
         <!-- .row end -->
         <div class="row">
           
-            <!--Tampilkan pagination-->
+            <!-- Tampilkan pagination-->
             <?php echo  $pagination ?>
             <!-- <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-40 text--center">
                 <ul class="pagination">
@@ -122,8 +122,8 @@
                       </a>
                     </li>
                 </ul>
-            </div> -->
-          </div>
+            </div> 
+          </div> -->
           <!-- .col-md-12 end -->
         </div>
         <!-- .row end -->

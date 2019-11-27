@@ -29,6 +29,8 @@
     <link href="<?php echo base_url('assets/adm/css/style.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/adm/css/style-responsive.css') ?>" rel="stylesheet" />
 
+    <link rel="stylesheet" href="<?php echo base_url('assets/adm/fancybox/jquery.fancybox.min.css') ?>" />
+
 </head>
 <body>
 <section id="container">
@@ -233,7 +235,7 @@
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="<?php echo base_url() ?>assets/adm/upload/foto_profile/<?php echo $this->session->userdata('admin_image') ?>">
+                <img alt="" src="<?php echo base_url() ?>assets/upload/foto_profile/<?php echo $this->session->userdata('admin_image') ?>">
                 <span class="username"><?php echo $this->session->userdata('admin_nama') ?></span>
                 <b class="caret"></b>
             </a>
@@ -276,7 +278,8 @@
                     <ul class="sub">
                         <li><a href="<?php echo base_url('admin/barang') ?>">Data Produk</a></li>
                         <li><a href="<?php echo base_url('admin/kategori') ?>">Data Kategori</a></li>
-                        <li><a href="<?php echo base_url('admin/customers') ?>"">Data Customer</a></li>
+                        <li><a href="<?php echo base_url('admin/customers') ?>">Data Customer</a></li>
+                        <li><a href="<?php echo base_url('admin/supplier') ?>">Data Supplier</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -286,7 +289,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="general.html">Transaksi</a></li>
-                        <li><a href="buttons.html">Verifikasi</a></li>
+                        <li><a href="<?php echo base_url('admin/pembayaran') ?>">Verifikasi</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -742,6 +745,9 @@
 
     <!--script for this page only-->
 <script src="<?php echo base_url('assets/adm/js/table-editable.js') ?>"></script>
+
+<!-- fancybox -->
+  <script src="<?php echo base_url('assets/adm/fancybox/jquery.fancybox.min.js') ?>"></script>
 
     <script>
     jQuery(document).ready(function() {

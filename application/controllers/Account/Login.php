@@ -29,13 +29,14 @@ class Login extends CI_Controller
 
         $customers = $this->db->get_where('customers', ['customers_email' => $email])->row_array();
         if ($customers != null) {
-          if ($customers['customers_created'] == 1) {
-          if (password_verify($sandi, $customers['password'])) {
+          if ($customers['customers_status'] == 1) {
+          if (password_verify($sandi, $customers['customers_password'])) {
             $data = [
               'email'  => $customers['customers_email'],
               'nama'   => $customers['customers_nama']
             ];
               $this->session->set_userdata($data);
+              redirect('account/login');
           } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
             Password salah</div>');

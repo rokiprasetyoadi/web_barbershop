@@ -3799,11 +3799,6 @@ ul.dropdown-menu > li.has-dropdown > a:before {
   padding-right: 19px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
-.top-bar .top--login a:first-child {
-  margin-left: 19px;
-  padding-left: 19px;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-}
 .top-bar .top--login a:last-child {
   margin-right: -5px;
   border-right: none;

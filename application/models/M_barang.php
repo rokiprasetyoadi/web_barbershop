@@ -234,6 +234,18 @@
 		return $query->result_array();
 	
 	}
+
+	public function limitBarang($limit, $start, $keyword = null) // making pagination query
+    {
+        $this->db->select('barang.*, jenis.id AS idjenis, jenis.jenis'); // membuat alias untuk id dari tabel jenis
+          $this->db->join('jenis', 'barang.jenis = jenis.jenis'); // perintah join tabel barang dan jenis untuk mendapatkan jenis barang
+        //   $this->db->from('barang'); // data utama di ambil dari tabel barang
+
+        if ($keyword) {
+            $this->db->like('nama_barang', $keyword);
+        }
+        return $this->db->get('barang', $limit, $start)->result();
+    }
 	
     public function searcp(){
 		$this->db->select('*');

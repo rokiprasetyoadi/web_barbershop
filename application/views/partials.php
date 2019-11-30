@@ -125,7 +125,7 @@
                                 <!-- Pages Menu -->
                                 <li>
                                     <a href="<?= base_url() ?>#service1" class="link-hover"
-                                        data-hover="pages">Layanan</a>
+                                        data-hover="pages">Service</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- Gallery Menu-->
@@ -135,7 +135,7 @@
                                 <!-- li end -->
                                 <!-- shop Menu -->
                                 <li>
-                                    <a href="<?= base_url('toko') ?>" class="menu-item">Toko</a>
+                                    <a href="<?= base_url('toko') ?>" class="menu-item">Shop</a>
                                 </li>
                                 <!-- li end -->
                             </ul>

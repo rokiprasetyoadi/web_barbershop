@@ -54,7 +54,7 @@ class Katalog extends CI_Controller
         $data['barang'] = $this->barang->getpage($config["per_page"], $data['page']);         
 		$data['pagination'] = $this->pagination->create_links();
         
-        $this->temp->load('toko/partials', 'toko/index', $data);
+        $this->temp->load('partials', 'toko/index', $data);
     }
 
     

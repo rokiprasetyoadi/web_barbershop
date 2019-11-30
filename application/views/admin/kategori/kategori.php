@@ -45,7 +45,7 @@
                                     <td><?php echo $data->kategori_id; ?></td>
                                     <td><?php echo $data->kategori_nama; ?></td>
                                     <td><a class="edit" href="<?= site_url(); ?>admin/kategori/edit/<?= $data->kategori_id ?>">Edit</a></td>
-                                    <td><a class="delete" href="<?= site_url(); ?>admin/kategori/delete/<?= $data->kategori_id ?>">Delete</a></td>
+                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/kategori/delete/<?= $data->kategori_id ?>')" href="#!" >Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

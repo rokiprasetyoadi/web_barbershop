@@ -15,7 +15,7 @@ class Barang extends CI_Controller {
 
     public function index()
     {
-        $data['tbl_barang']=$this->M_barang->tampil_data()->result();
+        $data['tbl_barang']=$this->M_barang->getAll()->result();
         $this->temp->load('admin/partials', 'admin/barang/barang', $data);
     }
 
@@ -39,7 +39,7 @@ class Barang extends CI_Controller {
     public function edit($id)
     {
         $this->M_barang->rulesEdit();
-        $query = $this->M_barang->tampil_data($id);
+        $query = $this->M_barang->getAll($id);
         if ($this->form_validation->run() == false) {
             if ($query->num_rows() > 0) {
                 $tbl_barang = $query->row();

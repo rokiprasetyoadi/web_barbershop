@@ -66,14 +66,11 @@ class Barang extends CI_Controller {
 
     }
 
-    public function delete($id)
+    public function delete($id=null)
     {
         $this->M_barang->deleteData($id);
         redirect('admin/barang');
    }
-
-    
-
 
 }
 

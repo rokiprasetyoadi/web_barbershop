@@ -1,6 +1,8 @@
 <?php class M_barang extends CI_Model {
 	
 	private $_table="tbl_barang";
+	public $barang_image = "default.jpg";
+	public $barang_id;
 
 	public function getAll($id=null) {
 		$this->db->from('tbl_barang');
@@ -16,6 +18,14 @@
 
 	public function getById($id) {
 		return $this->db->get_where($this->_table, ["barang_id"=> $id])->row();
+	}
+
+	public function getkategoriData(){
+		$this->db->select('*');
+		$this->db->from('kategori');
+		$query = $this->db->get();
+
+		return $query->result_array();
 	}
 
 	public function rulesNew() {
@@ -145,33 +155,26 @@
 		'barang_stok'=>htmlspecialchars($this->input->post('barang_stok', true)),
 		'barang_min_stok'=>htmlspecialchars($this->input->post('barang_min_stok', true)),
 		'barang_tgl_update'=>date('Y-m-d H:i:s')];
+
 		$this->db->where('barang_id', $this->input->post('barang_id'));
 		$this->db->update('tbl_barang', $data);
 	}
 
 	public function deleteData($id) {
 		$this->_deleteImage($id);
-		return $this->db->delete('tbl_barang', ['barang_id => $id']);
-	}
-	public function getkategoriData(){
-		$this->db->select('*');
-		$this->db->from('kategori');
-		$query = $this->db->get();
-
-		return $query->result_array();
+		return $this->db->delete($this->_table, array("barang_id" => $id));
 	}
 
 	private function _deleteImage($id) {
-		$barang=$this->getById($id);
-
-		if ($barang['barang_image'] !="default.jpg") {
-			$filename=explode(".", $barang['barang_image'])[0];
+		$barang = $this->getById($id);
+		if ($barang->barang_image !="default.jpg") {
+			$filename=explode(".", $barang->barang_image)[0];
 			return array_map('unlink', glob(FCPATH."assets/upload/barang/$filename.*"));
 		}
 	}
 
 	private function _uploadImage() {
-		$config['upload_path']='./assets/adm/upload/barang/';
+		$config['upload_path']='./assets/upload/barang/';
 		$config['allowed_types']='gif|jpg|png|jpeg';
 		$config['file_name']=$this->input->post('barang_id');
 		$config['overwrite']=true;

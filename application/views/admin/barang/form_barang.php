@@ -113,7 +113,7 @@
                                         <label for="barang_kategori_id" class="control-label col-lg-3">Kategori</label>
                                         <div class="col-lg-6">
                                             <select name="barang_kategori_id">
-                                                <option value="<?= $row->barang_kategori_id; ?>"><?= $row->barang_kategori_id; ?></option>
+                                                <option value="<?= $row->barang_kategori_id; ?>"><?= $row->kategori_nama; ?></option>
                                                 <option value="">-- PILIH KATEGORI LAIN --</option>
                                                 <?php foreach($kategori as $k):?>
                                               <option value="<?= $k['kategori_id']; ?>"><?= $k['kategori_nama']; ?></option>

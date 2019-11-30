@@ -276,7 +276,7 @@
                         <span>Data Master</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="<?php echo base_url('admin/barang') ?>">Data Produk</a></li>
+                        <li><a href="<?php echo base_url('admin/barang') ?>">Data Barang</a></li>
                         <li><a href="<?php echo base_url('admin/kategori') ?>">Data Kategori</a></li>
                         <li><a href="<?php echo base_url('admin/customers') ?>">Data Customer</a></li>
                         <li><a href="<?php echo base_url('admin/supplier') ?>">Data Supplier</a></li>

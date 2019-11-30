@@ -2,8 +2,9 @@
 	
 	private $_table="tbl_barang";
 
-	public function tampil_data($id=null) {
+	public function getAll($id=null) {
 		$this->db->from('tbl_barang');
+		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
 
 		if($id !=null) {
 			$this->db->where('barang_id', $id);

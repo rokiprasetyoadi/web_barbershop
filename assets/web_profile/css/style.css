@@ -3782,16 +3782,19 @@ ul.dropdown-menu > li.has-dropdown > a:before {
   border-right: none;
   padding-right: 0;
 }
+.top-bar .top--login a:hover {
+  color: #ffffff;
+}
 .top-bar .top--login {
   display: inline-flex;
   font-family: 'Open Sans', sans-serif;
-  color: #ffffff;
   font-size: 12px;
   font-weight: 400;
   padding-right: 20px;
   line-height: 50px;
 }
 .top-bar .top--login a {
+  color: rgba(255, 255, 255, 0.5);
   margin-right: 19px;
   padding-right: 19px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);

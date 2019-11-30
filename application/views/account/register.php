@@ -22,8 +22,8 @@
 <section>
     <!--One Half-->
     <div class="container">
-        <div class="row">
-            <h4 class="text-capitalize text--center">Register</h4>
+        <div class="row ">
+            <h4 class="text-capitalize text--center">R E G I S T E R</h4>
             <div class="col-xs-12 col-sm-12 col-md-12 col-md-offset-4 col-xs-offset-2" >
                 <form class="mb-0" action="<?= base_url('account/register') ?>" method="post" >
                     <div class="col-md-6">
@@ -48,7 +48,7 @@
                                 <input type="submit" value="Register" name="submit" class="btn btn--secondary btn--rounded btn--block">
                             </div>
 
-                            <p class="col-xs-12 col-sm-12 col-md-12 mt-40">Sudah memiliki akun?  <a href="<?= base_url('account/login') ?>">Login</a></p>
+                            <p class="col-xs-12 col-sm-12 col-md-12 mt-20">Sudah memiliki akun?  <a href="<?= base_url('account/login') ?>">Login</a></p>
                         </div>
                     </div>
                 </form>

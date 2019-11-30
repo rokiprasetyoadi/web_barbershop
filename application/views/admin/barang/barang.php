@@ -55,7 +55,7 @@
                                     <td><?php echo $data->barang_tgl_input; ?></td>
                                     <td><?php echo $data->barang_tgl_update; ?></td>
                                     <td><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $data->barang_id ?>">Edit</a></td>
-                                    <td><a class="delete" href="<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>">Delete</a></td>
+                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>')" href="#!">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

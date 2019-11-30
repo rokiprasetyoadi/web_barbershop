@@ -65,22 +65,19 @@
                                     </li>
                                 </ul>
                             </div><!-- .col-md-6 end -->
-                            <div class="col-xs-12 col-sm-6 col-md-6 top--info text-right text-center-xs">
-                                <div class="has-dropdown">
+                            <div class="col-xs-12 col-sm-6 col-md-6 text-right text-center-xs">
                                     <span class="top--login">
                                         <?php if ($this->session->userdata('email')) {?>
                                         <a href='<?= base_url(); ?>view/account'><span id="accountMenuName">
-                                        <span style=' margin-right: 5px;'>My Account</span>
+                                        <span>My Account</span>
                                             <i class='lnr lnr-user'></i>
                                         </span></a>
-                                        /
                                         <a href='<?= base_url(); ?>logout'><span id="accountMenuName">
-                                        <span style=' margin-right: 5px; margin-left: 10px;'>Logout</span>
+                                        <span>Logout</span>
                                             <i class='lnr lnr-exit'></i>
                                         </span></a>
                                         <?php }else{ ?>
                                             <a href="<?= base_url() ?>login">Login</a>
-                                            /
                                             <a href="<?= base_url() ?>register">Register</a>
                                         <?php } ?>
                                     </span>
@@ -90,7 +87,6 @@
                                         <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
                                         <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
                                     </span>
-                                </div>
                             </div><!-- .col-md-6 end -->
                         </div>
                     </div>

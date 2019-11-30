@@ -3777,31 +3777,37 @@ ul.dropdown-menu > li.has-dropdown > a:before {
 .top-bar .top--contact i {
   margin-right: 11px;
 }
+.top-bar .top--contact a:last-child {
+  margin-right: 0;
+  border-right: none;
+  padding-right: 0;
+}
 .top-bar .top--login {
-  color: #ffffff;
+  display: inline-flex;
   font-family: 'Open Sans', sans-serif;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 400;
-  line-height: 50px;
   padding-right: 20px;
-}
-.top-bar .top--login i {
-  margin-right: 10px;
-}
-.top-bar .top--login a:hover {
-  color: #bb8c4b;
+  line-height: 50px;
 }
 .top-bar .top--login a {
+  margin-right: 19px;
+  padding-right: 19px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.top-bar .top--login a:first-child {
+  margin-left: 19px;
+  padding-left: 19px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
-.top-bar .top--login a:last-of-type {
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+.top-bar .top--login a:last-child {
+  margin-right: -5px;
+  border-right: none;
+  padding-right: 0;
 }
 .top-bar .top--social a {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
-}
-.top-bar .top--social a:last-of-type {
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 .top-bar .top--social a {
   display: inline-block;

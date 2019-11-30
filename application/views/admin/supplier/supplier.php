@@ -53,7 +53,7 @@
                                     <td><?php echo $row->supplier_alamat ?></td>
                                     <td><?php echo $row->supplier_keterangan ?></td>
                                     <td><a class="edit" href="<?= site_url(); ?>admin/supplier/edit/<?= $row->supplier_id ?>">Edit</a></td>
-                                    <td><a class="delete" href="<?= site_url(); ?>admin/supplier/delete/<?= $row->supplier_id ?>">Delete</a></td>
+                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/supplier/delete/<?= $row->supplier_id ?>')" href="#!" >Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

@@ -166,7 +166,7 @@
 
 		if ($barang['barang_image'] !="default.jpg") {
 			$filename=explode(".", $barang['barang_image'])[0];
-			return array_map('unlink', glob(FCPATH."assets/adm/upload/barang/$filename.*"));
+			return array_map('unlink', glob(FCPATH."assets/upload/barang/$filename.*"));
 		}
 	}
 

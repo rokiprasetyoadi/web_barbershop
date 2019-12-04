@@ -81,7 +81,7 @@
           <div class="col-xs-12 col-sm-6 col-md-4 product-item">
             <?php foreach ($barang as $b): ?>
             <div class="product--img">
-              <img src="<?= base_url('./assets/adm/upload/barang/').$b['barang_image'] ?>" alt="Product" />
+              <img src="<?= base_url('./assets/upload/barang/').$b['barang_image'] ?>" alt="Product" />
               <div class="product--hover">
                 <div class="product--action">
                   <a href="#">Add To Cart</a>

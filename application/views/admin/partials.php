@@ -265,7 +265,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="<?php echo base_url('admin') ?>">
+                    <a href="<?php echo base_url('admin') ?>">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -280,6 +280,7 @@
                         <li><a href="<?php echo base_url('admin/kategori') ?>">Data Kategori</a></li>
                         <li><a href="<?php echo base_url('admin/customers') ?>">Data Customer</a></li>
                         <li><a href="<?php echo base_url('admin/supplier') ?>">Data Supplier</a></li>
+                        <li><a href="<?php echo base_url('admin/barang_masuk') ?>">Data Barang Masuk</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

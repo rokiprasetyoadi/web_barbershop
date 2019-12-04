@@ -141,7 +141,10 @@
                                     </div>
                                     <div class="form-group ">
                                         <label for="barang_image" class="control-label col-lg-3">Foto</label>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-1">
+                                            <a href="<?= base_url('assets/upload/barang/'.$row->barang_image) ?>" data-fancybox data-caption="Foto Barang"> <img style="height: 75px; width: 75px;" src="<?= base_url('assets/upload/barang/'.$row->barang_image) ?>"></a>
+                                        </div>
+                                        <div class="col-lg-5">
                                             <input class="form-control " id="barang_image" name="barang_image" type="file" value="<?= $row->barang_image; ?>" />
                                         </div>
                                     </div>

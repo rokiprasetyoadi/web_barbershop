@@ -6,7 +6,7 @@ class Login extends CI_Controller {
 
       public function index() {
 
-      echo "SELAMAT DATANG PANTEK";
+      echo "SELAMAT DATANG";
 
       }
 }

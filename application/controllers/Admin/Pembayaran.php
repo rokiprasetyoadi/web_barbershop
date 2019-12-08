@@ -19,7 +19,7 @@ class Pembayaran extends CI_Controller {
         $this->temp->load('admin/partials', 'admin/pembayaran/pembayaran', $data);
     }
 
-    public function delete($id)
+    public function delete($id=null)
     {
         $this->M_pembayaran->deleteData($id);
         redirect('admin/pembayaran');

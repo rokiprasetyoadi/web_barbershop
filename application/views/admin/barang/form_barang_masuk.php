@@ -31,12 +31,19 @@
                                               <option value="<?= $k['supplier_id']; ?>"><?= $k['supplier_nama']; ?></option>
                                               <?php endforeach;?>
                                             </select>
+                                            <a style="margin-left: 15px;" href="<?= site_url() ?>admin/supplier" class="btn btn-success" type="cancel">Tambah Data Supplier</a>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="brgmasuk_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
                                             <input class="form-control " id="brgmasuk_keterangan" name="brgmasuk_keterangan" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-3"></label>
+                                        <div class="col-lg-6">
+                                        <label for="keterangan" style="color: red;">*Supplier tidak terdaftar? Silahkan Tambah Data Supplier</label>
                                         </div>
                                     </div>
 

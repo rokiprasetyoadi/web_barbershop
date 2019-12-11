@@ -294,14 +294,10 @@
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="<?php echo base_url('admin/laporan_penjualan') ?>">
                         <i class="fa fa-dollar"></i>
-                        <span>Laporan Keuangan</span>
+                        <span>Laporan Penjualan</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="responsive_table.html">Laporan Transaksi</a></li>
-                        <li><a href="dynamic_table.html">Laporan Pendapatan</a></li>
-                    </ul>
                 </li>
                 
             </ul>            

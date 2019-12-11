@@ -5525,6 +5525,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
     width: 100%;
   }
 }
+
 /*------------------------------------*\
     #Shop
 \*------------------------------------*/
@@ -5533,6 +5534,15 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   color: #333333;
   font-family: 'Playfair Display', serif;
   font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  margin-bottom: 50px;
+}
+.shop-cart .shop-cart-heading .total-item {
+  color: #333333;
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.4px;
@@ -5575,6 +5585,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   border-right: none;
 }
 .cart-table tbody tr td.cart-product-price,
+.cart-table tbody tr td.cart-product-price1,
 .cart-table tbody tr td.cart-product-total {
   font-size: 18px;
   font-weight: 400;
@@ -5593,9 +5604,11 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   height: 45px;
   text-align: center;
   position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .cart-table td.cart-product-quantity .product-quantity input {
-  width: 30px;
+  width: 45px;
   color: #363636;
   font-size: 18px;
   font-weight: 400;
@@ -5674,7 +5687,10 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 }
 .cart-table .cart-product-img {
   float: left;
-  padding-right: 20px;
+}
+.cart-table .cart-product-img a img {
+  height: 100px;
+  width: 200px;
 }
 .cart-table .cart-product-name h6 {
   color: #333333;
@@ -5683,6 +5699,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   line-height: 1;
   text-transform: capitalize;
   padding-top: 32px;
+  width: 500px;
 }
 .cart-table .cart-product-name h6 a {
   color: #333333;
@@ -5839,7 +5856,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   height: 100%;
   overflow: hidden;
 }
-.product--img .product--hover .product--action > a {
+.product--img .product--hover .product--action > button {
   position: absolute;
   bottom: 0;
   height: 48px;
@@ -5862,7 +5879,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   width: 100%;
   border-radius: 0;
 }
-.product--img .product--hover .product--action a:hover {
+.product--img .product--hover .product--action button:hover {
   background-color: #bb8c4b;
   color: #ffffff;
 }
@@ -5873,7 +5890,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   line-height: 1;
   margin-bottom: 12px;
 }
-.product--content .product--cat a {
+.product--content .product--cat button {
   color: #3d3c3c;
 }
 .product--content .product--cat a:hover {
@@ -5902,7 +5919,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   line-height: 1;
 }
 .product--img:hover .product--hover .product--action,
-.product--img:hover .product--hover .product--action a {
+.product--img:hover .product--hover .product--action button {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -o-transform: scale(1);
@@ -6405,7 +6422,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   position: relative;
   background-color: rgba(40, 40, 40, 0.95);
 }
-.shop-item .product--img .product--hover .product--action > a {
+.shop-item .product--img .product--hover .product--action > button {
   margin: 0 auto;
   top: 40%;
 }

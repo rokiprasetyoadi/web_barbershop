@@ -141,67 +141,60 @@
                             </ul>
                             <!-- Module Cart -->
                             <div class="module module-cart pull-left">
+                            <?php
+                                if ($cart = $this->cart->contents()) {
+                            ?>
                                 <div class="module-icon cart-icon">
                                     <i class="lnr lnr-store"></i>
                                     <span class="title">shop cart</span>
                                     <label class="module-label">2</label>
                                 </div>
                                 <div class="module-content module-box cart-box">
+                                    <?php
+                                    // Create form and send all values in "shopping/update_cart" function.
+                                    $grand_total = 0;
+                                    $i = 1;
+
+                                    foreach ($cart as $item) :
+                                        $grand_total = $grand_total + $item['subtotal'];
+                                    ?>
                                     <div class="cart-overview">
                                         <ul class="list-unstyled">
                                             <li>
                                                 <a href="#">
-                                                    <img class="img-responsive"
-                                                        src="<?= base_url() ?>assets/web_profile/images/shop/thumb/1.jpg"
+                                                <img src="<?= base_url('./assets/upload/barang/').$item['gambar'] ?>"
                                                         alt="product" />
                                                 </a>
                                                 <div class="product-meta">
-                                                    <h5 class="product-title"><a href="#">Gel Cream</a></h5>
-                                                    <p class="product-price">1 × $7.50</p>
+                                                    <h5 class="product-title"><a href="<?= strtolower($item['name']) ?>"><?= $item['name'] ?></h5>
+                                                    <p class="product-price"><?php echo $item['qty']; ?> × <?= $item['price'] ?></p>
                                                 </div>
-                                                <a class="cart-cancel" href="#">cancel</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="img-responsive"
-                                                        src="<?= base_url() ?>assets/web_profile/images/shop/thumb/2.jpg"
-                                                        alt="product" />
-                                                </a>
-                                                <div class="product-meta">
-                                                    <h5 class="product-title"><a href="#">Hair Dryer</a></h5>
-                                                    <p class="product-price">2 × $35.00</p>
-                                                </div>
-                                                <a class="cart-cancel" href="#">cancel</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="img-responsive"
-                                                        src="<?= base_url() ?>assets/web_profile/images/shop/thumb/3.jpg"
-                                                        alt="product" />
-                                                </a>
-                                                <div class="product-meta">
-                                                    <h5 class="product-title"><a href="#">Beard Razor</a></h5>
-                                                    <p class="product-price">1 × $39.00</p>
-                                                </div>
-                                                <a class="cart-cancel" href="#">cancel</a>
+                                                <a class="cart-cancel" href="<?= base_url() ?>toko/cart/delete/<?= $item['rowid']; ?>">cancel</a>
                                             </li>
                                         </ul>
                                     </div>
+                                    <?php endforeach; ?>
                                     <div class="cart-total">
                                         <div class="total-desc">
                                             Subtotal:
                                         </div>
                                         <div class="total-price">
-                                            $100.50
+                                            <?php echo rupiah($grand_total); ?>
                                         </div>
                                     </div>
                                     <div class="clearfix">
                                     </div>
                                     <div class="cart--control">
-                                        <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="#">View
+                                        <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="<?= base_url() ?>toko/cart">View
                                             Cart & Checkout</a>
                                     </div>
                                 </div>
+                                <?php
+                                    } else {?>
+                                        <h3>Your cart is empty</h3>
+                                    <?php
+                                    }
+                                    ?>
                             </div>
                             <!-- .module-cart end -->
                             <!-- Module Search -->

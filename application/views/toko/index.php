@@ -79,12 +79,19 @@
       </div>
           <!-- Product -->
           <div class="col-xs-12 col-sm-6 col-md-4 product-item">
-            <?php foreach ($barang as $b): ?>
+            <?php echo form_open('toko/cart/add'); ?>
+            <?php foreach ($barang as $b): ?>\
+              
             <div class="product--img">
               <img src="<?= base_url('./assets/upload/barang/').$b['barang_image'] ?>" alt="Product" />
               <div class="product--hover">
                 <div class="product--action">
-                  <a href="#">Add To Cart</a>
+                  <input type="hidden" name="barang_id" value="<?php echo $b['barang_id']; ?>" />
+                  <input type="hidden" name="barang_nama" value="<?php echo $b['barang_nama']; ?>" />
+                  <input type="hidden" name="barang_harjul" value="<?php echo $b['barang_harjul']; ?>" />
+                  <input type="hidden" name="barang_image" value="<?php echo $b['barang_image']; ?>" />
+                  <input type="hidden" name="qty" value="1" />
+                  <button type="submit">Add To Cart</button>
                 </div>
               </div>
               <!-- .product-overlay end -->
@@ -102,6 +109,7 @@
             </div>
             <!-- .product-bio end -->
             <?php endforeach ?>
+            <?php echo form_close(); ?>
           </div>
           <!-- .product end -->
 

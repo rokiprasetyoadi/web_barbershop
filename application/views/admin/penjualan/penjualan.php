@@ -29,9 +29,9 @@
                                 <tr>
                                     <th>No Faktur</th>
                                     <th>Tanggal</th>
-                                    <th>Admin</th>
                                     <th>Customer</th>
-                                    <th>Pembayaran</th>
+                                    <th>Total Harga</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Detail</th>
                                     <th>Delete</th>
                                 </tr>
@@ -41,9 +41,9 @@
                                 <tr class="">
                                     <td><?php echo $data->jual_nofak; ?></td>
                                     <td><?php echo $data->jual_tgl; ?></td>
-                                    <td><?php echo $data->admin_nama; ?></td>
                                     <td><?php echo $data->customers_nama; ?></td>
-                                    <td><?php echo $data->jual_pembayaran_id; ?></td>
+                                    <td></td>
+                                    <td><?php echo $data->pembayaran_status; ?></td>
                                     <td><a class="detail" href="<?= site_url(); ?>admin/penjualan/detail/<?= $data->jual_nofak ?>">Detail</a></td>
                                     <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/penjualan/delete/<?= $data->jual_nofak ?>')" href="#!">Delete</a></td>
                                 </tr>

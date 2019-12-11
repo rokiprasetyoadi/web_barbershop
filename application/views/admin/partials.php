@@ -39,7 +39,7 @@
 <!--logo start-->
 <div class="brand">
 
-    <a href="index-2.html" class="logo">
+    <a href="#" class="logo">
         <img src="<?= base_url('assets/adm/images/logo.png') ?>" alt="">
     </a>
     <div class="sidebar-toggle-box">
@@ -228,10 +228,10 @@
 </div>
 <div class="top-nav clearfix">
     <!--search & user info start-->
-    <ul class="nav pull-right top-menu">
-        <li>
+    <ul class="nav pull-right top-menu" style="margin-right: 30px;">
+        <!-- <li>
             <input type="text" class="form-control search" placeholder=" Search">
-        </li>
+        </li> -->
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -240,8 +240,8 @@
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                <!-- <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li> -->
                 <li><a href="<?php echo base_url('admin/Login_admin/logout') ?>"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>

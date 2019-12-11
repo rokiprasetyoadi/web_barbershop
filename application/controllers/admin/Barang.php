@@ -63,7 +63,6 @@ class Barang extends CI_Controller {
                 redirect('admin/barang');
             }
         }
-
     }
 
     public function delete($id=null)

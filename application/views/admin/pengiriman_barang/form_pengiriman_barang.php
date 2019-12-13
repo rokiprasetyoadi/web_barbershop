@@ -12,7 +12,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?php echo site_url('admin/pembayaran/edit/'.$row->pembayaran_id); ?>">
+                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?php echo site_url('admin/pengiriman_barang/edit/'.$row->pembayaran_id); ?>">
                                     <div class="form-group ">
                                         <label for="pembayaran_id" class="control-label col-lg-3">Id Pembayaran</label>
                                         <div class="col-lg-6">
@@ -20,7 +20,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="pembayaran_id" class="control-label col-lg-3">No Faktur</label>
+                                        <label for="jual_nofak" class="control-label col-lg-3">No Faktur</label>
                                         <div class="col-lg-6">
                                             <input class=" form-control" id="jual_nofak" name="jual_nofak" type="text" value="<?= $row->jual_nofak; ?>" readonly />
                                         </div>
@@ -32,23 +32,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="pembayaran_status" class="control-label col-lg-3">Status Pembayaran</label>
+                                        <label for="resi" class="control-label col-lg-3">Resi</label>
                                         <div class="col-lg-6">
-                                            <select name="pembayaran_status">
-
-                                                <option value="<?= $row->pembayaran_status; ?>"><?= $row->pembayaran_status; ?></option>
-
-                                                <option value="">-- PILIH STATUS PEMBAYARAN --</option>
-                                              <option value="Sudah Bayar">Sudah Bayar</option>
-                                              <option value="Belum Bayar">Belum Bayar</option>
-                                            </select>
+                                            <input class=" form-control" id="no_resi" name="no_resi" type="text" value="<?= $row->no_resi; ?>" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
                                             <button class="btn btn-primary" name="edit" type="submit">Save</button>
-                                            <a href="<?= site_url() ?>admin/pembayaran" class="btn btn-default" type="cancel">Cancel</a>
+                                            <a href="<?= site_url() ?>admin/pengiriman_barang" class="btn btn-default" type="cancel">Cancel</a>
                                         </div>
                                     </div>
                                 </form>

@@ -294,6 +294,12 @@
                     </ul>
                 </li>
                 <li class="sub-menu">
+                    <a href="<?php echo base_url('admin/pengiriman_barang') ?>">
+                        <i class="fa fa-truck"></i>
+                        <span>Pengiriman Barang</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
                     <a href="<?php echo base_url('admin/laporan_penjualan') ?>">
                         <i class="fa fa-dollar"></i>
                         <span>Laporan Penjualan</span>

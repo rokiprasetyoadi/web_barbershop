@@ -19,13 +19,11 @@
 			];
 		$this->form_validation->set_rules($data);
 	}
-	
-	public function getAll() {
-		return $this->db->get('tbl_pembayaran')->result_array();
-	}
 
 	public function getAllData($id=null) {
 		$this->db->from('tbl_pembayaran');
+		$this->db->join('customers', 'customers.customers_id = tbl_pembayaran.pembayaran_customers_id', 'left');
+		$this->db->join('tbl_penjualan', 'tbl_penjualan.jual_pembayaran_id = tbl_pembayaran.pembayaran_id', 'left');
 
 		if($id !=null) {
 			$this->db->where('pembayaran_id', $id);

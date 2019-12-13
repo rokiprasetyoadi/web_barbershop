@@ -28,9 +28,8 @@
                                 <thead>
                                 <tr>
                                     <th>No Faktur</th>
-                                    <th>Admin</th>
                                     <th>Customer</th>
-                                    <th>Pembayaran</th>
+                                    <th>Total Pembelian</th>
                                     <th>Tanggal</th>
                                     <th>Detail</th>
                                     <th>Delete</th>
@@ -40,9 +39,8 @@
                                     <?php foreach($laporan as $data):?>
                                 <tr class="">
                                     <td><?php echo $data->jual_nofak; ?></td>
-                                    <td><?php echo $data->admin_nama; ?></td>
                                     <td><?php echo $data->customers_nama; ?></td>
-                                    <td><?php echo $data->jual_pembayaran_id; ?></td>
+                                    <td></td>
                                     <td><?php echo $data->jual_tgl; ?></td>
                                     <td><a class="detail" href="<?= site_url(); ?>admin/laporan_penjualan/detail/<?= $data->jual_nofak ?>">Detail</a></td>
                                     <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/laporan_penjualan/delete/<?= $data->jual_nofak ?>')" href="#!">Delete</a></td>

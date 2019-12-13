@@ -13,7 +13,8 @@
                                     <div class="col-md-12 col-sm-12 pull-left">
                                         
                                         <p>Phone: <?= $dtl['customers_nohp']; ?><br>
-                                            Email : <?= $dtl['customers_email']; ?></p>
+                                            Email : <?= $dtl['customers_email']; ?><br>
+                                            <h5 style="color: red;">Status Pembayaran : <?= $dtl['pembayaran_status']; ?></h5></p>
                                     </div>
                                 </div>
 

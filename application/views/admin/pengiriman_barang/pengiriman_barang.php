@@ -3,7 +3,7 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Data Penjualan
+                        Pengiriman Barang
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-cog"></a>
@@ -27,25 +27,25 @@
                             <table class="table table-striped table-hover table-bordered" id="editable-sample">
                                 <thead>
                                 <tr>
+                                    <th>ID Pembayaran</th>
                                     <th>No Faktur</th>
-                                    <th>Tanggal</th>
                                     <th>Customer</th>
-                                    <th>Total Pembelian</th>
                                     <th>Status Pembayaran</th>
-                                    <th>Detail Pembelian</th>
+                                    <th>Resi</th>
+                                    <th>Edit Resi</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($penjualan as $data):?>
+                                    <?php foreach($pengiriman as $row):?>
                                 <tr class="">
-                                    <td><?php echo $data->jual_nofak; ?></td>
-                                    <td><?php echo $data->jual_tgl; ?></td>
-                                    <td><?php echo $data->customers_nama; ?></td>
-                                    <td></td>
-                                    <td><?php echo $data->pembayaran_status; ?></td>
-                                    <td><a class="detail" href="<?= site_url(); ?>admin/penjualan/detail/<?= $data->jual_nofak ?>">Detail</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/penjualan/delete/<?= $data->jual_nofak ?>')" href="#!">Delete</a></td>
+                                    <td><?php echo $row->pembayaran_id ?></td>
+                                    <td><?php echo $row->jual_nofak ?></td>
+                                    <td><?php echo $row->customers_nama ?></td>
+                                    <td><?php echo $row->pembayaran_status; ?></td>
+                                    <td><?php echo $row->no_resi; ?></td>
+                                    <td><a class="edit" href="<?= site_url(); ?>admin/pengiriman_barang/edit/<?= $row->pembayaran_id ?>">Edit</a></td>
+                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pengiriman_barang/delete/<?= $row->pembayaran_id ?>')" href="#!">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

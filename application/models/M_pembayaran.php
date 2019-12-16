@@ -3,9 +3,41 @@
 	private $_table="tbl_pembayaran";
 	public $pembayaran_bukti = "default.jpg";
 	public $pembayaran_id;
-	
-	public function getAll() {
-		return $this->db->get('tbl_pembayaran')->result_array();
+
+	public function rulesEdit() {
+		$data=[ 
+			[ 
+				'field'=>'pembayaran_id',
+				'label'=>'ID Pembayaran',
+				'rules'=>'required'
+			],
+			[ 
+				'field'=>'pembayaran_status',
+				'label'=>'Status Pembayaran',
+				'rules'=>'required'
+			]
+			];
+		$this->form_validation->set_rules($data);
+	}
+
+	public function getAllData($id=null) {
+		$this->db->from('tbl_pembayaran');
+		$this->db->join('customers', 'customers.customers_id = tbl_pembayaran.pembayaran_customers_id', 'left');
+		$this->db->join('tbl_penjualan', 'tbl_penjualan.jual_pembayaran_id = tbl_pembayaran.pembayaran_id', 'left');
+
+		if($id !=null) {
+			$this->db->where('pembayaran_id', $id);
+		}
+
+		$query=$this->db->get();
+		return $query;
+	}
+
+	public function editData() {
+		$data=[ 'pembayaran_status'=>htmlspecialchars($this->input->post('pembayaran_status', true))
+		];
+		$this->db->where('pembayaran_id', $this->input->post('pembayaran_id'));
+		$this->db->update('tbl_pembayaran', $data);
 	}
 
 	public function deleteData($id) {

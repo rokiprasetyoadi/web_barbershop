@@ -22,6 +22,7 @@ class Laporan_penjualan extends CI_Controller {
     public function detail($id)
     {
         $where = array('jual_nofak' => $id);
+        $data['dtl'] = $this->M_laporan_penjualan->dtl($id);
         $data['detail']=$this->M_laporan_penjualan->detail($where,'tbl_penjualan')->result();
         $this->temp->load('admin/partials', 'admin/laporan_penjualan/laporan_penjualan_detail', $data);
     }

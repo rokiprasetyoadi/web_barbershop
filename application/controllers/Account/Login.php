@@ -31,6 +31,7 @@ class Login extends CI_Controller
           if ($customers['customers_status'] == 1) {
           if (password_verify($sandi, $customers['customers_password'])) {
             $data = [
+              'id'   => $customers['customers_id'],
               'email'  => $customers['customers_email'],
               'nama'   => $customers['customers_nama']
             ];

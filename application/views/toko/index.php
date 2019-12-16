@@ -91,6 +91,9 @@
                   <input type="hidden" name="barang_harjul" value="<?php echo $b['barang_harjul']; ?>" />
                   <input type="hidden" name="barang_image" value="<?php echo $b['barang_image']; ?>" />
                   <input type="hidden" name="qty" value="1" />
+                  <?php echo form_hidden('customers_id', $customers['customers_id']); ?>
+                  <?php echo form_hidden('email_tmp', $customers['customers_email']); ?>
+                  <?php echo form_hidden('barang_stok', $b['barang_stok']); ?>
                   <button type="submit">Add To Cart</button>
                 </div>
               </div>
@@ -105,6 +108,9 @@
               <div class="product--price">
                 <span><?= rupiah($b['barang_harjul']) ?></span>
               </div>
+              <div class="product--title">
+                <span>Stok : <?= $b['barang_stok'] ?></span>
+              </div>
               <!-- .product-price end -->
             </div>
             <!-- .product-bio end -->
@@ -118,9 +124,10 @@
         <div class="row">
           
             <!-- Tampilkan pagination-->
+            <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-40 text--center">
+              
             <?php echo  $pagination ?>
-            <!-- <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-40 text--center">
-                <ul class="pagination">
+                <!-- <ul class="pagination">
                     <li class="active"><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
@@ -129,9 +136,9 @@
                         <span aria-hidden="true">next <i class="fa fa-angle-right"></i></span>
                       </a>
                     </li>
-                </ul>
+                </ul> -->
             </div> 
-          </div> -->
+          </div>
           <!-- .col-md-12 end -->
         </div>
         <!-- .row end -->

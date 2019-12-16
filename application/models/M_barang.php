@@ -220,20 +220,6 @@
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	
-	
-    // tes pagination
-    public function getpage($limit, $start){
-		$this->db->select('*');
-		$this->db->from('tbl_barang');
-		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');	
-		$this->db->order_by('barang_nama', 'asc');
-        $this->db->limit($limit, $start);
-        
-		$query = $this->db->get();
-		return $query->result_array();
-	
-	}
 
 	public function limitBarang($limit, $start, $keyword = null) // making pagination query
     {

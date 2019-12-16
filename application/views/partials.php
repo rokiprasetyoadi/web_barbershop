@@ -141,60 +141,41 @@
                             </ul>
                             <!-- Module Cart -->
                             <div class="module module-cart pull-left">
-                            <?php
-                                if ($cart = $this->cart->contents()) {
-                            ?>
                                 <div class="module-icon cart-icon">
                                     <i class="lnr lnr-store"></i>
                                     <span class="title">shop cart</span>
-                                    <label class="module-label">2</label>
+                                    <label class="module-label"></label>
                                 </div>
                                 <div class="module-content module-box cart-box">
-                                    <?php
-                                    // Create form and send all values in "shopping/update_cart" function.
-                                    $grand_total = 0;
-                                    $i = 1;
-
-                                    foreach ($cart as $item) :
-                                        $grand_total = $grand_total + $item['subtotal'];
-                                    ?>
                                     <div class="cart-overview">
                                         <ul class="list-unstyled">
                                             <li>
                                                 <a href="#">
-                                                <img src="<?= base_url('./assets/upload/barang/').$item['gambar'] ?>"
+                                                <img src=""
                                                         alt="product" />
                                                 </a>
                                                 <div class="product-meta">
-                                                    <h5 class="product-title"><a href="<?= strtolower($item['name']) ?>"><?= $item['name'] ?></h5>
-                                                    <p class="product-price"><?php echo $item['qty']; ?> × <?= $item['price'] ?></p>
+                                                    <h5 class="product-title"></h5>
+                                                    <p class="product-price"></p>
                                                 </div>
-                                                <a class="cart-cancel" href="<?= base_url() ?>toko/cart/delete/<?= $item['rowid']; ?>">cancel</a>
+                                                <a class="cart-cancel" href="">cancel</a>
                                             </li>
                                         </ul>
                                     </div>
-                                    <?php endforeach; ?>
                                     <div class="cart-total">
                                         <div class="total-desc">
                                             Subtotal:
                                         </div>
                                         <div class="total-price">
-                                            <?php echo rupiah($grand_total); ?>
                                         </div>
                                     </div>
                                     <div class="clearfix">
                                     </div>
                                     <div class="cart--control">
                                         <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="<?= base_url() ?>toko/cart">View
-                                            Cart & Checkout</a>
+                                            Cart</a>
                                     </div>
                                 </div>
-                                <?php
-                                    } else {?>
-                                        <h3>Your cart is empty</h3>
-                                    <?php
-                                    }
-                                    ?>
                             </div>
                             <!-- .module-cart end -->
                             <!-- Module Search -->
@@ -339,6 +320,28 @@
             d.getElementsByTagName("head")[0].appendChild(s);
         })();
     </script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.updatecart').click(function(e){
+            var cart_id    = $('input[name="cart_id[]"]').map(function (){return $(this).val();}).get()
+            var barang_id = $('input[name="barang_id"]').map(function (){return $(this).val();}).get()
+            var qty        = $('input[name="qty"]').map(function (){return $(this).val();}).get()
+            var barang_harjul = $('input[name="barang_harjul"]').map(function (){return $(this).val();}).get()
+
+            e.preventDefault();
+            $.ajax({
+                url : "<?php echo base_url();?>cart/updatecart",
+                method : "POST",
+                data : {cart_id: cart_id, barang_harjul: barang_harjul, qty: qty},
+                success: function(data){
+                    $('#detail_cart').html(data);
+                }
+            });
+        });
+        
+    });
+</script>
 </body>
 
 

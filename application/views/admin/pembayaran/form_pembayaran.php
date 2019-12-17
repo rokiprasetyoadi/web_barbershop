@@ -32,15 +32,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="pembayaran_status" class="control-label col-lg-3">Status Pembayaran</label>
+                                        <label for="jual_status" class="control-label col-lg-3">Status Pembayaran</label>
                                         <div class="col-lg-6">
-                                            <select name="pembayaran_status">
+                                            <select name="jual_status">
 
-                                                <option value="<?= $row->pembayaran_status; ?>"><?= $row->pembayaran_status; ?></option>
+                                              <option value="<?= $row->jual_status; ?>"><?= $row->jual_status; ?></option>
 
-                                                <option value="">-- PILIH STATUS PEMBAYARAN --</option>
-                                              <option value="Sudah Bayar">Sudah Bayar</option>
-                                              <option value="Belum Bayar">Belum Bayar</option>
+                                              <option value="">-- PILIH STATUS PEMBAYARAN --</option>
+                                              <option value="Process">Process</option>
+                                              <option value="Rejected">Rejected</option>
                                             </select>
                                         </div>
                                     </div>

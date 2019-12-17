@@ -34,7 +34,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nota</th>
-                                    <th>Supplier Id</th>
+                                    <th>Supplier</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal</th>
                                     <th>Detail</th>
@@ -46,7 +46,7 @@
                                     <?php foreach($brgmasuk as $data):?>
                                 <tr class="">
                                     <td><?= $data->brgmasuk_nota ?></td>
-                                    <td><?= $data->brgmasuk_supplier_id ?></td>
+                                    <td><?= $data->supplier_nama ?></td>
                                     <td><?= $data->brgmasuk_keterangan ?></td>
                                     <td><?= $data->brgmasuk_tgl ?></td>
                                     <td><a class="detail" href="<?= site_url(); ?>admin/barang_masuk/detail/<?= $data->brgmasuk_nota ?>">Detail</a></td>

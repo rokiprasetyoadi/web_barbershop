@@ -12,7 +12,7 @@
 				'rules'=>'required'
 			],
 			[ 
-				'field'=>'pembayaran_status',
+				'field'=>'jual_status',
 				'label'=>'Status Pembayaran',
 				'rules'=>'required'
 			]
@@ -23,7 +23,7 @@
 	public function getAllData($id=null) {
 		$this->db->from('tbl_pembayaran');
 		$this->db->join('customers', 'customers.customers_id = tbl_pembayaran.pembayaran_customers_id', 'left');
-		$this->db->join('tbl_penjualan', 'tbl_penjualan.jual_pembayaran_id = tbl_pembayaran.pembayaran_id', 'left');
+		$this->db->join('tbl_penjualan', 'tbl_penjualan.jual_nofak = tbl_pembayaran.pembayaran_jual_id', 'left');
 
 		if($id !=null) {
 			$this->db->where('pembayaran_id', $id);
@@ -34,10 +34,10 @@
 	}
 
 	public function editData() {
-		$data=[ 'pembayaran_status'=>htmlspecialchars($this->input->post('pembayaran_status', true))
+		$data=[ 'jual_status'=>htmlspecialchars($this->input->post('jual_status', true))
 		];
-		$this->db->where('pembayaran_id', $this->input->post('pembayaran_id'));
-		$this->db->update('tbl_pembayaran', $data);
+		$this->db->where('jual_nofak', $this->input->post('jual_nofak'));
+		$this->db->update('tbl_penjualan', $data);
 	}
 
 	public function deleteData($id) {

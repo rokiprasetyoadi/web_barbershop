@@ -27,7 +27,7 @@
                             <table class="table table-striped table-hover table-bordered" id="editable-sample">
                                 <thead>
                                 <tr>
-                                    <th>Id Pembayaran</th>
+                                    <th>No</th>
                                     <th>No Faktur</th>
                                     <th>Customer</th>
                                     <th>Bukti Pembayaran</th>
@@ -37,13 +37,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($pembayaran as $row):?>
+                                    <?php 
+                                    $i=1;
+                                    foreach($pembayaran as $row):?>
                                 <tr class="">
-                                    <td><?php echo $row->pembayaran_id ?></td>
+                                    <td><?= $i++ ?></td>
                                     <td><?php echo $row->jual_nofak ?></td>
                                     <td><?php echo $row->customers_nama ?></td>
                                     <td><a href="<?= base_url('assets/upload/bukti_pembayaran/'.$row->pembayaran_bukti) ?>" data-fancybox data-caption="Bukti Pembayaran"> <img style="height: 50px; width: 50px;" src="<?= base_url('assets/upload/bukti_pembayaran/'.$row->pembayaran_bukti) ?>"></a></td>
-                                    <td><?php echo $row->pembayaran_status ?></td>
+                                    <td><?php echo $row->jual_status ?></td>
                                     <td><a class="update" href="<?= site_url(); ?>admin/pembayaran/edit/<?php echo $row->pembayaran_id ?>">Ubah Status</a></td>
                                     <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pembayaran/delete/<?= $row->pembayaran_id ?>')" href="#!">Delete</a></td>
                                 </tr>

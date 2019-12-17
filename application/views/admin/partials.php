@@ -290,7 +290,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="<?php echo base_url('admin/penjualan') ?>">Transaksi</a></li>
-                        <li><a href="<?php echo base_url('admin/pembayaran') ?>">Verifikasi</a></li>
+                        <li><a href="<?php echo base_url('admin/pembayaran') ?>">Verifikasi Pembayaran</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

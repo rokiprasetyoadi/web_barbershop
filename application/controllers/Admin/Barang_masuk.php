@@ -15,9 +15,16 @@ class Barang_masuk extends CI_Controller {
 
     public function index()
     {
-        $data['tbl_brgmasuk']=$this->M_barang_masuk->getAll();
-        $data['tbl_brgmsk']=$this->M_barang_masuk->getBrgMasuk();
-        $this->temp->load('admin/partials', 'admin/barang/barang_masuk', $data);
+        $data['brgmasuk']=$this->M_barang_masuk->getAll()->result();
+        $this->temp->load('admin/partials', 'admin/barang_masuk/barang_masuk', $data);
+    }
+
+    public function detail($id)
+    {
+        $where = array('brgmasuk_nota' => $id);
+        $data['dtl'] = $this->M_barang_masuk->dtl($id);
+        $data['detail']=$this->M_barang_masuk->detail($where,'tbl_brgmasuk')->result();
+        $this->temp->load('admin/partials', 'admin/barang_masuk/barangmsk_detail', $data);
     }
 
     public function add()
@@ -29,7 +36,7 @@ class Barang_masuk extends CI_Controller {
                 'kode' => $this->M_barang_masuk->kode(),
                 'supplier' => $this->M_barang_masuk->getSupplierData()
             ];
-            $this->temp->load('admin/partials', 'admin/barang/form_barang_masuk', $data);
+            $this->temp->load('admin/partials', 'admin/barang_masuk/form_barang_masuk', $data);
         } else {
             $this->M_barang_masuk->addData();
             $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
@@ -49,7 +56,7 @@ class Barang_masuk extends CI_Controller {
                     'row' => $tbl_brgmsk,
                     'supplier' => $this->M_barang_masuk->getSupplierData()
                 ];
-                $this->temp->load('admin/partials', 'admin/barang/form_barang_masuk', $data);
+                $this->temp->load('admin/partials', 'admin/barang_masuk/form_barang_masuk', $data);
             }
         } else {
             $post = $this->input->post(null, true);

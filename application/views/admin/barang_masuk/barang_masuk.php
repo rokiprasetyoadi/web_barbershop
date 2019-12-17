@@ -43,15 +43,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($tbl_brgmsk as $data):?>
+                                    <?php foreach($brgmasuk as $data):?>
                                 <tr class="">
-                                    <td><?= $data['brgmasuk_nota'] ?></td>
-                                    <td><?= $data['brgmasuk_supplier_id'] ?></td>
-                                    <td><?= $data['brgmasuk_keterangan'] ?></td>
-                                    <td><?= $data['brgmasuk_tgl'] ?></td>
-                                    <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalDetailBarang<?= $data['brgmasuk_nota']; ?>">Detail</button></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang_masuk/edit/<?= $data['brgmasuk_nota'] ?>">Edit</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/barang_masuk/delete/<?= $data['brgmasuk_nota'] ?>')" href="#!">Delete</a></td>
+                                    <td><?= $data->brgmasuk_nota ?></td>
+                                    <td><?= $data->brgmasuk_supplier_id ?></td>
+                                    <td><?= $data->brgmasuk_keterangan ?></td>
+                                    <td><?= $data->brgmasuk_tgl ?></td>
+                                    <td><a class="detail" href="<?= site_url(); ?>admin/barang_masuk/detail/<?= $data->brgmasuk_nota ?>">Detail</a></td>
+                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang_masuk/edit/<?= $data->brgmasuk_nota ?>">Edit</a></td>
+                                    <td><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/barang_masuk/delete/<?= $data->brgmasuk_nota ?>')" href="#!">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         
@@ -64,43 +64,3 @@
         </div>
 
 <!-- Content End -->
-
-<!-- Modal -->
-    <?php foreach($tbl_brgmsk as $data): ?>
-    <div class="modal fade" id="modalDetailBarang<?= $data['brgmasuk_nota']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle"><b> Detail Barang Masuk <?= $data['brgmasuk_nota'] ?> </b></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table class="table table-bordered">
-            <tr>
-                <th>Id Barang</th>
-                <th>Harga</th>
-                <th>Stok</th>
-                <th>Jumlah</th>
-                <th>Subtotal</th>
-            </tr>
-            <tr>
-                <?php foreach($tbl_brgmasuk as $data): ?>
-                <td><?= $data['detailmasuk_barang_id'] ?></td>
-                <td><?= $data['detailmasuk_harpok'] ?></td>
-                <td><?= $data['detailmasuk_stok'] ?></td>
-                <td><?= $data['detailmasuk_jumlah'] ?></td>
-                <td><?= $data['detailmasuk_subtotal'] ?></td>
-            </tr>
-            <?php endforeach; ?>
-            </table>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <?php endforeach; ?>

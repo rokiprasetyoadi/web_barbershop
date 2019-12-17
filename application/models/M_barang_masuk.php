@@ -1,27 +1,33 @@
 <?php class M_barang_masuk extends CI_Model {
 
 	public function getAll($id=null) {
-		$this->db->select('*');
 		$this->db->from('tbl_brgmasuk');
-		$this->db->join('tbl_detailbrgmasuk', 'tbl_detailbrgmasuk.detailmasuk_brgmasuk_nota = tbl_brgmasuk.brgmasuk_nota');
+		$this->db->join('tbl_detailbrgmasuk', 'tbl_detailbrgmasuk.detailmasuk_brgmasuk_nota = tbl_brgmasuk.brgmasuk_nota', 'left');
+		$this->db->join('supplier', 'supplier.supplier_id = tbl_brgmasuk.brgmasuk_supplier_id', 'left');
 
 		if($id !=null) {
 			$this->db->where('brgmasuk_nota', $id);
 		}
 
 		$query=$this->db->get();
-		return $query->result_array();
+		return $query;
 	}
 
-	public function getBrgMasuk($id=null) {
-		$this->db->from('tbl_brgmasuk');
+	public function dtl($id){
+		$this->db->select('*');
+		$this->db->join('supplier', 'supplier.supplier_id = tbl_brgmasuk.brgmasuk_supplier_id', 'left');
+		$this->db->join('tbl_detailbrgmasuk', 'tbl_detailbrgmasuk.detailmasuk_brgmasuk_nota = tbl_brgmasuk.brgmasuk_nota', 'left');
 
-		if($id !=null) {
-			$this->db->where('brgmasuk_nota', $id);
-		}
+		return $this->db->get_where('tbl_brgmasuk',["brgmasuk_nota"=>$id])->row_array();
+	}
 
-		$query=$this->db->get();
-		return $query->result_array();
+	public function detail($where,$table)
+	{	
+		$this->db->join('tbl_detailbrgmasuk', 'tbl_detailbrgmasuk.detailmasuk_brgmasuk_nota = tbl_brgmasuk.brgmasuk_nota', 'left');
+		$this->db->join('supplier', 'supplier.supplier_id = tbl_brgmasuk.brgmasuk_supplier_id', 'left');
+		$this->db->join('tbl_barang', 'tbl_barang.barang_id = tbl_detailbrgmasuk.detailmasuk_barang_id', 'left');
+
+		return $this->db->get_where($table,$where);
 	}
 
 	public function getSupplierData(){

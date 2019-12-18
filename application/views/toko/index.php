@@ -9,12 +9,12 @@
       <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
         <div class="title1">
 
+        </div>
+        <!-- .col-md-12 end -->
       </div>
-      <!-- .col-md-12 end -->
+      <!-- .row end -->
     </div>
-    <!-- .row end -->
-  </div>
-  <!-- .container end -->
+    <!-- .container end -->
 </section>
 <!-- #page-title end -->
 <!-- Shop #4
@@ -51,7 +51,8 @@
             <ul class="list-unstyled">
               <?php foreach ($kategori as $kat): ?>
               <li>
-                  <a href="<?= base_url(); ?>toko/<?= strtolower($kat['kategori_nama']) ?>"><?= $kat['kategori_nama'] ?></a>
+                <a
+                  href="<?= base_url(); ?>toko/<?= strtolower($kat['kategori_nama']) ?>"><?= $kat['kategori_nama'] ?></a>
               </li>
               <?php endforeach ?>
             </ul>
@@ -71,17 +72,18 @@
               <input type="text" id="amount" readonly>
               <a class="btn btn--secondary btn--bordered btn--rounded" href="#">Filter</a>
             </p>
-
           </div>
         </div>
         <!-- .widget-filter end -->
-
       </div>
+      <!-- .col-md-3 end -->
+      <div class="col-xs-12 col-sm-12 col-md-9">
+        <div class="row">
+            <?php foreach ($barang as $b): ?>
           <!-- Product -->
           <div class="col-xs-12 col-sm-6 col-md-4 product-item">
-            
-            <?php foreach ($barang as $b): ?>
-              <?php echo form_open('toko/cart/add'); ?>
+            <?php echo form_open('toko/cart/add'); ?>
+
             <div class="product--img">
               <img src="<?= base_url('./assets/upload/barang/').$b['barang_image'] ?>" alt="Product" />
               <div class="product--hover">
@@ -115,22 +117,21 @@
               <!-- .product-price end -->
             </div>
 
-            <!-- .product-bio end -->
-            <?php echo form_close(); ?>
-            <?php endforeach ?>
-            
-          </div>
-          <!-- .product end -->
 
+            <?php echo form_close(); ?>
+          </div>
+            <!-- .product-bio end -->
+            <?php endforeach ?>
+          <!-- .product end -->
         </div>
         <!-- .row end -->
         <div class="row">
-          
-            <!-- Tampilkan pagination-->
-            <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-40 text--center">
-              
+
+          <!-- Tampilkan pagination-->
+          <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-40 text--center">
+
             <?php echo  $pagination ?>
-                <!-- <ul class="pagination">
+            <!-- <ul class="pagination">
                     <li class="active"><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
@@ -140,15 +141,14 @@
                       </a>
                     </li>
                 </ul> -->
-            </div> 
           </div>
-          <!-- .col-md-12 end -->
-        </div>
-        <!-- .row end -->
+        <!-- .col-md-12 end -->
       </div>
-      <!-- .col-md-9 end -->
+      <!-- .row end -->
     </div>
-    <!-- .row end -->
+    <!-- .col-md-9 end -->
+  </div>
+  <!-- .row end -->
   </div>
   <!-- .container end -->
 </section>

@@ -56,6 +56,7 @@ class M_katalog extends CI_Model {
 }
     public function cartPrice(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
+        $this->db->where('c_cart_id',$this->input->post('c_cart_id'));
 		$this->db->select('c_price');
         $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
@@ -70,19 +71,14 @@ class M_katalog extends CI_Model {
     }
     public function cartIduser(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
-        $c= $this->db->get('tbl_cart_detail')->row_array();
-        $string = implode($c);
-            return $string;
-    }
-    public function cartSize(){
-        $this->db->where('barang_id',$this->input->post('barang_id'));
-		$this->db->select('size');
+        $this->db->where('c_cart_id',$this->input->post('c_cart_id'));
         $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
     public function cartQty(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
+        $this->db->where('c_cart_id',$this->input->post('c_cart_id'));
         $this->db->select('qty');
         $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
@@ -90,6 +86,7 @@ class M_katalog extends CI_Model {
     }
     public function cartQty2(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
+        $this->db->where('c_cart_id',$this->input->post('c_cart_id'));
         $this->db->select('qty');
         $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
@@ -97,6 +94,7 @@ class M_katalog extends CI_Model {
     }
     public function cartIdproduct(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
+        $this->db->where('c_cart_id',$this->input->post('c_cart_id'));
 		$this->db->select('barang_id');
         $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);

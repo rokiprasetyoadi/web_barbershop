@@ -65,7 +65,6 @@ class Cart extends CI_Controller {
                     $this->db->where('barang_id',$array['barang_id']);
                     $this->db->update('tbl_cart_detail',$array);
                     redirect('toko/cart');
-                print_r($array);
             }
             elseif ( $this->session->userdata('id') == $this->input->post('barang_id') && $this->input->post('qty')+$this->malog->cartQty2()>$this->malog->pStock() ){
                 $this->session->set_flashdata('message', 'Jumlah melebihi stock');

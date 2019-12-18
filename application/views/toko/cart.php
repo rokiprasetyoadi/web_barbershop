@@ -119,7 +119,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <a class="btn btn--secondary btn--rounded pull-left" href="<?= base_url() ?>toko/cart/delcart/all" style="margin-right: 10px;">Delete Cart</a>
-                <button class="updatecart btn btn--secondary btn--rounded pull-left" >Update</button>
+                <button class="updatecart btn btn--secondary btn--rounded pull-left" value="refresh" >Update</button>
                 <button class="btn btn--secondary btn--rounded pull-right" type="submit">Checkout</button>
             </div>
         </div>

@@ -348,8 +348,8 @@
                     // }
                 }
             });
+            window.location.reload();
         });
-        
     });
 </script>
 </body>

@@ -79,9 +79,9 @@
       </div>
           <!-- Product -->
           <div class="col-xs-12 col-sm-6 col-md-4 product-item">
+            
             <?php foreach ($barang as $b): ?>
               <?php echo form_open('toko/cart/add'); ?>
-              
             <div class="product--img">
               <img src="<?= base_url('./assets/upload/barang/').$b['barang_image'] ?>" alt="Product" />
               <div class="product--hover">
@@ -117,7 +117,13 @@
             <?php echo form_close(); ?>
 
             <!-- .product-bio end -->
+<<<<<<< HEAD
             <?php endforeach ?>
+=======
+            <?php echo form_close(); ?>
+            <?php endforeach ?>
+            
+>>>>>>> d609bc3e7260bfadbf47b54a41eef57bfa69ea44
           </div>
           <!-- .product end -->
 

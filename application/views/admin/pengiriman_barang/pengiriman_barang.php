@@ -27,23 +27,31 @@
                             <table class="table table-striped table-hover table-bordered" id="editable-sample">
                                 <thead>
                                 <tr>
-                                    <th>ID Pembayaran</th>
+                                    <th>No</th>
                                     <th>No Faktur</th>
                                     <th>Customer</th>
                                     <th>Status Pembayaran</th>
+                                    <th>Kurir</th>
+                                    <th>Layanan</th>
+                                    <th>Biaya Kirim</th>
                                     <th>Resi</th>
-                                    <th>Edit Resi</th>
+                                    <th>Edit Pengiriman</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($pengiriman as $row):?>
+                                    <?php 
+                                    $i=1;
+                                    foreach($pengiriman as $row):?>
                                 <tr class="">
-                                    <td><?php echo $row->pembayaran_id ?></td>
+                                    <td><?= $i++ ?></td>
                                     <td><?php echo $row->jual_nofak ?></td>
                                     <td><?php echo $row->customers_nama ?></td>
-                                    <td><?php echo $row->pembayaran_status; ?></td>
-                                    <td><?php echo $row->no_resi; ?></td>
+                                    <td><?php echo $row->jual_status; ?></td>
+                                    <td><?php echo $row->jual_kurir; ?></td>
+                                    <td><?php echo $row->jual_layanan; ?></td>
+                                    <td>Rp. <?php echo number_format($row->jual_biaya); ?></td>
+                                    <td><?php echo $row->jual_resi; ?></td>
                                     <td><a class="edit" href="<?= site_url(); ?>admin/pengiriman_barang/edit/<?= $row->pembayaran_id ?>">Edit</a></td>
                                     <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pengiriman_barang/delete/<?= $row->pembayaran_id ?>')" href="#!">Delete</a></td>
                                 </tr>

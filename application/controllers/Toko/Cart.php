@@ -26,7 +26,6 @@ class Cart extends CI_Controller {
         $idu = $this->cart->idu($email_tmp);
         $idc = $this->session->userdata('cart_id');
 		$data['tprice'] = $this->cart->tprice($idc);
-		
 		$data['keranjang'] = $this->cart->getcart($idc);
 
         if ($data['customers']) {

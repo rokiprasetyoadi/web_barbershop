@@ -8,6 +8,7 @@ class Katalog extends CI_Controller
         parent::__construct();
         //Codeigniter : Write Less Do More
         $this->load->model('M_barang', 'barang');
+        $this->load->model('M_cart', 'cart');
         $this->load->model('M_katalog', 'malog');
 
         
@@ -21,6 +22,8 @@ class Katalog extends CI_Controller
         $data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
 		$data['kategori'] = $this->barang->getKategori();
         $data['barangs'] = $this->barang->getBarang();
+        $data['keranjang'] = $this->cart->getcart($this->session->userdata('cart_id'));
+		$data['tprice'] = $this->cart->tprice($this->session->userdata('cart_id'));
         
         //konfigurasi pagination
         $config['base_url'] = site_url('/'); //site url

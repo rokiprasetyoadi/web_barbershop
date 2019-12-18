@@ -140,33 +140,63 @@
                                 <!-- li end -->
                             </ul>
                             <!-- Module Cart -->
+                            <?php
+                                $email_tmp = $this->session->userdata('email');
+                                $idc = $this->session->userdata('cart_id');
+                                $tprice = $this->cart->tprice($idc);
+                                $totprice = $this->cart->tprice($this->session->userdata('cart_id'));
+                                $keranjang = $this->cart->getcart($this->session->userdata('cart_id'));
+                                $this->db->where('c_cart_id',$this->session->userdata('cart_id'));
+                                $this->db->from('tbl_cart_detail');
+                                $cart = $this->db->count_all_results();
+                            ?>
                             <div class="module module-cart pull-left">
                                 <div class="module-icon cart-icon">
                                     <i class="lnr lnr-store"></i>
                                     <span class="title">shop cart</span>
-                                    <label class="module-label"></label>
+                                    <label class="module-label">
+                                        <?= $cart ?>
+                                    </label>
                                 </div>
+                                <?php if (!$keranjang || !$email_tmp && !$idc ) { ?>
                                 <div class="module-content module-box cart-box">
+                                    <div class="cart-overview">
+                                        <ul class="list-unstyled">
+                                            <li>    
+                                                <h5 class='small text-muted'>Kosong</h5>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                    <div class="cart--control">
+                                        <a class="btn btn--primary btn--bordered btn--rounded btn--block" href=#">Your Cart is Empty</a>
+                                    </div>
+                                </div>
+                                <?php } else { ?>
+                                <div class="module-content module-box cart-box">
+                                    <?php  foreach ($keranjang as $item){ ?>
                                     <div class="cart-overview">
                                         <ul class="list-unstyled">
                                             <li>
                                                 <a href="#">
-                                                <img src=""
-                                                        alt="product" />
+                                                <img src="<?= base_url('./assets/upload/barang/').$item['barang_image'] ?>" alt="product" />
                                                 </a>
                                                 <div class="product-meta">
-                                                    <h5 class="product-title"></h5>
-                                                    <p class="product-price"></p>
+                                                    <h5 class="product-title"><?= $item['barang_nama'] ?></h5>
+                                                    <p class="product-price"><?= $item['qty'] ?> x <?= rupiah($item['barang_harjul']) ?></p>
                                                 </div>
                                                 <a class="cart-cancel" href="">cancel</a>
                                             </li>
                                         </ul>
                                     </div>
+                                    <?php }?>
                                     <div class="cart-total">
                                         <div class="total-desc">
                                             Subtotal:
                                         </div>
                                         <div class="total-price">
+                                            <?= rupiah($tprice); ?>
                                         </div>
                                     </div>
                                     <div class="clearfix">
@@ -176,36 +206,10 @@
                                             Cart</a>
                                     </div>
                                 </div>
+                                <?php } ?>
                             </div>
                             <!-- .module-cart end -->
-                            <!-- Module Search -->
-                            <div class="module module-search pull-left">
-                                <div class="module-icon search-icon">
-                                    <i class="lnr lnr-magnifier"></i>
-                                    <span class="title">search</span>
-                                </div>
-                                <div class="module-content module-fullscreen module--search-box">
-                                    <div class="pos-vertical-center">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-                                                    <form class="form-search">
-                                                        <input type="text" class="form-control" placeholder="Search..">
-                                                        <button class="btn" type="button"><i
-                                                                class="lnr lnr-magnifier"></i></button>
-                                                    </form>
-                                                    <!-- .form-search end -->
-                                                </div>
-                                                <!-- .col-md-8 end -->
-                                            </div>
-                                            <!-- .row end -->
-                                        </div>
-                                        <!-- .container end -->
-                                    </div>
-                                    <a class="module-cancel" href="#"><i class="lnr lnr-cross"></i></a>
-                                </div>
-                            </div>
-                            <!-- .module-search end -->
+
                             <!-- Module Cart -->
                             <div class="module module-cart pull-left hidden">
                                 <div class="module-icon">
@@ -321,37 +325,37 @@
         })();
     </script>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.updatecart').click(function(e){
-            var c_cart_id = $('input[name="c_cart_id"]').val();
-            var barang_id = $('input[name="barang_id"]').map(function (){return $(this).val();}).get()
-            var qty        = $('input[name="qty"]').map(function (){return $(this).val();}).get()
-            var barang_harjul = $('input[name="barang_harjul"]').map(function (){return $(this).val();}).get()
-            // var c_detail_id = $('input[name="c_detail_id"]').val();
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.updatecart').click(function(e){
+                var c_cart_id = $('input[name="c_cart_id"]').val();
+                var barang_id = $('input[name="barang_id"]').map(function (){return $(this).val();}).get()
+                var qty        = $('input[name="qty"]').map(function (){return $(this).val();}).get()
+                var barang_harjul = $('input[name="barang_harjul"]').map(function (){return $(this).val();}).get()
+                // var c_detail_id = $('input[name="c_detail_id"]').val();
 
 
 
-            e.preventDefault();
-            $.ajax({
-                url : "<?php echo base_url();?>toko/cart/updatecart",
-                method : "POST",
-                data : {c_cart_id: c_cart_id ,barang_id: barang_id, qty: qty, barang_harjul:barang_harjul},
-                success: function(data){
-                    // $('#detail_cart').html(data);
-                    // console.log(data);
-                    console.log(data);
-                    // if(data.message == 'Yes'){
-                    //     alert('Yes');
-                    // }else{
-                    //     alert('noo');
-                    // }
-                }
+                e.preventDefault();
+                $.ajax({
+                    url : "<?php echo base_url();?>toko/cart/updatecart",
+                    method : "POST",
+                    data : {c_cart_id: c_cart_id ,barang_id: barang_id, qty: qty, barang_harjul:barang_harjul},
+                    success: function(data){
+                        // $('#detail_cart').html(data);
+                        // console.log(data);
+                        console.log(data);
+                        // if(data.message == 'Yes'){
+                        //     alert('Yes');
+                        // }else{
+                        //     alert('noo');
+                        // }
+                    }
+                });
+                window.location.reload();
             });
-            window.location.reload();
         });
-    });
-</script>
+    </script>
 </body>
 
 

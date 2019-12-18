@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row">
             <h4 class="text-capitalize text--center">L o g i n</h4>
-                                <?= $this->session->flashdata('pesan'); ?>
+            <?= $this->session->flashdata('pesan'); ?>
             <?= $this->session->flashdata('messagesuccess'); ?>
             <?= $this->session->flashdata('message'); ?>
             <?= $this->session->flashdata('messageforgot'); ?>

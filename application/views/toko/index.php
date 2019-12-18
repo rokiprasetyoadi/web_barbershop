@@ -79,8 +79,8 @@
       </div>
           <!-- Product -->
           <div class="col-xs-12 col-sm-6 col-md-4 product-item">
-            <?php echo form_open('toko/cart/add'); ?>
-            <?php foreach ($barang as $b): ?>\
+            <?php foreach ($barang as $b): ?>
+              <?php echo form_open('toko/cart/add'); ?>
               
             <div class="product--img">
               <img src="<?= base_url('./assets/upload/barang/').$b['barang_image'] ?>" alt="Product" />
@@ -91,6 +91,7 @@
                   <input type="hidden" name="barang_harjul" value="<?php echo $b['barang_harjul']; ?>" />
                   <input type="hidden" name="barang_image" value="<?php echo $b['barang_image']; ?>" />
                   <input type="hidden" name="qty" value="1" />
+                  <input type="hidden" name="c_cart_id" value="<?php echo $carts['cart_id']; ?>" />
                   <?php echo form_hidden('customers_id', $customers['customers_id']); ?>
                   <?php echo form_hidden('email_tmp', $customers['customers_email']); ?>
                   <?php echo form_hidden('barang_stok', $b['barang_stok']); ?>
@@ -113,9 +114,10 @@
               </div>
               <!-- .product-price end -->
             </div>
+            <?php echo form_close(); ?>
+
             <!-- .product-bio end -->
             <?php endforeach ?>
-            <?php echo form_close(); ?>
           </div>
           <!-- .product end -->
 

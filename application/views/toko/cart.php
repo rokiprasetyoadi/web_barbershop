@@ -42,18 +42,21 @@
                                 <th></th>
                             </tr>
                         </thead>
+            
 
-                        <tbody id="detail_cart">
+                        <tbody>
+                            
                             <?php if (!$keranjang) {
-                           echo "<tr  ><td align='center' colspan='5'>
-                           <small class='small text-muted'>Kosong</small>
-                           </td></tr>"; $k =TRUE;
+                                
+                            echo "<tr  ><td align='center' colspan='5'>
+                            <small class='small text-muted'>Kosong</small>
+                            </td></tr>"; $k =TRUE;
                             } else{ ?>
+                                <?php echo form_hidden('c_detail_id', $keranjang[0]['c_detail_id']); ?>
                                 <?php  foreach ($keranjang as $item){ ?>
-                                    <?php echo form_hidden('cart_id[]', $item['cart_id']); ?>
                                     <?php echo form_hidden('barang_harjul', $item['barang_harjul']); ?>
                                     <?php echo form_hidden('barang_id', $item['barang_id']); ?>
-                                    <?php echo form_hidden('status_tmp[]', 1); ?>
+                                    <?php echo form_hidden('c_cart_id', $item['c_cart_id']); ?>
                                     <tr class="cart-product">
                                         <td></td>
                                         <td class="cart-product-item">
@@ -79,7 +82,7 @@
                                         <td class="cart-product-total"><?= rupiah($item['c_price']) ?></td>
                                         <td>
                                             <div class="cart-product-remove">
-                                                <a href="<?= base_url('toko/cart/delcart')."/".$item['cart_id']?>"><i class="lnr lnr-cross"></i></a>
+                                                <a href="<?= base_url('toko/cart/delcart')."/".$item['c_detail_id']?>"><i class="lnr lnr-cross"></i></a>
                                             </div>
                                         </td>
                                         <td></td>
@@ -97,17 +100,17 @@
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="cart-product-action">
-                    <?php if(!$keranjang): ?>
+                    <?php if(!$keranjang){ ?>
                     <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
                         Subtotal : <span class="">0</span>
                     </div>
                     <!-- .cart-total-amount end -->
-                    <?php else: ?>
+                    <?php }else{ ?>
                     <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
                         Subtotal : <span class=""><?= rupiah($tprice); ?>
                         <input type="hidden" id="anua" value="<?= $tprice ?>"></span>
                     </div>
-                    <?php endif ?>
+                    <?php } ?>
                 </div>
             </div>
             <!-- .col-md-6 end -->

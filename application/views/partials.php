@@ -324,18 +324,28 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.updatecart').click(function(e){
-            var cart_id    = $('input[name="cart_id[]"]').map(function (){return $(this).val();}).get()
+            var c_cart_id = $('input[name="c_cart_id"]').val();
             var barang_id = $('input[name="barang_id"]').map(function (){return $(this).val();}).get()
             var qty        = $('input[name="qty"]').map(function (){return $(this).val();}).get()
             var barang_harjul = $('input[name="barang_harjul"]').map(function (){return $(this).val();}).get()
+            // var c_detail_id = $('input[name="c_detail_id"]').val();
+
+
 
             e.preventDefault();
             $.ajax({
-                url : "<?php echo base_url();?>cart/updatecart",
+                url : "<?php echo base_url();?>toko/cart/updatecart",
                 method : "POST",
-                data : {cart_id: cart_id, barang_harjul: barang_harjul, qty: qty},
+                data : {c_cart_id: c_cart_id ,barang_id: barang_id, qty: qty, barang_harjul:barang_harjul},
                 success: function(data){
-                    $('#detail_cart').html(data);
+                    // $('#detail_cart').html(data);
+                    // console.log(data);
+                    console.log(data);
+                    // if(data.message == 'Yes'){
+                    //     alert('Yes');
+                    // }else{
+                    //     alert('noo');
+                    // }
                 }
             });
         });

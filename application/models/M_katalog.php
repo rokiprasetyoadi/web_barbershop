@@ -57,7 +57,7 @@ class M_katalog extends CI_Model {
     public function cartPrice(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
 		$this->db->select('c_price');
-        $c= $this->db->get('tbl_cart')->row_array();
+        $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
@@ -70,46 +70,44 @@ class M_katalog extends CI_Model {
     }
     public function cartIduser(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
-		$this->db->select('customers_id');
-        $c= $this->db->get('tbl_cart')->row_array();
+        $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
     public function cartSize(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
 		$this->db->select('size');
-        $c= $this->db->get('tbl_cart')->row_array();
+        $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
     public function cartQty(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
         $this->db->select('qty');
-        $c= $this->db->get('tbl_cart')->row_array();
+        $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
     public function cartQty2(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
-        $this->db->where('status_tmp', 0);
         $this->db->select('qty');
-        $c= $this->db->get('tbl_cart')->row_array();
+        $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
     public function cartIdproduct(){
         $this->db->where('barang_id',$this->input->post('barang_id'));
 		$this->db->select('barang_id');
-        $c= $this->db->get('tbl_cart')->row_array();
+        $c= $this->db->get('tbl_cart_detail')->row_array();
         $string = implode($c);
             return $string;
     }
     public function tssprice($idu){
     
-        $this->db->where('customers_id' ,$idu);
-        $this->db->where('status_tmp' ,0);
+        $this->db->where('c_cart_id' ,$idu);
         $this->db->where('barang_id',$this->input->post('barang_id'));
-        $this->db->from('tbl_cart');
+        $this->db->from('tbl_cart_detail');
+        
         $anu = $this->db->get()->num_rows();
         return $anu;
         }

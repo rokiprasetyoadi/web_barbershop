@@ -18,6 +18,7 @@ class Katalog extends CI_Controller
     {
         $data['customers'] = $this->db->get_where('customers',['customers_email'=> 
                         $this->session->userdata('email')])->row_array();
+        $data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
 		$data['kategori'] = $this->barang->getKategori();
         $data['barangs'] = $this->barang->getBarang();
         
@@ -65,6 +66,7 @@ class Katalog extends CI_Controller
     public function search(){
             $data['customers'] = $this->db->get_where('customers',['customers_email'=> 
                         $this->session->userdata('email')])->row_array();
+            $data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
             $data['kategori'] = $this->barang->getKategori();
             $data['barangs'] = $this->barang->getBarang();
             

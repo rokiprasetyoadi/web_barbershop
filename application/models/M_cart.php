@@ -1,31 +1,31 @@
- <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_cart extends CI_Model {
     
-    public function getcart($idu){
+    public function getcart($idc){
 
         $this->db->select('*');
         
-        $this->db->where('customers_id' ,$idu);
-        $this->db->where('status_tmp' ,0);
+        $this->db->where('cart_id' ,$idc);
     
-        $this->db->from('tbl_cart');
+        $this->db->from('tbl_cart_detail');
 
-        $this->db->join('tbl_barang', 'tbl_cart.barang_id = tbl_barang.barang_id', 'left');
+        $this->db->join('tbl_cart', 'tbl_cart_detail.c_cart_id = tbl_cart.cart_id', 'left');
+        $this->db->join('tbl_barang', 'tbl_cart_detail.barang_id = tbl_barang.barang_id', 'left');
+        
 
         $query = $this->db->get();
         return $query->result_array();
     }
 
-    public function get($id = null) 
+    public function getId_detail($cid) 
     {
-        $this->db->from('tbl_cart');
-        if($id != null) {
-            $this->db->where('cart_id', $id);
-        }
-        $query = $this->db->get();
-        return $query->result_array();;
+        $this->db->where('c_detail_id',$cid);
+		$this->db->select('c_detail_id');
+        $c= $this->db->get('tbl_cart_detail')->row_array();
+        $string = implode($c);
+            return $string;
     }
 
     public function idu($email_tmp){
@@ -36,11 +36,10 @@ class M_cart extends CI_Model {
             return $string;
     }
     
-    public function tprice($idu){
+    public function tprice($idc){
         $this->db->select_sum('c_price');
-    $this->db->where('customers_id' ,$idu);
-    $this->db->where('status_tmp' ,0);
-    $this->db->from('tbl_cart');
+    $this->db->where('c_cart_id' ,$idc);
+    $this->db->from('tbl_cart_detail');
     $anu = $this->db->get()->row_array();
     $string = implode($anu);
             return $string;
@@ -49,7 +48,6 @@ class M_cart extends CI_Model {
     public function tsprice($idu){
     
     $this->db->where('customers_id' ,$idu);
-    $this->db->where('status_tmp' ,0);
     $this->db->from('tbl_cart');
     $anu = $this->db->get()->num_rows();
     return $anu;
@@ -63,8 +61,8 @@ class M_cart extends CI_Model {
             return $string;
     }
     
-    public function pStock($temp_s){
-        $this->db->where('barang_id',$temp_s);
+    public function pStock($item){
+        $this->db->where('barang_id',$item);
 		$this->db->select('barang_stok');
         $c= $this->db->get('tbl_barang')->row_array();
         $string = implode($c);
@@ -88,7 +86,6 @@ class M_cart extends CI_Model {
 
     public function getcart1($idu){        
         $this->db->where('customers_id' ,$idu);
-        $this->db->where('status_tmp' ,0);
     
         $this->db->from('tbl_cart');
 

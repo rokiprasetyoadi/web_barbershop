@@ -50,13 +50,18 @@
     }
 
     public function prosesDaftarAkun()
-    {
+    {   
         $email = $this->input->post('email', true);
         $data = [
             'customers_nama' => $this->input->post('nama', true),
             'customers_email' => $email,
             'customers_password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
             'customers_status' => 0
+        ];
+        $this->db->insert('customers', $data);
+        $cid = $this->db->insert_id();
+        $data2 = [
+            'customers_id' => $cid
         ];
 
         $token = base64_encode(random_bytes(32));
@@ -67,7 +72,7 @@
         ];
 
         $this->_sendEmail($token, 'verify');
-        $this->db->insert('customers', $data);
+        $this->db->insert('tbl_cart', $data2);
         $this->db->insert('customers_token', $customers_token);
     }
 

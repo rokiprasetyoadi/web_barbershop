@@ -28,6 +28,7 @@
                 <form class="mb-0" action="<?= base_url('account/register') ?>" method="post" >
                     <div class="col-md-6">
                         <div class="row inline-block">
+                            <input type="hidden" name="cart_id">
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap:" value="<?= set_value('nama'); ?>" required>
                                 <?= form_error('nama', '<small class="text-danger pl-2">', '</small>'); ?>

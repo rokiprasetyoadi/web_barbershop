@@ -19,17 +19,15 @@ class Cart extends CI_Controller {
     public function index()
 	{	
 		$data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
+		$data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
 		$data['kategori'] = $this->mabar->getKategori();
         $data['barang'] = $this->mabar->getBarang();
-		$data['customers'] = $this->db->get_where('customers',['customers_email'=> 
-						$this->session->userdata('email')])->row_array();
 		$email_tmp = $this->session->userdata('email');
-		$idu = $this->cart->idu($email_tmp);
-		$data['tprice'] = $this->cart->tprice($idu);
+        $idu = $this->cart->idu($email_tmp);
+        $idc = $this->session->userdata('cart_id');
+		$data['tprice'] = $this->cart->tprice($idc);
 		
-		$data['keranjang'] = $this->cart->getcart($idu);
-		$data['keranjang1'] = $this->cart->get();
-        ;
+		$data['keranjang'] = $this->cart->getcart($idc);
 
         if ($data['customers']) {
 			
@@ -44,30 +42,32 @@ class Cart extends CI_Controller {
     public function add (){
 		$data['customers'] = $this->db->get_where('customers',['customers_email'=> 
 						$this->session->userdata('email')])->row_array();
-		$data['barang_id'] = $this->db->get_where('tbl_cart',['barang_id' => $this->input->post('barang_id')])->row_array();
-		$email_tmp = $this->session->userdata('email');
-		$idu = $this->cart->idu($email_tmp);
-		  $tsprice = $this->cart->tsprice($idu);
-		  $tssprice =$this->malog->tssprice($idu);
+		$data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
+		$data['barang_id'] = $this->db->get_where('tbl_cart_detail',['barang_id' => $this->input->post('barang_id')])->row_array();
+		$email_tmp = $this->session->userdata('id');
+		$idu = $this->session->userdata('cart_id');
+        $tsprice = $this->cart->tsprice($idu);
+        $tssprice =$this->malog->tssprice($idu);
 		
 		
  		if ($data['customers']) {
-            if ( $idu == $this->input->post('customers_id') && $this->input->post('qty')+$this->malog->cartQty2()<=$this->malog->pStock() && $tssprice>=1 ){
+        // print_r( $this->session->userdata('id') .' '. $this->input->post('c_cart_id').' ' .$this->input->post('qty')+$this->malog->cartQty2().' '.$this->malog->pStock().' ' . $tssprice );
+
+            if ( $idu == $this->input->post('c_cart_id') && $this->input->post('qty')+$this->malog->cartQty2()<=$this->malog->pStock() && $tssprice>=1 ){
                 $qty = $this->malog->CartQty();
                 $price = $this->malog->cartPrice();
-                $customers_id = $this->malog->cartIduser();
                 $array = [
                     'barang_id'=> $this->input->post('barang_id'),
                     'qty'     => $this->input->post('qty')+$qty,
                     'c_price'   => $this->input->post('barang_harjul') * $this->input->post('qty')+$price,
                     ];
+                    $this->db->where('c_cart_id',$this->session->userdata('cart_id'));
                     $this->db->where('barang_id',$array['barang_id']);
-                    $this->db->where('customers_id', $this->input->post('customers_id'));
-                    $this->db->where('status_tmp',0);
-                    $this->db->update('tbl_cart',$array);
+                    $this->db->update('tbl_cart_detail',$array);
                     redirect('toko/cart');
+                print_r($array);
             }
-            elseif ( $idu == $this->input->post('barang_id') && $this->input->post('qty')+$this->malog->cartQty2()>$this->malog->pStock() ){
+            elseif ( $this->session->userdata('id') == $this->input->post('barang_id') && $this->input->post('qty')+$this->malog->cartQty2()>$this->malog->pStock() ){
                 $this->session->set_flashdata('message', 'Jumlah melebihi stock');
 
                 // redirect('keranjang');
@@ -76,14 +76,13 @@ class Cart extends CI_Controller {
             elseif($tssprice<=0){
                 
                 $array = [
+                    'c_cart_id'=> $this->session->userdata('cart_id'),
                     'barang_id'=> $this->input->post('barang_id'),
-                    'customers_id' => $this->input->post('customers_id'),
                     'qty'     => $this->input->post('qty'),
                     'c_price'   => $this->input->post('barang_harjul') * $this->input->post('qty')
-                    
                     ];
-                    $this->db->where('status_tmp',0);
-                    $this->db->insert('tbl_cart',$array);
+                    // print_r($array);
+                    $this->db->insert('tbl_cart_detail',$array);
                     redirect('toko/cart');
             }
  		}
@@ -96,38 +95,119 @@ class Cart extends CI_Controller {
     }
     
     public function delcart($id){
-        $this->db->where('cart_id', $id);
-        $del = $this->db->delete('tbl_cart');
+        $this->db->where('c_detail_id', $id);
+        $del = $this->db->delete('tbl_cart_detail');
         if ($del) {
             redirect('toko/cart');
         } 
     }
 
 	public function updatecart(){
+ 
+        $c_cart_id = $this->input->post('c_cart_id');
+        $barang_id = $this->input->post('barang_id');
+        $qty = $this->input->post('qty');
+        $barang_harjul = $this->input->post('barang_harjul');
 
-        $price = $this->cart->pPrice();
-        $temp_s = $this->input->post('barang_id');
-        $stock = $this->cart->pStock($temp_s);
-        
-        foreach ($stock as $s) {
-            $stock[] = $s;
+        $stoknya;
+        foreach ($barang_id as $item) {
+            
+            $stoknya[] = $this->cart->pStock($item);  
+        }
+
+        $barang;
+        $no_lagi = 0;
+
+        foreach ($barang_id as $item) {
+            $barang[] = [
+                'c_cart_id' => $c_cart_id,
+                'barang_id' => $item,
+                'qty' => $qty[$no_lagi],
+                'barang_harjul' => $barang_harjul[$no_lagi]
+            ];
+            $no_lagi++;
+        }
+
+
+
+        $mana_outstok;
+        $no = 0;
+        foreach ($barang as $item) {
+            if($item['qty'] > $stoknya[$no]){
+                $mana_outstok[] = $item['barang_id'];
+            } else{
+                $mana_outstok = '';
+            } 
+            $no++;
         }
         
-		if ($this->input->post('qty')>$s) {
-			$this->session->set_flashdata('message', 'Jumlah melebihi stock');
-            redirect('toko/cart');
-		}else{
-			$data = [
-                'cart_id' => $this->input->post('cart_id'),
-                'barang_id' => $temp_s,
-                'c_price' => $this->input->post('qty') * $this->input->post('barang_harjul'),
-                'qty' => $this->input->post('qty')
-			];
-            $this->db->where('cart_id', $this->input->post('cart_id'));
-            $this->db->update('tbl_cart', $data);
-	
-			redirect('toko/cart');
-		}
+
+        $berhasil = true;
+        if($mana_outstok <> ''){
+            // Jika Outstok
+        } 
+
+
+        foreach ($barang as $item) {
+            $data = [
+                'c_price' => $item['qty'] * $item['barang_harjul'],
+                'qty' => $item['qty']
+            ];            
+            
+            // $cid = implode($c_cart_id);
+            $where = [
+                'c_cart_id' => $c_cart_id,
+                'barang_id' => $item['barang_id']
+            ];
+            
+            $this->db->where($where);
+            $this->db->update('tbl_cart_detail', $data);               
+        } 
+    //     $data = [
+    //         'barang_id' => $barang[0]['barang_id'],
+    //         'c_price' => $barang[0]['qty'] * $barang[0]['barang_harjul'],
+    //         'qty' => $barang[0]['qty']
+    // ];          
+    //     $this->db->where('cart_id', $cart_id);
+    //     $pesan = 'berhasil';
+    //     if(!$this->db->update('tbl_cart', $data)){
+    //         $pesan = 'gagal';
+    //     } 
+
+          
+
+
+        
+
+
+
+        
+
+        // foreach ($stock as $s) {
+        //     $stock[] = $s;
+        // }
+        
+		// if ($this->input->post('qty')>$s) {
+		// 	$this->session->set_flashdata('message', 'Jumlah melebihi stock');
+        //     // redirect('toko/cart');
+        //     $message = 'No';
+        //     $data  =array( 'message' => $message);
+        //     echo json_encode($data);
+		// }else{
+		// 	$data = [
+        //         // 'cart_id' => $this->input->post('cart_id'),
+        //         // 'barang_id' => $temp_s,
+        //         'c_price' => $this->input->post('qty') * $this->input->post('barang_harjul'),
+        //         'qty' => $this->input->post('qty')
+		// 	];
+        //     $this->db->where('cart_id', $this->input->post('cart_id'));
+        //     $this->db->update('tbl_cart', $data);
+            
+        //     $message = 'Yes';
+        //     $data  =array( 'message' => $message);
+        //     echo json_encode($data);
+			// redirect('toko/cart');
+		
     }
 
     public function transaksi(){

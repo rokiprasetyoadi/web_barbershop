@@ -114,16 +114,11 @@
               </div>
               <!-- .product-price end -->
             </div>
-            <?php echo form_close(); ?>
 
             <!-- .product-bio end -->
-<<<<<<< HEAD
-            <?php endforeach ?>
-=======
             <?php echo form_close(); ?>
             <?php endforeach ?>
             
->>>>>>> d609bc3e7260bfadbf47b54a41eef57bfa69ea44
           </div>
           <!-- .product end -->
 

@@ -39,6 +39,14 @@ class Laporan_penjualan extends CI_Controller {
         $this->temp->load('admin/print/partials.html', 'admin/print/laporan_penjualan.html', $data);
    }
 
+   public function printdtl($id)
+    {
+        $where = array('jual_nofak' => $id);
+        $data['dtl'] = $this->M_laporan_penjualan->dtl($id);
+        $data['detail']=$this->M_laporan_penjualan->detail($where,'tbl_penjualan')->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/laporan_penjualan_dtl.html', $data);
+   }
+
 }
 
 /* End of file Controllername.php */

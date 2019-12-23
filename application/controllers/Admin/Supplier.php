@@ -69,9 +69,12 @@ class Supplier extends CI_Controller {
         redirect('admin/supplier');
    }
 
+   public function print()
+    {
+        $data['supplier']=$this->M_supplier->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/supplier.html', $data);
+   }
     
-
-
 }
 
 /* End of file Controllername.php */

@@ -79,6 +79,12 @@ class Barang_masuk extends CI_Controller {
         redirect('admin/barang_masuk');
    }
 
+   public function print()
+    {
+        $data['brgmasuk']=$this->M_barang_masuk->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/barang_masuk.html', $data);
+   }
+
 }
 
 /* End of file Controllername.php */

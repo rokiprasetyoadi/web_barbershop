@@ -33,6 +33,12 @@ class Penjualan extends CI_Controller {
         redirect('admin/penjualan');
    }
 
+   public function print()
+    {
+        $data['penjualan']=$this->M_penjualan->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/penjualan.html', $data);
+   }
+
 }
 
 /* End of file Controllername.php */

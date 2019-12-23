@@ -70,8 +70,11 @@ class Kategori extends CI_Controller {
         redirect('admin/kategori');
    }
 
-    
-
+   public function print()
+    {
+        $data['kategori']=$this->M_kategori->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/kategori.html', $data);
+   }
 
 }
 

@@ -6,26 +6,6 @@
 				'field'=>'jual_nofak',
 				'label'=>'ID Penjualan',
 				'rules'=>'required'
-			],
-			[ 
-				'field'=>'jual_kurir',
-				'label'=>'Kurir',
-				'rules'=>'required'
-			],
-			[ 
-				'field'=>'jual_layanan',
-				'label'=>'Layanan',
-				'rules'=>'required'
-			],
-			[ 
-				'field'=>'jual_biaya',
-				'label'=>'Biaya',
-				'rules'=>'required'
-			],
-			[ 
-				'field'=>'jual_resi',
-				'label'=>'RESI',
-				'rules'=>'required'
 			]
 			];
 		$this->form_validation->set_rules($data);

@@ -71,6 +71,12 @@ class Barang extends CI_Controller {
         redirect('admin/barang');
    }
 
+   public function print()
+    {
+        $data['tbl_barang']=$this->M_barang->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/barang.html', $data);
+   }
+
 }
 
 /* End of file Controllername.php */

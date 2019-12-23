@@ -33,6 +33,12 @@ class Laporan_penjualan extends CI_Controller {
         redirect('admin/laporan_penjualan');
    }
 
+   public function print()
+    {
+        $data['laporan']=$this->M_laporan_penjualan->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/laporan_penjualan.html', $data);
+   }
+
 }
 
 /* End of file Controllername.php */

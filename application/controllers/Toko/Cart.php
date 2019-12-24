@@ -67,7 +67,7 @@ class Cart extends CI_Controller
                 $this->session->set_flashdata('messtok', 'Jumlah melebihi stock');
 
                 // redirect('keranjang');
-                redirect('toko');
+                echo "<script type='text/javascript'>history.go(-1);</script>";
             } elseif ($tssprice <= 0) {
 
                 $array = [

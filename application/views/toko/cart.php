@@ -1,27 +1,27 @@
 <!-- Page Title #1
 ============================================= -->
 <section id="page-title" class="page-title bg-overlay bg-overlay-dark bg-parallax">
-  <div class="bg-section">
-    <img src="<?= base_url() ?>assets/web_profile/images/page-titles/3.jpg" alt="Background" />
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-        <div class="title1">
-
-      </div>
-      <!-- .col-md-12 end -->
+    <div class="bg-section">
+        <img src="<?= base_url() ?>assets/web_profile/images/page-titles/3.jpg" alt="Background" />
     </div>
-    <!-- .row end -->
-  </div>
-  <!-- .container end -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                <div class="title1">
+
+                </div>
+                <!-- .col-md-12 end -->
+            </div>
+            <!-- .row end -->
+        </div>
+        <!-- .container end -->
 </section>
 
 <!-- Shop Cart
 ============================================= -->
 <section id="shopcart" class="shop shop-cart bg-white">
     <div class="container">
-        <?= form_open('toko/chekout');?>
+        <?= form_open('toko/chekout'); ?>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="shop-cart-heading">
@@ -42,18 +42,19 @@
                                 <th></th>
                             </tr>
                         </thead>
-            
+
 
                         <tbody>
-                            
+
                             <?php if (!$keranjang) {
-                                
-                            echo "<tr  ><td align='center' colspan='5'>
-                            <small class='small text-muted'>Kosong</small>
-                            </td></tr>"; $k =TRUE;
-                            } else{ ?>
+
+                                echo "<td><td align='center' colspan='5'>
+                                <small class='small text-muted'>Kosong</small>
+                                </td></td>";
+                                $k = TRUE;
+                            } else { ?>
                                 <?php echo form_hidden('c_detail_id', $keranjang[0]['c_detail_id']); ?>
-                                <?php  foreach ($keranjang as $item){ ?>
+                                <?php foreach ($keranjang as $item) { ?>
                                     <?php echo form_hidden('barang_harjul', $item['barang_harjul']); ?>
                                     <?php echo form_hidden('barang_id', $item['barang_id']); ?>
                                     <?php echo form_hidden('c_cart_id', $item['c_cart_id']); ?>
@@ -63,7 +64,7 @@
 
                                             <div class="cart-product-img">
                                                 <a href="#">
-                                                    <img src="<?= base_url('./assets/upload/barang/').$item['barang_image'] ?>" alt="product"/>
+                                                    <img src="<?= base_url('./assets/upload/barang/') . $item['barang_image'] ?>" alt="product" />
                                                 </a>
                                             </div>
 
@@ -82,13 +83,13 @@
                                         <td class="cart-product-total"><?= rupiah($item['c_price']) ?></td>
                                         <td>
                                             <div class="cart-product-remove">
-                                                <a href="<?= base_url('toko/cart/delcart')."/".$item['c_detail_id']?>"><i class="lnr lnr-cross"></i></a>
+                                                <a href="<?= base_url('toko/cart/delcart') . "/" . $item['c_detail_id'] ?>"><i class="lnr lnr-cross"></i></a>
                                             </div>
                                         </td>
                                         <td></td>
                                     </tr>
-                                <?php };?>
-                            <?php }?>
+                                <?php }; ?>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -100,16 +101,16 @@
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="cart-product-action">
-                    <?php if(!$keranjang){ ?>
-                    <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
-                        Subtotal : <span class="">0</span>
-                    </div>
-                    <!-- .cart-total-amount end -->
-                    <?php }else{ ?>
-                    <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
-                        Subtotal : <span class=""><?= rupiah($tprice); ?>
-                        <input type="hidden" id="anua" value="<?= $tprice ?>"></span>
-                    </div>
+                    <?php if (!$keranjang) { ?>
+                        <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
+                            Subtotal : <span class="">0</span>
+                        </div>
+                        <!-- .cart-total-amount end -->
+                    <?php } else { ?>
+                        <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
+                            Subtotal : <span class=""><?= rupiah($tprice); ?>
+                                <input type="hidden" id="anua" value="<?= $tprice ?>"></span>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
@@ -118,14 +119,14 @@
         <!-- .row end -->
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <a class="btn btn--secondary btn--rounded pull-left" href="<?= base_url() ?>toko/cart/delcart/all" style="margin-right: 10px;">Delete Cart</a>
-                <button class="updatecart btn btn--secondary btn--rounded pull-left" value="refresh" >Update</button>
+                <a class="btn btn--secondary btn--rounded pull-left" href="<?= base_url() ?>toko/cart/delcart/all" style="margin-right: 10px;">Delete Items</a>
+                <button class="updatecart btn btn--secondary btn--rounded pull-left" value="refresh">Update</button>
                 <button class="btn btn--secondary btn--rounded pull-right" type="submit">Checkout</button>
             </div>
         </div>
-        <?= 
+        <?=
             form_close();
-            ?>
+        ?>
     </div>
     <!-- .container end -->
 </section>

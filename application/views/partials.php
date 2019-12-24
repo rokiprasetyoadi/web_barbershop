@@ -65,7 +65,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 text-right text-center-xs">
                                 <span class="top--login">
                                     <?php if ($this->session->userdata('email')) { ?>
-                                        <a href='<?= base_url(); ?>view/account'><span id="accountMenuName">
+                                        <a href='<?= base_url(); ?>account'><span id="accountMenuName">
                                                 <span>My Account</span>
                                                 <i class='lnr lnr-user'></i>
                                             </span></a>
@@ -194,7 +194,7 @@
                                                             <h5 class="product-title"><?= $item['barang_nama'] ?></h5>
                                                             <p class="product-price"><?= $item['qty'] ?> x <?= rupiah($item['barang_harjul']) ?></p>
                                                         </div>
-                                                        <a class="cart-cancel" href="">cancel</a>
+                                                        <a class="cart-cancel" href="<?= base_url('toko/cart/delcart') . "/" . $item['c_detail_id'] ?>">cancel</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -315,6 +315,7 @@
     <!-- #wrapper end -->
     <!-- Footer Scripts
 ============================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
@@ -361,20 +362,7 @@
                         barang_harjul: barang_harjul
                     },
                     success: function(data) {
-                        if (data.message) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Something went wrong!',
-                            })
-                        } else {
-                            console.log(data);
-                        }
-                        // if(data.message == 'Yes'){
-                        //     alert('Yes');
-                        // }else{
-                        //     alert('noo');
-                        // }
+                        console.log(data);
                     }
                 });
                 // window.location.reload();

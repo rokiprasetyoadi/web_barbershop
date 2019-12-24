@@ -4,7 +4,7 @@
                 <section class="panel">
                     <header class="panel-heading">
                         Data Barang
-                        <span class="tools pull-right">
+                        <span class="tools pull-right" hidden>
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-cog"></a>
                             <a href="javascript:;" class="fa fa-times"></a>
@@ -13,18 +13,6 @@
                     <div class="panel-body">
                         <div class="adv-table editable-table ">
                             <div class="clearfix">
-                                <div class="btn-group">
-                                    <a class="btn btn-primary" href="<?= site_url() ?>admin/barang/add">
-                                        Add New &nbsp;<i class="fa fa-plus"></i>
-                                    </a>
-                                </div>
-                                <?= $this->session->flashdata('pesan'); ?>
-                                <div class="btn-group pull-right">
-                                    <a class="btn btn-info" href="<?= site_url() ?>admin/barang/print">
-                                        Print &nbsp;<i class="fa fa-print"></i>
-                                    </a>
-                                </div>
-                            </div>
                             <div class="space15"></div>
                             <table class="table table-striped table-hover table-bordered" id="editable-sample">
                                 <thead>
@@ -36,8 +24,6 @@
                                     <th>Stok</th>
                                     <th>Tanggal Input</th>
                                     <th>Tanggal Update</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -50,8 +36,6 @@
                                     <td><?php echo $data->barang_stok; ?></td>
                                     <td><?php echo $data->barang_tgl_input; ?></td>
                                     <td><?php echo $data->barang_tgl_update; ?></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $data->barang_id ?>">Edit</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>')" href="#!">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

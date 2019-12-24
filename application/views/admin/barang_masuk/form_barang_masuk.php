@@ -25,7 +25,7 @@
                                     <div class="form-group ">
                                         <label for="brgmasuk_supplier_id" class="control-label col-lg-3">Supplier</label>
                                         <div class="col-lg-6">
-                                            <select name="brgmasuk_supplier_id">
+                                            <select name="brgmasuk_supplier_id" required>
                                                 <option value="">-- PILIH SUPPLIER --</option>
                                                 <?php foreach($supplier as $k):?>
                                               <option value="<?= $k['supplier_id']; ?>"><?= $k['supplier_nama']; ?></option>
@@ -40,12 +40,7 @@
                                             <input class="form-control " id="brgmasuk_keterangan" name="brgmasuk_keterangan" type="text" />
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label class="control-label col-lg-3"></label>
-                                        <div class="col-lg-6">
-                                        <label for="keterangan" style="color: red;">*Supplier tidak terdaftar? Silahkan Tambah Data Supplier</label>
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">

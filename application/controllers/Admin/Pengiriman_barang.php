@@ -50,6 +50,12 @@ class Pengiriman_barang extends CI_Controller {
         redirect('admin/pengiriman_barang');
    }
 
+   public function print()
+    {
+        $data['pengiriman']=$this->M_pengiriman_barang->getAll()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/pengiriman_barang.html', $data);
+   }
+
 }
 
 /* End of file Controllername.php */

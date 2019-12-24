@@ -49,11 +49,6 @@
 				'field'=>'brgmasuk_supplier_id',
 				'label'=>'Supplier Id',
 				'rules'=>'required'
-			],
-			[ 	
-				'field'=>'brgmasuk_keterangan',
-				'label'=>'Keterangan',
-				'rules'=>'required'
 			]
 			];
 		$this->form_validation->set_rules($data);
@@ -69,11 +64,6 @@
 			[ 	
 				'field'=>'brgmasuk_supplier_id',
 				'label'=>'Supplier Id',
-				'rules'=>'required'
-			],
-			[ 	
-				'field'=>'brgmasuk_keterangan',
-				'label'=>'Keterangan',
 				'rules'=>'required'
 			]
 			];

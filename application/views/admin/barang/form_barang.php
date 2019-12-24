@@ -31,6 +31,7 @@
                                               <option value="<?= $k['kategori_id']; ?>"><?= $k['kategori_nama']; ?></option>
                                               <?php endforeach;?>
                                             </select>
+                                            <a style="margin-left: 15px;" href="<?= site_url() ?>admin/kategori" class="btn btn-success" type="cancel">Tambah Kategori</a>
                                         </div>
                                     </div>
                                     <div class="form-group ">

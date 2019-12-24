@@ -14,13 +14,9 @@
                         <div class="adv-table editable-table ">
                             <div class="clearfix">
                                 <div class="btn-group pull-right">
-                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="#">Print</a></li>
-                                        <li><a href="#">Save as PDF</a></li>
-                                        <li><a href="#">Export to Excel</a></li>
-                                    </ul>
+                                    <a class="btn btn-info" href="<?= site_url() ?>admin/pengiriman_barang/print">
+                                        Print &nbsp;<i class="fa fa-print"></i>
+                                    </a>
                                 </div>
                             </div>
                             <div class="space15"></div>

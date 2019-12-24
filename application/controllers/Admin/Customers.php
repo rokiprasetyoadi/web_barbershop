@@ -25,8 +25,11 @@ class Customers extends CI_Controller {
         redirect('admin/customers');
    }
 
-    
-
+   public function print()
+    {
+        $data['customers']=$this->M_customers->getAll();
+        $this->temp->load('admin/print/partials.html', 'admin/print/customers.html', $data);
+   }
 
 }
 

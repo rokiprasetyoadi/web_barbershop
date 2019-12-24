@@ -50,9 +50,12 @@ class Pembayaran extends CI_Controller {
         redirect('admin/pembayaran');
    }
 
+   public function print()
+    {
+        $data['pembayaran']=$this->M_pembayaran->getAllData()->result();
+        $this->temp->load('admin/print/partials.html', 'admin/print/pembayaran.html', $data);
+   }
     
-
-
 }
 
 /* End of file Controllername.php */

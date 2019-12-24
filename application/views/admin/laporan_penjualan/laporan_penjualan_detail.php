@@ -158,8 +158,8 @@
                         </div>
 
                         <div class="text-center invoice-btn">
-                            <a class="btn btn-success btn-lg"><i class="fa fa-check"></i> Submit Invoice </a>
-                            <a href="#" target="_blank" class="btn btn-primary btn-lg"><i class="fa fa-print"></i> Print </a>
+                            <a href="<?= site_url() ?>admin/laporan_penjualan" class="btn btn-default btn-lg"><i class="fa fa-undo"></i> Kembali </a>
+                            <a href="<?= site_url() ?>admin/laporan_penjualan/printdtl/<?= $dtl['jual_nofak'] ?>" class="btn btn-primary btn-lg"><i class="fa fa-print"></i> Print </a>
                         </div>
 
                     </div>

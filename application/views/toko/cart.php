@@ -26,6 +26,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="shop-cart-heading">
                     You have <span class="total-item"></span> items
+                    <?= $this->session->flashdata('messcart'); ?>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

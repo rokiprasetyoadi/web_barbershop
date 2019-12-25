@@ -63,8 +63,8 @@ class Cart extends CI_Controller
                 $this->db->where('barang_id', $array['barang_id']);
                 $this->db->update('tbl_cart_detail', $array);
                 redirect('toko/cart');
-            } elseif ($this->session->userdata('id') == $this->input->post('barang_id') && $this->input->post('qty') + $this->malog->cartQty2() > $this->malog->pStock()) {
-                $this->session->set_flashdata('message', 'Jumlah melebihi stock');
+            } elseif ($idu == $this->input->post('c_cart_id') && $this->input->post('qty') + $this->malog->cartQty2() > $this->malog->pStock()) {
+                $this->session->set_flashdata('messtok', 'Jumlah melebihi stock');
 
                 // redirect('keranjang');
                 echo "<script type='text/javascript'>history.go(-1);</script>";
@@ -81,8 +81,8 @@ class Cart extends CI_Controller
                 redirect('toko/cart');
             }
         } else {
-            $this->session->set_flashdata('message', 'Anda Belum Login');
-            redirect('/');
+            $this->session->set_flashdata('messcart', 'You must login first');
+            redirect('login');
         }
     }
 
@@ -121,13 +121,11 @@ class Cart extends CI_Controller
         $qty = $this->input->post('qty');
         $barang_harjul = $this->input->post('barang_harjul');
 
-        $stoknya;
         foreach ($barang_id as $item) {
 
             $stoknya[] = $this->cart->pStock($item);
         }
 
-        $barang;
         $no_lagi = 0;
 
         foreach ($barang_id as $item) {
@@ -142,7 +140,6 @@ class Cart extends CI_Controller
 
 
 
-        $mana_outstok;
         $no = 0;
         foreach ($barang as $item) {
             if ($item['qty'] > $stoknya[$no]) {
@@ -151,22 +148,19 @@ class Cart extends CI_Controller
                 $mana_outstok = '';
             }
         }
-        print_r($item);
-
 
         $berhasil = true;
         if ($mana_outstok <> '') {
-            $pesan = 'ga cukup';
-            $message = [
-                'yes' => $pesan
-            ];
-            echo json_encode($message);
+            print_r($mana_outstok);
+            return;
+            //
         } else {
             foreach ($barang as $item) {
                 $data = [
                     'c_price' => $item['qty'] * $item['barang_harjul'],
                     'qty' => $item['qty']
                 ];
+                $message = 'Yes';
 
                 // $cid = implode($c_cart_id);
                 $where = [

@@ -64,7 +64,7 @@ class Cart extends CI_Controller
                 $this->db->update('tbl_cart_detail', $array);
                 redirect('toko/cart');
             } elseif ($idu == $this->input->post('c_cart_id') && $this->input->post('qty') + $this->malog->cartQty2() > $this->malog->pStock()) {
-                $this->session->set_flashdata('messtok', 'Jumlah melebihi stock');
+                $this->session->set_flashdata('messtok', 'Insufficient Stock');
 
                 // redirect('keranjang');
                 echo "<script type='text/javascript'>history.go(-1);</script>";
@@ -141,17 +141,17 @@ class Cart extends CI_Controller
 
 
         $no = 0;
+        $mana_outstok = [];
         foreach ($barang as $item) {
             if ($item['qty'] > $stoknya[$no]) {
-                $mana_outstok[] = $item['barang_id'];
-            } else {
-                $mana_outstok = '';
+                array_push($mana_outstok, $item['barang_id']);
             }
         }
 
         $berhasil = true;
-        if ($mana_outstok <> '') {
-            print_r($mana_outstok);
+        if (count($mana_outstok) > 0) {
+            $kirim = ['code' => 2, 'id_outstok' => $mana_outstok, 'pesan' => 'gagal'];
+            print_r(json_encode($kirim));
             return;
             //
         } else {
@@ -171,7 +171,11 @@ class Cart extends CI_Controller
                 $this->db->where($where);
                 $this->db->update('tbl_cart_detail', $data);
             }
+
+            $kirim = ['code' => 1, 'pesan' => 'berhasil'];
+            print_r(json_encode($kirim));
         }
+
 
 
         //     $data = [

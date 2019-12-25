@@ -57,7 +57,7 @@
                                 <?php echo form_hidden('c_detail_id', $keranjang[0]['c_detail_id']); ?>
                                 <?php foreach ($keranjang as $item) { ?>
                                     <?php echo form_hidden('barang_harjul', $item['barang_harjul']); ?>
-                                    <?php echo form_hidden('barang_id', $item['barang_id']); ?>
+
                                     <?php echo form_hidden('c_cart_id', $item['c_cart_id']); ?>
                                     <tr class="cart-product">
                                         <td></td>
@@ -71,6 +71,9 @@
 
                                             <div class="cart-product-name">
                                                 <h6><a href="#"><?= $item['barang_nama'] ?></a></h6>
+                                            </div>
+                                            <?php echo form_hidden('barang_id', $item['barang_id']); ?>
+                                            <div id="outstok" class="pesan-stok-<?= $item['barang_id'] ?>">
                                             </div>
                                         </td>
                                         <td class="price cart-product-price"><?= rupiah($item['barang_harjul']) ?></td>
@@ -87,6 +90,9 @@
                                                 <a href="<?= base_url('toko/cart/delcart') . "/" . $item['c_detail_id'] ?>"><i class="lnr lnr-cross"></i></a>
                                             </div>
                                         </td>
+
+
+
                                         <td></td>
                                     </tr>
                                 <?php }; ?>

@@ -103,6 +103,7 @@
               </div>
               <!-- .product-img end -->
               <div class="product--content">
+                <?= $this->session->flashdata('messtok'); ?>
                 <div class="product--title">
                   <h3><a href="<?= strtolower($b['barang_nama']) ?>"><?= $b['barang_nama'] ?></a></h3>
                 </div>
@@ -112,9 +113,6 @@
                 </div>
                 <div class="product--title">
                   <span>Stok : <?= $b['barang_stok'] ?></span>
-                  <?php if ($this->input->post('barang_id')) {
-                    echo $this->session->flashdata('messtok');
-                  } ?>
                 </div>
                 <!-- .product-price end -->
               </div>

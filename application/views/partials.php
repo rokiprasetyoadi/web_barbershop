@@ -355,6 +355,7 @@
                 $.ajax({
                     url: "<?php echo base_url(); ?>toko/cart/updatecart",
                     method: "POST",
+                    dataType: 'json',
                     data: {
                         c_cart_id: c_cart_id,
                         barang_id: barang_id,
@@ -362,7 +363,19 @@
                         barang_harjul: barang_harjul
                     },
                     success: function(data) {
-                        console.log(data);
+
+                        if (data.code === 2) {
+                            $('#outstok').html('');
+                            data.id_outstok.forEach(item => {
+                                const div_error = `.pesan-stok-${item}`;
+                                $(`${div_error}`).html('<p style="color:red;font-size:15px;">Out Of Stock</p>');
+                            });
+
+                            return;
+                        }
+
+
+                        location.reload();
                     }
                 });
                 // window.location.reload();

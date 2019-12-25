@@ -8,6 +8,10 @@ class Register extends CI_Controller {
 	}
 
 	public function index() {
+		if ($this->session->userdata('email')) {
+			redirect('home');
+		}
+
 		$this->auth->rulesR(); //memanggil method rule daftar akun
 
 		if ($this->form_validation->run()==false) {

@@ -57,3 +57,4 @@ $route['translate_uri_dashes'] = false;
 $route['login'] = 'account/login';
 $route['logout'] = 'account/logout';
 $route['register'] = 'account/register';
+$route['myaccount'] = 'account/myaccount';

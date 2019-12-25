@@ -1,6 +1,14 @@
 <?php
 	class M_login extends CI_Model{
-		function cek_login($email,$password)
+
+      //Login Admin
+      function cek_login($table,$where){        
+                  return $this->db->get_where($table,$where);
+            }
+
+      //Login Member
+
+	function cek_login_member($email,$password)
 		{
 			// Get data user yang mempunyai username == $username dan active == 1
       $this->db->where('customers_email', $email);

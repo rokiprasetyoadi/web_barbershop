@@ -89,6 +89,7 @@
                     </div>
                 </div>
             </div>
+            <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>"></div>
             <nav id="primary-menu" class="navbar navbar-fixed-top">
                 <div class="container">
                     <div class="">
@@ -315,7 +316,6 @@
     <!-- #wrapper end -->
     <!-- Footer Scripts
 ============================================= -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
@@ -382,6 +382,15 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        const flashData = $('.flash-data').data('flashdata');
+        if (flashData == 'Out Of Stock') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: flashData + ' !'
+            })
+        }
     </script>
 
 

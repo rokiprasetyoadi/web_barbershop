@@ -103,7 +103,7 @@
               </div>
               <!-- .product-img end -->
               <div class="product--content">
-                <?= $this->session->flashdata('messtok'); ?>
+                <!-- <?= $this->session->flashdata('messtok'); ?> -->
                 <div class="product--title">
                   <h3><a href="<?= strtolower($b['barang_nama']) ?>"><?= $b['barang_nama'] ?></a></h3>
                 </div>

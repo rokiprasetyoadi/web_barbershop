@@ -48,10 +48,14 @@
                         <tbody>
 
                             <?php if (!$keranjang) {
-
-                                echo "<td><td align='center' colspan='5'>
-                                <small class='small text-muted'>Kosong</small>
-                                </td></td>";
+                                echo "
+                                <tr>
+                                    <td></td>
+                                    <td class='cart-product-item' align='center' colspan='5'>
+                                        <small class='small text-muted'>Kosong</small>
+                                    </td>
+                                    <td></td>
+                                </tr>";
                                 $k = TRUE;
                             } else { ?>
                                 <?php echo form_hidden('c_detail_id', $keranjang[0]['c_detail_id']); ?>

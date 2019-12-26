@@ -64,7 +64,7 @@ class Cart extends CI_Controller
                 $this->db->update('tbl_cart_detail', $array);
                 redirect('toko/cart');
             } elseif ($idu == $this->input->post('c_cart_id') && $this->input->post('qty') + $this->malog->cartQty2() > $this->malog->pStock()) {
-                $this->session->set_flashdata('messtok', 'Insufficient Stock');
+                $this->session->set_flashdata('message', 'Out Of Stock');
 
                 // redirect('keranjang');
                 echo "<script type='text/javascript'>history.go(-1);</script>";

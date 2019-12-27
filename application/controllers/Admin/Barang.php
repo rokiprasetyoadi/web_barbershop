@@ -16,6 +16,7 @@ class Barang extends CI_Controller {
     public function index()
     {
         $data['tbl_barang']=$this->M_barang->getAll()->result();
+        $data['stok_brg']=$this->M_barang->cekStok()->result();
         $this->temp->load('admin/partials', 'admin/barang/barang', $data);
     }
 

@@ -18,6 +18,16 @@
 		return $query;
 	}
 
+	public function cekStok()
+	{
+		$this->db->from('tbl_barang');
+		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
+		$this->db->where("(barang_stok <= barang_min_stok)");
+
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function getById($id)
 	{
 		return $this->db->get_where($this->_table, ["barang_id" => $id])->row();

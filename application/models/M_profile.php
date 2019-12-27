@@ -70,5 +70,19 @@
         return "default.jpg";
     }
 
+    public function cek_password($table,$where){        
+        return $this->db->get_where($table,$where);
+    }
+
+    public function editPassword()
+    {
+        $data = [
+            'admin_password' => htmlspecialchars(md5($this->input->post('admin_password1', true))),
+        ];
+
+        $this->db->where('admin_id', $this->input->post('admin_id'));
+        $this->db->update('admin', $data);
+    }
+
 }
 ?>

@@ -44,6 +44,28 @@ class Profile extends CI_Controller {
             }
         }
     }
+
+    public function gantiPass()
+    {
+        $this->temp->load('admin/partials', 'admin/profile/cek_pass');
+    }
+
+    public function edit_pass()
+    {
+        $admin_password = $this->input->post('admin_password');
+        $where = array(
+            'admin_password' => md5($admin_password)
+            );
+        $cek = $this->M_profile->cek_password("admin", $where)->row_array();
+        if ($cek > 0) {
+            $this->M_profile->editPassword($post);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Password Berhasil Diubah</div>');
+            redirect(base_url("admin/profile"));
+        } else {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Username / Password salah!</div>');
+            redirect('admin/profile/gantiPass');
+        }
+    }
     
 }
 

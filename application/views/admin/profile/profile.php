@@ -36,8 +36,9 @@
                                 </table>
                                 <div class="row" style="margin-top: 20px;">
                                 <a href="<?= site_url(); ?>admin/profile/edit/<?php echo $this->session->userdata('admin_id') ?>" class="btn btn-primary">Edit Profile</a>
-                                <a href="<?= site_url(); ?>admin/profile/ganti_pass/<?php echo $this->session->userdata('admin_id') ?>" class="btn btn-danger">Ganti Password</a>
+                                <a href="<?= site_url(); ?>admin/profile/gantiPass/" class="btn btn-danger">Ganti Password</a>
                                 </div>
+                                <?= $this->session->flashdata('pesan'); ?>
                            </div>
                        </div>
                        <div class="col-md-4">

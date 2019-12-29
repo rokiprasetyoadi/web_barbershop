@@ -241,6 +241,17 @@
 		return $query->result_array();
 	}
 
+	public function getBarangByDate()
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_barang');
+		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
+		$this->db->limit(4);
+		$this->db->order_by('barang_tgl_input', 'DESC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	public function getBarangById($b_id)
 	{
 		return $this->db->get_where('tbl_barang', ['barang_id' => $b_id])->result_array();

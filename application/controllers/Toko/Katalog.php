@@ -176,7 +176,7 @@ class Katalog extends CI_Controller
         $data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
         $data['kategori'] = $this->barang->getKategori();
         $data['p'] = $this->db->get_where('tbl_barang', ['barang_nama' => $id])->row_array();
-        $data['b'] = $this->barang->getBarang2($id);
+        $data['b'] = $this->barang->getBarangByDate();
         $data['keranjang'] = $this->cart->getcart($this->session->userdata('cart_id'));
         $data['tprice'] = $this->cart->tprice($this->session->userdata('cart_id'));
         $data['cat'] = $this->db->get('kategori')->result_array();

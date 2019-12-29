@@ -103,9 +103,8 @@
               </div>
               <!-- .product-img end -->
               <div class="product--content">
-                <!-- <?= $this->session->flashdata('messtok'); ?> -->
                 <div class="product--title">
-                  <h3><a href="<?= site_url('/toko/product/' . strtolower($b['barang_nama'])) ?>"><?= $b['barang_nama'] ?></a></h3>
+                  <h3><a href="<?= base_url('/toko/product/' . strtolower($b['barang_nama'])) ?>"><?= $b['barang_nama'] ?></a></h3>
                 </div>
                 <!-- .product-title end -->
                 <div class="product--price">

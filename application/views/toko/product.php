@@ -90,35 +90,47 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="product-related shop-categories">
                     <div class="product-related-title">
-                        <h5>Related Products</h5>
+                        <h5>New Products</h5>
                     </div>
-                    <div class="row">
 
-                        <!-- Product #1 -->
-                        <div class="col-xs-12 col-sm-6 col-md-3 product-item">
-                            <div class="product--img">
-                                <img src="assets/images/shop/grid/1.jpg" alt="Product" />
-                                <div class="product--hover">
-                                    <div class="product--action">
-                                        <a href="#">Add To Cart</a>
+                    <div class="row">
+                        <?php foreach ($b as $bnew) { ?>
+
+                            <!-- Product #1 -->
+                            <?php echo form_open('toko/cart/add'); ?>
+                            <div class="col-xs-12 col-sm-6 col-md-3 product-item">
+                                <div class="product--img">
+                                    <img src="<?= base_url('./assets/upload/barang/') . $bnew['barang_image'] ?>" alt="Product" />
+                                    <div class="product--hover">
+                                        <div class="product--action">
+                                            <input type="hidden" name="barang_id" value="<?php echo $bnew['barang_id']; ?>" />
+                                            <input type="hidden" name="barang_nama" value="<?php echo $bnew['barang_nama']; ?>" />
+                                            <input type="hidden" name="barang_harjul" value="<?php echo $bnew['barang_harjul']; ?>" />
+                                            <input type="hidden" name="barang_image" value="<?php echo $bnew['barang_image']; ?>" />
+                                            <input type="hidden" name="qty" value="1" />
+                                            <input type="hidden" name="c_cart_id" value="<?php echo $carts['cart_id']; ?>" />
+                                            <button type="submit">Add To Cart</button>
+                                        </div>
                                     </div>
+                                    <!-- .product-overlay end -->
                                 </div>
-                                <!-- .product-overlay end -->
+                                <!-- .product-img end -->
+                                <div class=" product--content">
+                                    <div class="product--title">
+                                        <h3><a href="<?= base_url('/toko/product/' . strtolower($bnew['barang_nama'])) ?>"><?= $bnew['barang_nama'] ?></a></h3>
+                                    </div>
+                                    <!-- .product-title end -->
+                                    <div class="product--price">
+                                        <span><?= rupiah($bnew['barang_harjul']) ?></span>
+                                    </div>
+                                    <!-- .product-price end -->
+                                </div>
+                                <!-- .product-bio end -->
                             </div>
-                            <!-- .product-img end -->
-                            <div class="product--content">
-                                <div class="product--title">
-                                    <h3><a href="#">Sharp Shear</a></h3>
-                                </div>
-                                <!-- .product-title end -->
-                                <div class="product--price">
-                                    <span>$35.00</span>
-                                </div>
-                                <!-- .product-price end -->
-                            </div>
-                            <!-- .product-bio end -->
-                        </div>
-                        <!-- .product end -->
+                            <!-- .product end -->
+                            <?php echo form_close(); ?>
+
+                        <?php } ?>
 
                     </div>
                     <!-- .row end -->

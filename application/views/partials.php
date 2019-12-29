@@ -388,7 +388,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: flashData + ' !'
+                text: flashData + ' !',
             })
         }
     </script>

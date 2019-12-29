@@ -51,11 +51,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['admin'] = 'admin/dashboard';
 $route['toko'] = 'toko/katalog';
+$route['toko/product/(:any)'] = 'toko/katalog/product/$1';
 $route['toko/category/(:num)'] = 'toko/katalog/category/$1';
-$route['default_controller'] = 'home';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = false;
 $route['login'] = 'account/login';
 $route['logout'] = 'account/logout';
 $route['register'] = 'account/register';
 $route['myaccount'] = 'account/myaccount';
+$route['default_controller'] = 'home';
+
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = false;

@@ -221,6 +221,16 @@
 		return $query->result_array();
 	}
 
+	public function getBarang2($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_barang');
+		$this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
+		$this->db->where('barang_nama', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	public function getBarangById($b_id)
 	{
 		return $this->db->get_where('tbl_barang', ['barang_id' => $b_id])->result_array();

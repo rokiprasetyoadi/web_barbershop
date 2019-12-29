@@ -24,6 +24,9 @@ class Login_admin extends CI_Controller
         if ($cek > 0) {
             $data_session = array(
                 'admin_email' => $cek['admin_email'],
+                'admin_telp' => $cek['admin_telpon'],
+                'admin_alamat' => $cek['admin_alamat'],
+                'admin_id' => $cek['admin_id'],
                 'admin_nama' => $cek['admin_nama'],
                 'admin_image' => $cek['admin_image'],
                 'status' => "login"

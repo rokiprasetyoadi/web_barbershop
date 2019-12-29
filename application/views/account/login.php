@@ -28,6 +28,7 @@
                 <form class="mb-0" role="form" method="post" action="<?= base_url('account/login'); ?>">
                     <div class="col-md-6">
                         <?= $this->session->flashdata('pesan'); ?>
+                        <?= $this->session->flashdata('account-access'); ?>
                         <?= $this->session->flashdata('messagesuccess'); ?>
                         <?= $this->session->flashdata('message'); ?>
                         <?= $this->session->flashdata('messageforgot'); ?>

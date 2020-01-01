@@ -74,11 +74,6 @@
 				'field' => 'barang_stok',
 				'label' => 'Stok Barang',
 				'rules' => 'required'
-			],
-			[
-				'field' => 'barang_min_stok',
-				'label' => 'Stok Minimal Barang',
-				'rules' => 'required'
 			]
 		];
 		$this->form_validation->set_rules($data);
@@ -115,11 +110,6 @@
 			[
 				'field' => 'barang_stok',
 				'label' => 'Stok Barang',
-				'rules' => 'required'
-			],
-			[
-				'field' => 'barang_min_stok',
-				'label' => 'Stok Minimal Barang',
 				'rules' => 'required'
 			]
 		];

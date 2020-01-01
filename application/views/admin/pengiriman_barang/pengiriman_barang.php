@@ -48,8 +48,8 @@
                                     <td><?php echo $row->jual_layanan; ?></td>
                                     <td>Rp. <?php echo number_format($row->jual_biaya); ?></td>
                                     <td><?php echo $row->jual_resi; ?></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/pengiriman_barang/edit/<?= $row->pembayaran_id ?>">Edit</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pengiriman_barang/delete/<?= $row->pembayaran_id ?>')" href="#!">Delete</a></td>
+                                    <td style="text-align: center;"><a class="edit" href="<?= site_url(); ?>admin/pengiriman_barang/edit/<?= $row->pembayaran_id ?>"><i class="fa fa-edit"></i></a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pengiriman_barang/delete/<?= $row->pembayaran_id ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

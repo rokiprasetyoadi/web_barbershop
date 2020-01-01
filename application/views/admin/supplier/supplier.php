@@ -50,8 +50,8 @@
                                     <td><?php echo $row->supplier_nohp ?></td>
                                     <td><?php echo $row->supplier_alamat ?></td>
                                     <td><?php echo $row->supplier_keterangan ?></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/supplier/edit/<?= $row->supplier_id ?>">Edit</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/supplier/delete/<?= $row->supplier_id ?>')" href="#!" >Delete</a></td>
+                                    <td style="text-align: center;"><a class="edit" href="<?= site_url(); ?>admin/supplier/edit/<?= $row->supplier_id ?>"><i class="fa fa-edit"></i></a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/supplier/delete/<?= $row->supplier_id ?>')" href="#!" ><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

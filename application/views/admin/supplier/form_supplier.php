@@ -25,7 +25,7 @@
                                     <div class="form-group ">
                                         <label for="supplier_nama" class="control-label col-lg-3">Nama</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_nama" name="supplier_nama" type="text" />
+                                            <input class="form-control " id="supplier_nama" name="supplier_nama" type="text" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -37,13 +37,13 @@
                                     <div class="form-group ">
                                         <label for="supplier_nohp" class="control-label col-lg-3">No Hp</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_nohp" name="supplier_nohp" type="number" />
+                                            <input class="form-control " id="supplier_nohp" name="supplier_nohp" type="number" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="supplier_alamat" class="control-label col-lg-3">Alamat</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_alamat" name="supplier_alamat" type="text" />
+                                            <input class="form-control " id="supplier_alamat" name="supplier_alamat" type="text" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -96,7 +96,7 @@
                                     <div class="form-group ">
                                         <label for="supplier_nama" class="control-label col-lg-3">Nama</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_nama" name="supplier_nama" type="text" value="<?= $row->supplier_nama; ?>" />
+                                            <input class="form-control " id="supplier_nama" name="supplier_nama" type="text" value="<?= $row->supplier_nama; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -108,13 +108,13 @@
                                     <div class="form-group ">
                                         <label for="supplier_nohp" class="control-label col-lg-3">No Hp</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_nohp" name="supplier_nohp" type="number" value="<?= $row->supplier_nohp; ?>" />
+                                            <input class="form-control " id="supplier_nohp" name="supplier_nohp" type="number" value="<?= $row->supplier_nohp; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="supplier_alamat" class="control-label col-lg-3">Alamat</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_alamat" name="supplier_alamat" type="text" value="<?= $row->supplier_alamat; ?>" />
+                                            <input class="form-control " id="supplier_alamat" name="supplier_alamat" type="text" value="<?= $row->supplier_alamat; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">

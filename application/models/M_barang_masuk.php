@@ -93,7 +93,17 @@
 				'field'=>'brgmasuk_nota',
 				'label'=>'ID Barang Masuk',
 				'rules'=>'required'
-			]
+			],
+			[ 	
+				'field'=>'detailmasuk_harpok',
+				'label'=>'Harga',
+				'rules'=>'required'
+			],
+			[ 	
+				'field'=>'detailmasuk_jumlah',
+				'label'=>'Jumlah',
+				'rules'=>'required'
+			],
 			];
 		$this->form_validation->set_rules($data);
 	}
@@ -127,6 +137,17 @@
 		'brgmasuk_tgl'=>date('Y-m-d H:i:s')];
 
 		$this->db->insert('tbl_brgmasuk', $data); // query untuk insert data ke tabel barang Masuk
+	}
+
+	public function editData()
+	{
+		$data = [
+			'brgmasuk_supplier_id' => htmlspecialchars($this->input->post('brgmasuk_supplier_id', true)),
+			'brgmasuk_keterangan' => htmlspecialchars($this->input->post('brgmasuk_keterangan', true)),
+		];
+
+		$this->db->where('brgmasuk_nota', $this->input->post('brgmasuk_nota'));
+		$this->db->update('tbl_brgmasuk', $data);
 	}
 
 	public function addDetail() {

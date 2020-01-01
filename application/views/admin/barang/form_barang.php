@@ -25,7 +25,7 @@
                                     <div class="form-group ">
                                         <label for="barang_kategori_id" class="control-label col-lg-3">Kategori</label>
                                         <div class="col-lg-6">
-                                            <select name="barang_kategori_id">
+                                            <select name="barang_kategori_id" required>
                                                 <option value="">-- PILIH KATEGORI --</option>
                                                 <?php foreach($kategori as $k):?>
                                               <option value="<?= $k['kategori_id']; ?>"><?= $k['kategori_nama']; ?></option>
@@ -37,19 +37,19 @@
                                     <div class="form-group ">
                                         <label for="barang_nama" class="control-label col-lg-3">Nama Barang</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_nama" name="barang_nama" type="text" />
+                                            <input class="form-control " id="barang_nama" name="barang_nama" type="text" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="barang_harjul_grosir" class="control-label col-lg-3">Harga Grosir</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_harjul_grosir" name="barang_harjul_grosir" type="number" />
+                                            <input class="form-control " id="barang_harjul_grosir" name="barang_harjul_grosir" type="number" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="barang_harjul" class="control-label col-lg-3">Harga Ecer</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_harjul" name="barang_harjul" type="number" />
+                                            <input class="form-control " id="barang_harjul" name="barang_harjul" type="number" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -61,7 +61,7 @@
                                     <div class="form-group ">
                                         <label for="barang_stok" class="control-label col-lg-3">Stok</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_stok" name="barang_stok" type="number" />
+                                            <input class="form-control " id="barang_stok" name="barang_stok" type="number" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -113,7 +113,7 @@
                                     <div class="form-group ">
                                         <label for="barang_kategori_id" class="control-label col-lg-3">Kategori</label>
                                         <div class="col-lg-6">
-                                            <select name="barang_kategori_id">
+                                            <select name="barang_kategori_id" required>
                                                 <option value="<?= $row->barang_kategori_id; ?>"><?= $row->kategori_nama; ?></option>
                                                 <option value="">-- PILIH KATEGORI LAIN --</option>
                                                 <?php foreach($kategori as $k):?>
@@ -125,19 +125,19 @@
                                     <div class="form-group ">
                                         <label for="barang_nama" class="control-label col-lg-3">Nama Barang</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_nama" name="barang_nama" type="text" value="<?= $row->barang_nama; ?>" />
+                                            <input class="form-control " id="barang_nama" name="barang_nama" type="text" value="<?= $row->barang_nama; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="barang_harjul_grosir" class="control-label col-lg-3">Harga Grosir</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_harjul_grosir" name="barang_harjul_grosir" type="number" value="<?= $row->barang_harjul_grosir; ?>" />
+                                            <input class="form-control " id="barang_harjul_grosir" name="barang_harjul_grosir" type="number" value="<?= $row->barang_harjul_grosir; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="barang_harjul" class="control-label col-lg-3">Harga Ecer</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_harjul" name="barang_harjul" type="number" value="<?= $row->barang_harjul; ?>" />
+                                            <input class="form-control " id="barang_harjul" name="barang_harjul" type="number" value="<?= $row->barang_harjul; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -152,7 +152,7 @@
                                     <div class="form-group ">
                                         <label for="barang_stok" class="control-label col-lg-3">Stok</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="barang_stok" name="barang_stok" type="number" value="<?= $row->barang_stok; ?>" />
+                                            <input class="form-control " id="barang_stok" name="barang_stok" type="number" value="<?= $row->barang_stok; ?>" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">

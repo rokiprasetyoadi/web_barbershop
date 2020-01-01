@@ -20,19 +20,12 @@ class Barang_masuk extends CI_Controller {
         $this->temp->load('admin/partials', 'admin/barang_masuk/barang_masuk', $data);
     }
 
-    public function detail($id)
-    {
-        $where = array('brgmasuk_nota' => $id);
-        $data['dtl'] = $this->M_barang_masuk->dtl($id);
-        $data['detail']=$this->M_barang_masuk->detail($where,'tbl_brgmasuk')->result();
-        $this->temp->load('admin/partials', 'admin/barang_masuk/barangmsk_detail', $data);
-    }
-
     public function add()
     {
         $this->M_barang_masuk->rulesNew();
         if ($this->form_validation->run() == false) {
             $data = [
+                'page' => 'add',
                 'kode' => $this->M_barang_masuk->kode(),
                 'supplier' => $this->M_barang_masuk->getSupplierData()
             ];
@@ -41,6 +34,31 @@ class Barang_masuk extends CI_Controller {
             $this->M_barang_masuk->addData();
             $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
             redirect('admin/barang_masuk');
+        }
+    }
+
+    public function editSupplier($id)
+    {
+        $this->M_barang_masuk->rulesEdit();
+        $query = $this->M_barang_masuk->getAll($id);
+        if ($this->form_validation->run() == false) {
+            if ($query->num_rows() > 0) {
+                $tbl_brgmasuk = $query->row();
+                $data = [
+                    'page' => 'edit',
+                    'kode' => $this->M_barang_masuk->kode(),
+                    'row' => $tbl_brgmasuk,
+                    'supplier' => $this->M_barang_masuk->getSupplierData()
+                ];
+                $this->temp->load('admin/partials', 'admin/barang_masuk/form_barang_masuk', $data);
+            }
+        } else {
+            $post = $this->input->post(null, true);
+            if (isset($_POST['edit'])) {
+                $this->M_barang_masuk->editData($post);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            redirect('admin/barang_masuk');
+            }
         }
     }
 

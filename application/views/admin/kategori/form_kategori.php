@@ -25,7 +25,7 @@
                                     <div class="form-group ">
                                         <label for="kategori_nama" class="control-label col-lg-3">Nama Kategori</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="kategori_nama" name="kategori_nama" type="text" />
+                                            <input class=" form-control" id="kategori_nama" name="kategori_nama" type="text" required/>
                                         </div>
                                     </div>
                                     
@@ -72,7 +72,7 @@
                                     <div class="form-group ">
                                         <label for="barang_kategori_id" class="control-label col-lg-3">Nama Kategori</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" name="kategori_nama" value="<?= $row->kategori_nama; ?>" type="text" />
+                                            <input class=" form-control" name="kategori_nama" value="<?= $row->kategori_nama; ?>" type="text" required/>
                                         </div>
                                     </div>
 

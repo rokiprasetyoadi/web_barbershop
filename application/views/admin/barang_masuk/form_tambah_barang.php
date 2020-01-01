@@ -24,8 +24,13 @@
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier</div>
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier Nama</div>
                                     <div class="col-md-8 col-sm-7"><?= $row['supplier_nama'] ?></div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier Email</div>
+                                    <div class="col-md-8 col-sm-7"><?= $row['supplier_email'] ?></div>
                                 </div>
                                 <br>
                                 <div class="row">
@@ -37,9 +42,20 @@
                                     <div class="col-md-4 col-sm-5 inv-label"># Supplier Alamat</div>
                                     <div class="col-md-8 col-sm-7"><?= $row['supplier_alamat'] ?></div>
                                 </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Keterangan</div>
+                                    <div class="col-md-8 col-sm-7"><?= $row['supplier_keterangan'] ?></div>
+                                </div>
                             </div>
 
-                            <div class="col-md-6 col-sm-5 pull-right" style="background-color: #FAFAFA;">
+                            <div class="col-md-6 col-sm-5 pull-right">
+                                <a style="float: right;" class="btn btn-info" href="<?= site_url() ?>admin/barang_masuk/printdtl/<?= $row['brgmasuk_nota'] ?>">
+                                            Print &nbsp;<i class="fa fa-print"></i>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6 col-sm-5 pull-right" style="background-color: #FAFAFA; margin-top: 15px;">
                                 <label ><h4>Tambah Barang</h4></label>
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= site_url() ?>admin/barang_masuk/aksi_edit">
                                     <div class="form-group" hidden>
@@ -64,13 +80,13 @@
                                     <div class="form-group ">
                                         <label for="detailmasuk_harpok" class="control-label col-lg-3">Harga</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="detailmasuk_harpok" name="detailmasuk_harpok" type="number" />
+                                            <input class="form-control " id="detailmasuk_harpok" name="detailmasuk_harpok" type="number" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="detailmasuk_jumlah" class="control-label col-lg-3">Jumlah</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="detailmasuk_jumlah" name="detailmasuk_jumlah" type="number" />
+                                            <input class="form-control " id="detailmasuk_jumlah" name="detailmasuk_jumlah" type="number" required/>
                                         </div>
                                     </div>
 

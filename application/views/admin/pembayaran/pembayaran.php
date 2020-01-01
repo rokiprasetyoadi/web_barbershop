@@ -42,8 +42,8 @@
                                     <td><?php echo $row->customers_nama ?></td>
                                     <td><a href="<?= base_url('assets/upload/bukti_pembayaran/'.$row->pembayaran_bukti) ?>" data-fancybox data-caption="Bukti Pembayaran"> <img style="height: 50px; width: 50px;" src="<?= base_url('assets/upload/bukti_pembayaran/'.$row->pembayaran_bukti) ?>"></a></td>
                                     <td><?php echo $row->jual_status ?></td>
-                                    <td><a class="update" href="<?= site_url(); ?>admin/pembayaran/edit/<?php echo $row->pembayaran_id ?>">Ubah Status</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pembayaran/delete/<?= $row->pembayaran_id ?>')" href="#!">Delete</a></td>
+                                    <td style="text-align: center;"><a class="update" href="<?= site_url(); ?>admin/pembayaran/edit/<?php echo $row->pembayaran_id ?>"><i class="fa fa-edit"></i></a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/pembayaran/delete/<?= $row->pembayaran_id ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

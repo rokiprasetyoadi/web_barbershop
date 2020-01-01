@@ -54,8 +54,8 @@
                                     <td><?php echo $data->barang_stok; ?></td>
                                     <td><?php echo $data->barang_tgl_input; ?></td>
                                     <td><?php echo $data->barang_tgl_update; ?></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $data->barang_id ?>">Edit</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>')" href="#!">Delete</a></td>
+                                    <td style="text-align: center;"><a class="edit" href="<?= site_url(); ?>admin/barang/edit/<?= $data->barang_id ?>"><i class="fa fa-edit"></i></a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

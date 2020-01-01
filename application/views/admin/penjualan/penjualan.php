@@ -40,8 +40,8 @@
                                     <td>Rp.<?php echo number_format($data->jual_total); ?></td>
                                     <td><?php echo $data->jual_status; ?></td>
                                     <td><?php echo $data->jual_tgl; ?></td>
-                                    <td><a class="detail" href="<?= site_url(); ?>admin/penjualan/detail/<?= $data->jual_nofak ?>">Detail</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/penjualan/delete/<?= $data->jual_nofak ?>')" href="#!">Delete</a></td>
+                                    <td style="text-align: center;"><a class="detail" href="<?= site_url(); ?>admin/penjualan/detail/<?= $data->jual_nofak ?>"><i class="fa fa-info"></i></a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/penjualan/delete/<?= $data->jual_nofak ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

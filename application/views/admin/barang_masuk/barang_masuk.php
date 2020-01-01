@@ -33,8 +33,8 @@
                                     <th>Supplier</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal</th>
-                                    <th>Edit Barang</th>
-                                    <th>Detail</th>
+                                    <th>Edit Supplier</th>
+                                    <th>Barang Masuk</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
@@ -45,9 +45,9 @@
                                     <td><?= $data->supplier_nama ?></td>
                                     <td><?= $data->brgmasuk_keterangan ?></td>
                                     <td><?= $data->brgmasuk_tgl ?></td>
-                                    <td><a class="edit" href="<?= site_url(); ?>admin/barang_masuk/edit/<?= $data->brgmasuk_nota ?>">Edit Barang</a></td>
-                                    <td><a class="detail" href="<?= site_url(); ?>admin/barang_masuk/detail/<?= $data->brgmasuk_nota ?>">Detail</a></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/barang_masuk/delete/<?= $data->brgmasuk_nota ?>')" href="#!">Delete</a></td>
+                                    <td style="text-align: center;"><a class="edit" href="<?= site_url(); ?>admin/barang_masuk/editsupplier/<?= $data->brgmasuk_nota ?>"><i class="fa fa-edit"></i></a></td>
+                                    <td style="text-align: center;"><a class="edit" href="<?= site_url(); ?>admin/barang_masuk/edit/<?= $data->brgmasuk_nota ?>"><i class="fa fa-edit"></i></a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/barang_masuk/delete/<?= $data->brgmasuk_nota ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

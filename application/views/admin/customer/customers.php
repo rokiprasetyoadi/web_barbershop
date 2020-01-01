@@ -43,7 +43,7 @@
                                     <td><?= $row['customers_nohp'] ?></td>
                                     <td><?= $row['customers_created'] ?></td>
                                     <td><?= $row['customers_status'] ?></td>
-                                    <td><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/customers/delete/<?= $row['customers_id'] ?>')" href="#!">Delete</a></td>
+                                    <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/customers/delete/<?= $row['customers_id'] ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
         

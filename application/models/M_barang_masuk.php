@@ -26,6 +26,10 @@
 		return $query;
 	}
 
+	public function ambildata($table,$where){        
+        return $this->db->get_where($table,$where);
+    }
+
 	public function dtl($id){
 		$this->db->select('*');
 		$this->db->join('supplier', 'supplier.supplier_id = tbl_brgmasuk.brgmasuk_supplier_id', 'left');

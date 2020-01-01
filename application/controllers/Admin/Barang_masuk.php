@@ -61,6 +61,8 @@ class Barang_masuk extends CI_Controller {
     {
         $this->M_barang_masuk->addDetail();
         $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        echo "<script>alert('Data Berhasil Ditambahkan');</script>";
+        echo "<script>location='javascript:history.go(-1)';</script>";
     }
 
     public function delete($id=null)

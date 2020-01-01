@@ -74,7 +74,7 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
-                                            <a href="<?php echo site_url('admin/barang_masuk/edit/'.$row['brgmasuk_nota']) ?>"><button class="btn btn-primary" name="edit" type="submit">Save</button></a>
+                                            <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
                                     </div>
                                 </form>

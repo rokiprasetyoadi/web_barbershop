@@ -24,11 +24,6 @@
 				'rules'=>'required'
 			],
 			[ 	
-				'field'=>'supplier_email',
-				'label'=>'Email Supplier',
-				'rules'=>'required'
-			],
-			[ 	
 				'field'=>'supplier_nohp',
 				'label'=>'No Hp Supplier',
 				'rules'=>'required'
@@ -36,11 +31,6 @@
 			[ 	
 				'field'=>'supplier_alamat',
 				'label'=>'Alamat Supplier',
-				'rules'=>'required'
-			],
-			[ 	
-				'field'=>'supplier_keterangan',
-				'label'=>'Keterangan Supplier',
 				'rules'=>'required'
 			]
 		];
@@ -60,11 +50,6 @@
 				'rules'=>'required'
 			],
 			[ 	
-				'field'=>'supplier_email',
-				'label'=>'Email Supplier',
-				'rules'=>'required'
-			],
-			[ 	
 				'field'=>'supplier_nohp',
 				'label'=>'No Hp Supplier',
 				'rules'=>'required'
@@ -72,11 +57,6 @@
 			[ 	
 				'field'=>'supplier_alamat',
 				'label'=>'Alamat Supplier',
-				'rules'=>'required'
-			],
-			[ 	
-				'field'=>'supplier_keterangan',
-				'label'=>'Keterangan Supplier',
 				'rules'=>'required'
 			]
 		];

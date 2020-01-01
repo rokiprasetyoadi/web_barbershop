@@ -12,17 +12,31 @@
                     </header>
                     <div class="panel-body">
                         <div class="adv-table editable-table ">
-                            <div class="col-md-4 col-sm-5 pull-left">
+                            <div class="col-md-5 col-sm-5 pull-left">
+                                <div class="btn-group" style="margin-bottom: 20px;">
+                                    <a class="btn btn-danger" href="<?= site_url() ?>admin/barang_masuk">
+                                        Kembali &nbsp;<i class="fa fa-undo"></i>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Nota</div>
+                                    <div class="col-md-8 col-sm-7"><?= $row['brgmasuk_nota'] ?></div>
+                                </div>
+                                <br>
                                 <div class="row">
                                     <div class="col-md-4 col-sm-5 inv-label"># Supplier</div>
                                     <div class="col-md-8 col-sm-7"><?= $row['supplier_nama'] ?></div>
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-5 inv-label"># Nota</div>
-                                    <div class="col-md-8 col-sm-7"><?= $row['brgmasuk_nota'] ?></div>
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier No Hp</div>
+                                    <div class="col-md-8 col-sm-7"><?= $row['supplier_nohp'] ?></div>
                                 </div>
                                 <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier Alamat</div>
+                                    <div class="col-md-8 col-sm-7"><?= $row['supplier_alamat'] ?></div>
+                                </div>
                             </div>
 
                             <div class="col-md-6 col-sm-5 pull-right" style="background-color: #FAFAFA;">
@@ -54,21 +68,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="detailmasuk_stok" class="control-label col-lg-3">Stok</label>
-                                        <div class="col-lg-6">
-                                            <input class="form-control " id="detailmasuk_stok" name="detailmasuk_stok" type="number" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
                                         <label for="detailmasuk_jumlah" class="control-label col-lg-3">Jumlah</label>
                                         <div class="col-lg-6">
                                             <input class="form-control " id="detailmasuk_jumlah" name="detailmasuk_jumlah" type="number" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="detailmasuk_subtotal" class="control-label col-lg-3">Subtotal</label>
-                                        <div class="col-lg-6">
-                                            <input class="form-control " id="detailmasuk_subtotal" name="detailmasuk_subtotal" type="number" />
                                         </div>
                                     </div>
 
@@ -90,9 +92,9 @@
                                     <th>Id Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Harga Pokok</th>
-                                    <th>Stok</th>
                                     <th>Jumlah</th>
                                     <th>Subtotal</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -101,14 +103,19 @@
                                     <td><?= $data->detailmasuk_barang_id ?></td>
                                     <td><?= $data->barang_nama ?></td>
                                     <td><?= $data->detailmasuk_harpok ?></td>
-                                    <td><?= $data->detailmasuk_stok ?></td>
                                     <td><?= $data->detailmasuk_jumlah ?></td>
                                     <td><?= $data->detailmasuk_subtotal ?></td>
+                                    <td><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/barang_masuk/delete_brg/<?= $data->detailmasuk_barang_id ?>')" href="#!">Delete</a></td>
                                 </tr>
                                 <?php endforeach; ?>
         
                                 </tbody>
                             </table>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-6">
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

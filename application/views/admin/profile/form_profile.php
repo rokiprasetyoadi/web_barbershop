@@ -13,7 +13,7 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?php echo site_url('admin/profile/edit/'.$row->admin_id); ?>">
-                                    <div class="form-group">
+                                    <div class="form-group" hidden>
                                         <label for="admin_id" class="control-label col-lg-3">Id Admin</label>
                                         <div class="col-lg-6">
                                             <input class=" form-control" id="admin_id" name="admin_id" type="text" value="<?= $row->admin_id; ?>" readonly />
@@ -53,7 +53,6 @@
                                             <input class="form-control " id="admin_image" name="admin_image" type="file" value="<?= $row->admin_image; ?>" />
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
                                             <button class="btn btn-primary" name="edit" type="submit">Save</button>

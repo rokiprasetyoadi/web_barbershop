@@ -17,36 +17,40 @@
                                     </a>
                                 </div>
                         <div class="adv-table editable-table ">
-                            <div>
-                                <label>Supplier :</label>
-                                <table class="table  table-hover general-table" style="width: 50%;">
-                            <tr>
-                                <td>Nama</td>
-                                <td>:</td>
-                                <td><?= $dtl['supplier_nama']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>E-Mail</td>
-                                <td>:</td>
-                                <td><?= $dtl['supplier_email']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>No Hp</td>
-                                <td>:</td>
-                                <td><?= $dtl['supplier_nohp']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Alamat</td>
-                                <td>:</td>
-                                <td><?= $dtl['supplier_alamat']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Keterangan </td>
-                                <td>:</td>
-                                <td><?= $dtl['supplier_keterangan']; ?></td>
-                            </tr>
-                        </table>
+                            <div class="col-md-5 col-sm-5 pull-left">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Nota</div>
+                                    <div class="col-md-8 col-sm-7"><?= $dtl['brgmasuk_nota'] ?></div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier</div>
+                                    <div class="col-md-8 col-sm-7"><?= $dtl['supplier_nama'] ?></div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier Email</div>
+                                    <div class="col-md-8 col-sm-7"><?= $dtl['supplier_email'] ?></div>
+                                </div>
                             </div>
+                            <div class="col-md-5 col-sm-5 pull-right">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier No Hp</div>
+                                    <div class="col-md-8 col-sm-7"><?= $dtl['supplier_nohp'] ?></div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Supplier Alamat</div>
+                                    <div class="col-md-8 col-sm-7"><?= $dtl['supplier_alamat'] ?></div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-5 inv-label"># Keterangan</div>
+                                    <div class="col-md-8 col-sm-7"><?= $dtl['supplier_keterangan'] ?></div>
+                                </div>
+                                <br>
+                            </div>
+
                             <div class="clearfix">
                                 <div style="margin-top: 15px;"></div>
                             </div>
@@ -58,7 +62,6 @@
                                     <th>Id Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Harga Pokok</th>
-                                    <th>Stok</th>
                                     <th>Jumlah</th>
                                     <th>Subtotal</th>
                                 </tr>
@@ -69,7 +72,6 @@
                                     <td><?= $data->detailmasuk_barang_id ?></td>
                                     <td><?= $data->barang_nama ?></td>
                                     <td><?= $data->detailmasuk_harpok ?></td>
-                                    <td><?= $data->detailmasuk_stok ?></td>
                                     <td><?= $data->detailmasuk_jumlah ?></td>
                                     <td><?= $data->detailmasuk_subtotal ?></td>
                                 </tr>

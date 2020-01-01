@@ -133,9 +133,8 @@
 		$data=[ 'detailmasuk_brgmasuk_nota'=>htmlspecialchars($this->input->post('detailmasuk_brgmasuk_nota', true)),
 		'detailmasuk_barang_id'=>htmlspecialchars($this->input->post('detailmasuk_barang_id', true)),
 		'detailmasuk_harpok'=>htmlspecialchars($this->input->post('detailmasuk_harpok', true)),
-		'detailmasuk_stok'=>htmlspecialchars($this->input->post('detailmasuk_stok', true)),
 		'detailmasuk_jumlah'=>htmlspecialchars($this->input->post('detailmasuk_jumlah', true)),
-		'detailmasuk_subtotal'=>htmlspecialchars($this->input->post('detailmasuk_subtotal', true)),
+		'detailmasuk_subtotal'=> $this->input->post('detailmasuk_harpok') * ($this->input->post('detailmasuk_jumlah') )
 	];
 
 		$this->db->insert('tbl_detailbrgmasuk', $data); // query untuk insert data ke tabel barang Masuk
@@ -143,6 +142,10 @@
 
 	public function deleteData($id) {
 		return $this->db->delete('tbl_brgmasuk',array("brgmasuk_nota" => $id));
+	}
+
+	public function deleteBrg($id) {
+		return $this->db->delete('tbl_detailbrgmasuk',array("detailmasuk_barang_id" => $id));
 	}
 
 }

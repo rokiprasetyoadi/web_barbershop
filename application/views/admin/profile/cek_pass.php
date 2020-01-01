@@ -36,7 +36,7 @@
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
                                             <button class="btn btn-primary" type="submit">Save</button>
-                                            <button class="btn btn-default" type="button">Cancel</button>
+                                            <a href="<?= site_url() ?>admin/profile" class="btn btn-default" type="button">Cancel</a>
                                         </div>
                                     </div>
                                 </form>

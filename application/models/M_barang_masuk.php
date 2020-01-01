@@ -1,9 +1,22 @@
 <?php class M_barang_masuk extends CI_Model {
 
+	public function getAllBrg($id=null) {
+		$this->db->from('tbl_brgmasuk');
+		$this->db->join('supplier', 'supplier.supplier_id = tbl_brgmasuk.brgmasuk_supplier_id', 'left');
+
+		if($id !=null) {
+			$this->db->where('brgmasuk_nota', $id);
+		}
+
+		$query=$this->db->get();
+		return $query;
+	}
+
 	public function getAll($id=null) {
 		$this->db->from('tbl_brgmasuk');
 		$this->db->join('tbl_detailbrgmasuk', 'tbl_detailbrgmasuk.detailmasuk_brgmasuk_nota = tbl_brgmasuk.brgmasuk_nota', 'left');
 		$this->db->join('supplier', 'supplier.supplier_id = tbl_brgmasuk.brgmasuk_supplier_id', 'left');
+		$this->db->join('tbl_barang', 'tbl_barang.barang_id = tbl_detailbrgmasuk.detailmasuk_barang_id', 'left');
 
 		if($id !=null) {
 			$this->db->where('brgmasuk_nota', $id);
@@ -70,6 +83,17 @@
 		$this->form_validation->set_rules($data);
 	}
 
+	public function rulesTambah() {
+		$data=[ 
+			[ 	
+				'field'=>'brgmasuk_nota',
+				'label'=>'ID Barang Masuk',
+				'rules'=>'required'
+			]
+			];
+		$this->form_validation->set_rules($data);
+	}
+
 	public function kode() {
 		$this->db->select('RIGHT(tbl_brgmasuk.brgmasuk_nota,2) as id', false);
 		$this->db->order_by('id', 'DESC');
@@ -101,13 +125,16 @@
 		$this->db->insert('tbl_brgmasuk', $data); // query untuk insert data ke tabel barang Masuk
 	}
 
-	public function editData() {
-		$data=[
-		'brgmasuk_supplier_id'=>htmlspecialchars($this->input->post('brgmasuk_supplier_id', true)),
-		'brgmasuk_keterangan'=>htmlspecialchars($this->input->post('brgmasuk_keterangan', true))];
+	public function addDetail() {
+		$data=[ 'detailmasuk_brgmasuk_nota'=>htmlspecialchars($this->input->post('detailmasuk_brgmasuk_nota', true)),
+		'detailmasuk_barang_id'=>htmlspecialchars($this->input->post('detailmasuk_barang_id', true)),
+		'detailmasuk_harpok'=>htmlspecialchars($this->input->post('detailmasuk_harpok', true)),
+		'detailmasuk_stok'=>htmlspecialchars($this->input->post('detailmasuk_stok', true)),
+		'detailmasuk_jumlah'=>htmlspecialchars($this->input->post('detailmasuk_jumlah', true)),
+		'detailmasuk_subtotal'=>htmlspecialchars($this->input->post('detailmasuk_subtotal', true)),
+	];
 
-		$this->db->where('brgmasuk_nota', $this->input->post('brgmasuk_nota'));
-		$this->db->update('tbl_brgmasuk', $data);
+		$this->db->insert('tbl_detailbrgmasuk', $data); // query untuk insert data ke tabel barang Masuk
 	}
 
 	public function deleteData($id) {

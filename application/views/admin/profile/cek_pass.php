@@ -28,7 +28,7 @@
                                     <div class="form-group ">
                                         <label for="admin_password" class="control-label col-lg-3">Password Baru</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="admin_password1" name="admin_password1" type="password" />
+                                            <input class="form-control " id="admin_password1" name="admin_password1" type="password" minlength="6" required />
                                         </div>
                                     </div>
                                     <?= $this->session->flashdata('pesan'); ?>

@@ -75,6 +75,7 @@
                                               <?php endforeach;?>
 
                                             </select>
+                                            <a href="<?= site_url() ?>admin/barang_masuk/addbrg" class="btn btn-success" type="cancel"><i class="fa fa-plus"></i></a>
                                         </div>
                                     </div>
                                     <div class="form-group ">

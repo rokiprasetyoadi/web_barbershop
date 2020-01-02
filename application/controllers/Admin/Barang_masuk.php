@@ -83,6 +83,23 @@ class Barang_masuk extends CI_Controller {
         echo "<script>window.location.href = document.referrer;</script>";
     }
 
+    public function addBrg()
+    {
+        $this->M_barang->rulesNew();
+        if ($this->form_validation->run() == false) {
+            $data = [
+                'kode' => $this->M_barang->kode(),
+                'kategori' => $this->M_barang->getkategoriData()
+            ];
+            $this->temp->load('admin/partials', 'admin/barang_masuk/form_add_barang', $data);
+        } else {
+            $this->M_barang->addNew();
+            $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            echo "<script>alert('Data Berhasil Ditambahkan');</script>";
+            echo "<script>window.history.go(-2);</script>";
+        }
+    }
+
     public function delete($id=null)
     {
         $this->M_barang_masuk->deleteData($id);

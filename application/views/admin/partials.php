@@ -271,6 +271,12 @@
                     </a>
                 </li>
                 <li class="sub-menu">
+                    <a href="<?php echo base_url('admin/galeri') ?>">
+                        <i class="fa fa-picture-o"></i>
+                        <span>Galeri</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop"></i>
                         <span>Data Master</span>

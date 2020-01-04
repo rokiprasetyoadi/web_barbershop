@@ -40,7 +40,12 @@
 
 	public function deleteData($id) {
 		$this->_deleteImage($id);
-		return $this->db->delete($this->_table, array("pembayaran_id" => $id));
+		//return $this->db->delete($this->_table, array("pembayaran_id" => $id));
+
+		$this->db->set('pembayaran_bukti', "");
+		$this->db->where('pembayaran_id', $id);
+		$this->db->update('tbl_pembayaran', $data);
+
 	}
 
 	public function getById($id) {

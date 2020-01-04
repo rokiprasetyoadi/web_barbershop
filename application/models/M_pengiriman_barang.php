@@ -33,8 +33,12 @@
 	}
 
 	public function deleteData($id) {
-		$this->db->where('pembayaran_id', $id);
-		$this->db->delete('tbl_pembayaran');
+		//$this->db->where('pembayaran_id', $id);
+		//$this->db->delete('tbl_pembayaran');
+
+		$this->db->delete('tbl_penjualan', array('jual_nofak' => $id));
+		$this->db->delete('tbl_detailpenjualan', array('detailjual_nofak' => $id));
+		$this->db->delete('tbl_pembayaran', array('pembayaran_jual_id' => $id));
 	}
 }
 

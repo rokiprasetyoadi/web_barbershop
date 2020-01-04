@@ -17,12 +17,6 @@
                             <div class="form">
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= site_url() ?>admin/kategori/add">
                                     <div class="form-group ">
-                                        <label for="kategori_id" class="control-label col-lg-3">Id Kategori</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" name="kategori_id" type="text" value="<?= $kode; ?>" readonly />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
                                         <label for="kategori_nama" class="control-label col-lg-3">Nama Kategori</label>
                                         <div class="col-lg-6">
                                             <input class=" form-control" id="kategori_nama" name="kategori_nama" type="text" required/>
@@ -63,7 +57,7 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?php echo site_url('admin/kategori/edit/'.$row->kategori_id); ?>">
-                                    <div class="form-group ">
+                                    <div class="form-group" hidden>
                                         <label for="kategori_id" class="control-label col-lg-3">Id Kategori</label>
                                         <div class="col-lg-6">
                                             <input class=" form-control" name="kategori_id" type="text" value="<?= $row->kategori_id; ?>" readonly />

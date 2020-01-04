@@ -17,12 +17,6 @@
                             <div class="form">
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= site_url() ?>admin/supplier/add">
                                     <div class="form-group ">
-                                        <label for="supplier_id" class="control-label col-lg-3">Id Supplier</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="supplier_id" name="supplier_id" type="text" value="<?= $kode; ?>" readonly />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
                                         <label for="supplier_nama" class="control-label col-lg-3">Nama</label>
                                         <div class="col-lg-6">
                                             <input class="form-control " id="supplier_nama" name="supplier_nama" type="text" required/>
@@ -49,7 +43,7 @@
                                     <div class="form-group ">
                                         <label for="supplier_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_keterangan" name="supplier_keterangan" type="text" />
+                                            <textarea class="form-control" id="supplier_keterangan" name="supplier_keterangan"></textarea>
                                         </div>
                                     </div>
 
@@ -87,7 +81,7 @@
                             <div class="form">
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?php echo site_url('admin/supplier/edit/'.$row->supplier_id); ?>">
 
-                                    <div class="form-group ">
+                                    <div class="form-group" hidden>
                                         <label for="supplier_id" class="control-label col-lg-3">Id Supplier</label>
                                         <div class="col-lg-6">
                                             <input class=" form-control" id="barang_id" name="supplier_id" type="text" value="<?= $row->supplier_id; ?>" readonly />
@@ -120,7 +114,7 @@
                                     <div class="form-group ">
                                         <label for="supplier_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_keterangan" name="supplier_keterangan" type="text" value="<?= $row->supplier_keterangan; ?>" />
+                                            <textarea class="form-control " id="supplier_keterangan" name="supplier_keterangan"><?= $row->supplier_keterangan; ?></textarea>
                                         </div>
                                     </div>
 

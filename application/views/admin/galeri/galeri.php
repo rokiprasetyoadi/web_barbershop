@@ -4,7 +4,7 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Media Manager
+                        Galeri
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-cog"></a>
@@ -28,19 +28,6 @@
                         	<?php endforeach; ?>
                         </div>
                         
-
-                        <div class="col-md-12 text-center clearfix">
-                            <ul class="pagination">
-                                <li><a href="#">«</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
-                        </div>
-
                     </div>
                 </section>
             </div>

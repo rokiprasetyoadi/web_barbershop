@@ -23,10 +23,7 @@ class Galeri extends CI_Controller {
     {
         $this->M_galeri->rulesNew();
         if ($this->form_validation->run() == false) {
-            $data = [
-                'kode' => $this->M_galeri->kode()
-            ];
-            $this->temp->load('admin/partials', 'admin/galeri/form_galeri', $data);
+            $this->temp->load('admin/partials', 'admin/galeri/form_galeri');
         } else {
             $this->M_galeri->addNew();
             $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');

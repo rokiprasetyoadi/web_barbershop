@@ -37,7 +37,7 @@
                                     <div class="form-group ">
                                         <label for="brgmasuk_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="brgmasuk_keterangan" name="brgmasuk_keterangan" type="text" />
+                                            <textarea class="form-control " id="brgmasuk_keterangan" name="brgmasuk_keterangan"></textarea>
                                         </div>
                                     </div>
                                     
@@ -97,7 +97,7 @@
                                     <div class="form-group ">
                                         <label for="brgmasuk_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="brgmasuk_keterangan" name="brgmasuk_keterangan" type="text" value="<?= $row->brgmasuk_keterangan; ?>" />
+                                            <textarea class="form-control " id="brgmasuk_keterangan" name="brgmasuk_keterangan"><?= $row->brgmasuk_keterangan; ?></textarea>
                                         </div>
                                     </div>
                                     

@@ -12,12 +12,7 @@
 	}
 
 	public function rulesNew() {
-		$data=[ 
-			[ 	
-				'field'=>'kategori_id',
-				'label'=>'ID kategori',
-				'rules'=>'required|is_unique[kategori.kategori_id]'
-			],
+		$data=[
 			[ 	
 				'field'=>'kategori_nama',
 				'label'=>'Nama Kategori',
@@ -43,30 +38,8 @@
 		$this->form_validation->set_rules($data);
 	}
 
-	public function kode() {
-		$this->db->select('RIGHT(kategori.kategori_id,2) as id', false);
-		$this->db->order_by('id', 'DESC');
-		$this->db->limit(1);
-		$query=$this->db->get('kategori'); //cek dulu apakah ada sudah ada kode di tabel.
-
-		if ($query->num_rows() <> 0) {
-			//cek kode jika telah tersedia
-			$data=$query->row();
-			$kode=intval($data->id)+1;
-		}
-
-		else {
-			$kode=1; //cek jika kode belum terdapat pada table
-		}
-
-		$batas=str_pad($kode, 3, "0", STR_PAD_LEFT);
-		$kodetampil=$batas; //format kode
-		return $kodetampil;
-	}
-
 	public function addNew() {
-		$data=[ 
-		'kategori_id'=>htmlspecialchars($this->input->post('kategori_id', true)),
+		$data=[
 		'kategori_nama'=>htmlspecialchars($this->input->post('kategori_nama', true))
 		];
 

@@ -24,8 +24,7 @@ class Supplier extends CI_Controller {
         $this->M_supplier->rulesNew();
         if ($this->form_validation->run() == false) {
             $data = [
-                'page' => 'add',
-                'kode' => $this->M_supplier->kode()
+                'page' => 'add'
             ];
             $this->temp->load('admin/partials', 'admin/supplier/form_supplier', $data);
         } else {

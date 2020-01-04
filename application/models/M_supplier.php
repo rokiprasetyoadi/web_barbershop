@@ -12,12 +12,7 @@
 	}
 
 	public function rulesNew() {
-		$data=[ 
-			[ 	
-				'field'=>'supplier_id',
-				'label'=>'ID Supplier',
-				'rules'=>'required|is_unique[supplier.supplier_id]'
-			],
+		$data=[
 			[ 	
 				'field'=>'supplier_nama',
 				'label'=>'Nama Supplier',
@@ -63,30 +58,8 @@
 		$this->form_validation->set_rules($data);
 	}
 
-	public function kode() {
-		$this->db->select('RIGHT(supplier.supplier_id,2) as id', false);
-		$this->db->order_by('id', 'DESC');
-		$this->db->limit(1);
-		$query=$this->db->get('supplier'); //cek dulu apakah ada sudah ada kode di tabel.
-
-		if ($query->num_rows() <> 0) {
-			//cek kode jika telah tersedia
-			$data=$query->row();
-			$kode=intval($data->id)+1;
-		}
-
-		else {
-			$kode=1; //cek jika kode belum terdapat pada table
-		}
-
-		$batas=str_pad($kode, 3, "0", STR_PAD_LEFT);
-		$kodetampil=$batas; //format kode
-		return $kodetampil;
-	}
-
 	public function addNew() {
-		$data=[ 
-		'supplier_id'=>htmlspecialchars($this->input->post('supplier_id', true)),
+		$data=[
 		'supplier_nama'=>htmlspecialchars($this->input->post('supplier_nama', true)),
 		'supplier_email'=>htmlspecialchars($this->input->post('supplier_email', true)),
 		'supplier_nohp'=>htmlspecialchars($this->input->post('supplier_nohp', true)),

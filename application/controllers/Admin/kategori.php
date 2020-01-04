@@ -24,8 +24,7 @@ class Kategori extends CI_Controller {
         $this->M_kategori->rulesNew();
         if ($this->form_validation->run() == false) {
             $data = [
-                'page' => 'add',
-                'kode' => $this->M_kategori->kode(),
+                'page' => 'add'
             ];
             $this->temp->load('admin/partials', 'admin/kategori/form_kategori', $data);
         } else {

@@ -3,7 +3,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Tambah Foto Galeri
+                            Tambah Galeri
                             <span class="tools pull-right">
                                 <a class="fa fa-chevron-down" href="javascript:;"></a>
                                 <a class="fa fa-cog" href="javascript:;"></a>
@@ -14,13 +14,7 @@
                             <div class="form">
                                 <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= site_url() ?>admin/galeri/add">
                                     <div class="form-group ">
-                                        <label for="galeri_id" class="control-label col-lg-3">Id Galeri</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="galeri_id" name="galeri_id" type="text" value="<?= $kode; ?>" readonly />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="galeri_nama" class="control-label col-lg-3">Nama</label>
+                                        <label for="galeri_nama" class="control-label col-lg-3">Nama Potongan</label>
                                         <div class="col-lg-6">
                                             <input class="form-control " id="galeri_nama" name="galeri_nama" type="text" required/>
                                         </div>
@@ -34,7 +28,7 @@
                                     <div class="form-group ">
                                         <label for="galeri_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="galeri_keterangan" name="galeri_keterangan" type="text"/>
+                                            <textarea class="form-control " id="galeri_keterangan" name="galeri_keterangan"></textarea>
                                         </div>
                                     </div>
 

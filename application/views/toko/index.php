@@ -28,11 +28,11 @@
 ============================================= -->
         <div class="widget widget-search">
           <div class="widget--content">
-            <form class="form-search" method="post" action="<?= base_url() ?>search">
+            <form class="form-search" method="post" action="<?= base_url() ?>toko">
               <div class="input-group">
-                <input type="text" class="form-control" name="cari" placeholder="Search here..">
+                <input type="text" class="form-control" name="cari" placeholder="Search here.." autofocus>
                 <span class="input-group-btn">
-                  <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn" name="submit" type="submit" value="formCari"><i class="fa fa-search"></i></button>
                 </span>
               </div>
               <!-- /input-group -->
@@ -102,6 +102,7 @@
                 <!-- .product-overlay end -->
               </div>
               <!-- .product-img end -->
+
               <div class="product--content">
                 <div class="product--title">
                   <h3><a href="<?= base_url('/toko/product/' . strtolower($b['barang_nama'])) ?>"><?= $b['barang_nama'] ?></a></h3>
@@ -125,22 +126,8 @@
         </div>
         <!-- .row end -->
         <div class="row">
-
           <!-- Tampilkan pagination-->
-          <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-40 text--center">
-
-            <?php echo  $pagination ?>
-            <!-- <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li>
-                      <a class="pagination-next" href="#" aria-label="Next">
-                        <span aria-hidden="true">next <i class="fa fa-angle-right"></i></span>
-                      </a>
-                    </li>
-                </ul> -->
-          </div>
+          <?= $this->pagination->create_links(); ?>
           <!-- .col-md-12 end -->
         </div>
         <!-- .row end -->

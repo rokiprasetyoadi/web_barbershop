@@ -177,58 +177,8 @@ class Cart extends CI_Controller
         }
 
 
-
-        //     $data = [
-        //         'barang_id' => $barang[0]['barang_id'],
-        //         'c_price' => $barang[0]['qty'] * $barang[0]['barang_harjul'],
-        //         'qty' => $barang[0]['qty']
-        // ];          
-        //     $this->db->where('cart_id', $cart_id);
-        //     $pesan = 'berhasil';
-        //     if(!$this->db->update('tbl_cart', $data)){
-        //         $pesan = 'gagal';
-        //     } 
-
-
-
-
-
-
-
-
-
-
-        // foreach ($stock as $s) {
-        //     $stock[] = $s;
-        // }
-
-        // if ($this->input->post('qty')>$s) {
-        // 	$this->session->set_flashdata('message', 'Jumlah melebihi stock');
-        //     // redirect('toko/cart');
-        //     $message = 'No';
-        //     $data  =array( 'message' => $message);
-        //     echo json_encode($data);
-        // }else{
-        // 	$data = [
-        //         // 'cart_id' => $this->input->post('cart_id'),
-        //         // 'barang_id' => $temp_s,
-        //         'c_price' => $this->input->post('qty') * $this->input->post('barang_harjul'),
-        //         'qty' => $this->input->post('qty')
-        // 	];
-        //     $this->db->where('cart_id', $this->input->post('cart_id'));
-        //     $this->db->update('tbl_cart', $data);
-
-        //     $message = 'Yes';
-        //     $data  =array( 'message' => $message);
-        //     echo json_encode($data);
-        // redirect('toko/cart');
-
     }
 
-    public function transaksi()
-    {
-        $this->cart->anu();
-    }
 }
 
 /* End of file Controllername.php */

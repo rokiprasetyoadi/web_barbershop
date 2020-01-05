@@ -65,7 +65,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 text-right text-center-xs">
                                 <span class="top--login">
                                     <?php if ($this->session->userdata('email')) { ?>
-                                        <a href='<?= base_url(); ?>account'><span id="accountMenuName">
+                                        <a href='<?= base_url(); ?>myaccount'><span id="accountMenuName">
                                                 <span>My Account</span>
                                                 <i class='lnr lnr-user'></i>
                                             </span></a>

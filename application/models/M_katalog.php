@@ -118,24 +118,23 @@ class M_katalog extends CI_Model
         return $anu;
     }
     // tes pagination
-    public function getpage($limit, $start)
+    public function getpage($limit, $start, $keyword = null)
     {
-        $this->db->select('*');
-        $this->db->from('tbl_barang');
-        $this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
-        $this->db->order_by('barang_id', 'asc');
-        $this->db->limit($limit, $start);
+        if ($keyword) { // jika ada keyword maka di lakukan query like
+            $this->db->select('*');
+            $this->db->from('tbl_barang');
+            $this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
+            $this->db->order_by('barang_id', 'asc');
+            $this->db->like('barang_nama', $keyword);
+            $this->db->limit($limit, $start);
+        } else { // jika keyword tidak ada
+            $this->db->select('*');
+            $this->db->from('tbl_barang');
+            $this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
+            $this->db->order_by('barang_id', 'asc');
+            $this->db->limit($limit, $start);
+        }
 
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-    public function searcp()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_barang');
-        $this->db->join('kategori', 'tbl_barang.barang_kategori_id = kategori.kategori_id', 'left');
-        $this->db->order_by('barang_id', 'asc');
-        $this->db->like('barang_nama', $this->input->post('cari'));
         $query = $this->db->get();
         return $query->result_array();
     }

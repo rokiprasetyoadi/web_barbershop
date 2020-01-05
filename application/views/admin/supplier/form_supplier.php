@@ -31,7 +31,8 @@
                                     <div class="form-group ">
                                         <label for="supplier_nohp" class="control-label col-lg-3">No Hp</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_nohp" name="supplier_nohp" type="number" required/>
+                                            <input class="form-control " minlength="11" id="supplier_nohp" name="supplier_nohp" type="number" required/>
+                                            <?= form_error('supplier_nohp','<div class="bg-info text-dark"><small>','</small></div>'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group ">
@@ -102,7 +103,8 @@
                                     <div class="form-group ">
                                         <label for="supplier_nohp" class="control-label col-lg-3">No Hp</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="supplier_nohp" name="supplier_nohp" type="number" value="<?= $row->supplier_nohp; ?>" required/>
+                                            <input class="form-control" minlength="11" id="supplier_nohp" name="supplier_nohp" type="number" value="<?= $row->supplier_nohp; ?>" required/>
+                                            <?= form_error('supplier_nohp','<div class="bg-info text-dark"><small>','</small></div>'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group ">

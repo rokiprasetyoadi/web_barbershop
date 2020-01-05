@@ -21,7 +21,7 @@
 			[ 	
 				'field'=>'supplier_nohp',
 				'label'=>'No Hp Supplier',
-				'rules'=>'required'
+				'rules'=>'required|min_length[11]'
 			],
 			[ 	
 				'field'=>'supplier_alamat',
@@ -47,7 +47,7 @@
 			[ 	
 				'field'=>'supplier_nohp',
 				'label'=>'No Hp Supplier',
-				'rules'=>'required'
+				'rules'=>'required|min_length[11]'
 			],
 			[ 	
 				'field'=>'supplier_alamat',

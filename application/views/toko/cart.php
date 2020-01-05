@@ -82,8 +82,9 @@
                                         </td>
                                         <td class="price cart-product-price"><?= rupiah($item['barang_harjul']) ?></td>
                                         <td class="cart-product-quantity">
-                                            <div class="product-quantity">
-                                                <input class="qty" type="text" name="qty" value="<?= $item['qty'] ?>">
+                                            <div class="product-quantity"><!-- 
+                                                <input class="qty" type="text" name="qty" value="<?= $item['qty'] ?>"> -->
+                                                <input type="text" name="qty" class="qty" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" value="<?= $item['qty'] ?>" id="pro-qunt" min="1" />
                                                 <?php echo form_hidden('name', $item['qty']); ?>
                                                 <?php echo form_hidden('idp', $item['barang_id']); ?>
                                             </div>

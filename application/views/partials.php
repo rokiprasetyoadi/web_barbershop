@@ -33,7 +33,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>Hairy | Barber Html5 Template</title>
+    <title>Sevenhead Barbershop</title>
 </head>
 
 <body>
@@ -101,7 +101,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="logo" href="index.html">
+                            <a class="logo" href='<?= base_url() ?>home'>
                                 <img class="logo-light" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="Hairy Logo">
                                 <img class="logo-dark" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="Hairy Logo">
                             </a>

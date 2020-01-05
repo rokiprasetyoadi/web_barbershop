@@ -11,10 +11,10 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-            <div class="slide--headline">We Will Make You Stylish</div>
+            <div class="slide--headline">Mari Bercukur</div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
-            <div class="slide--bio">Preparing your money is a daunting challenge for today's investors and will give you a complete account of the system. </div>
+            <div class="slide--bio">Kepuasan anda adalah prioritas kami</div>
             <div class="slide-action">
               <a class="btn btn--primary btn--rounded" href="#">Read More </a>
             </div>
@@ -37,36 +37,10 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-            <div class="slide--headline">We make amazing haircuts</div>
+            <div class="slide--headline">Percayakan kepala rambut anda kepada kami</div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
-            <div class="slide--bio">Preparing your money is a daunting challenge for today's investors and will give you a complete account of the system.</div>
-            <div class="slide-action">
-              <a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>
-              <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>
-            </div>
-          </div>
-        </div>
-        <!-- .row end -->
-      </div>
-      <!-- .container end -->
-    </div>
-  </div>
-  <!-- .slide-item end -->
-
-  <!-- Slide #3 -->
-  <div class="slide--item bg-overlay bg-overlay-dark">
-    <div class="bg-section">
-      <img src="<?= base_url() ?>assets/web_profile/images/sliders/slide-bg/3.jpg" alt="background">
-    </div>
-    <div class="pos-vertical-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-            <div class="slide--headline">our clients trust us</div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
-            <div class="slide--bio">Preparing your money is a daunting challenge for today's investors and will give you a complete account of the system.</div>
+            <div class="slide--bio">Kualitas adalah hal yang utama bagi kami.</div>
             <div class="slide-action">
               <a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>
               <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>
@@ -89,8 +63,8 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
         <div class="heading text--center mb-80">
-          <h2 class="heading--title">What We Do?</h2>
-          <p class="heading--desc">Duis aute irure dolor in reprehenderit volupte velit esse cillum dolore eu fugiat pariatursint occaecat cupidatat non proident culpa.</p>
+          <h2 class="heading--title">Apa yang bisa kami lakukan?</h2>
+          <p class="heading--desc">Berikut ini adalah beberapa layanan yang kami berikan untuk anda.</p>
           <div class="divider--line"></div>
         </div>
       </div>
@@ -293,9 +267,9 @@
           <div class="pricing--content">
             <h4 class="pricing--heading">Haircut</h4>
             <div class="pricing--divider"></div>
-            <span class="price">$20.00</span>
+            <span class="price">Rp 25.000</span>
           </div>
-          <p class="pricing--desc">Our stylist consults & delivers you a precision haircut.</p>
+          <p class="pricing--desc">Khusus untuk potong rambut saja.</p>
         </div>
         <!-- .panel end -->
       </div>

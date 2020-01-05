@@ -264,8 +264,9 @@
                             </div>
                             <div class="footer--widget-content">
                                 <ul class="list-unstyled mb-0">
-                                    <li><i class="fa fa-map-marker"></i> Jalan.</li>
-                                    <li><i class="fa fa-phone"></i> 0000000 </li>
+                                    <li><i class="fa fa-map-marker"></i> Jl.Karimata (Depan Mie Kober)</li>
+                                    <li><i class="fa fa-map-marker"></i> Jl.Sumatra (Sebelah Iphone Center)</li>
+                                    <li><i class="fa fa-phone"></i> 081 216 376 162 </li>
                                     <li><i class="fa fa-envelope-o"></i> email@email.com</li>
                                 </ul>
                             </div>

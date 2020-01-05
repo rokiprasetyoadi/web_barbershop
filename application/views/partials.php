@@ -33,7 +33,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>Hairy | Barber Html5 Template</title>
+    <title>Sevenhead Barbershop</title>
 </head>
 
 <body>
@@ -65,7 +65,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 text-right text-center-xs">
                                 <span class="top--login">
                                     <?php if ($this->session->userdata('email')) { ?>
-                                        <a href='<?= base_url(); ?>account'><span id="accountMenuName">
+                                        <a href='<?= base_url(); ?>myaccount'><span id="accountMenuName">
                                                 <span>My Account</span>
                                                 <i class='lnr lnr-user'></i>
                                             </span></a>
@@ -101,7 +101,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="logo" href="index.html">
+                            <a class="logo" href='<?= base_url() ?>home'>
                                 <img class="logo-light" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="Hairy Logo">
                                 <img class="logo-dark" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="Hairy Logo">
                             </a>

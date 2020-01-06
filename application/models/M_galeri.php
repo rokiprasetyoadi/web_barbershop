@@ -41,7 +41,7 @@
     {
         $config['upload_path'] = './assets/upload/galeri/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['file_name'] = $this->input->post('galeri_id');
+        $config['file_name'] = $this->input->post('galeri_nama');
         $config['overwrite'] = true;
         $config['max_size'] = 5024; // 1MB
 

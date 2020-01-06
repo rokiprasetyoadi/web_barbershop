@@ -34,15 +34,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($customers as $row):?>
+                                    <?php 
+                                    $i=1;
+                                    foreach($customers as $row):?>
                                 <tr class="">
-                                    <td><?= $row['customers_id'] ?></td>
+                                    <td><?= $i++ ?></td>
                                     <td><?= $row['customers_nama'] ?></td>
                                     <td><?= $row['customers_email'] ?></td>
                                     <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalKeteranganAlamat<?= $row['customers_id']; ?>">Detail</button></td>
                                     <td><?= $row['customers_nohp'] ?></td>
                                     <td><?= $row['customers_created'] ?></td>
-                                    <td><?= $row['customers_status'] ?></td>
+                                    <td><?php if ($row['customers_status'] == 1) {
+                                                            echo 'Aktif';
+                                                        } else {
+                                                            echo 'Tidak Aktif';
+                                                        }
+                                                        ?></td>
                                     <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= base_url(); ?>admin/customers/delete/<?= $row['customers_id'] ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>

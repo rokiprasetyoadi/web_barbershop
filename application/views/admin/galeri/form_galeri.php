@@ -12,7 +12,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= site_url() ?>admin/galeri/add">
+                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= base_url() ?>admin/galeri/add">
                                     <div class="form-group ">
                                         <label for="galeri_nama" class="control-label col-lg-3">Nama Potongan</label>
                                         <div class="col-lg-6">

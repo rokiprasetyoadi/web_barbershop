@@ -37,7 +37,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-            <div class="slide--headline">Percayakan kepala rambut anda kepada kami</div>
+            <div class="slide--headline">Percayakan rambut kepala anda kepada kami</div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
             <div class="slide--bio">Kualitas adalah hal yang utama bagi kami.</div>

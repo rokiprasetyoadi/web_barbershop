@@ -39,16 +39,18 @@
 
 	private function _uploadImage()
     {
-        $config['upload_path'] = './assets/upload/galeri/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['file_name'] = $this->input->post('galeri_nama');
-        $config['overwrite'] = true;
-        $config['max_size'] = 5024; // 1MB
+        $config = [
+					'upload_path' => './assets/upload/galeri/',
+					'allowed_types' => 'gif|jpg|png|jpeg',
+					'file_name' => $this->input->post('galeri_nama'),
+					'overwrite' => true,
+					'max_size' => 5024
+				];
 
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('galeri_image')) {
-            return $this->upload->data("file_name");
+            return $this->upload->data('file_name');
         }
 
         return "default.jpg";

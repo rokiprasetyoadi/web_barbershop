@@ -275,13 +275,10 @@
 
                         <div class="col-xs-12 col-sm-6 col-md-4 footer--widget-contact">
                             <div class="footer--widget-title">
-                                <h5>Subscribe</h5>
+                                <h5>Peta</h5>
                             </div>
                             <div class="footer--widget-content">
-                                <form class="form--newsletter">
-                                    <input type="email" name="email" class="form-control" placeholder="Email address">
-                                    <button type="submit">Subscribe</button>
-                                </form>
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3949.287287056553!2d113.7055631!3d-8.1737857!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cc55ad527b%3A0xafd1bec78f0e5daa!2sSevenhead%20barbershop!5e0!3m2!1sid!2sid!4v1578246970685!5m2!1sid!2sid" width="350" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                             </div>
                         </div>
                         <!-- .col-md-4 end -->

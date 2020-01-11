@@ -94,8 +94,8 @@
 
                           <p>Lokasi Asal :</p>
                           <div class="form-group">
-                          <select class="form-control" id="sel1">
-                            <option value=""> Pilih Provinsi</option>
+                          <select class="form-control" id="province">
+
                           </select>
                           </div>
 

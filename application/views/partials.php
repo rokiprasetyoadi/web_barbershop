@@ -167,7 +167,7 @@
                                             <a class="btn btn--primary btn--bordered btn--rounded btn--block" href=#">You are not logged in</a>
                                         </div>
                                     </div>
-                                <?php } else if (!$keranjang) { ?>
+                                <?php } elseif (!$keranjang) { ?>
                                     <div class="module-content module-box cart-box">
                                         <div class="cart-overview">
                                             <ul class="list-unstyled">
@@ -319,18 +319,6 @@
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/sweetalert/sweetalert2.all.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/myscript.js"></script>
-
-    <script type="text/javascript">
-        window.$crisp = [];
-        window.CRISP_WEBSITE_ID = "eb520ee9-b0f5-4ddf-be58-578ef5d25fff";
-        (function() {
-            d = document;
-            s = d.createElement("script");
-            s.src = "https://client.crisp.chat/l.js";
-            s.async = 1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
-    </script>
 
     <script type="text/javascript">
         $(document).ready(function() {

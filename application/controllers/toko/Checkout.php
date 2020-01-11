@@ -27,70 +27,45 @@ class Checkout extends CI_Controller
         $this->temp->load('partials', 'toko/checkout', $data);
     }
 
-    private function _api_ongkir_post($origin, $des, $qty, $cour)
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => "",
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 30,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => "origin=".$origin."&destination=".$des."&weight=".$qty."&courier=".$cour,
-          CURLOPT_HTTPHEADER => array(
-            "content-type: application/x-www-form-urlencoded",
-            "key: 33543268d9ae1fd4bc43361801d896a3"
-          ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            return $err;
-        } else {
-            return $response;
-        }
-    }
-
-    private function _api_ongkir($data)
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-          // CURLOPT_URL => "https://api.rajaongkir.com/starter/province?id=12",
-          CURLOPT_URL => "https://api.rajaongkir.com/starter".$data,
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => "",
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 30,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "GET",
-          CURLOPT_HTTPHEADER => array(
-            "key: 33543268d9ae1fd4bc43361801d896a3"
-          ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        curl_close($curl);
-        if ($err) {
-            return $err;
-        } else {
-            return $response;
-        }
-    }
-
     public function provinsi()
     {
-        $provinsi = $this->_api_ongkir('province');
-        $data = json_decode($provinsi, true);
-        echo json_encode($data['rajaongkir']['results']);
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "key: 33543268d9ae1fd4bc43361801d896a3"
+        ),
+      ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        $option = array();
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            // echo json_encode($response
+            $data = json_decode($response, true);
+            for ($i=0; $i < count($data['rajaongkir']['results']); $i++) {
+                array_push(
+                    $option,
+                    array(
+                  'id_province' => $data['rajaongkir']['results'][$i]['province_id'],
+                  'province' => $data['rajaongkir']['results'][$i]['province'])
+                );
+            }
+            echo json_encode($option);
+        }
     }
 
     public function lokasi()
@@ -102,6 +77,31 @@ class Checkout extends CI_Controller
     {
         if (!empty($provinsi)) {
             if (is_numeric($provinsi)) {
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://api.rajaongkir.com/starter/city?province=$provinsi",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                  "key: your-api-key"
+                ),
+              ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+
+                curl_close($curl);
+
+                if ($err) {
+                    echo "cURL Error #:" . $err;
+                } else {
+                    echo $response;
+                }
                 $kota = $this->_api_ongkir('city?province='.$provinsi);
                 $data = json_decode($kota, true);
                 echo json_encode($data['rajaongkir']['results']);

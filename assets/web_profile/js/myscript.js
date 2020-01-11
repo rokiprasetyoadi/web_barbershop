@@ -8,7 +8,7 @@ window.CRISP_WEBSITE_ID = "eb520ee9-b0f5-4ddf-be58-578ef5d25fff";
     d.getElementsByTagName("head")[0].appendChild(s);
 })();
 
-// Sweetalert 
+// Sweetalert
 const flashData = $('.flash-data').data('flashdata');
 if (flashData == 'Insufficient Stock') {
     Swal.fire({
@@ -18,6 +18,7 @@ if (flashData == 'Insufficient Stock') {
 
     });
 }
+
 
 // $(document).ready(function(){
 //     $('.updatecart').click(function(e){

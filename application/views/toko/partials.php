@@ -317,9 +317,9 @@
     <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
-    
 
-    <script type="text/javascript">
+
+    <script>
     $(document).ready(function(){
         show_province();
         function show_province(){
@@ -334,7 +334,7 @@
               for(i=0; i<option.length; i++){
                 html += '<option value="'+option[i].id_province+'">'+option[i].province+'</option>';
               }
-              $('#province').html(html);
+              $('#provinsi').html(html);
             }
           });
         }

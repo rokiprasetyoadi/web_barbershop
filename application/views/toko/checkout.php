@@ -94,7 +94,7 @@
 
                           <p>Lokasi Asal :</p>
                           <div class="form-group">
-                          <select class="form-control" id="province">
+                          <select class="form-control" id="provinsi">
 
                           </select>
                           </div>

@@ -21,7 +21,7 @@
 ============================================= -->
 <section id="shopcart" class="shop shop-cart bg-white">
     <div class="container">
-        <?= form_open('toko/chekout'); ?>
+        <?= form_open('toko/checkout'); ?>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="shop-cart-heading">
@@ -48,7 +48,7 @@
                         <tbody>
 
                             <?php if (!$keranjang) {
-                                echo "
+    echo "
                                 <tr>
                                     <td></td>
                                     <td class='cart-product-item' align='center' colspan='5'>
@@ -56,8 +56,8 @@
                                     </td>
                                     <td></td>
                                 </tr>";
-                                $k = TRUE;
-                            } else { ?>
+    $k = true;
+} else { ?>
                                 <?php echo form_hidden('c_detail_id', $keranjang[0]['c_detail_id']); ?>
                                 <?php foreach ($keranjang as $item) { ?>
                                     <?php echo form_hidden('barang_harjul', $item['barang_harjul']); ?>
@@ -82,7 +82,7 @@
                                         </td>
                                         <td class="price cart-product-price"><?= rupiah($item['barang_harjul']) ?></td>
                                         <td class="cart-product-quantity">
-                                            <div class="product-quantity"><!-- 
+                                            <div class="product-quantity"><!--
                                                 <input class="qty" type="text" name="qty" value="<?= $item['qty'] ?>"> -->
                                                 <input type="text" name="qty" class="qty" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" value="<?= $item['qty'] ?>" id="pro-qunt" min="1" />
                                                 <?php echo form_hidden('name', $item['qty']); ?>

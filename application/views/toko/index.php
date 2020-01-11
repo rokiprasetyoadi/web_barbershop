@@ -77,6 +77,7 @@
       </div>
       <!-- .col-md-3 end -->
       <div class="col-xs-12 col-sm-12 col-md-9">
+
         <div class="row">
           <?php foreach ($barang as $b) : ?>
             <!-- Product -->

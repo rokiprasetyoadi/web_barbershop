@@ -1,8 +1,6 @@
 <?php class M_barang extends CI_Model
 {
-
 	private $_table = "tbl_barang";
-	public $barang_image = "default.jpg";
 	public $barang_id;
 
 	public function getAll($id = null)
@@ -157,6 +155,7 @@
 	public function editData()
 	{
 		$data = [
+			'barang_id' => htmlspecialchars($this->input->post('barang_id', true)),
 			'barang_kategori_id' => htmlspecialchars($this->input->post('barang_kategori_id', true)),
 			'barang_nama' => htmlspecialchars($this->input->post('barang_nama', true)),
 			'barang_harjul_grosir' => htmlspecialchars($this->input->post('barang_harjul_grosir', true)),

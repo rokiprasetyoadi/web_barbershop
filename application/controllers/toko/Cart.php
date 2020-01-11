@@ -3,8 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Cart extends CI_Controller
 {
-
-
     public function __construct()
     {
         parent::__construct();
@@ -13,7 +11,6 @@ class Cart extends CI_Controller
         $this->load->model('Anu_model', 'anu');
         $this->load->model('M_katalog', 'malog');
     }
-
 
     public function index()
     {
@@ -28,7 +25,6 @@ class Cart extends CI_Controller
         $data['keranjang'] = $this->cart->getcart($idc);
 
         if ($data['customers']) {
-
             $this->temp->load('partials', 'toko/cart', $data);
         } else {
             $this->session->set_flashdata('message', 'Anda Belum Login');
@@ -69,7 +65,6 @@ class Cart extends CI_Controller
                 // redirect('keranjang');
                 echo "<script type='text/javascript'>history.go(-1);</script>";
             } elseif ($tssprice <= 0) {
-
                 $array = [
                     'c_cart_id' => $this->session->userdata('cart_id'),
                     'barang_id' => $this->input->post('barang_id'),
@@ -99,7 +94,7 @@ class Cart extends CI_Controller
         }
     }
 
-    function delete($rowid)
+    public function delete($rowid)
     {
         if ($rowid == "all") {
             $this->cart->destroy();
@@ -115,14 +110,12 @@ class Cart extends CI_Controller
 
     public function updatecart()
     {
-
         $c_cart_id = $this->input->post('c_cart_id');
         $barang_id = $this->input->post('barang_id');
         $qty = $this->input->post('qty');
         $barang_harjul = $this->input->post('barang_harjul');
 
         foreach ($barang_id as $item) {
-
             $stoknya[] = $this->cart->pStock($item);
         }
 
@@ -153,7 +146,7 @@ class Cart extends CI_Controller
             $kirim = ['code' => 2, 'id_outstok' => $mana_outstok, 'pesan' => 'gagal'];
             print_r(json_encode($kirim));
             return;
-            //
+        //
         } else {
             foreach ($barang as $item) {
                 $data = [
@@ -175,10 +168,7 @@ class Cart extends CI_Controller
             $kirim = ['code' => 1, 'pesan' => 'berhasil'];
             print_r(json_encode($kirim));
         }
-
-
     }
-
 }
 
 /* End of file Controllername.php */

@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_katalog extends CI_Model
 {
-
     public function getProdbyId($id)
     {
         $this->db->select('*');
@@ -23,9 +22,8 @@ class M_katalog extends CI_Model
         return $query->result();
     }
 
-    function validate_add_cart_item()
+    public function validate_add_cart_item()
     {
-
         $id = $this->input->post('barang_id'); // Assign posted product_id to $id
         $qty = $this->input->post('qty'); // Assign posted quantity to $cty
 
@@ -48,11 +46,11 @@ class M_katalog extends CI_Model
                 // Add the data to the cart using the insert function that is available because we loaded the cart library
                 $this->cart->insert($data);
 
-                return TRUE; // Finally return TRUE
+                return true; // Finally return TRUE
             }
         } else {
-            // Nothing found! Return FALSE! 
-            return FALSE;
+            // Nothing found! Return FALSE!
+            return false;
         }
     }
     public function cartPrice()
@@ -109,7 +107,6 @@ class M_katalog extends CI_Model
     }
     public function tssprice($idu)
     {
-
         $this->db->where('c_cart_id', $idu);
         $this->db->where('barang_id', $this->input->post('barang_id'));
         $this->db->from('tbl_cart_detail');

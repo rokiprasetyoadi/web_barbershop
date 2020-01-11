@@ -317,7 +317,7 @@
     <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
 
     <script type="text/javascript">
     $(document).ready(function(){

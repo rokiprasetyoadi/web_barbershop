@@ -82,7 +82,7 @@
                                     <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
                                     <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                                     <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
+                                    <a class="instagram" href="https://www.instagram.com/sevenhead.jbr/?hl=id"><i class="fa fa-instagram"></i></a>
                                 </span>
                             </div><!-- .col-md-6 end -->
                         </div>

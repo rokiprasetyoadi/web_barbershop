@@ -271,10 +271,14 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a href="<?php echo base_url('admin/galeri') ?>">
+                    <a href="javascript:;">
                         <i class="fa fa-picture-o"></i>
-                        <span>Galeri</span>
+                        <span>Personalisasi</span>
                     </a>
+                    <ul class="sub">
+                        <li><a href="<?php echo base_url('admin/karyawan') ?>">Data Karyawan</a></li>
+                        <li><a href="<?php echo base_url('admin/galeri') ?>">Galeri</a></li>
+                    </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">

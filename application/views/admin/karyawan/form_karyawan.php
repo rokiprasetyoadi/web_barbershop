@@ -3,7 +3,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Tambah Galeri
+                            Tambah Karyawan
                             <span class="tools pull-right">
                                 <a class="fa fa-chevron-down" href="javascript:;"></a>
                                 <a class="fa fa-cog" href="javascript:;"></a>
@@ -12,36 +12,36 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= base_url() ?>admin/galeri/add">
+                                <form class="cmxform form-horizontal " method="POST" enctype="multipart/form-data" action="<?= base_url() ?>admin/karyawan/add">
                                     <div class="form-group">
-                                        <label for="galeri_id" class="control-label col-lg-3">ID Galeri</label>
+                                        <label for="karyawan_id" class="control-label col-lg-3">ID Karyawan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control" id="galeri_id" name="galeri_id" type="text" value="<?= $kode; ?>" readonly />
+                                            <input class="form-control" id="karyawan_id" name="karyawan_id" type="text" value="<?= $kode; ?>" readonly />
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="galeri_nama" class="control-label col-lg-3">Nama Potongan</label>
+                                        <label for="karyawan_nama" class="control-label col-lg-3">Nama Karyawan</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="galeri_nama" name="galeri_nama" type="text" required/>
+                                            <input class="form-control " id="karyawan_nama" name="karyawan_nama" type="text" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="galeri_image" class="control-label col-lg-3">Foto</label>
+                                        <label for="karyawan_image" class="control-label col-lg-3">Foto</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " id="galeri_image" name="galeri_image" type="file" required/>
+                                            <input class="form-control " id="karyawan_image" name="karyawan_image" type="file" required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="galeri_keterangan" class="control-label col-lg-3">Keterangan</label>
+                                        <label for="karyawan_keterangan" class="control-label col-lg-3">Keterangan</label>
                                         <div class="col-lg-6">
-                                            <textarea class="form-control " id="galeri_keterangan" name="galeri_keterangan"></textarea>
+                                            <textarea class="form-control " id="karyawan_keterangan" name="karyawan_keterangan"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
                                             <button class="btn btn-primary" type="submit">Save</button>
-                                            <a href="<?= site_url() ?>admin/galeri" class="btn btn-default" type="cancel">Cancel</a>
+                                            <a href="<?= site_url() ?>admin/karyawan" class="btn btn-default" type="cancel">Cancel</a>
                                         </div>
                                     </div>
                                 </form>

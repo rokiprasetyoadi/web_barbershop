@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Galeri extends CI_Controller {
+class Karyawan extends CI_Controller {
 
     function __construct()
         {
@@ -9,35 +9,36 @@ class Galeri extends CI_Controller {
             if($this->session->userdata('status') != "login"){
             redirect(base_url("admin/Login_admin"));
             }
-            $this->load->model("M_galeri");
+            $this->load->model("M_karyawan");
             date_default_timezone_set('Asia/Jakarta');
         }
 
     public function index()
     {
-        $data['galeri']=$this->M_galeri->getAll()->result();
-        $this->temp->load('admin/partials', 'admin/galeri/galeri', $data);
+        $data['karyawan']=$this->M_karyawan->getAll()->result();
+        $this->temp->load('admin/partials', 'admin/karyawan/karyawan', $data);
     }
 
     public function add()
     {
-        $this->M_galeri->rulesNew();
+        $this->M_karyawan->rulesNew();
         if ($this->form_validation->run() == false) {
             $data = [
-                'kode' => $this->M_galeri->kode()
+                'page' => 'add',
+                'kode' => $this->M_karyawan->kode()
             ];
-            $this->temp->load('admin/partials', 'admin/galeri/form_galeri', $data);
+            $this->temp->load('admin/partials', 'admin/karyawan/form_karyawan', $data);
         } else {
-            $this->M_galeri->addNew();
+            $this->M_karyawan->addNew();
             $this->session->set_flashdata('pesan', '<div class="alert alert-outline alert-success">Data berhasil ditambahkan!<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-            redirect('admin/galeri');
+            redirect('admin/karyawan');
         }
     }
 
     public function delete($id=null)
     {
-        $this->M_galeri->deleteData($id);
-        redirect('admin/galeri');
+        $this->M_karyawan->deleteData($id);
+        redirect('admin/karyawan');
    }
 
 }

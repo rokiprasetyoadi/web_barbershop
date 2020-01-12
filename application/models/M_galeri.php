@@ -18,6 +18,11 @@
 	{
 		$data = [
 			[
+				'field' => 'galeri_id',
+				'label' => 'ID Galeri',
+				'rules' => 'required|is_unique[galeri.galeri_id]'
+			],
+			[
 				'field' => 'galeri_nama',
 				'label' => 'Nama Potongan',
 				'rules' => 'required'
@@ -29,6 +34,7 @@
 	public function addNew()
 	{
 		$data = [
+			'galeri_id' => htmlspecialchars($this->input->post('galeri_id', true)),
 			'galeri_nama' => htmlspecialchars($this->input->post('galeri_nama', true)),
 			'galeri_keterangan' => htmlspecialchars($this->input->post('galeri_keterangan', true)),
 			'galeri_image' => $this->_uploadImage()
@@ -37,12 +43,33 @@
 		$this->db->insert('galeri', $data); // query untuk insert data ke tabel barang
 	}
 
+	public function kode()
+	{
+		$this->db->select('RIGHT(galeri.galeri_id,2) as id', false);
+		$this->db->order_by('id', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get('galeri'); //cek dulu apakah ada sudah ada kode di tabel.
+
+		if ($query->num_rows() <> 0) {
+			//cek kode jika telah tersedia
+			$data = $query->row();
+			$kode = intval($data->id) + 1;
+		} else {
+			$kode = 1; //cek jika kode belum terdapat pada table
+		}
+
+		$tgl = date('dmY');
+		$batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
+		$kodetampil = "G" . $tgl . $batas; //format kode
+		return $kodetampil;
+	}
+
 	private function _uploadImage()
     {
         $config = [
 					'upload_path' => './assets/upload/galeri/',
 					'allowed_types' => 'gif|jpg|png|jpeg',
-					'file_name' => $this->input->post('galeri_nama'),
+					'file_name' => $this->input->post('galeri_id'),
 					'overwrite' => true,
 					'max_size' => 5024
 				];

@@ -63,11 +63,7 @@
 
 <!-- Ongkir begin -->
 
-<?php
-  if (!$keranjang) {
-      null;
-  } else {
-      ?>
+
 <section id="checkoutPayment" class="payment-methods pt-0">
     <div class="container">
         <div class="row">
@@ -94,8 +90,8 @@
 
                           <p>Lokasi Asal :</p>
                           <div class="form-group">
-                          <select class="form-control" id="provinsi">
-
+                          <select class="form-control" id="sel1">
+                            <option value=""> Pilih Provinsi</option>
                           </select>
                           </div>
 
@@ -137,10 +133,9 @@
         </div>
         <!-- .row end -->
     </div>
+
     <!-- .container end -->
 </section>
-<?php
-  } ?>
 
 <!-- Ongkir end -->
 

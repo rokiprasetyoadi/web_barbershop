@@ -24,6 +24,11 @@
     <link href="<?= base_url() ?>assets/web_profile/css/external.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -314,34 +319,13 @@
     <!-- #wrapper end -->
     <!-- Footer Scripts
 ============================================= -->
-    <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
-    <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
-    <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
+
+  <script src="<?= base_url('assets/web_profile/plugins.js')?>"></script>
+  <script src="<?= base_url('assets/web_rofile/functions.js') ?>"></script>
+  <script src="<?= base_url('assets/web_profile/js/ongkir.js')?>"></script>
 
 
-    <script>
-    $(document).ready(function(){
-        show_province();
-        function show_province(){
-          $.ajax({
-            url : '<?php echo base_url("toko/checkout/provinsi")?>',
-            type : 'GET',
-            dataType  : 'json',
-            success : function(option){
-              var html = '';
-              html += '<option value="&nbsp"> Select Province </option>'
-              var i;
-              for(i=0; i<option.length; i++){
-                html += '<option value="'+option[i].id_province+'">'+option[i].province+'</option>';
-              }
-              $('#provinsi').html(html);
-            }
-          });
-        }
-    });
 
-
-    </script>
 </body>
 
 

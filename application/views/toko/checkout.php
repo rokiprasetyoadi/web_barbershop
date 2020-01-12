@@ -83,10 +83,6 @@ if (!$keranjang) {
                             <input type="hidden" value="1" min="1" class="form-control" id="berat" name="berat">
                           </div>
 
-                          <div class="form-group">
-
-                          </div>
-
                           <p>Lokasi Asal :</p>
                           <div class="form-group">
                           <select class="form-control" id="sel1">

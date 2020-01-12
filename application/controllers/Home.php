@@ -3,17 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
-	function __construct()
-	 	{
-	 		parent :: __construct();
-			$this->load->model("M_index");
-            date_default_timezone_set('Asia/Jakarta');
-	 	}
+    public function __construct()
+    {
+        parent :: __construct();
+        $this->load->model("M_index");
+        date_default_timezone_set('Asia/Jakarta');
+    }
 
     public function index()
     {
-    	$data['karyawan']=$this->M_index->getKaryawan()->result();
-    	$data['galeri']=$this->M_index->getGaleri()->result();
+        $data['karyawan']=$this->M_index->getKaryawan()->result();
+        $data['galeri']=$this->M_index->getGaleri()->result();
         $this->temp->load('partials', 'index', $data);
     }
 

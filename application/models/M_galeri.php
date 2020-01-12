@@ -71,7 +71,9 @@
 					'allowed_types' => 'gif|jpg|png|jpeg',
 					'file_name' => $this->input->post('galeri_id'),
 					'overwrite' => true,
-					'max_size' => 5024
+					'max_size' => 5024,
+					'height' => 528,
+					'width' => 460
 				];
 
         $this->load->library('upload', $config);

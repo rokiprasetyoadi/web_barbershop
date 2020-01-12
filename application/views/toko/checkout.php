@@ -63,6 +63,11 @@
 
 <!-- Ongkir begin -->
 
+<?php
+if (!$keranjang) {
+                          null;
+                      } else {
+                          ?>
 
 <section id="checkoutPayment" class="payment-methods pt-0">
     <div class="container">
@@ -75,13 +80,7 @@
                     <form class=" mb-0">
                         <fieldset class="radiogroup mb-0">
                           <div class="input-group">
-                           <div class="input-group-append">
-                              <span class="input-group-text">Berat</span>
-                            </div>
-                            <input type="number" value="1" min="1" class="form-control" id="berat" name="berat">
-                            <div class="input-group-append">
-                              <span class="input-group-text">Kg</span>
-                            </div>
+                            <input type="hidden" value="1" min="1" class="form-control" id="berat" name="berat">
                           </div>
 
                           <div class="form-group">
@@ -136,6 +135,8 @@
 
     <!-- .container end -->
 </section>
+<?php
+                      } ?>
 
 <!-- Ongkir end -->
 

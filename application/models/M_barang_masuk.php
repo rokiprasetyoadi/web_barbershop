@@ -162,7 +162,8 @@
 	}
 
 	public function deleteData($id) {
-		return $this->db->delete('tbl_brgmasuk',array("brgmasuk_nota" => $id));
+		$this->db->delete('tbl_brgmasuk',array("brgmasuk_nota" => $id));
+		$this->db->delete('tbl_detailbrgmasuk', array('detailmasuk_brgmasuk_nota' => $id));
 	}
 
 	public function deleteBrg($id) {

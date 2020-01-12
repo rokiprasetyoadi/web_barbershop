@@ -24,7 +24,7 @@ class Produk extends CI_Controller
         $idc = $this->session->userdata('cart_id');
         $data['tprice'] = $this->cart->tprice($idc);
         $data['keranjang'] = $this->cart->getcart($idc);
-        $this->temp->load('partials', 'toko/checkout', $data);
+        $this->temp->load('toko/partials', 'toko/checkout', $data);
     }
 
     public function _api_ongkir_post($origin, $des, $qty, $cour)

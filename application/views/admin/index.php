@@ -6,7 +6,7 @@
             <span class="mini-stat-icon orange"><i class="fa fa-users"></i></span>
             <div class="mini-stat-info">
                 <span><?= $total_customers['tot_cst']; ?></span>
-                Jumlah Customers Aktif
+                Customers Aktif
             </div>
         </a>
         </div>
@@ -17,7 +17,7 @@
             <span class="mini-stat-icon tar"><i class="fa fa-tag"></i></span>
             <div class="mini-stat-info">
                 <span><?= $total_barang['tot_brg']; ?></span>
-                Jumlah Barang
+                Barang
             </div>
         </a>
         </div>
@@ -28,7 +28,7 @@
             <span class="mini-stat-icon pink"><i class="fa fa-shopping-cart"></i></span>
             <div class="mini-stat-info">
                 <span><?= $total_transaksi['tot_jual']; ?></span>
-                Jumlah Transaksi
+                Transaksi
             </div>
         </a>
         </div>
@@ -39,7 +39,7 @@
             <span class="mini-stat-icon green"><i class="fa fa-truck"></i></span>
             <div class="mini-stat-info">
                 <span><?= $total_pengiriman['tot_kirim']; ?></span>
-                Jumlah Pengiriman Barang
+                Pengiriman Barang
             </div>
         </a>
         </div>

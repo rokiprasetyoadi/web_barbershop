@@ -382,7 +382,7 @@
       <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
         <div class="text--center heading mb-70">
           <h2 class="heading--title color-white">Karyawan Kami</h2>
-          <p class="heading--desc mb-0 color-gray">Kami memiliki 6 karyawan</p>
+          <p class="heading--desc mb-0 color-gray">Kami memiliki 7 karyawan</p>
           <div class="divider--line divider--center"></div>
         </div>
       </div>
@@ -392,77 +392,26 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div id="testimonial-carousel" class="carousel carousel-dots carousel-white" data-slide="3" data-slide-rs="1" data-autoplay="false" data-nav="false" data-dots="true" data-space="30" data-loop="true" data-speed="800">
+
+          <?php foreach($karyawan as $data):?>
           <!-- Testimonial #1 -->
           <div class="testimonial-panel">
             <div class="testimonial--meta">
               <div class="testimonial--meta-img">
-                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/1.png" alt="Testimonial Author">
+                <img src="<?= base_url('assets/upload/karyawan/'.$data->karyawan_image) ?>" alt="Testimonial Author">
               </div>
             </div>
             <!-- .testimonial-meta end -->
             <div class="testimonial--body">
-              <p>“Proin gravida nibh vel velit auctor aliquet aenean sollidin, lorem quis bibendum auctor nisi elit.”</p>
+              <p>“<?php echo $data->karyawan_keterangan; ?>”</p>
             </div>
             <!-- .testimonial-body end -->
             <div class="testimonial--meta-content">
-              <h4>Ryan Printz</h4>
+              <h4><?php echo $data->karyawan_nama; ?></h4>
             </div>
           </div>
           <!-- .testimonial-panel end -->
-
-          <!-- Testimonial #2 -->
-          <div class="testimonial-panel">
-            <div class="testimonial--meta">
-              <div class="testimonial--meta-img">
-                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/2.png" alt="Testimonial Author">
-              </div>
-            </div>
-            <!-- .testimonial-meta end -->
-            <div class="testimonial--body">
-              <p>“Proin gravida nibh vel velit auctor aliquet aenean sollidin, lorem quis bibendum auctor nisi elit.”</p>
-            </div>
-            <!-- .testimonial-body end -->
-            <div class="testimonial--meta-content">
-              <h4>Mark Smith</h4>
-            </div>
-          </div>
-          <!-- .testimonial-panel end -->
-
-          <!-- Testimonial #3 -->
-          <div class="testimonial-panel">
-            <div class="testimonial--meta">
-              <div class="testimonial--meta-img">
-                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/3.png" alt="Testimonial Author">
-              </div>
-            </div>
-            <!-- .testimonial-meta end -->
-            <div class="testimonial--body">
-              <p>“Proin gravida nibh vel velit auctor aliquet aenean sollidin, lorem quis bibendum auctor nisi elit.”</p>
-            </div>
-            <!-- .testimonial-body end -->
-            <div class="testimonial--meta-content">
-              <h4>Steve Martin</h4>
-            </div>
-          </div>
-          <!-- .testimonial-panel end -->
-
-          <!-- Testimonial #4 -->
-          <div class="testimonial-panel">
-            <div class="testimonial--meta">
-              <div class="testimonial--meta-img">
-                <img src="<?= base_url() ?>assets/web_profile/images/testimonial/2.png" alt="Testimonial Author">
-              </div>
-            </div>
-            <!-- .testimonial-meta end -->
-            <div class="testimonial--body">
-              <p>“Proin gravida nibh vel velit auctor aliquet aenean sollidin, lorem quis bibendum auctor nisi elit.”</p>
-            </div>
-            <!-- .testimonial-body end -->
-            <div class="testimonial--meta-content">
-              <h4>Smith Printz</h4>
-            </div>
-          </div>
-          <!-- .testimonial-panel end -->
+          <?php endforeach; ?>
 
         </div>
       </div>
@@ -490,56 +439,23 @@
     </div>
     <!-- .row end -->
     <div class="row">
+      <?php foreach($galeri as $g):?>
       <!-- Blog Entry #1 -->
       <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="blog-entry">
           <div class="entry--img">
-            <a href="#">
-              <img src="<?= base_url() ?>assets/web_profile/images/blog/grid/1.jpg" alt="entry image" />
-            </a>
-            <div class="entry--overlay">
-              <a href="#"><i class="fa fa-chain"></i></a>
-            </div>
+              <img src="<?= base_url('assets/upload/galeri/'.$g->galeri_image) ?>" alt="entry image" />
           </div>
+          <div class="caption">
+              <p style="text-align: center;"><b>“ <?php echo $g->galeri_nama ?> ”</b></p>
+            </div>
 
         </div>
         <!-- .blog-entry end -->
       </div>
       <!-- .col-md-4 end -->
+      <?php endforeach; ?>
 
-      <!-- Blog Entry #2 -->
-      <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="blog-entry">
-          <div class="entry--img">
-            <a href="#">
-              <img src="<?= base_url() ?>assets/web_profile/images/blog/grid/2.jpg" alt="entry image" />
-            </a>
-            <div class="entry--overlay">
-              <a href="#"><i class="fa fa-chain"></i></a>
-            </div>
-          </div>
-
-        </div>
-        <!-- .blog-entry end -->
-      </div>
-      <!-- .col-md-4 end -->
-
-      <!-- Blog Entry #3 -->
-      <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="blog-entry">
-          <div class="entry--img">
-            <a href="#">
-              <img src="<?= base_url() ?>assets/web_profile/images/blog/grid/3.jpg" alt="entry image" />
-            </a>
-            <div class="entry--overlay">
-              <a href="#"><i class="fa fa-chain"></i></a>
-            </div>
-          </div>
-
-        </div>
-        <!-- .blog-entry end -->
-      </div>
-      <!-- .col-md-4 end -->
     </div>
     <!-- .row end -->
 

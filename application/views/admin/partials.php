@@ -299,7 +299,7 @@
                         <span>Transaksi</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="<?php echo base_url('admin/penjualan') ?>">Transaksi</a></li>
+                        <li><a href="<?php echo base_url('admin/penjualan') ?>">Penjualan</a></li>
                         <li><a href="<?php echo base_url('admin/pembayaran') ?>">Verifikasi Pembayaran</a></li>
                     </ul>
                 </li>

@@ -36,7 +36,7 @@
                                 <tr class="">
                                     <td><?php echo $data->jual_nofak; ?></td>
                                     <td><?php echo $data->customers_nama; ?></td>
-                                    <td></td>
+                                    <td>Rp. <?php echo number_format($data->jual_total) ?></td>
                                     <td><?php echo $data->jual_tgl; ?></td>
                                     <td style="text-align: center;"><a class="detail" href="<?= site_url(); ?>admin/laporan_penjualan/detail/<?= $data->jual_nofak ?>"><i class="fa fa-info"></i></a></td>
                                     <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/laporan_penjualan/delete/<?= $data->jual_nofak ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>

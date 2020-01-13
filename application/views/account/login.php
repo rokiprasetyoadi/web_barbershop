@@ -24,8 +24,8 @@
     <div class="container">
         <div class="row">
             <h4 class="text-capitalize text--center">L o g i n</h4>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-1 col-xs-offset-2">
-                <form class="mb-0 flex" role="form" method="post" action="<?= base_url('account/login'); ?>">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-1 col-xs-offset-2 mt-60">
+                <form class="mb-0" role="form" method="post" action="<?= base_url('account/login'); ?>">
                     <div class="col-md-6">
                         <?= $this->session->flashdata('pesan'); ?>
                         <?= $this->session->flashdata('account-access'); ?>
@@ -49,7 +49,7 @@
                                 <input type="submit" value="Login" name="submit" class="btn btn--secondary btn--rounded btn--block">
                             </div>
 
-                            <p class="col-xs-12 col-sm-12 col-md-12 mt-10"><a href="<?= base_url('forgot') ?>">
+                            <p class="col-xs-12 col-sm-12 col-md-12 mt-10"><a href="<?= base_url('forgotpassword') ?>">
                                     Lupa password ?
                                 </a></p>
                         </div>

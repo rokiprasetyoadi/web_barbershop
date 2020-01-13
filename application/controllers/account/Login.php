@@ -15,7 +15,7 @@ class Login extends CI_Controller
         if ($this->session->userdata('email')) {
           redirect('home');
         }
-      
+
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->form_validation->run() == false) {
@@ -66,4 +66,5 @@ class Login extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Anda telah logout!</div>');
         redirect('login');
     }
+
 }

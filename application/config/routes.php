@@ -64,3 +64,4 @@ $route['register'] = 'account/register';
 $route['myaccount'] = 'account/myaccount';
 $route['editaccount'] = 'account/editaccount';
 $route['changepassword'] = 'account/changepassword';
+$route['forgotpassword'] = 'account/forgotpassword';

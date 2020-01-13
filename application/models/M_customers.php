@@ -11,10 +11,6 @@
         $this->db->delete('customers');
     }
 
-
-
-    //frontend
-
     //--register--
     public function rulesR()
     {
@@ -50,7 +46,7 @@
     }
 
     public function prosesDaftarAkun()
-    {   
+    {
         $email = $this->input->post('email', true);
         $data = [
             'customers_nama' => $this->input->post('nama', true),
@@ -77,7 +73,7 @@
     }
 
 
-    private function _sendEmail($token, $type)
+    public function _sendEmail($token, $type)
     {
         $config = [
             'protocol' => 'smtp',
@@ -99,11 +95,11 @@
         if ($type == 'verify') {
             $this->email->subject('Your registration');
             $this->email->message('Click this link to verify your account :
-				<a href="'. base_url() .'home/verify?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Activation time for 5 minutes.');
+				<a href="'. base_url() .'home/verify?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Activation time is 5 minutes.');
         } elseif ($type == 'forgot') {
             $this->email->subject('Reset Password');
             $this->email->message('Click this link to reset your account password :
-				<a href="'. base_url() .'forgot/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Reset password time for 24 hours.');
+				<a href="'. base_url() .'account/forgotpassword/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Reset password is for 24 hours.');
         }
 
         if ($this->email->send()) {

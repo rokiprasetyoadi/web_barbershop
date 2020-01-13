@@ -43,24 +43,6 @@ class Transaksi extends CI_Controller
         $c_cart_id = $this->input->post('c_cart_id');
         $barang_harjul = $this->input->post('harjul');
         $nofak = $this->input->post('kodefaktur');
-        // $stokkurang = $stoknya - $kuantiti;
-
-        // TODO: membuat pengurangan stok di tabel barang
-        // $this->db->select('detailjual_nofak,barang_id,barang_stok,tbl_detailpenjualan.detailjual_qty');
-        // $this->db->from('tbl_barang');
-        // $this->db->join('tbl_detailpenjualan', 'tbl_barang.barang_id = tbl_detailpenjualan.detailjual_barang_id');
-        // $this->db->where('tbl_barang.barang_id', $barang_id);
-        // $qry = $this->db->get()->result_array();
-        // foreach ($qry as $q) {
-        //     $que = [
-        //       'data' => $q['barang_id'],
-        //     ];
-        //     echo "<pre>";
-        //     print_r($que);
-        // }
-        //
-        // die;
-
 
         $no=0;
         foreach ($idc as $item) {

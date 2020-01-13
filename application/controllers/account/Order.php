@@ -30,6 +30,8 @@ class Order extends CI_Controller
 
     public function upload()
     {
+        // echo $this->input->post('pembayaran_bukti');
+        // echo $this->input->post('kdfaktur');
         $this->M_pembayaran->uploadBukti();
 
         echo "<h1> Berhasil upload</h1>";

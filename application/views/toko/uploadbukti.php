@@ -59,13 +59,14 @@
 
           <div class="row">
             <form action="<?= base_url('account/order/upload'); ?>" method="post">
-              <input type="hidden" name="kdfaktur" value="<?= $ongkir['jual_nofak']; ?>" readonly>
+
             <div class="form-group">
               <label>Upload bukti bayar : </label>
+              <input type="hidden" name="kdfaktur" value="<?= $ongkir['jual_nofak']; ?>">
               <input type="file" name="pembayaran_bukti" required>
             </div>
             <div class="form-group">
-              <button class="btn btn--secondary btn--rounded pull-left" type="submit" name="upload">Submit</button>
+              <button class="btn btn--secondary btn--rounded pull-left" type="submit">Submit</button>
             </div>
             </form>
           </div>

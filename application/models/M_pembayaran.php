@@ -87,7 +87,7 @@
     public function uploadBukti()
     {
         $data = [
-        'pembayaran_bukti' => $this->_uploadBukti()
+        'pembayaran_bukti' => $this->_bukti()
       ];
         // echo "<pre>";
         // print_r($data);
@@ -95,14 +95,14 @@
         $this->db->update('tbl_pembayaran', $data);
     }
 
-    private function _uploadBukti()
+    private function _bukti()
     {
         $config = [
           'upload_path' => './assets/upload/bukti_pembayaran/',
           'allowed_types' => 'jpeg|jpg|png',
           'overwrite' => true,
           'max_size' => 5024,
-          'file_name' => $this->input->post('kdfaktur')
+          'file_name' => $this->input->post('pembayaran_bukti')
         ];
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('pembayaran_bukti')) {

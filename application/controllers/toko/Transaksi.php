@@ -35,7 +35,7 @@ class Transaksi extends CI_Controller
             'jual_total' => $total
         ];
 
-        // $this->db->insert('tbl_penjualan', $data1);
+        $this->db->insert('tbl_penjualan', $data1);
 
         $barang_id = $this->input->post('idbarang');
         $kuantiti = $this->input->post('kuantitas');
@@ -74,12 +74,12 @@ class Transaksi extends CI_Controller
             ];
             $no++;
             // var_dump($barang);
-            // $this->db->insert('tbl_detailpenjualan', $barang);
+            $this->db->insert('tbl_detailpenjualan', $barang);
         }
 
         // delete cart
         $this->db->where('c_cart_id', $this->session->userdata('cart_id'));
         $this->db->delete('tbl_cart_detail');
-        redirect('toko/katalog');
+        redirect('toko/pembayaran');
     }
 }

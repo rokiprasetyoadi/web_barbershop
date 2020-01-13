@@ -58,7 +58,7 @@
                                         <i class="lnr lnr-clock"></i><span>Setiap Hari 10.00 - 22.00 wib</span>
                                     </li>
                                     <li>
-                                        <i class="lnr lnr-phone-handset"></i> <span>(04) 491 570 110</span>
+                                        <i class="lnr lnr-phone-handset"></i> <span>081 216 376 162</span>
                                     </li>
                                 </ul>
                             </div><!-- .col-md-6 end -->
@@ -79,9 +79,9 @@
                                     <?php } ?>
                                 </span>
                                 <span class="top--social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                    <!--<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
                                     <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a> -->
                                     <a class="instagram" href="https://www.instagram.com/sevenhead.jbr/?hl=id"><i class="fa fa-instagram"></i></a>
                                 </span>
                             </div><!-- .col-md-6 end -->
@@ -102,8 +102,8 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="logo" href='<?= base_url() ?>home'>
-                                <img class="logo-light" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="Hairy Logo">
-                                <img class="logo-dark" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="Hairy Logo">
+                                <img class="logo-light" src="<?= base_url() ?>assets/web_profile/images/logo/logo.png" alt="Hairy Logo">
+                                <img class="logo-dark" src="<?= base_url() ?>assets/web_profile/images/logo/logo.png" alt="Hairy Logo">
                             </a>
                         </div>
 
@@ -122,7 +122,7 @@
                                 <!-- li end -->
                                 <!-- Gallery Menu-->
                                 <li>
-                                    <a href="<?= base_url() ?>#" class="menu-item">Gallery</a>
+                                    <a href="<?= base_url() ?>#blog" class="menu-item">Gallery</a>
                                 </li>
                                 <!-- li end -->
                                 <!-- shop Menu -->
@@ -246,9 +246,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4 footer--widget-about">
+                            <div class="footer--widget-title">
+                                <h5>Jam Buka</h5>
+                            </div>
                             <div class="footer--widget-content">
-                                <img class="mb-20" src="<?= base_url() ?>assets/web_profile/images/logo/logo-light.png" alt="logo">
-                                <p>Barbershop kami buka setiap hari</p>
+                                <p>Sevenhead barbershop buka setiap hari</p>
                                 <div class="work--schedule clearfix">
                                     <ul class="list-unstyled">
                                         <li>Senin - Minggu <span>10.00 - 22.00 WIB</span></li>
@@ -267,7 +269,7 @@
                                     <li><i class="fa fa-map-marker"></i> Jl.Karimata (Depan Mie Kober)</li>
                                     <li><i class="fa fa-map-marker"></i> Jl.Sumatra (Sebelah Iphone Center)</li>
                                     <li><i class="fa fa-phone"></i> 081 216 376 162 </li>
-                                    <li><i class="fa fa-envelope-o"></i> email@email.com</li>
+                                    <li><i class="fa fa-envelope-o"></i> sevenhead.jbr@gmail.com</li>
                                 </ul>
                             </div>
                         </div>
@@ -295,14 +297,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6">
-                            <span>&copy; 2017, All rights reserved.</span>
+                            <span>&copy; 2020, All rights reserved.</span>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 text-right">
                             <div class="social">
-                                <a class="share-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                <!--<a class="share-twitter" href="#"><i class="fa fa-twitter"></i></a>
                                 <a class="share-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                <a class="share-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                                <a class="share-pinterest" href="#"><i class="fa fa-instagram"></i></a>
+                                <a class="share-linkedin" href="#"><i class="fa fa-linkedin"></i></a>-->
+                                <a class="share-pinterest" href="https://www.instagram.com/sevenhead.jbr/"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>

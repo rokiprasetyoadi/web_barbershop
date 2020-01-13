@@ -16,7 +16,7 @@
           <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
             <div class="slide--bio">Kepuasan anda adalah prioritas kami</div>
             <div class="slide-action">
-              <a class="btn btn--primary btn--rounded" href="#">Read More </a>
+              <!--<a class="btn btn--primary btn--rounded" href="#">Read More </a>-->
             </div>
           </div>
 
@@ -42,8 +42,8 @@
           <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
             <div class="slide--bio">Kualitas adalah hal yang utama bagi kami.</div>
             <div class="slide-action">
-              <a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>
-              <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>
+              <!--<a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>
+              <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>-->
             </div>
           </div>
         </div>

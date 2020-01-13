@@ -326,7 +326,7 @@
       $.getJSON("checkout/provinsi", function(data){
         $.each(data, function(i,field){
 
-           $op.append('<option value="'+field.province_id+'">'+field.province+'</option>');
+           $op.append('<option value="11">'+field.province+'</option>');
            $op1.append('<option value="'+field.province_id+'">'+field.province+'</option>');
         });
 
@@ -424,10 +424,12 @@
 
           for(i in field.costs)
           {
-              x += "<p class='mb-0'><b>" + field.costs[i].service + "</b> : "+field.costs[i].description+"</p>";
+              x += "<div class='input-radio'><span class='input-option'><b>"+ field.costs[i].service +" : </b>"+ field.costs[i].description +"</span><label class='label-radio'><input type='radio' name='service' value='"+ field.costs[i].service +"'><div class='radio-indicator'></div></label>";
 
                for (j in field.costs[i].cost) {
-                    x += field.costs[i].cost[j].value +"<br>"+field.costs[i].cost[j].etd+"<br>"+field.costs[i].cost[j].note;
+
+                    // x += field.costs[i].cost[j].value +"<br>"+field.costs[i].cost[j].etd+"<br>"+field.costs[i].cost[j].note;
+                    x += "<span class='input-option'><b>Rp."+ field.costs[i].cost[j].value +": </b>"+ field.costs[i].cost[j].etd + "(day)" + field.costs[i].cost[j].note+"</span><input type='hidden' name='service1' value='"+ field.costs[i].service +"'><input type='hidden' name='cost1' value='"+ field.costs[i].cost[j].value +"'>";
                 }
           }
 

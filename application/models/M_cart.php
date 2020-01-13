@@ -28,6 +28,16 @@ class M_cart extends CI_Model
         return $string;
     }
 
+
+    public function getStok($stokbarang)
+    {
+        $this->db->where('barang_id', $bid);
+        $this->db->select('barang_stok');
+        $c= $this->db->get('tbl_barang')->row_array();
+        $string = implode($c);
+        return $string;
+    }
+
     public function idu($email_tmp)
     {
         $this->db->where('customers_email', $email_tmp);
@@ -103,6 +113,17 @@ class M_cart extends CI_Model
 
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    public function getstok1($idne)
+    {
+        $this->db->select('barang_stok');
+        $this->db->where('barang_id', $idne);
+
+        $this->db->from('tbl_barang');
+
+        $query = $this->db->get();
+        return $query->row_array();
     }
 
     public function getid_order($idu)

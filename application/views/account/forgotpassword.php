@@ -62,25 +62,13 @@
                     <div class="col-md-8">
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
-                              <?= form_error('current_password', '<small class="text-danger pl-2">', '</small>'); ?>
-                              <input type="password" class="form-control" name="current_password" id="current_password" placeholder="Password Lama">
+                              <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                           </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
-                              <?= form_error('new_password1', '<small class="text-danger pl-2">', '</small>'); ?>
-                              <input type="password" class="form-control" name="new_password1" id="new_password1" placeholder="Password Baru">
-                          </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                              <?= form_error('new_password2', '<small class="text-danger pl-2">', '</small>'); ?>
-                              <input type="password" class="form-control" name="new_password2" id="new_password2" placeholder="Ketik Ulang Password Baru">
-                          </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                              <input type="submit" value="Ubah Password" name="submit" class="btn btn--secondary btn--rounded btn--block">
+                              <input type="submit" value="Reset Password" name="submit" class="btn btn--secondary btn--rounded btn--block">
                           </div>
                         </div>
                     </div>

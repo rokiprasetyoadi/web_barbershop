@@ -35,7 +35,7 @@
                         <thead>
                             <tr class="cart-product">
                                 <th></th>
-                                <th class="cart-product-item">Name</th>
+                                <th class="cart-product-item col-ml-sm">Name</th>
                                 <th class="cart-product-price">Price</th>
                                 <th class="cart-product-quantity">Quantity</th>
                                 <th class="cart-product-total">Total</th>
@@ -121,7 +121,7 @@
                     <?php } else { ?>
                         <div class="cart-total-amount text-right col-xs-12 col-sm-12 col-md-12">
                             Subtotal : <span class=""><?= rupiah($tprice); ?>
-                                <input type="hidden" id="anua" value="<?= $tprice ?>"></span>
+                                <input type="hidden" id="anua" name="tprice" value="<?= $tprice ?>"></span>
                         </div>
                     <?php } ?>
                 </div>

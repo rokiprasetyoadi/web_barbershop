@@ -61,9 +61,6 @@ class Checkout extends CI_Controller
     }
 
 
-
-
-
     public function _api_ongkir($data)
     {
         $curl = curl_init();

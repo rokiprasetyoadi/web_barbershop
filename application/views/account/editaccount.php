@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8 font-15">
                               <div class="time-panel">
-                                  <a href="#order" class="active"><i class="fa fa-cart-arrow-down"></i> Order</a>
+                                  <a href="<?= base_url(); ?>order" class="active"><i class="fa fa-cart-arrow-down"></i> Order</a>
                               </div>
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8 font-15">

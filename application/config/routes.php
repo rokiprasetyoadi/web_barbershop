@@ -58,9 +58,11 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 
 //account
+$route['order'] = 'account/order';
 $route['login'] = 'account/login';
 $route['logout'] = 'account/logout';
 $route['register'] = 'account/register';
 $route['myaccount'] = 'account/myaccount';
 $route['editaccount'] = 'account/editaccount';
 $route['changepassword'] = 'account/changepassword';
+$route['forgotpassword'] = 'account/forgotpassword';

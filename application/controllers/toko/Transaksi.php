@@ -16,7 +16,10 @@ class Transaksi extends CI_Controller
         $cid = $this->session->userdata('cart_id');
         $idu = $this->cart->idc($cid);
         $idc = $this->cart->getcart1($idu);
+        $idne = $this->input->post('idbarang');
+        $yay = $this->cart->getstok1($idne);
         $c_id = $this->cart->getid_order2($idu);
+        $total = $this->input->post('tprice') + $this->input->post('cost1');
 
         $data1 = [
             'jual_nofak' => $this->input->post('kodefaktur'),
@@ -27,18 +30,40 @@ class Transaksi extends CI_Controller
             'jual_penerima' => $this->input->post('penerima'),
             'jual_alamat' => $this->input->post('jalan').'-'.$this->input->post('kecamatan').'-'.$this->input->post('kabupaten').'-'.$this->input->post('provinsi'),
             'jual_kodepos' => $this->input->post('kodepos'),
-            'jual_tlp' => $this->input->post('nohp')
+            'jual_tlp' => $this->input->post('nohp'),
+            'jual_cart_total' => $this->input->post('tprice'),
+            'jual_total' => $total
         ];
-        $this->db->insert('tbl_penjualan', $data1);
 
         // $this->db->insert('tbl_penjualan', $data1);
+
         $barang_id = $this->input->post('idbarang');
         $kuantiti = $this->input->post('kuantitas');
         $subtotal = $this->input->post('cprice');
         $c_cart_id = $this->input->post('c_cart_id');
         $barang_harjul = $this->input->post('harjul');
         $nofak = $this->input->post('kodefaktur');
+        // $stokkurang = $stoknya - $kuantiti;
 
+
+        // TODO: membuat pengurangan stok di tabel barang
+        // $this->db->select('detailjual_nofak,barang_id,barang_stok,tbl_detailpenjualan.detailjual_qty');
+        // $this->db->from('tbl_barang');
+        // $this->db->join('tbl_detailpenjualan', 'tbl_barang.barang_id = tbl_detailpenjualan.detailjual_barang_id');
+        // $this->db->where('tbl_barang.barang_id', $barang_id);
+        // $qry = $this->db->get()->result_array();
+        // foreach ($qry as $q) {
+        //     $que = [
+        //       'data' => $q['barang_id'],
+        //     ];
+        //     echo "<pre>";
+        //     print_r($que);
+        // }
+        //
+        // die;
+
+
+        $no=0;
         foreach ($idc as $item) {
             $barang = [
               'detailjual_nofak' => $nofak,
@@ -47,9 +72,12 @@ class Transaksi extends CI_Controller
               'detailjual_qty' => $item['qty'],
               'detailjual_diskon' => 0,
             ];
+            $no++;
             // var_dump($barang);
-            $this->db->insert('tbl_detailpenjualan', $barang);
+            // $this->db->insert('tbl_detailpenjualan', $barang);
         }
+
+        // delete cart
         $this->db->where('c_cart_id', $this->session->userdata('cart_id'));
         $this->db->delete('tbl_cart_detail');
         redirect('toko/katalog');

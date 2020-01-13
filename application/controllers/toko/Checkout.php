@@ -10,6 +10,7 @@ class Checkout extends CI_Controller
         $this->load->model('M_cart', 'cart');
         $this->load->model('Anu_model', 'anu');
         $this->load->model('M_katalog', 'malog');
+        $this->load->model('M_penjualan', 'mojul');
     }
 
 
@@ -22,6 +23,7 @@ class Checkout extends CI_Controller
         $email_tmp = $this->session->userdata('email');
         $idu = $this->cart->idu($email_tmp);
         $idc = $this->session->userdata('cart_id');
+        $data['kodefaktur'] = $this->mojul->kodefaktur();
         $data['tprice'] = $this->cart->tprice($idc);
         $data['keranjang'] = $this->cart->getcart($idc);
         $this->temp->load('toko/partials', 'toko/checkout', $data);
@@ -57,9 +59,6 @@ class Checkout extends CI_Controller
             return $response;
         }
     }
-
-
-
 
 
     public function _api_ongkir($data)

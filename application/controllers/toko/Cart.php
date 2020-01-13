@@ -94,20 +94,6 @@ class Cart extends CI_Controller
         }
     }
 
-    public function delete($rowid)
-    {
-        if ($rowid == "all") {
-            $this->cart->destroy();
-        } else {
-            $data = array(
-                'rowid' => $rowid,
-                'qty' => 0
-            );
-            $this->cart->update($data);
-        }
-        redirect('cart');
-    }
-
     public function updatecart()
     {
         $c_cart_id = $this->input->post('c_cart_id');
@@ -118,8 +104,6 @@ class Cart extends CI_Controller
         foreach ($barang_id as $item) {
             $stoknya[] = $this->cart->pStock($item);
         }
-
-        $no_lagi = 0;
 
         foreach ($barang_id as $item) {
             $barang[] = [

@@ -20,9 +20,13 @@
 
 <!-- Checkout Summary
 ============================================= -->
+<form class="" action="<?php echo base_url('toko/transaksi') ?>" method="post">
+
+
 <section id="checkoutSummary" class="checkout-summary pt-30 pb-30">
     <div class="container">
         <div class="row">
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="checkout-summary-box">
                     <div class="checkout-summary-heading">
@@ -36,11 +40,19 @@
                       } else {
                           ?>
                       <?php foreach ($keranjang as $item): ?>
+                        <input type="hidden" name="kuantitas" value="<?= $item['qty']; ?>">
+                        <input type="hidden" name="idbarang" value="<?= $item['barang_id'] ?>">
+                        <input type="hidden" name="harjul" value="<?= $item['barang_harjul']; ?>">
+                        <input type="hidden" name="namabarang" value="<?= $item['barang_nama']; ?>">
+                        <input type="hidden" name="cprice" value="<?= $item['c_price']; ?>">
+                        <?php echo form_hidden('c_cart_id', $item['c_cart_id']); ?>
                         <li>
                             <b><?= $item['qty']; ?></b> × <b><?= rupiah($item['barang_harjul']); ?></b> <?= $item['barang_nama']; ?> <span><?= rupiah($item['c_price']); ?></span>
                         </li>
                       <?php endforeach;
                       }?>
+                      <input type="hidden" name="kodefaktur" value="<?= $kodefaktur; ?>">
+                      <input type="hidden" name="tprice" value="<?= $tprice; ?>">
                     </ul>
                     <?php
                       if (!$keranjang) {
@@ -68,8 +80,53 @@ if (!$keranjang) {
                           null;
                       } else {
                           ?>
+<section id="checkoutPayment" class="payment-methods pt-30 pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="checkout-payment-box">
+                    <div class="checkout-summary-heading">
+                        <h3>Alamat Pengiriman</h3>
+                    </div>
+                    <div class="form-group">
+                      <p>Nama Penerima :</p>
+                      <input class="form-control" type="text" name="penerima" value="<?= $customers['customers_nama']; ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                      <p>Alamat :</p>
+                      <input class="form-control" type="text" name="jalan" value="">
+                    </div>
+                    <div class="form-group">
+                      <p>Kecamatan :</p>
+                      <input class="form-control" type="text" name="kecamatan" value="">
+                    </div>
+                    <div class="form-group">
+                      <p>Kabupaten/Kota :</p>
+                      <input class="form-control" type="text" name="kabupaten" value="">
+                    </div>
+                    <div class="form-group">
+                      <p>Provinsi :</p>
+                      <input class="form-control" type="text" name="provinsi" value="">
+                    </div>
+                    <div class="form-group">
+                      <p>Kodepos :</p>
+                      <input class="form-control" type="text" name="kodepos" value="">
+                    </div>
+                    <div class="form-group">
+                      <p>Nomer Hp :</p>
+                      <input class="form-control" type="text" name="nohp" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .row end -->
+    </div>
 
-<section id="checkoutPayment" class="payment-methods pt-0">
+    <!-- .container end -->
+</section>
+
+
+<section id="checkoutPayment" class="payment-methods pt-0 pb-30">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -77,22 +134,20 @@ if (!$keranjang) {
                     <div class="checkout-summary-heading">
                         <h3>Pilih Jasa Pengiriman + Cek Ongkir</h3>
                     </div>
-                    <form class=" mb-0">
                         <fieldset class="radiogroup mb-0">
                           <div class="input-group">
                             <input type="hidden" value="1" min="1" class="form-control" id="berat" name="berat">
                           </div>
 
-                          <p>Lokasi Asal :</p>
-                          <div class="form-group">
-                          <select class="form-control" id="sel1">
+                          <div class="form-group" hidden>
+                          <select class="form-control provinsi" name="provasal" id="sel1">
                             <option value=""> Pilih Provinsi</option>
                           </select>
                           </div>
 
-                          <div class="form-group">
-                          <select class="form-control" id="sel2" disabled>
-                            <option value=""> Pilih Kota</option>
+                          <div class="form-group" hidden>
+                          <select class="form-control" name="kotaasal" id="sel2" >
+                            <option value="160"> Pilih Kota</option>
                           </select>
                           </div>
 
@@ -100,19 +155,19 @@ if (!$keranjang) {
 
 
                           <div class="form-group">
-                          <select class="form-control" id="sel11">
+                          <select class="form-control" name="provtujuan" id="sel11">
                             <option value=""> Pilih Provinsi</option>
                           </select>
                           </div>
 
-                          <div class="form-group">
-                          <select class="form-control" id="sel22" disabled>
+                          <div class="form-group ">
+                          <select class="form-control" name="kotatujuan" id="sel22" disabled>
                             <option value=""> Pilih Kota</option>
                           </select>
                           </div>
 
                           <div class="form-group">
-                          <select class="form-control" id="kurir" disabled>
+                          <select class="form-control" name="kurir" id="kurir" disabled>
                             <option value=""> Pilih Kurir</option>
                             <option value="jne">JNE</option>
                             <option value="tiki">TIKI</option>
@@ -122,7 +177,6 @@ if (!$keranjang) {
 
                           <div id="hasil"></div>
                         </fieldset>
-                    </form>
                 </div>
             </div>
         </div>
@@ -151,7 +205,6 @@ if (!$keranjang) {
                     <div class="checkout-summary-heading">
                         <h3>Payment Method</h3>
                     </div>
-                    <form class=" mb-0">
                         <fieldset class="radiogroup mb-0">
                             <div class="input-radio">
                                 <span class="input-option"><b>Mandiri - 0700 000 899 922</b></span>
@@ -176,7 +229,6 @@ if (!$keranjang) {
                 								</label>
                             </div>
                         </fieldset>
-                    </form>
                 </div>
             </div>
         </div>
@@ -191,5 +243,6 @@ if (!$keranjang) {
     <!-- .container end -->
 </section>
 <?php
-  } ?>
+  }?>
+  </form>
 <!-- #checkoutPayment end -->

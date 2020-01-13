@@ -14,7 +14,7 @@ class Myaccount extends CI_Controller
     {
         $this->session->set_flashdata('account-access', '<div class="alert alert-danger" role="alert"> Silahkan login terlebih dahulu untuk mengakses halaman ini</div>');
         if ($this->session->userdata('email')==null) {
-          redirect('login');
+            redirect('login');
         }
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
         $this->temp->load('partials', 'account/myaccount', $data);

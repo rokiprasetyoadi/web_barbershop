@@ -44,7 +44,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($tbl_barang as $data):?>
+                                    <?php foreach ($tbl_barang as $data):?>
                                 <tr class="">
                                     <td><?php echo $data->barang_id; ?></td>
                                     <!--<td><a href="<?= base_url('assets/upload/barang/'.$data->barang_image) ?>" data-fancybox data-caption="Barang"> <img style="height: 50px; width: 50px;" src="<?= base_url('assets/upload/barang/'.$data->barang_image) ?>"></a></td>-->
@@ -58,7 +58,7 @@
                                     <td style="text-align: center;"><a class="delete" onclick="deleteConfirm('<?= site_url(); ?>admin/barang/delete/<?= $data->barang_id ?>')" href="#!"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
-        
+
                                 </tbody>
                             </table>
                         </div>
@@ -95,7 +95,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($stok_brg as $row):?>
+                <?php foreach ($stok_brg as $row):?>
                     <tr class="">
                         <td><?php echo $row->barang_id; ?></td>
                         <td><a href="<?= base_url('assets/upload/barang/'.$row->barang_image) ?>" data-fancybox data-caption="Barang"> <img style="height: 50px; width: 50px;" src="<?= base_url('assets/upload/barang/'.$row->barang_image) ?>"></a></td>
@@ -108,7 +108,7 @@
                         <td><?php echo $row->barang_tgl_update; ?></td>
                     </tr>
                 <?php endforeach; ?>
-            
+
                 </tbody>
             </table>
           </div>

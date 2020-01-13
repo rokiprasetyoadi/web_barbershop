@@ -45,7 +45,6 @@ class Transaksi extends CI_Controller
         $nofak = $this->input->post('kodefaktur');
         // $stokkurang = $stoknya - $kuantiti;
 
-
         // TODO: membuat pengurangan stok di tabel barang
         // $this->db->select('detailjual_nofak,barang_id,barang_stok,tbl_detailpenjualan.detailjual_qty');
         // $this->db->from('tbl_barang');
@@ -77,9 +76,19 @@ class Transaksi extends CI_Controller
             $this->db->insert('tbl_detailpenjualan', $barang);
         }
 
+        $insertBayar = [
+          'pembayaran_customers_id' => $this->session->userdata('id'),
+          'pembayaran_jual_id' => $nofak,
+          'pembayaran_norek' => $this->input->post('bank')
+        ];
+        // echo "<pre>";
+        // print_r($insertBayar);
+        // die;
+        $this->db->insert('tbl_pembayaran', $insertBayar);
+
         // delete cart
         $this->db->where('c_cart_id', $this->session->userdata('cart_id'));
         $this->db->delete('tbl_cart_detail');
-        redirect('toko/pembayaran');
+        redirect('account/order');
     }
 }

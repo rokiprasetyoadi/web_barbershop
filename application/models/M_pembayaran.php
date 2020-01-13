@@ -64,4 +64,22 @@
             return array_map('unlink', glob(FCPATH."assets/upload/bukti_pembayaran/$filename.*"));
         }
     }
+
+    public function tampilOrder()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_penjualan');
+        $this->db->join('tbl_detailpenjualan', 'tbl_penjualan.jual_nofak = tbl_detailpenjualan.detailjual_nofak');
+        $this->db->join('tbl_barang', 'tbl_detailpenjualan.detailjual_barang_id = tbl_barang.barang_id');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function showOngkir($id)
+    {
+        $this->db->from('tbl_penjualan');
+        $this->db->where('jual_nofak', $id);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
 }

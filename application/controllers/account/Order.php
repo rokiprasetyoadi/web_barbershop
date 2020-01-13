@@ -8,6 +8,7 @@ class Order extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_myaccount');
+        $this->load->model('M_pembayaran');
     }
 
     public function index()
@@ -17,6 +18,13 @@ class Order extends CI_Controller
             redirect('login');
         }
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
+        $data['pesanan'] =  $this->db->get('tbl_penjualan')->result_array();
         $this->temp->load('partials', 'account/order', $data);
+    }
+    public function bayar($id)
+    {
+        $data['ongkir'] = $this->M_pembayaran->showOngkir($id);
+        $data['detil_barang'] = $this->M_pembayaran->tampilOrder();
+        $this->temp->load('partials', 'toko/uploadbukti', $data);
     }
 }

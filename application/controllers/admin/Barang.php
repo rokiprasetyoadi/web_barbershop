@@ -1,17 +1,17 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Barang extends CI_Controller {
-
-	function __construct()
-	 	{
-	 		parent :: __construct();
-	 		if($this->session->userdata('status') != "login"){
-			redirect(base_url("admin/Login_admin"));
-			}
-			$this->load->model("M_barang");
-            date_default_timezone_set('Asia/Jakarta');
-	 	}
+class Barang extends CI_Controller
+{
+    public function __construct()
+    {
+        parent :: __construct();
+        if ($this->session->userdata('status') != "login") {
+            redirect(base_url("admin/Login_admin"));
+        }
+        $this->load->model("M_barang");
+        date_default_timezone_set('Asia/Jakarta');
+    }
 
     public function index()
     {
@@ -70,14 +70,13 @@ class Barang extends CI_Controller {
     {
         $this->M_barang->deleteData($id);
         redirect('admin/barang');
-   }
+    }
 
-   public function print()
+    public function print()
     {
         $data['tbl_barang']=$this->M_barang->getAll()->result();
         $this->temp->load('admin/print/partials.html', 'admin/print/barang.html', $data);
-   }
-
+    }
 }
 
 /* End of file Controllername.php */

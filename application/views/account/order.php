@@ -61,7 +61,7 @@
                           <table class="table" id="order">
                               <thead>
                                   <tr class="cart-product">
-                                      <th class="mr-30"></th>
+                                      <th class="mr-10"></th>
                                         <th class="cart-product-item">No. Faktur</th>
                                         <th class="cart-product-price">Tanggal Transaksi</th>
                                         <th class="cart-product-quantity">Status</th>
@@ -70,6 +70,17 @@
                                       <th></th>
                                   </tr>
                               </thead>
+                              <?php foreach ($pesanan as $pesan): ?>
+                              <tbody>
+                                <tr>
+                                  <td class="mr-10"></td>
+                                  <td> <a href="<?= base_url('account/order/bayar/'.$pesan['jual_nofak']); ?>"><?= $pesan['jual_nofak']; ?></td></a>
+                                  <td><?= $pesan['jual_tgl']; ?></td>
+                                  <td><?= $pesan['jual_status']; ?></td>
+                                  <td><?= rupiah($pesan['jual_total']); ?></td>
+                                </tr>
+                              </tbody>
+                              <?php endforeach; ?>
                           </table>
                       </div>
                     </div>

@@ -65,12 +65,13 @@
         }
     }
 
-    public function tampilOrder()
+    public function tampilOrder($id)
     {
         $this->db->select('*');
         $this->db->from('tbl_penjualan');
         $this->db->join('tbl_detailpenjualan', 'tbl_penjualan.jual_nofak = tbl_detailpenjualan.detailjual_nofak');
         $this->db->join('tbl_barang', 'tbl_detailpenjualan.detailjual_barang_id = tbl_barang.barang_id');
+        $this->db->where('tbl_detailpenjualan.detailjual_nofak', $id);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -81,5 +82,31 @@
         $this->db->where('jual_nofak', $id);
         $query = $this->db->get();
         return $query->row_array();
+    }
+
+    public function uploadBukti()
+    {
+        $data = [
+        'pembayaran_bukti' => $this->_uploadBukti()
+      ];
+        // echo "<pre>";
+        // print_r($data);
+        $this->db->where('pembayaran_jual_id', $this->input->post('kdfaktur'));
+        $this->db->update('tbl_pembayaran', $data);
+    }
+
+    private function _uploadBukti()
+    {
+        $config = [
+          'upload_path' => './assets/upload/bukti_pembayaran/',
+          'allowed_types' => 'jpeg|jpg|png',
+          'overwrite' => true,
+          'max_size' => 5024,
+          'file_name' => $this->input->post('kdfaktur')
+        ];
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('pembayaran_bukti')) {
+            return $this->upload->data("file_name");
+        }
     }
 }

@@ -24,7 +24,14 @@ class Order extends CI_Controller
     public function bayar($id)
     {
         $data['ongkir'] = $this->M_pembayaran->showOngkir($id);
-        $data['detil_barang'] = $this->M_pembayaran->tampilOrder();
+        $data['detil_barang'] = $this->M_pembayaran->tampilOrder($id);
         $this->temp->load('partials', 'toko/uploadbukti', $data);
+    }
+
+    public function upload()
+    {
+        $this->M_pembayaran->uploadBukti();
+
+        echo "<h1> Berhasil upload</h1>";
     }
 }

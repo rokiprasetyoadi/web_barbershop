@@ -62,9 +62,9 @@
                               <thead>
                                   <tr class="cart-product">
                                       <th class="mr-30"></th>
-                                        <th class="cart-product-item">Name</th>
-                                        <th class="cart-product-price">Price</th>
-                                        <th class="cart-product-quantity">Quantity</th>
+                                        <th class="cart-product-item">No. Faktur</th>
+                                        <th class="cart-product-price">Tanggal Transaksi</th>
+                                        <th class="cart-product-quantity">Status</th>
                                         <th class="cart-product-total">Total</th>
                                         <th class="cart-product-remove"></th>
                                       <th></th>

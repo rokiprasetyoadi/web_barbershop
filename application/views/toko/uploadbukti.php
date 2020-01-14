@@ -61,6 +61,9 @@
             <form action="<?= base_url('account/order/upload'); ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
+              <a href="<?= base_url('assets/upload/bukti_pembayaran/'.$gambarbukti['pembayaran_bukti']) ?>" data-fancybox data-caption="Bukti Pembayaran">
+                <img height="200" width="200" src="<?= base_url('assets/upload/bukti_pembayaran/'.$gambarbukti['pembayaran_bukti']) ?>">
+            </a> <br>
               <label>Upload bukti bayar : </label>
               <input type="hidden" name="kdfaktur" value="<?= $ongkir['jual_nofak']; ?>">
               <input type="file" name="pembayaran_bukti" required>
@@ -71,9 +74,7 @@
             </div>
             </form>
             <div class="form-group">
-              <a href="<?= base_url('assets/upload/bukti_pembayaran/'.$gambarbukti['pembayaran_bukti']) ?>" data-fancybox data-caption="Bukti Pembayaran">
-                <img height="200" width="200" src="<?= base_url('assets/upload/bukti_pembayaran/'.$gambarbukti['pembayaran_bukti']) ?>">
-            </a>
+              
             </div>
 
           </div>

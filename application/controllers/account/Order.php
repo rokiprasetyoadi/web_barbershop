@@ -30,10 +30,27 @@ class Order extends CI_Controller
 
     public function upload()
     {
-        // echo $this->input->post('pembayaran_bukti');
-        // echo $this->input->post('kdfaktur');
-        $this->M_pembayaran->uploadBukti();
+        $data = [
+        'pembayaran_bukti' => $this->_bukti()
+      ];
+        // echo "<pre>";
+        // print_r($data);
+        $this->db->where('pembayaran_jual_id', $this->input->post('kdfaktur'));
+        $this->db->update('tbl_pembayaran', $data);
+    }
 
-        echo "<h1> Berhasil upload</h1>";
+    private function _bukti()
+    {
+        $config = [
+          'upload_path' => './assets/upload/bukti_pembayaran/',
+          'allowed_types' => 'jpeg|jpg|png',
+          'overwrite' => true,
+          'max_size' => 5024,
+          'file_name' => $this->input->post('kdfaktur')
+        ];
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('pembayaran_bukti')) {
+            return $this->upload->data("file_name");
+        }
     }
 }

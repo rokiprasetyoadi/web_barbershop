@@ -58,7 +58,7 @@
         <!-- part upload bukti bayar -->
 
           <div class="row">
-            <form action="<?= base_url('account/order/upload'); ?>" method="post">
+            <form action="<?= base_url('account/order/upload'); ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
               <label>Upload bukti bayar : </label>
@@ -66,7 +66,7 @@
               <input type="file" name="pembayaran_bukti" required>
             </div>
             <div class="form-group">
-              <button class="btn btn--secondary btn--rounded pull-left" type="submit">Submit</button>
+              <button class="btn btn--secondary btn--rounded pull-left" name="upload" type="submit" value="uploadbukti">Submit</button>
             </div>
             </form>
           </div>

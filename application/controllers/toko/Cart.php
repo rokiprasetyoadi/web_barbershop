@@ -105,6 +105,7 @@ class Cart extends CI_Controller
             $stoknya[] = $this->cart->pStock($item);
         }
 
+        $no_lagi = 0; 
         foreach ($barang_id as $item) {
             $barang[] = [
                 'c_cart_id' => $c_cart_id,

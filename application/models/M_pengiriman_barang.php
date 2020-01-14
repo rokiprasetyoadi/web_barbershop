@@ -11,10 +11,15 @@
 		$this->form_validation->set_rules($data);
 	}
 	
-	public function getAll() {
+	public function getAll($id = null) {
 		$this->db->from('tbl_pembayaran');
 		$this->db->join('customers', 'tbl_pembayaran.pembayaran_customers_id = customers.customers_id', 'left');
 		$this->db->join('tbl_penjualan', 'tbl_penjualan.jual_nofak = tbl_pembayaran.pembayaran_jual_id', 'left');
+
+        if ($id != null) {
+            $this->db->where('pembayaran_id', $id);
+        }
+
 		$this->db->where("(jual_status = 'Process' OR jual_status = 'On The Way')");
 
 		$query=$this->db->get();

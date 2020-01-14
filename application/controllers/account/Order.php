@@ -18,7 +18,7 @@ class Order extends CI_Controller
             redirect('login');
         }
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
-        $data['pesanan'] =  $this->db->get('tbl_penjualan')->result_array();
+        $data['pesanan'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id')])->result_array();
         $this->temp->load('partials', 'account/order', $data);
     }
     public function bayar($id)
@@ -38,6 +38,7 @@ class Order extends CI_Controller
         // print_r($data);
         $this->db->where('pembayaran_jual_id', $this->input->post('kdfaktur'));
         $this->db->update('tbl_pembayaran', $data);
+        redirect('account/order');
     }
 
     private function _bukti()

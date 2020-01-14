@@ -65,10 +65,17 @@
               <input type="hidden" name="kdfaktur" value="<?= $ongkir['jual_nofak']; ?>">
               <input type="file" name="pembayaran_bukti" required>
             </div>
+
             <div class="form-group">
               <button class="btn btn--secondary btn--rounded pull-left" name="upload" type="submit" value="uploadbukti">Submit</button>
             </div>
             </form>
+            <div class="form-group">
+              <a href="<?= base_url('assets/upload/bukti_pembayaran/'.$gambarbukti['pembayaran_bukti']) ?>" data-fancybox data-caption="Bukti Pembayaran">
+                <img height="200" width="200" src="<?= base_url('assets/upload/bukti_pembayaran/'.$gambarbukti['pembayaran_bukti']) ?>">
+            </a>
+            </div>
+
           </div>
 
 

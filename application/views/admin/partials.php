@@ -245,7 +245,7 @@
                 <li><a href="<?php echo base_url('admin/Login_admin/logout') ?>"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
-        
+
         <div hidden>
         <li>
             <div class="toggle-right-box">
@@ -315,8 +315,8 @@
                         <span>Laporan Penjualan</span>
                     </a>
                 </li>
-                
-            </ul>            
+
+            </ul>
         </div>
         <!-- sidebar menu end-->
     </div>

@@ -75,6 +75,14 @@
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function selectGambar($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran');
+        $this->db->where('pembayaran_jual_id', $id);
+        $qry = $this->db->get();
+        return $qry->row_array();
+    }
 
     public function showOngkir($id)
     {

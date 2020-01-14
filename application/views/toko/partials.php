@@ -24,6 +24,7 @@
     <link href="<?= base_url() ?>assets/web_profile/css/external.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('assets/adm/fancybox/jquery.fancybox.min.css') ?>" />
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -317,6 +318,7 @@
     <script src="<?= base_url() ?>assets/web_profile/js/jquery-2.2.4.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
+    <script src="<?php echo base_url('assets/adm/fancybox/jquery.fancybox.min.js') ?>"></script>
 
     <script type="text/javascript">
     function getLokasi() {

@@ -14,9 +14,9 @@
                         <a class="btn btn-primary" href="<?= site_url() ?>admin/galeri/add">Add New &nbsp;<i class="fa fa-plus"></i>
                         </a>
 
-                        
+
                         <div id="gallery" class="media-gal">
-                        	<?php foreach($galeri as $data):?>
+                        	<?php foreach ($galeri as $data):?>
                             <div class="images item " >
                                 <a href="<?= base_url('assets/upload/galeri/'.$data->galeri_image) ?>" data-fancybox data-caption="<?php echo $data->galeri_nama; ?>">
                                 <img src="<?= base_url('assets/upload/galeri/'.$data->galeri_image) ?>" alt="" /></a>
@@ -26,7 +26,7 @@
 
                         	<?php endforeach; ?>
                         </div>
-                        
+
                     </div>
                 </section>
             </div>

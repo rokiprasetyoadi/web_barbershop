@@ -146,7 +146,7 @@ if (!$keranjang) {
                           </div>
 
                           <div class="form-group" hidden>
-                          <select class="form-control provinsi" name="provasal" id="sel1" required>
+                          <select class="form-control provinsi" name="provasal" id="sel1">
                             <option value=""> Pilih Provinsi</option>
                           </select>
                           </div>
@@ -203,6 +203,8 @@ if (!$keranjang) {
       null;
   } else {
       ?>
+
+      <?php // TODO: menghide kota tujuan, value di samakan dengan yang di atas, yang di tampilkan hanya perhitungan ongkir, tujuannya supaya bisa menyimpan data kabupaten dan provinsi di?>
 <section id="checkoutPayment" class="payment-methods pt-0">
     <div class="container">
         <div class="row">

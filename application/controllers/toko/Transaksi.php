@@ -8,12 +8,16 @@ class Transaksi extends CI_Controller
         parent::__construct();
         $this->load->model('M_cart', 'cart');
         $this->load->model('M_pembayaran', 'pembayaran');
+        $this->load->model('M_barang', 'mabar');
+        $this->load->model('M_penjualan', 'mojul');
     }
 
     public function index()
     {
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
-        $data['carts'] = $this->db->get_where('tbl_cart_detail', ['c_cart_id' => $this->session->userdata('cart_id')])->row_array();
+        $data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
+        $data['kategori'] = $this->mabar->getKategori();
+        $data['barang'] = $this->mabar->getBarang();
         $cid = $this->session->userdata('cart_id');
         $idu = $this->cart->idc($cid);
         $idc = $this->cart->getcart1($idu);
@@ -22,10 +26,18 @@ class Transaksi extends CI_Controller
         $c_id = $this->cart->getid_order2($idu);
         $total = $this->input->post('tprice') + $this->input->post('cost1');
 
+        // new
+        $email_tmp = $this->session->userdata('email');
+        $idu2 = $this->cart->idu($email_tmp);
+        $idc2 = $this->session->userdata('cart_id');
+        $data['kodefaktur'] = $this->mojul->kodefaktur();
+        $data['tprice'] = $this->cart->tprice($idc2);
+        $data['keranjang'] = $this->cart->getcart($idc2);
+
         $this->pembayaran->rulesCheckout();
         if ($this->form_validation->run() == false) {
             // jika rules di langgar akan mengembalikan ke halaman checkout untuk memenuhi aturan yang sudah di buat
-            redirect('toko/checkout');
+            $this->temp->load('toko/partials', 'toko/checkout', $data);
         } else {
             // jika rules terpenuhi akan menjalankan fungsi di bawah ini
 

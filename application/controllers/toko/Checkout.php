@@ -20,9 +20,11 @@ class Checkout extends CI_Controller
         $data['carts'] = $this->db->get_where('tbl_cart', ['cart_id' => $this->session->userdata('cart_id')])->row_array();
         $data['kategori'] = $this->mabar->getKategori();
         $data['barang'] = $this->mabar->getBarang();
+
         $email_tmp = $this->session->userdata('email');
         $idu = $this->cart->idu($email_tmp);
         $idc = $this->session->userdata('cart_id');
+
         $data['kodefaktur'] = $this->mojul->kodefaktur();
         $data['tprice'] = $this->cart->tprice($idc);
         $data['keranjang'] = $this->cart->getcart($idc);

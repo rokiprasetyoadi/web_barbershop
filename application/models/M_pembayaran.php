@@ -54,6 +54,16 @@
             'field' => 'nohp',
             'label' => 'Nohp',
             'rules' => 'required|numeric|max_length[12]'
+          ],
+          [
+            'field' => 'provtujuan',
+            'label' => 'Provtujuan',
+            'rules' => 'required'
+          ],
+          [
+            'field' => 'bank',
+            'label' => 'Bank',
+            'rules' => 'required'
           ]
         ];
         $this->form_validation->set_rules($data);

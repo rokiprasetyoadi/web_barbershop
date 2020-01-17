@@ -57,4 +57,11 @@ class Order extends CI_Controller
             return $this->upload->data("file_name");
         }
     }
+    public function batalPesan($faktur)
+    {
+        $this->M_pembayaran->Qbatal($faktur);
+        $this->M_pembayaran->Qbatal2($faktur);
+        $this->M_pembayaran->Qbatal3($faktur);
+        redirect('account/order');
+    }
 }

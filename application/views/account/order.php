@@ -57,33 +57,36 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                      <div class="cart-table table-responsive">
-                          <table class="table" id="order">
+                    				<div class="panel panel-primary">
+                    					<div class="panel-heading">
+                    						<h3 class="panel-title">Order list</h3>
+                    					</div>
+
+                              <table class="table table-bordered">
                               <thead>
-                                  <tr class="cart-product">
-                                      <th class="mr-10"></th>
-                                        <th class="cart-product-item">No. Faktur</th>
-                                        <th class="cart-product-price">Tanggal Transaksi</th>
-                                        <th class="cart-product-quantity">Status</th>
-                                        <th class="cart-product-total">Total</th>
-                                        <th class="cart-product-remove"></th>
-                                      <th></th>
-                                  </tr>
+                                <tr>
+                                  <th>No. Faktur</th>
+                                  <th>Tanggal Transaksi</th>
+                                  <th>Status</th>
+                                  <th>Total</th>
+                                  <th>Menu</th>
+                                </tr>
                               </thead>
                               <?php foreach ($pesanan as $pesan): ?>
                               <tbody>
                                 <tr>
-                                  <td class="mr-10"></td>
+                                  <?php // TODO: membuat fungsi batalkan transaksi?>
                                   <td> <a href="<?= base_url('account/order/bayar/'.$pesan['jual_nofak']); ?>"><?= $pesan['jual_nofak']; ?></td></a>
-                                  <td><?= $pesan['jual_tgl']; ?></td>
+                                  <td><?= date('d F Y', strtotime($pesan['jual_tgl'])); ?></td>
                                   <td><?= $pesan['jual_status']; ?></td>
-                                  <td><?= rupiah($pesan['jual_total']); ?></td>
+                                  <td><?php $hasil = $pesan['jual_total'] + $pesan['jual_biaya']; echo rupiah($hasil); ?></td>
+                                  <td> <a href="<?= base_url('account/order/batalPesan/'.$pesan['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin membatalkan pemesanan?')" class="btn btn-warning btn-sm">Batalkan</a> </td>
                                 </tr>
                               </tbody>
                               <?php endforeach; ?>
-                          </table>
-                      </div>
-                    </div>
+                              </table>
+                    				</div>
+                    			</div>
                 </form>
             </div>
         </div>

@@ -23,15 +23,17 @@
     <div class="container">
 
         <div class="row">
-          <p>Jasa Pengiriman : <?= $ongkir['jual_kurir']; ?></p>
-          <p>Service : <?= $ongkir['jual_layanan']; ?></p>
-          <table class="table">
+          <p style="font-size:20px;">Jasa Pengiriman : <?= $ongkir['jual_kurir']; ?></p>
+          <p style="font-size:20px">Service : <?= $ongkir['jual_layanan']; ?></p>
+          <p style="font-size:30px; color:black;">No Faktur : <?= $ongkir['jual_nofak']; ?></p>
+          <table class="table" style="color:black;">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">ID Barang</th>
                 <th scope="col">Nama Barang</th>
                 <th scope="col">Qty</th>
+                <th scope="col">Harga per item</th>
                 <th scope="col">Sub Total</th>
 
               </tr>
@@ -40,19 +42,27 @@
               <?php $no=1; ?>
               <?php foreach ($detil_barang as $db): ?>
               <tr>
-                <th scope="row"><?= $no; ?></th>
-                <td><?= $db['detailjual_barang_id']; ?></td>
-                <td><?= $db['barang_nama']; ?></td>
-                <td><?= $db['detailjual_qty']; ?></td>
-                <td><?= rupiah($db['detailjual_subtotal']); ?></td>
+                <th scope="row" style="font-size:15px;"><?= $no; ?></th>
+                <td style="font-size:15px; color:black;"><?= $db['detailjual_barang_id']; ?></td>
+                <td style="font-size:15px;"><?= $db['barang_nama']; ?></td>
+                <td style="font-size:15px;"><?= $db['detailjual_qty']; ?></td>
+                <td style="font-size:15px;"><?= rupiah($db['barang_harjul']); ?></td>
+                <td style="font-size:15px;"><?= rupiah($db['detailjual_subtotal']); ?></td>
               </tr>
-
               <?php $no++ ?>
               <?php endforeach; ?>
+              <?php
+                $totalbayar = $ongkir['jual_biaya'] + $ongkir['jual_total'];
+               ?>
+              <tr>
+                <td style="text-align:center; font-size:18px; color:black;" colspan="6">Total : <?= rupiah($ongkir['jual_total']); ?></td>
+              </tr>
+              <tr>
+                <td style="text-align:center; font-size:18px; color:black;" colspan="6">Ongkir : <?= rupiah($ongkir['jual_biaya']); ?></td>
+              </tr>
             </tbody>
           </table>
-          <h5>Ongkir : <?= rupiah($ongkir['jual_biaya']); ?></h5>
-          <h5>Total Bayar : <?= rupiah($ongkir['jual_total']); ?></h5>
+          <h5>Total Bayar : <?= rupiah($totalbayar); ?></h5>
         </div>
 
         <!-- part upload bukti bayar -->
@@ -74,7 +84,7 @@
             </div>
             </form>
             <div class="form-group">
-              
+
             </div>
 
           </div>

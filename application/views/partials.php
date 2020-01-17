@@ -25,6 +25,7 @@
     <link href="<?= base_url() ?>assets/web_profile/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/style.css" rel="stylesheet">
 
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="assets/web_profile/js/html5shiv.js"></script>

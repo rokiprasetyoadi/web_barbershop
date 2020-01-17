@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+// TODO: membuat fitur batal Transaksi
+// TODO: setelah upload bukti transfer sekalian merubah status pembayaran menjadi checking
 
 class Order extends CI_Controller
 {

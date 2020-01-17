@@ -20,7 +20,7 @@
 
 <!-- Checkout Summary
 ============================================= -->
-<form class="" action="<?php echo base_url('toko/transaksi') ?>" method="post">
+<form class="" action="<?php echo base_url('toko/checkout') ?>" method="post">
 
 
 <section id="checkoutSummary" class="checkout-summary pt-30 pb-30">
@@ -94,33 +94,39 @@ if (!$keranjang) {
                     </div>
                     <div class="form-group">
                       <p>Alamat :</p>
+                      <?= form_error('jalan', '<small class="text-danger">', '</small>'); ?>
                       <input class="form-control" type="text" name="jalan" value="<?= set_value('jalan'); ?>">
-                      <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
+
                     </div>
                     <div class="form-group">
                       <p>Kecamatan :</p>
+                      <?= form_error('kecamatan', '<small class="text-danger">', '</small>'); ?>
                       <input class="form-control" type="text" name="kecamatan" value="<?= set_value('kecamatan'); ?>">
-                      <?= form_error('kecamatan', '<small class="text-danger pl-2">', '</small>'); ?>
+
                     </div>
                     <div class="form-group">
                       <p>Kabupaten/Kota :</p>
+                      <?= form_error('kabupaten', '<small class="text-danger">', '</small>'); ?>
                       <input class="form-control" type="text" name="kabupaten" value="<?= set_value('kabupaten'); ?>">
-                      <?= form_error('kabupaten', '<small class="text-danger pl-2">', '</small>'); ?>
+
                     </div>
                     <div class="form-group">
                       <p>Provinsi :</p>
+                      <?= form_error('provinsi', '<small class="text-danger">', '</small>'); ?>
                       <input class="form-control" type="text" name="provinsi" value="<?= set_value('provinsi'); ?>">
-                      <?= form_error('provinsi', '<small class="text-danger pl-2">', '</small>'); ?>
+
                     </div>
                     <div class="form-group">
                       <p>Kodepos :</p>
+                      <?= form_error('kodepos', '<small class="text-danger">', '</small>'); ?>
                       <input class="form-control" type="text" name="kodepos" value="<?= set_value('kodepos'); ?>">
-                      <?= form_error('kodepos', '<small class="text-danger pl-2">', '</small>'); ?>
+
                     </div>
                     <div class="form-group">
                       <p>Nomer Hp :</p>
+                      <?= form_error('nohp', '<small class="text-danger">', '</small>'); ?>
                       <input class="form-control" type="text" name="nohp" value="<?= set_value('nohp'); ?>">
-                      <?= form_error('nohp', '<small class="text-danger pl-2">', '</small>'); ?>
+
                     </div>
                 </div>
             </div>

@@ -94,27 +94,33 @@ if (!$keranjang) {
                     </div>
                     <div class="form-group">
                       <p>Alamat :</p>
-                      <input class="form-control" type="text" name="jalan" value="">
+                      <input class="form-control" type="text" name="jalan" value="<?= set_value('jalan'); ?>">
+                      <?= form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                       <p>Kecamatan :</p>
-                      <input class="form-control" type="text" name="kecamatan" value="">
+                      <input class="form-control" type="text" name="kecamatan" value="<?= set_value('kecamatan'); ?>">
+                      <?= form_error('kecamatan', '<small class="text-danger pl-2">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                       <p>Kabupaten/Kota :</p>
-                      <input class="form-control" type="text" name="kabupaten" value="">
+                      <input class="form-control" type="text" name="kabupaten" value="<?= set_value('kabupaten'); ?>">
+                      <?= form_error('kabupaten', '<small class="text-danger pl-2">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                       <p>Provinsi :</p>
-                      <input class="form-control" type="text" name="provinsi" value="">
+                      <input class="form-control" type="text" name="provinsi" value="<?= set_value('provinsi'); ?>">
+                      <?= form_error('provinsi', '<small class="text-danger pl-2">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                       <p>Kodepos :</p>
-                      <input class="form-control" type="text" name="kodepos" value="">
+                      <input class="form-control" type="text" name="kodepos" value="<?= set_value('kodepos'); ?>">
+                      <?= form_error('kodepos', '<small class="text-danger pl-2">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                       <p>Nomer Hp :</p>
-                      <input class="form-control" type="text" name="nohp" value="">
+                      <input class="form-control" type="text" name="nohp" value="<?= set_value('nohp'); ?>">
+                      <?= form_error('nohp', '<small class="text-danger pl-2">', '</small>'); ?>
                     </div>
                 </div>
             </div>
@@ -140,13 +146,13 @@ if (!$keranjang) {
                           </div>
 
                           <div class="form-group" hidden>
-                          <select class="form-control provinsi" name="provasal" id="sel1">
+                          <select class="form-control provinsi" name="provasal" id="sel1" required>
                             <option value=""> Pilih Provinsi</option>
                           </select>
                           </div>
 
                           <div class="form-group" hidden>
-                          <select class="form-control" name="kotaasal" id="sel2" >
+                          <select class="form-control" name="kotaasal" id="sel2" required>
                             <option value="160"> Pilih Kota</option>
                           </select>
                           </div>
@@ -155,7 +161,7 @@ if (!$keranjang) {
 
 
                           <div class="form-group">
-                          <select class="form-control" name="provtujuan" id="sel11">
+                          <select class="form-control" name="provtujuan" id="sel11" required>
                             <option value=""> Pilih Provinsi</option>
                           </select>
                           </div>
@@ -217,14 +223,14 @@ if (!$keranjang) {
                             <div class="input-radio">
                                 <span class="input-option"><b>BRI - 034 101 000 743 303</b></span>
                                 <label class="label-radio">
-                									<input type="radio" name="bank" value="034-101-000-743-303">
+                									<input type="radio" name="bank" value="034-101-000-743-303" required>
                 									<div class="radio-indicator"></div>
                 								</label>
                             </div>
                             <div class="input-radio">
                                 <span class="input-option"><b>BNI - 023 827 2088</b></span>
                                 <label class="label-radio">
-                									<input type="radio" name="bank" value="023-827-2088">
+                									<input type="radio" name="bank" value="023-827-2088" required>
                 									<div class="radio-indicator"></div>
                 								</label>
                             </div>

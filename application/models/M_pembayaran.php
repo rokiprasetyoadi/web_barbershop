@@ -21,44 +21,6 @@
         $this->form_validation->set_rules($data);
     }
 
-    public function rulesCheckout()
-    {
-        $data =
-        [
-          [
-            'field' => 'jalan',
-            'label' => 'Jalan',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'kecamatan',
-            'label' => 'Kecamatan',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'kabupaten',
-            'label' => 'Kabupaten',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'provinsi',
-            'label' => 'Provinsi',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'kodepos',
-            'label' => 'Kodepos',
-            'rules' => 'required|numeric|max_length[5]'
-          ],
-          [
-            'field' => 'nohp',
-            'label' => 'Nohp',
-            'rules' => 'required|numeric|max_length[12]'
-          ]
-        ];
-        $this->form_validation->set_rules($data);
-    }
-
     public function getAllData($id=null)
     {
         $this->db->from('tbl_pembayaran');

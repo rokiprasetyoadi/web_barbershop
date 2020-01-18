@@ -57,11 +57,11 @@
                         </div>
                     </div>
                     <div class="col-md-8">
+                            <?= $this->session->flashdata('pesan'); ?>
                     				<div class="panel panel-primary">
                     					<div class="panel-heading">
                     						<h3 class="panel-title">Order list</h3>
                     					</div>
-
                               <table class="table table-bordered">
                               <thead>
                                 <tr>
@@ -75,7 +75,7 @@
                               <?php foreach ($pesanan as $pesan): ?>
                               <tbody>
                                 <tr>
-                                  <?php // TODO: membuat fungsi batalkan transaksi?>
+                                  <?php // FIXME: alur proses batal pemesanan?>
                                   <td> <a href="<?= base_url('account/order/bayar/'.$pesan['jual_nofak']); ?>"><?= $pesan['jual_nofak']; ?></td></a>
                                   <td><?= date('d F Y', strtotime($pesan['jual_tgl'])); ?></td>
                                   <td><?= $pesan['jual_status']; ?></td>

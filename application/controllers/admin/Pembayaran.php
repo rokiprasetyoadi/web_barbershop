@@ -1,17 +1,17 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pembayaran extends CI_Controller {
-
-    function __construct()
-        {
-            parent :: __construct();
-            if($this->session->userdata('status') != "login"){
+class Pembayaran extends CI_Controller
+{
+    public function __construct()
+    {
+        parent :: __construct();
+        if ($this->session->userdata('status') != "login") {
             redirect(base_url("admin/Login_admin"));
-            }
-            $this->load->model("M_pembayaran");
-            date_default_timezone_set('Asia/Jakarta');
         }
+        $this->load->model("M_pembayaran");
+        date_default_timezone_set('Asia/Jakarta');
+    }
 
     public function index()
     {
@@ -27,7 +27,7 @@ class Pembayaran extends CI_Controller {
             if ($query->num_rows() > 0) {
                 $tbl_pembayaran = $query->row();
                 $data = ['row' => $tbl_pembayaran];
-            $this->temp->load('admin/partials', 'admin/pembayaran/form_pembayaran', $data);
+                $this->temp->load('admin/partials', 'admin/pembayaran/form_pembayaran', $data);
             }
         } else {
             $post = $this->input->post(null, true);
@@ -48,14 +48,13 @@ class Pembayaran extends CI_Controller {
     {
         $this->M_pembayaran->deleteData($id);
         redirect('admin/pembayaran');
-   }
+    }
 
-   public function print()
+    public function print()
     {
         $data['pembayaran']=$this->M_pembayaran->getAllData()->result();
         $this->temp->load('admin/print/partials.html', 'admin/print/pembayaran.html', $data);
-   }
-    
+    }
 }
 
 /* End of file Controllername.php */

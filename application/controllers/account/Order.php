@@ -62,6 +62,7 @@ class Order extends CI_Controller
         $this->M_pembayaran->Qbatal($faktur);
         $this->M_pembayaran->Qbatal2($faktur);
         $this->M_pembayaran->Qbatal3($faktur);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data pemesanan <b>'.$faktur.'</b> telah di hapus</div>');
         redirect('account/order');
     }
 }

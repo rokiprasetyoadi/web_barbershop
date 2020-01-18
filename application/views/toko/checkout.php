@@ -20,7 +20,7 @@
 
 <!-- Checkout Summary
 ============================================= -->
-<form class="" action="<?php echo base_url('toko/checkout') ?>" method="post">
+<form class="" action="<?php echo base_url('toko/transaksi') ?>" method="post">
 
 
 <section id="checkoutSummary" class="checkout-summary pt-30 pb-30">
@@ -223,11 +223,10 @@ if (!$keranjang) {
                             <div class="input-radio">
                                 <span class="input-option"><b>Mandiri - 0700 000 899 922</b></span>
                                 <label class="label-radio">
-									                <input type="radio" name="bank" value="0700-000-899-922">
+									                <input type="radio" name="bank" value="0700-000-899-922" required>
 									                <div class="radio-indicator"></div>
 								                </label>
                             </div>
-
                             <div class="input-radio">
                                 <span class="input-option"><b>BRI - 034 101 000 743 303</b></span>
                                 <label class="label-radio">

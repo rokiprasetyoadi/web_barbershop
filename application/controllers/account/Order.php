@@ -15,6 +15,31 @@ class Order extends CI_Controller
 
     public function index()
     {
+        $lama = 1;
+        $this->db->where('DATEDIFF(CURDATE(), jual_tgl) >=', $lama);
+        $this->db->where('jual_status', "Waiting for Payment");
+        $data['selectexp'] = $this->db->get('tbl_penjualan')->result_array();
+        // echo "<pre>";
+        // print_r($data['selectexp']);
+        // die;
+        // fungsi untuk menghapus data penjualan & pembayaran jika tidak di lakukan pembayaran lebih dari tgl order
+        foreach ($data['selectexp'] as $dt) {
+            $paktur = [
+            'jual_nofak' => $dt['jual_nofak'],
+            'detailjual_nofak' => $dt['jual_nofak'],
+            'pembayaran_jual_id' => $dt['jual_nofak']
+          ];
+            $this->db->delete('tbl_penjualan', ['jual_nofak' => $paktur['jual_nofak']]);
+            $this->db->delete('tbl_detailpenjualan', ['detailjual_nofak' => $paktur['detailjual_nofak']]);
+            $this->db->delete('tbl_pembayaran', ['pembayaran_jual_id' => $paktur['pembayaran_jual_id']]);
+        }
+
+
+        // $this->db->delete('tbl_detailpenjualan', $this->input->post('paktur'));
+        // $this->db->delete('tbl_pembayaran', $this->input->post('paktur'));
+        // $this->M_pembayaran->deleteTgl();
+
+
         $this->session->set_flashdata('account-access', '<div class="alert alert-danger" role="alert"> Silahkan login terlebih dahulu untuk mengakses halaman ini</div>');
         if ($this->session->userdata('email')==null) {
             redirect('login');

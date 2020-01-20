@@ -1,5 +1,8 @@
 <!-- Page Title #1
 ============================================= -->
+
+
+
 <section id="page-title" class="page-title">
     <div class="container-fluid bg-overlay bg-overlay-dark">
         <div class="bg-section">
@@ -22,11 +25,16 @@
 <section>
     <!--One Half-->
     <div class="container " >
+      <?php foreach ($selectexp as $tgl): ?>
+      <?= form_hidden('paktur', $tgl['jual_nofak']); ?>
+      <?php endforeach; ?>
         <div class="row">
             <h4 class="text-capitalize text--center mb-80">M y A c c o u n t</h4>
             <?= $this->session->flashdata('editprofile'); ?>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-1 col-xs-offset-2" >
                 <form class="mb-0 text-black" role="form" method="post" action="<?= base_url('account/order'); ?>">
+
+
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-xs-8 col-sm-8 col-md-8 font-15">

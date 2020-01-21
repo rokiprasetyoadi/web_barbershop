@@ -52,7 +52,7 @@
             [
               'field' => 'password1',
               'label' => 'Password',
-              'rules' => 'required|trim|min_length[6]|matches[password2]|alpha_numeric',
+              'rules' => 'required|trim|min_length[6]|matches[password2]|alpha_numeric|password_check[1,1,1]',
               'errors' => ['min_length' => 'Password needs to have minimal 6 length!']
             ],
             [

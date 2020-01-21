@@ -68,29 +68,112 @@
                     					<div class="panel-heading">
                     						<h3 class="panel-title">Order list</h3>
                     					</div>
-                              <table class="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>No. Faktur</th>
-                                  <th>Tanggal Transaksi</th>
-                                  <th>Status</th>
-                                  <th>Total</th>
-                                  <th>Menu</th>
-                                </tr>
-                              </thead>
-                              <?php foreach ($pesanan as $pesan): ?>
-                              <tbody>
-                                <tr>
-                                  <?php // FIXME: alur proses batal pemesanan?>
-                                  <td> <a href="<?= base_url('account/order/bayar/'.$pesan['jual_nofak']); ?>"><?= $pesan['jual_nofak']; ?></td></a>
-                                  <td><?= date('d F Y', strtotime($pesan['jual_tgl'])); ?></td>
-                                  <td><?= $pesan['jual_status']; ?></td>
-                                  <td><?php $hasil = $pesan['jual_total'] + $pesan['jual_biaya']; echo rupiah($hasil); ?></td>
-                                  <td> <a href="<?= base_url('account/order/batalPesan/'.$pesan['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin membatalkan pemesanan?')" class="btn btn-warning btn-sm">Batalkan</a> </td>
-                                </tr>
-                              </tbody>
-                              <?php endforeach; ?>
-                              </table>
+
+                              <ul class="nav nav-tabs nav-justified">
+                                 <li class="active"><a data-toggle="tab" href="#notpaid">Belum Bayar</a></li>
+                                 <li><a data-toggle="tab" href="#proses">Proses</a></li>
+                                 <li><a data-toggle="tab" href="#dikirim">Di Kirim</a></li>
+                                 <li><a data-toggle="tab" href="#diterima">Di Terima</a></li>
+                               </ul>
+
+                               <div class="tab-content">
+                                 <div id="notpaid" class="tab-pane fade in active">
+                                   <table class="table table-bordered">
+                                   <thead>
+                                     <tr>
+                                       <th>No. Faktur</th>
+                                       <th>Tanggal Transaksi</th>
+                                       <th>Status</th>
+                                       <th>Total</th>
+                                       <th>Menu</th>
+                                     </tr>
+                                   </thead>
+                                   <?php foreach ($notpaid as $np): ?>
+                                   <tbody>
+                                     <tr>
+                                       <?php // FIXME: alur proses batal pemesanan?>
+                                       <td> <a href="<?= base_url('account/order/bayar/'.$np['jual_nofak']); ?>"><?= $np['jual_nofak']; ?></td></a>
+                                       <td><?= date('d F Y', strtotime($np['jual_tgl'])); ?></td>
+                                       <td><?= $np['jual_status']; ?></td>
+                                       <td><?php $hasil = $np['jual_total'] + $np['jual_biaya']; echo rupiah($hasil); ?></td>
+                                       <td> <a href="<?= base_url('account/order/batalPesan/'.$np['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin membatalkan pemesanan?')" class="btn btn-warning btn-sm">Batalkan</a> </td>
+                                     </tr>
+                                   </tbody>
+                                   <?php endforeach; ?>
+                                   </table>
+                                 </div>
+                                 <div id="proses" class="tab-pane fade">
+                                   <table class="table table-bordered">
+                                   <thead>
+                                     <tr>
+                                       <th>No. Faktur</th>
+                                       <th>Tanggal Transaksi</th>
+                                       <th>Status</th>
+                                       <th>Total</th>
+                                     </tr>
+                                   </thead>
+                                   <?php foreach ($proses as $proses): ?>
+                                   <tbody>
+                                     <tr>
+                                       <?php // FIXME: alur proses batal pemesanan?>
+                                       <td> <a href="<?= base_url('account/order/bayar/'.$proses['jual_nofak']); ?>"><?= $proses['jual_nofak']; ?></td></a>
+                                       <td><?= date('d F Y', strtotime($proses['jual_tgl'])); ?></td>
+                                       <td><?= $proses['jual_status']; ?></td>
+                                       <td><?php $hasil = $proses['jual_total'] + $proses['jual_biaya']; echo rupiah($hasil); ?></td>
+                                     </tr>
+                                   </tbody>
+                                   <?php endforeach; ?>
+                                   </table>
+                                 </div>
+                                 <div id="dikirim" class="tab-pane fade">
+                                   <table class="table table-bordered">
+                                   <thead>
+                                     <tr>
+                                       <th>No. Faktur</th>
+                                       <th>Tanggal Transaksi</th>
+                                       <th>Status</th>
+                                       <th>Total</th>
+                                     </tr>
+                                   </thead>
+                                   <?php foreach ($kirim as $kirim): ?>
+                                   <tbody>
+                                     <tr>
+                                       <?php // FIXME: alur kirim batal pemesanan?>
+                                       <td> <a href="<?= base_url('account/order/bayar/'.$kirim['jual_nofak']); ?>"><?= $kirim['jual_nofak']; ?></td></a>
+                                       <td><?= date('d F Y', strtotime($kirim['jual_tgl'])); ?></td>
+                                       <td><?= $kirim['jual_status']; ?></td>
+                                       <td><?php $hasil = $kirim['jual_total'] + $kirim['jual_biaya']; echo rupiah($hasil); ?></td>
+                                     </tr>
+                                   </tbody>
+                                   <?php endforeach; ?>
+                                   </table>
+                                 </div>
+                                 <div id="diterima" class="tab-pane fade">
+                                   <table class="table table-bordered">
+                                   <thead>
+                                     <tr>
+                                       <th>No. Faktur</th>
+                                       <th>Tanggal Transaksi</th>
+                                       <th>Status</th>
+                                       <th>Total</th>
+                                     </tr>
+                                   </thead>
+                                   <?php foreach ($terima as $terima): ?>
+                                   <tbody>
+                                     <tr>
+                                       <?php // FIXME: alur terima batal pemesanan?>
+                                       <td> <a href="<?= base_url('account/order/bayar/'.$terima['jual_nofak']); ?>"><?= $terima['jual_nofak']; ?></td></a>
+                                       <td><?= date('d F Y', strtotime($terima['jual_tgl'])); ?></td>
+                                       <td><?= $terima['jual_status']; ?></td>
+                                       <td><?php $hasil = $terima['jual_total'] + $terima['jual_biaya']; echo rupiah($hasil); ?></td>
+                                     </tr>
+                                   </tbody>
+                                   <?php endforeach; ?>
+                                   </table>
+                                 </div>
+                               </div>
+
+
                     				</div>
                     			</div>
                 </form>

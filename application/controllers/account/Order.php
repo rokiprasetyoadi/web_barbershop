@@ -34,13 +34,17 @@ class Order extends CI_Controller
             $this->db->delete('tbl_detailpenjualan', ['detailjual_nofak' => $paktur['detailjual_nofak']]);
             $this->db->delete('tbl_pembayaran', ['pembayaran_jual_id' => $paktur['pembayaran_jual_id']]);
         }
-
+        // end check & delete tgl order
         $this->session->set_flashdata('account-access', '<div class="alert alert-danger" role="alert"> Silahkan login terlebih dahulu untuk mengakses halaman ini</div>');
         if ($this->session->userdata('email')==null) {
             redirect('login');
         }
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
-        $data['pesanan'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id')])->result_array();
+        $data['notpaid'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "Waiting for Payment"])->result_array();
+        $data['proses'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "Process"])->result_array();
+        $data['kirim'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "On The Way"])->result_array();
+        $data['terima'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "Arrived"])->result_array();
+
         $this->temp->load('partials', 'account/order', $data);
     }
     public function bayar($id)

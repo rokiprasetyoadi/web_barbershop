@@ -143,17 +143,11 @@
 
     public function Qbatal($faktur)
     {
+        $this->db->set('jual_status', "Rejected");
         $this->db->where('jual_nofak', $faktur);
-        $this->db->delete('tbl_penjualan');
+        $this->db->update('tbl_penjualan');
     }
-
     public function Qbatal2($faktur)
-    {
-        $this->db->where('detailjual_nofak', $faktur);
-        $this->db->delete('tbl_detailpenjualan');
-    }
-
-    public function Qbatal3($faktur)
     {
         $this->db->where('pembayaran_jual_id', $faktur);
         $this->db->delete('tbl_pembayaran');

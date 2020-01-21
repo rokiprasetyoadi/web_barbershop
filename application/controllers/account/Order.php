@@ -44,6 +44,7 @@ class Order extends CI_Controller
         $data['proses'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "Process"])->result_array();
         $data['kirim'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "On The Way"])->result_array();
         $data['terima'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "Arrived"])->result_array();
+        $data['batal'] =  $this->db->get_where('tbl_penjualan', ['jual_customers_id' => $this->session->userdata('id'), 'jual_status' => "Rejected"])->result_array();
 
         $this->temp->load('partials', 'account/order', $data);
     }
@@ -85,7 +86,6 @@ class Order extends CI_Controller
     {
         $this->M_pembayaran->Qbatal($faktur);
         $this->M_pembayaran->Qbatal2($faktur);
-        $this->M_pembayaran->Qbatal3($faktur);
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data pemesanan <b>'.$faktur.'</b> telah di hapus</div>');
         redirect('account/order');
     }

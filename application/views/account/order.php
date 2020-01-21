@@ -74,6 +74,7 @@
                                  <li><a data-toggle="tab" href="#proses">Proses</a></li>
                                  <li><a data-toggle="tab" href="#dikirim">Di Kirim</a></li>
                                  <li><a data-toggle="tab" href="#diterima">Di Terima</a></li>
+                                 <li><a data-toggle="tab" href="#dibatalkan">Di Batalkan</a></li>
                                </ul>
 
                                <div class="tab-content">
@@ -166,6 +167,30 @@
                                        <td><?= date('d F Y', strtotime($terima['jual_tgl'])); ?></td>
                                        <td><?= $terima['jual_status']; ?></td>
                                        <td><?php $hasil = $terima['jual_total'] + $terima['jual_biaya']; echo rupiah($hasil); ?></td>
+                                     </tr>
+                                   </tbody>
+                                   <?php endforeach; ?>
+                                   </table>
+                                 </div>
+
+                                 <div id="dibatalkan" class="tab-pane fade">
+                                   <table class="table table-bordered">
+                                   <thead>
+                                     <tr>
+                                       <th>No. Faktur</th>
+                                       <th>Tanggal Transaksi</th>
+                                       <th>Status</th>
+                                       <th>Total</th>
+                                     </tr>
+                                   </thead>
+                                   <?php foreach ($batal as $batal): ?>
+                                   <tbody>
+                                     <tr>
+                                       <?php // FIXME: alur batal batal pemesanan?>
+                                       <td> <a href="<?= base_url('account/order/bayar/'.$batal['jual_nofak']); ?>"><?= $batal['jual_nofak']; ?></td></a>
+                                       <td><?= date('d F Y', strtotime($batal['jual_tgl'])); ?></td>
+                                       <td><?= $batal['jual_status']; ?></td>
+                                       <td><?php $hasil = $batal['jual_total'] + $batal['jual_biaya']; echo rupiah($hasil); ?></td>
                                      </tr>
                                    </tbody>
                                    <?php endforeach; ?>

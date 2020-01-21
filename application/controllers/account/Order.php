@@ -35,12 +35,6 @@ class Order extends CI_Controller
             $this->db->delete('tbl_pembayaran', ['pembayaran_jual_id' => $paktur['pembayaran_jual_id']]);
         }
 
-
-        // $this->db->delete('tbl_detailpenjualan', $this->input->post('paktur'));
-        // $this->db->delete('tbl_pembayaran', $this->input->post('paktur'));
-        // $this->M_pembayaran->deleteTgl();
-
-
         $this->session->set_flashdata('account-access', '<div class="alert alert-danger" role="alert"> Silahkan login terlebih dahulu untuk mengakses halaman ini</div>');
         if ($this->session->userdata('email')==null) {
             redirect('login');

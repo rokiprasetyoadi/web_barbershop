@@ -15,6 +15,7 @@ class Order extends CI_Controller
 
     public function index()
     {
+        // cek order yang lebih dari tgl order
         $lama = 1;
         $this->db->where('DATEDIFF(CURDATE(), jual_tgl) >=', $lama);
         $this->db->where('jual_status', "Waiting for Payment");

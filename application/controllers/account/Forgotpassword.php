@@ -7,7 +7,6 @@ class ForgotPassword extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
         $this->load->model('M_customers', 'mocust');
     }
 
@@ -18,6 +17,7 @@ class ForgotPassword extends CI_Controller
         }
 
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+
         if ($this->form_validation->run() == false) {
             $this->temp->load('partials', 'account/forgotpassword');
         } else {
@@ -76,12 +76,12 @@ class ForgotPassword extends CI_Controller
             redirect('login');
         }
 
-        $email = $this->session->userdata('reset_email');
-        $this->mocust->rulesR();
+        $this->mocust->ruleChange();
         if ($this->form_validation->run() == false) {
             $this->temp->load('partials', 'account/newpassword');
         } else {
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            $email = $this->session->userdata('reset_email');
             $this->db->set('customers_password', $password);
             $this->db->where('customers_email', $email);
             $this->db->update('customers');

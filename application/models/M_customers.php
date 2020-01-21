@@ -45,6 +45,25 @@
         $this->form_validation->set_rules($rule);
     }
 
+    public function ruleChange()
+    {
+        $rule =
+        [
+            [
+              'field' => 'password1',
+              'label' => 'Password',
+              'rules' => 'required|trim|min_length[6]|matches[password2]|alpha_numeric',
+              'errors' => ['min_length' => 'Password needs to have minimal 6 length!']
+            ],
+            [
+              'field' => 'password2',
+              'label' => 'Repeat Password',
+              'rules' => 'required|trim|matches[password1]'
+            ]
+        ];
+        $this->form_validation->set_rules($rule);
+    }
+
     public function prosesDaftarAkun()
     {
         $email = $this->input->post('email', true);
@@ -99,7 +118,7 @@
         } elseif ($type == 'forgot') {
             $this->email->subject('Reset Password');
             $this->email->message('Click this link to reset your account password :
-				<a href="'. base_url() .'account/forgotpassword/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Reset password is for 24 hours.');
+				<a href="'. base_url() .'account/forgotpassword/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Reset</a>. Reset password is for 24 hours.');
         }
 
         if ($this->email->send()) {

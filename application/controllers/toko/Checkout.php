@@ -3,6 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Checkout extends CI_Controller
 {
+
+  // FIXME: perbaiki input alamat dan hitung ongkir, data mengambil dari database
     public function __construct()
     {
         parent::__construct();

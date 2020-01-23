@@ -19,7 +19,7 @@ class ForgotPassword extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 
         if ($this->form_validation->run() == false) {
-            $this->temp->load('partials', 'account/forgotpassword');
+            $this->temp->load('account/partials', 'account/forgotpassword');
         } else {
             $email = $this->input->post('email', true);
             $customers = $this->db->get_where('customers', ['customers_email' => $email, 'customers_status' => 1])->row_array();
@@ -78,7 +78,7 @@ class ForgotPassword extends CI_Controller
 
         $this->mocust->ruleChange();
         if ($this->form_validation->run() == false) {
-            $this->temp->load('partials', 'account/newpassword');
+            $this->temp->load('account/partials', 'account/newpassword');
         } else {
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');

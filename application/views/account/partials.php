@@ -323,70 +323,12 @@
     <script src="<?= base_url() ?>assets/web_profile/js/sweetalert/sweetalert2.all.min.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/myscript.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.updatecart').click(function(e) {
-                var c_cart_id = $('input[name="c_cart_id"]').val();
-                var barang_id = $('input[name="barang_id"]').map(function() {
-                    return $(this).val();
-                }).get()
-                var qty = $('input[name="qty"]').map(function() {
-                    return $(this).val();
-                }).get()
-                var barang_harjul = $('input[name="barang_harjul"]').map(function() {
-                    return $(this).val();
-                }).get()
-                // var c_detail_id = $('input[name="c_detail_id"]').val();
-
-
-
-                e.preventDefault();
-                $.ajax({
-                    url: "<?php echo base_url(); ?>toko/cart/updatecart",
-                    method: "POST",
-                    dataType: 'json',
-                    data: {
-                        c_cart_id: c_cart_id,
-                        barang_id: barang_id,
-                        qty: qty,
-                        barang_harjul: barang_harjul
-                    },
-                    success: function(data) {
-
-                        if (data.code === 2) {
-                            $('#outstok').html('');
-                            data.id_outstok.forEach(item => {
-                                const div_error = `.pesan-stok-${item}`;
-                                $(`${div_error}`).html('<p style="color:red;font-size:15px;">Out Of Stock</p>');
-                            });
-
-                            return;
-                        }
-
-
-                        location.reload();
-                    }
-                });
-                // window.location.reload();
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        const flashData = $('.flash-data').data('flashdata');
-        if (flashData == 'Out Of Stock') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: flashData + ' !',
-            })
-        }
-    </script>
     <!-- get province & city -->
     <script type="text/javascript">
     function getLokasi() {
       var $op = $("#provinsi_id");
 
-      $.getJSON("account/myaccount/provinsi", function(data){
+      $.getJSON("myaccount/provinsi", function(data){
         $.each(data, function(i,field){
 
            $op.append('<option value="'+field.province_id+'">'+field.province+'</option>');
@@ -422,7 +364,7 @@
     function getKota(idpro) {
       var $op = $("#city_id");
 
-      $.getJSON("account/myaccount/kota/"+idpro, function(data){
+      $.getJSON("myaccount/kota/"+idpro, function(data){
         $.each(data, function(i,field){
 
 
@@ -440,25 +382,43 @@
       $('#kotakab').val(option);
     })
 
-    $('#openedit').on('click', function(e){
-      e.preventDefault();
-      $("#nama").prop("readonly", false);
-      $("#alamat").prop("readonly", false);
-      $("#provinsi_id").prop("disabled", false);
-      $("#city_id").prop("disabled", false);
-      $("#kodepos").prop("readonly", false);
-      $("#nohp").prop("readonly", false);
-      $("#openedit").hide();
-    })
+
     </script>
 
     <script type="text/javascript">
       $(document).ready(function(){
         $("#cancel").hide();
         $("#save").hide();
-      })
+      });
+
+      $('#openedit').on('click', function(e){
+        e.preventDefault();
+        $("#nama").prop("readonly", false);
+        $("#alamat").prop("readonly", false);
+        $("#provinsi_id").prop("disabled", false);
+        $("#city_id").prop("disabled", false);
+        $("#kodepos").prop("readonly", false);
+        $("#nohp").prop("readonly", false);
+        $("#openedit").hide();
+        $("#cancel").show();
+        $("#save").show();
+      });
+
+      $('#cancel').on('click', function(e){
+        e.preventDefault();
+        $("#nama").prop("readonly", true);
+        $("#alamat").prop("readonly", true);
+        $("#provinsi_id").prop("disabled", true);
+        $("#city_id").prop("disabled", true);
+        $("#kodepos").prop("readonly", true);
+        $("#nohp").prop("readonly", true);
+        $("#openedit").show();
+        $("#cancel").hide();
+        $("#save").hide();
+      });
+
     </script>
 
     <!-- Mirrored from demo.zytheme.com/hairy/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Sep 2019 04:34:57 GMT -->
 
-</html>
+    </html>

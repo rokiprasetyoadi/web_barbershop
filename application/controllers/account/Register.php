@@ -18,7 +18,7 @@ class Register extends CI_Controller
         $this->auth->rulesR(); //memanggil method rule daftar akun
 
         if ($this->form_validation->run()==false) {
-            $this->temp->load('partials', 'account/register');
+            $this->temp->load('account/partials', 'account/register');
         } else {
             // jika rule terpenuhi
             $this->auth->prosesDaftarAkun();

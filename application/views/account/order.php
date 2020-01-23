@@ -42,11 +42,6 @@
                             </div>
                             <div class="col-xs-8 col-sm-8 col-md-8 font-15">
                               <div class="time-panel">
-                                  <a href="<?= base_url(); ?>editaccount" class="active"><i class="fa fa-user"></i> Edit Akun Profile</a>
-                              </div>
-                            </div>
-                            <div class="col-xs-8 col-sm-8 col-md-8 font-15">
-                              <div class="time-panel">
                                   <a href="<?= base_url(); ?>order" class="active"><i class="fa fa-cart-arrow-down"></i> Order</a>
                               </div>
                             </div>
@@ -75,6 +70,7 @@
                                  <li><a data-toggle="tab" href="#dikirim">Di Kirim</a></li>
                                  <li><a data-toggle="tab" href="#diterima">Di Terima</a></li>
                                  <li><a data-toggle="tab" href="#dibatalkan">Di Batalkan</a></li>
+                                 <li><a data-toggle="tab" href="#reject">Di Rejected</a></li>
                                </ul>
 
                                <div class="tab-content">
@@ -191,6 +187,32 @@
                                        <td><?= date('d F Y', strtotime($batal['jual_tgl'])); ?></td>
                                        <td><?= $batal['jual_status']; ?></td>
                                        <td><?php $hasil = $batal['jual_total'] + $batal['jual_biaya']; echo rupiah($hasil); ?></td>
+                                     </tr>
+                                   </tbody>
+                                   <?php endforeach; ?>
+                                   </table>
+                                 </div>
+
+                                 <div id="reject" class="tab-pane fade">
+                                   <table class="table table-bordered">
+                                   <thead>
+                                     <tr>
+                                       <th>No. Faktur</th>
+                                       <th>Tanggal Transaksi</th>
+                                       <th>Status</th>
+                                       <th>Total</th>
+                                       <th>Menu</th>
+                                     </tr>
+                                   </thead>
+                                   <?php foreach ($rejected as $rejected): ?>
+                                   <tbody>
+                                     <tr>
+                                       <?php // FIXME: alur rejected rejected pemesanan?>
+                                       <td> <a href="<?= base_url('account/order/bayar/'.$rejected['jual_nofak']); ?>"><?= $rejected['jual_nofak']; ?></td></a>
+                                       <td><?= date('d F Y', strtotime($rejected['jual_tgl'])); ?></td>
+                                       <td><?= $rejected['jual_status']; ?></td>
+                                       <td><?php $hasil = $rejected['jual_total'] + $rejected['jual_biaya']; echo rupiah($hasil); ?></td>
+                                       <td> <a href="<?= base_url('account/order/perpanjangBayar/'.$rejected['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin memperpanjgan masa pembayaran?')" class="btn btn-warning btn-sm">Perpanjang</a> </td>
                                      </tr>
                                    </tbody>
                                    <?php endforeach; ?>

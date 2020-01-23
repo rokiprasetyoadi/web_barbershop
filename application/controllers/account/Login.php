@@ -19,7 +19,7 @@ class Login extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->form_validation->run() == false) {
-            $this->temp->load('partials', 'account/login');
+            $this->temp->load('account/partials', 'account/login');
         } else {
             $this->_login();
         }

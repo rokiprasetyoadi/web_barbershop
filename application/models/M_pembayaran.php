@@ -25,7 +25,16 @@
     {
         $data =
         [
-
+          [
+            'field' => 'nmkonsumen',
+            'label' => 'Konsumen',
+            'rules' => 'required|trim'
+          ],
+          [
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email'
+          ],
           [
             'field' => 'idprovinsi',
             'label' => 'Provinsi',
@@ -41,6 +50,16 @@
             'label' => 'Nohp',
             'rules' => 'required|numeric|max_length[12]'
           ],
+          [
+            'field' => 'kurir',
+            'label' => 'Kurir',
+            'rules' => 'required'
+          ],
+          [
+            'field' => 'alamat',
+            'label' => 'Alamat',
+            'rules' => 'required|trim'
+          ]
 
         ];
         $this->form_validation->set_rules($data);
@@ -154,5 +173,14 @@
         $this->db->set('jual_tgl_exp', null);
         $this->db->where('jual_nofak', $faktur);
         $this->db->update('tbl_penjualan');
+    }
+
+    public function thanksP()
+    {
+        $this->db->select('jual_nofak');
+        $this->db->from('tbl_penjualan');
+        $this->db->where('jual_customers_id', $this->session->userdata('id'));
+        $this->db->order_by('jual_tgl desc');
+        return $this->db->get()->row_array();
     }
 }

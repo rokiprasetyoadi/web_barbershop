@@ -72,6 +72,10 @@ class Order extends CI_Controller
         // FIXME: update status penjualan menjadi process
         $this->db->where('pembayaran_jual_id', $this->input->post('kdfaktur'));
         $this->db->update('tbl_pembayaran', $data);
+
+        $this->db->set('jual_status', "Process");
+        $this->db->where('jual_nofak', $this->input->post('kdfaktur'));
+        $this->db->update('tbl_penjualan');
         redirect('account/order');
     }
 

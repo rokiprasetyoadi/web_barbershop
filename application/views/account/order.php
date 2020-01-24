@@ -92,7 +92,7 @@
                                        <td> <a href="<?= base_url('account/order/bayar/'.$np['jual_nofak']); ?>"><?= $np['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($np['jual_tgl'])); ?></td>
                                        <td><?= $np['jual_status']; ?></td>
-                                       <td><?php $hasil = $np['jual_total'] + $np['jual_biaya']; echo rupiah($hasil); ?></td>
+                                       <td><?= rupiah($np['jual_total']); ?></td>
                                        <td> <a href="<?= base_url('account/order/batalpesan/'.$np['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin membatalkan pemesanan?')" class="btn btn-warning btn-sm">Batalkan</a> </td>
                                      </tr>
                                    </tbody>

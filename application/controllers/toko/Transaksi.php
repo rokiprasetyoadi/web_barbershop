@@ -44,7 +44,7 @@ class Transaksi extends CI_Controller
             $data1 = [
           'jual_nofak' => $this->input->post('kodefaktur'),
           'jual_customers_id' => $this->session->userdata('id'),
-          'jual_kurir' => $this->input->post('kurir'),
+          'jual_kurir' => strtoupper($this->input->post('kurir')),
           'jual_layanan' => $this->input->post('service1'),
           'jual_biaya' => $this->input->post('cost1'),
           'jual_penerima' => $this->input->post('nmkonsumen'),
@@ -91,7 +91,8 @@ class Transaksi extends CI_Controller
             // hapus data cart setelah klik tombol placorder
             $this->db->where('c_cart_id', $this->session->userdata('cart_id'));
             $this->db->delete('tbl_cart_detail');
-            redirect('account/order');
+            $thank = $this->pembayaran->thanksP();
+            redirect('thanks/');
         }
     }
 }

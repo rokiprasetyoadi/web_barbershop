@@ -86,9 +86,6 @@
                                     <?php } ?>
                                 </span>
                                 <span class="top--social">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
                                     <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
                                 </span>
                             </div><!-- .col-md-6 end -->
@@ -397,7 +394,6 @@
       var origin = $("#sel2").val();
       var des = $("#idkota").val();
       var qty = $("#berat").val();
-
       if(qty==='0' || qty==='')
       {
         alert('null');

@@ -22,13 +22,16 @@
 		<div class="col-12">
 			<div class="heading text-center">
 			<div class="wrapper-icon m-auto">
-				<a href="https://www.rumahkomunitas.com">
-					<img class="progressive-image icon-head" src="https://www.rumahkomunitas.com/img/logo/logorkaja.png" alt=" Logo Rumah Komunitas">
+				<a href="<?= base_url(''); ?>">
+					<img class="progressive-image" width="280px" height="75px" src="<?= base_url('assets/upload/logo.png'); ?>" alt=" Logo Sevenhead">
 				</a>
 			</div>
 			<h1 class="text-info mt-2 text-uppercase h2">Terimakasih</h1>
-			<h3 class="mb-0"> Bro Ferdian Nada</h3>
-			<p class="mb-0"> Jl.Sumberwadung, Dsn.Tugung, Ds.Sempu, Kec.Sempu, RT/RW : 01/02, Kab.Banyuwangi, 68468. Kabupaten Banyuwangi - Jawa Timur</p>
+			<h3 class="mb-0"> <?= $customers['customers_nama']; ?></h3>
+      <?php foreach ($detil_barang as $db): ?>
+			<p class="mb-0"><?= $db['jual_alamat']; ?></p>
+      <?php endforeach; ?>
+      <br>
 						<a data-toggle="collapse" href="#detail-pesanan" role="button" aria-expanded="false" aria-controls="detail-pesanan" class="text-uppercase txtdetail collapsed">Detail Pesanan</a>
 			<div class=" mt-4 collapse " id="detail-pesanan">
 				<div class="">
@@ -39,71 +42,55 @@
 								<td><b>QTY</b></td>
 								<td colspan="5"><b>HARGA</b></td>
 							</tr>
-															<tr>
+              <?php foreach ($detil_barang as $db): ?>
+								<tr>
 									<td class="text-left">
-										<h2 class="h5 mb-0">Instagram Custom</h2>
-      							<p class="mb-0">Warna : Abu Muda</p>
-										<p class="mb-0">
-												Size : S <br>
-										</p>
+										<h2 class="h5 mb-0"><?= $db['barang_nama']; ?></h2>
 									</td>
 									<td>
 										<p class="m-0">
-											1<br>
+											<?= $db['detailjual_qty']; ?><br>
 										</p>
 									</td>
 									<td align="right" colspan="5">
-																					<p class="m-0" style="color:red ; font-weight:bold;"> IDR 84.500</p>
-                                            <p class="m-0">
-                                                <strike style="text-decoration-color:red">IDR 130.000</strike>
-                                            </p>
-
+										<p class="m-0" style="color:red ; font-weight:bold;"><?= rupiah($db['barang_harjul']); ?></p>
 									</td>
 								</tr>
-
+              <?php endforeach; ?>
 						<tr>
 							<td class="set-td text-left" colspan="5">
 							<p class="m-0">Jumlah </p>
 							</td>
-							<td class="set-td  text-right">&nbsp; : IDR </td>
+							<td class="set-td  text-right">&nbsp; : </td>
 							<td class="text-right set-td ">
-							<p class="m-0"> 130.000</p>
+							<p class="m-0"> <?= rupiah($ongkir['jual_cart_total']); ?></p>
 							</td>
 						</tr>
 						<tr>
 							<td class=" set-td b-none text-left" colspan="5">
 							<p class="m-0">Diskon </p>
 							</td>
-							<td class="set-td  b-none text-right">&nbsp; : IDR </td>
+							<td class="set-td  b-none text-right">&nbsp; : </td>
 							<td class=" set-td  b-none text-right" >
-							<p class="m-0"> 45.500</p>
-							</td>
-						</tr>
-						<tr>
-							<td class="set-td text-left b-none" colspan="5">
-							<p class="m-0">Kode Unik </p>
-							</td>
-							<td class="set-td b-none text-right">&nbsp; : IDR</td>
-							<td class="set-td b-none text-right" >
-							<p class="m-0">317</p>
+							<p class="m-0"> <?= rupiah("0"); ?></p>
 							</td>
 						</tr>
 						<tr>
 							<td class="set-td text-left b-none" colspan="5">
 							<p class="m-0">Ongkir </p>
 							</td>
-							<td class="set-td b-none text-right">&nbsp; : IDR</td>
+							<td class="set-td b-none text-right">&nbsp; : </td>
 							<td class="set-td b-none text-right" >
-							<p class="m-0">33.000</p>
+							<p class="m-0"><?= rupiah($ongkir['jual_biaya']); ?></p>
 							</td>
 						</tr>
 						<tr>
 							<td class=" text-left b-none" colspan="5">
 							<p class="font-weight-semi-bold text-uppercase h5 m-0">Total </p>
 							</td>
-							<td class=" b-none text-right">&nbsp; : IDR</td>
+							<td class=" b-none text-right">&nbsp; : </td>
 							<td class=" b-none text-right">
-							<p class="font-weight-semi-bold h5 m-0" align="right"> 117.817</p>
+							<p class="font-weight-semi-bold h5 m-0" align="right"> <?= rupiah($ongkir['jual_total']); ?></p>
 							</td>
 						</tr>
 						</tbody>
@@ -116,13 +103,12 @@
 				<div class="row">
 				<div class="col-lg-6 py-1">
 					<div class="bg-muda">
-					<h2 class="mb-0 p-2 text-center font-weight-semi-bold text-uppercase h4">ID ORDER : 42703</h2>
+					<h2 class="mb-0 p-2 text-center font-weight-semi-bold text-uppercase h4">NO FAKTUR : <?= $ongkir['jual_nofak']; ?></h2>
 					</div>
 				</div>
 				<div class="col-lg-6 py-1">
 					<div class="bg-muda">
-					<h2 class="h4 mb-0 p-2 text-center font-weight-semi-bold text-uppercase">TOTAL : IDR
-						117.817</h2>
+					<h2 class="h4 mb-0 p-2 text-center font-weight-semi-bold text-uppercase">TOTAL : <?= rupiah($ongkir['jual_total']); ?></h2>
 					</div>
 				</div>
 				</div>
@@ -194,7 +180,7 @@
 				<p class="mb-0">Setelah transfer , Segera <b>Konfirmasi Pembayaran. </b> Perbedaan nilai transfer akan
 					menghambat proses verifikasi!</p>
 				<div class="col-12">
-					<a class="btn btn-lg btn-info btn-konfirmasi mb-3" href="https://www.rumahkomunitas.com?confirmorder=42703">Konfirmasi Pembayaran</a>
+					<a class="btn btn-lg btn-info btn-konfirmasi mb-3" href="<?= base_url('account/order/bayar/'.$ongkir['jual_nofak']); ?>">Konfirmasi Pembayaran</a>
         </div>
         <br/>
 				<p class="text-danger">Pemesanan dianggap batal jika tidak melakukan pembayaran selama 10 jam</p>

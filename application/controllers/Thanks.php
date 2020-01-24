@@ -17,6 +17,13 @@ class Thanks extends CI_Controller
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
         $data['ongkir'] = $this->M_pembayaran->showOngkir($id);
         $data['detil_barang'] = $this->M_pembayaran->tampilOrder($id);
-        $this->load->view('toko/thankspage', $data);
+
+        if ($data['ongkir']['jual_nofak'] != $id) {
+            $data['heading'] = "404, Maaf";
+            $data['message'] = "Halaman tidak di temukan";
+            $this->load->view('errors/html/error_404', $data);
+        } else {
+            $this->load->view('toko/thankspage', $data);
+        }
     }
 }

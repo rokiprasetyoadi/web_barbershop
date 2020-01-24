@@ -59,7 +59,14 @@ class Order extends CI_Controller
         $data['ongkir'] = $this->M_pembayaran->showOngkir($id);
         $data['detil_barang'] = $this->M_pembayaran->tampilOrder($id);
         $data['gambarbukti'] = $this->M_pembayaran->selectGambar($id);
-        $this->temp->load('account/partials', 'toko/uploadbukti', $data);
+
+        if ($data['ongkir']['jual_nofak'] != $id) {
+            $data['heading'] = "404, Maaf";
+            $data['message'] = "Halaman tidak di temukan";
+            $this->load->view('errors/html/error_404', $data);
+        } else {
+            $this->temp->load('account/partials', 'toko/uploadbukti', $data);
+        }
     }
 
     public function upload()

@@ -47,9 +47,8 @@ class Transaksi extends CI_Controller
           'jual_kurir' => $this->input->post('kurir'),
           'jual_layanan' => $this->input->post('service1'),
           'jual_biaya' => $this->input->post('cost1'),
-          'jual_penerima' => $this->input->post('penerima'),
-          'jual_alamat' => $this->input->post('jalan').'-'.$this->input->post('kecamatan').'-'.$this->input->post('kabupaten').'-'.$this->input->post('provinsi'),
-          'jual_kodepos' => $this->input->post('kodepos'),
+          'jual_penerima' => $this->input->post('nmkonsumen'),
+          'jual_alamat' => $this->input->post('alamat').'-'.$this->input->post('nmkota').'-'.$this->input->post('nmprovinsi'),
           'jual_tlp' => $this->input->post('nohp'),
           'jual_cart_total' => $this->input->post('tprice'),
           'jual_total' => $total
@@ -81,7 +80,7 @@ class Transaksi extends CI_Controller
             $insertBayar = [
         'pembayaran_customers_id' => $this->session->userdata('id'),
         'pembayaran_jual_id' => $nofak,
-        'pembayaran_norek' => $this->input->post('bank')
+        'pembayaran_norek' => "9489137414"
       ];
             // echo "<pre>";
             // print_r($insertBayar);

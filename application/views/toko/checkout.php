@@ -37,7 +37,6 @@
                       <table class="table table-hover table-cart-list" id="table-cart">
                         <tbody>
 
-
                       <?php
                   if (!$keranjang) {
                       echo "<h1>Tambahkan barang ke keranjang dulu</h1>";
@@ -84,15 +83,6 @@
                               </td>
                           </tr>
                           <tr>
-                              <td class="set-td text-left b-none">
-                              <p class="m-0">Ongkos Kirim (250 gr)</p>
-                              </td>
-
-                              <td class="set-td b-none text-right">
-                                  <p class="m-0" id="ongkir-cart">33.000</p>
-                              </td>
-                          </tr>
-                          <tr>
                               <td class=" text-left b-none">
                                   <p class="font-weight-bold m-0 h5 text-uppercase">Total </p>
                               </td>
@@ -111,6 +101,10 @@
                   <div class="d-flex wrapper-form-header mb-3">
                       <h2 class="text-info mt-2 font-weight-semi-bold h5 pt-30">DATA PENGIRIMAN</h2>
                     </div>
+                    <!-- berat hidden -->
+                        <div class="input-group">
+                            <input type="hidden" value="1" min="1" class="form-control" id="berat" name="berat">
+                          </div>
                         <div class="form-group mb-2">
                             <label for="nama" class="small mb-0">Nama Lengkap*</label>
                             <div class="d-flex">
@@ -125,19 +119,46 @@
                           <label for="email" class="small mb-0">Email*</label>
                             <input type="email" class="form-control form-control-sm border-top-0 border-left-0 border-right-0 rounded-0" name="email" id="email" placeholder="" required="" value="<?= $customers['customers_email']; ?>">
                         </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                          <input type="hidden" name="nmprovinsi" id="nmprovinsi">
+                        <!-- begin prov & kota asal -->
+                        <div class="form-group" hidden>
+                         <select class="form-control provinsi" name="provasal" id="sel1">
+                           <option value=""> Pilih Provinsi</option>
+                         </select>
+                         </div>
+
+                         <div class="form-group" hidden>
+                         <select class="form-control" name="kotaasal" id="sel2" required>
+                           <option value="160"> Pilih Kota</option>
+                         </select>
+                         </div>
+                         <!-- end prov & kota asal -->
+
+                        <div class="col-xs-6 col-sm-6 col-md-6" id="prov">
+                          <input type="hidden" name="nmprovinsi" id="nmprovinsi" value="<?= $customers['customers_provinsi']; ?>">
                             <label for="nama" class="mb-0">Provinsi*</label>
                             <select class="form-control" name="idprovinsi" id="idprovinsi">
-                                <option value="<?= $customers['provinsi_id']; ?>"><?= $customers['customers_provinsi']; ?></option>
+                                <option id="second" value="<?= $customers['provinsi_id']; ?>" selected><?= $customers['customers_provinsi']; ?></option>
                             </select>
                         </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                          <input type="hidden" name="nmprovinsi" id="nmprovinsi">
+                        <div class="col-xs-6 col-sm-6 col-md-6" id="kab">
+                          <input type="hidden" name="nmkota" id="nmkota" value="<?= $customers['customers_kota']; ?>">
                             <label for="nama" class="mb-0">Kota / Kabupaten / Kecamatan*</label>
                             <select class="form-control" name="idkota" id="idkota">
-                                <option value="<?= $customers['kota_id']; ?>"><?= $customers['customers_provinsi']; ?><?= $customers['customers_kota']; ?></option>
+                                <option id="first" value="<?= $customers['kota_id']; ?>" selected><?= $customers['customers_kota']; ?></option>
                             </select>
+                        </div>
+                        <div class="font-weight-normal small mt-2 mb-3">
+
+                            <label for="nama" class="mb-0">Kurir*</label>
+                            <select class="form-control" name="kurir" id="kurir" disabled>
+                              <option value=""> Pilih Kurir</option>
+                              <option value="jne">JNE</option>
+                              <option value="tiki">TIKI</option>
+                              <option value="pos">POS Indonesia</option>
+                            </select>
+                        </div>
+                        <div id="hasil">
+
                         </div>
 
                         <div class="form-group mb-4">

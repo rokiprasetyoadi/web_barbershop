@@ -25,6 +25,12 @@
     <link href="<?= base_url() ?>assets/web_profile/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/web_profile/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url('assets/adm/fancybox/jquery.fancybox.min.css') ?>" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+    <style media="screen">
+    #prov  .select2-results__option--highlighted {
+  background-color: #50831F !important;
+}
+    </style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -319,11 +325,17 @@
     <script src="<?= base_url() ?>assets/web_profile/js/plugins.js"></script>
     <script src="<?= base_url() ?>assets/web_profile/js/functions.js"></script>
     <script src="<?php echo base_url('assets/adm/fancybox/jquery.fancybox.min.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
     <script type="text/javascript">
+
+    $(document).ready(function(){
+      $('#kurir').prop('disabled', false);
+    });
+
     function getLokasi() {
       var $op = $("#sel1");
-      var $op1 = $("#sel11");
+      var $op1 = $("#idprovinsi");
 
       $.getJSON("checkout/provinsi", function(data){
         $.each(data, function(i,field){
@@ -338,49 +350,33 @@
 
     getLokasi();
 
-    $("#sel11").on("change", function(e){
+    $("#idprovinsi").on("change", function(e){
       e.preventDefault();
       var option = $('option:selected', this).val();
-      $('#sel22 option:gt(0)').remove();
+      var option2 = $('option:selected', this).text();
+      $('#first').val('');
+      $('#first').text('-- Pilih Kota/Kab --');
+      $('#idkota option:gt(0)').remove();
       $('#kurir').val('');
-
+      $('#nmprovinsi').val(option2);
       if(option==='')
       {
         alert('null');
-        $("#sel22").prop("disabled", true);
         $("#kurir").prop("disabled", true);
       }
       else
       {
-        $("#sel22").prop("disabled", false);
         getKota1(option);
       }
     });
 
 
-    $("#sel1").on("change", function(e){
+
+    $("#idkota").on("change", function(e){
       e.preventDefault();
       var option = $('option:selected', this).val();
-      $('#sel2 option:gt(0)').remove();
-      $('#kurir').val('');
-
-      if(option==='')
-      {
-        alert('null');
-        $("#sel2").prop("disabled", true);
-        $("#kurir").prop("disabled", true);
-      }
-      else
-      {
-        $("#sel2").prop("disabled", false);
-        getKota(option);
-      }
-    });
-
-
-    $("#sel22").on("change", function(e){
-      e.preventDefault();
-      var option = $('option:selected', this).val();
+      var option2 = $('option:selected', this).text();
+      $('#nmkota').val(option2);
       $('#kurir').val('');
 
       if(option==='')
@@ -399,7 +395,7 @@
       e.preventDefault();
       var option = $('option:selected', this).val();
       var origin = $("#sel2").val();
-      var des = $("#sel22").val();
+      var des = $("#idkota").val();
       var qty = $("#berat").val();
 
       if(qty==='0' || qty==='')
@@ -417,6 +413,7 @@
     });
 
 
+
     function getOrigin(origin,des,qty,cour) {
       var $op = $("#hasil");
       var i, j, x = "";
@@ -426,12 +423,10 @@
 
           for(i in field.costs)
           {
-              x += "<div class='input-radio'><span class='input-option'><b>"+ field.costs[i].service +" : </b>"+ field.costs[i].description +"</span><label class='label-radio'><input type='radio' name='service' value='"+ field.costs[i].service +"'><div class='radio-indicator'></div></label>";
+              x += "<div class='input-radio'><span class='input-option'><b>"+ field.costs[i].service +" : </b>"+ field.costs[i].description +"</span><label class='label-radio'><input type='radio' name='service' id='pilih' value='"+ field.costs[i].service +"'><div class='radio-indicator'></div></label>";
 
                for (j in field.costs[i].cost) {
-
-                    // x += field.costs[i].cost[j].value +"<br>"+field.costs[i].cost[j].etd+"<br>"+field.costs[i].cost[j].note;
-                    x += "<span class='input-option'><b>Rp."+ field.costs[i].cost[j].value +": </b>"+ field.costs[i].cost[j].etd + "(day)" + field.costs[i].cost[j].note+"</span><input type='hidden' name='service1' value='"+ field.costs[i].service +"'><input type='hidden' name='cost1' value='"+ field.costs[i].cost[j].value +"'>";
+                    x += "<span class='input-option'><b>Rp."+ field.costs[i].cost[j].value +": </b>"+ field.costs[i].cost[j].etd + "(day)" + "</span><input type='hidden' name='service1' value='"+ field.costs[i].service +"'><input id='harga' type='hidden' name='cost1' value='"+ field.costs[i].cost[j].value +"'>";
                 }
           }
 
@@ -443,8 +438,9 @@
     }
 
 
+
     function getKota1(idpro) {
-      var $op = $("#sel22");
+      var $op = $("#idkota");
 
       $.getJSON("checkout/kota/"+idpro, function(data){
         $.each(data, function(i,field){

@@ -51,18 +51,16 @@
               </tr>
               <?php $no++ ?>
               <?php endforeach; ?>
-              <?php
-                $totalbayar = $ongkir['jual_biaya'] + $ongkir['jual_total'];
-               ?>
+
               <tr>
-                <td style="text-align:center; font-size:18px; color:black;" colspan="6">Total : <?= rupiah($ongkir['jual_total']); ?></td>
+                <td style="text-align:center; font-size:18px; color:black;" colspan="6">Total : <?= rupiah($ongkir['jual_cart_total']); ?></td>
               </tr>
               <tr>
                 <td style="text-align:center; font-size:18px; color:black;" colspan="6">Ongkir : <?= rupiah($ongkir['jual_biaya']); ?></td>
               </tr>
             </tbody>
           </table>
-          <h5>Total Bayar : <?= rupiah($totalbayar); ?></h5>
+          <h5>Total Bayar : <?= rupiah($ongkir['jual_total']); ?></h5>
         </div>
 
         <!-- part upload bukti bayar -->

@@ -93,7 +93,7 @@
                                        <td><?= date('d F Y', strtotime($np['jual_tgl'])); ?></td>
                                        <td><?= $np['jual_status']; ?></td>
                                        <td><?php $hasil = $np['jual_total'] + $np['jual_biaya']; echo rupiah($hasil); ?></td>
-                                       <td> <a href="<?= base_url('account/order/batalPesan/'.$np['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin membatalkan pemesanan?')" class="btn btn-warning btn-sm">Batalkan</a> </td>
+                                       <td> <a href="<?= base_url('account/order/batalpesan/'.$np['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin membatalkan pemesanan?')" class="btn btn-warning btn-sm">Batalkan</a> </td>
                                      </tr>
                                    </tbody>
                                    <?php endforeach; ?>
@@ -212,7 +212,7 @@
                                        <td><?= date('d F Y', strtotime($rejected['jual_tgl'])); ?></td>
                                        <td><?= $rejected['jual_status']; ?></td>
                                        <td><?php $hasil = $rejected['jual_total'] + $rejected['jual_biaya']; echo rupiah($hasil); ?></td>
-                                       <td> <a href="<?= base_url('account/order/perpanjangBayar/'.$rejected['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin memperpanjgan masa pembayaran?')" class="btn btn-warning btn-sm">Perpanjang</a> </td>
+                                       <td> <a href="<?= base_url('account/order/perpanjangbayar/'.$rejected['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin memperpanjgan masa pembayaran?')" class="btn btn-warning btn-sm">Perpanjang</a> </td>
                                      </tr>
                                    </tbody>
                                    <?php endforeach; ?>

@@ -25,46 +25,23 @@
     {
         $data =
         [
+
           [
-            'field' => 'jalan',
-            'label' => 'Jalan',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'kecamatan',
-            'label' => 'Kecamatan',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'kabupaten',
-            'label' => 'Kabupaten',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'provinsi',
+            'field' => 'idprovinsi',
             'label' => 'Provinsi',
             'rules' => 'required'
           ],
           [
-            'field' => 'kodepos',
-            'label' => 'Kodepos',
-            'rules' => 'required|numeric|max_length[5]'
+            'field' => 'idkota',
+            'label' => 'Kabupaten',
+            'rules' => 'required'
           ],
           [
             'field' => 'nohp',
             'label' => 'Nohp',
             'rules' => 'required|numeric|max_length[12]'
           ],
-          [
-            'field' => 'provtujuan',
-            'label' => 'Provtujuan',
-            'rules' => 'required'
-          ],
-          [
-            'field' => 'bank',
-            'label' => 'Bank',
-            'rules' => 'required'
-          ]
+
         ];
         $this->form_validation->set_rules($data);
     }

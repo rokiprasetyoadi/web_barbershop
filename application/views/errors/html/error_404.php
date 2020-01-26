@@ -12,7 +12,7 @@
   <link href="<?= base_url(''); ?>/assets/thanks/41f28ba254f4e963460ce58eb490090a.css" type="text/css" rel="stylesheet" />
 
   <title>Maaf | SEVENHEAD</title>
-	
+
 </head>
 <body>
 
@@ -24,10 +24,10 @@
 						<div class="heading text-center">
 						<div class="wrapper-icon m-auto">
 							<a href="<?= base_url(''); ?>">
-								<img class="progressive-image" width="280px" height="75px" src="<?= base_url('assets/upload/logo.png'); ?>" alt=" Logo Sevenhead">
+								<img class="progressive-image" width="280px" height="75px" src="<?= base_url('assets/web_profile/images/logo/thankspage-logo.png'); ?>" alt=" Logo Sevenhead">
 							</a>
 						</div>
-							<h1 class="text-danger mt-2 text-uppercase h2"><?= $heading; ?></h1>
+							<h1 class="text-danger mt-2 text-uppercase"><b><?= $heading; ?></b></h1>
 							<h3 class="mb-0"> <?= $message; ?></h3>
 						</div>
 					</div>

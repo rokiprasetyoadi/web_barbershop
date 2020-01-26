@@ -19,8 +19,8 @@ class Thanks extends CI_Controller
         $data['detil_barang'] = $this->M_pembayaran->tampilOrder($id);
 
         if ($data['ongkir']['jual_nofak'] != $id) {
-            $data['heading'] = "404, Maaf";
-            $data['message'] = "Halaman tidak di temukan";
+            $data['heading'] = "404";
+            $data['message'] = "Maaf, halaman tidak di temukan!";
             $this->load->view('errors/html/error_404', $data);
         } else {
             $this->load->view('toko/thankspage', $data);

@@ -48,7 +48,7 @@ class Transaksi extends CI_Controller
           'jual_layanan' => $this->input->post('service1'),
           'jual_biaya' => $this->input->post('cost1'),
           'jual_penerima' => $this->input->post('nmkonsumen'),
-          'jual_alamat' => $this->input->post('alamat').'-'.$this->input->post('nmkota').'-'.$this->input->post('nmprovinsi'),
+          'jual_alamat' => $this->input->post('alamat').' - '.$this->input->post('nmkota').' - '.$this->input->post('nmprovinsi'),
           'jual_tlp' => $this->input->post('nohp'),
           'jual_cart_total' => $this->input->post('tprice'),
           'jual_total' => $total

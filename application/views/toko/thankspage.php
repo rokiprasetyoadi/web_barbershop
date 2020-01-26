@@ -23,14 +23,12 @@
 			<div class="heading text-center">
 			<div class="wrapper-icon m-auto">
 				<a href="<?= base_url(''); ?>">
-					<img class="progressive-image" width="280px" height="75px" src="<?= base_url('assets/upload/logo.png'); ?>" alt=" Logo Sevenhead">
+					<img class="progressive-image" width="280px" height="75px" src="<?= base_url('assets/web_profile/images/logo/thankspage-logo.png'); ?>" alt=" Logo Sevenhead">
 				</a>
 			</div>
 			<h1 class="text-info mt-2 text-uppercase h2">Terimakasih</h1>
 			<h3 class="mb-0"> <?= $customers['customers_nama']; ?></h3>
-      <?php foreach ($detil_barang as $db): ?>
-			<p class="mb-0"><?= $db['jual_alamat']; ?></p>
-      <?php endforeach; ?>
+			<p class="mb-0"><?= $ongkir['jual_alamat']; ?></p>
       <br>
 						<a data-toggle="collapse" href="#detail-pesanan" role="button" aria-expanded="false" aria-controls="detail-pesanan" class="text-uppercase txtdetail collapsed">Detail Pesanan</a>
 			<div class=" mt-4 collapse " id="detail-pesanan">

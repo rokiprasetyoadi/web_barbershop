@@ -107,7 +107,7 @@
                           </div>
                         <div class="form-group mb-2">
                             <label for="nama" class="small mb-0">Nama Lengkap*</label>
-                            <?= "|".form_error('nmkonsumen', '<small class="text-danger">', '</small>'); ?>
+                            <?= form_error('nmkonsumen', '| <small class="text-danger">', '</small>'); ?>
                             <div class="d-flex">
                                 <input type="text" class="form-control form-control-sm border-top-0 border-left-0 border-right-0 rounded-0" name="nmkonsumen" id="nmkonsumen" placeholder="Nama anda" value="<?= $customers['customers_nama']; ?>">
 
@@ -115,12 +115,12 @@
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6mb-2">
                             <label for="nohp" class="small mb-0">No. Whatsapp *</label>
-                            <?= "|".form_error('nohp', '<small class="text-danger">', '</small>'); ?>
-                            <input type="number" class="form-control form-control-sm border-top-0 border-left-0 border-right-0 rounded-0" name="nohp" id="nohp" placeholder="" required="" value="<?= $customers['customers_nohp']; ?>">
+                            <?= form_error('nohp', '| <small class="text-danger">', '</small>'); ?>
+                            <input type="number" class="form-control form-control-sm border-top-0 border-left-0 border-right-0 rounded-0" name="nohp" id="nohp" placeholder="" value="<?= $customers['customers_nohp']; ?>">
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6mb-2">
                           <label for="email" class="small mb-0">Email*</label>
-                          <?= "|".form_error('email', '<small class="text-danger">', '</small>'); ?>
+                          <?= form_error('email', '| <small class="text-danger">', '</small>'); ?>
                             <input type="email" class="form-control form-control-sm border-top-0 border-left-0 border-right-0 rounded-0" name="email" id="email" placeholder="" required="" value="<?= $customers['customers_email']; ?>">
                         </div>
                         <!-- begin prov & kota asal -->
@@ -140,7 +140,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6" id="prov">
                           <input type="hidden" name="nmprovinsi" id="nmprovinsi" value="<?= $customers['customers_provinsi']; ?>">
                             <label for="nama" class="mb-0">Provinsi*</label>
-                            <?= "|".form_error('idprovinsi', '<small class="text-danger">', '</small>'); ?>
+                            <?= form_error('idprovinsi', '| <small class="text-danger">', '</small>'); ?>
                             <select class="form-control" name="idprovinsi" id="idprovinsi">
                                 <option id="second" value="<?= $customers['provinsi_id']; ?>" selected><?= $customers['customers_provinsi']; ?></option>
                             </select>
@@ -148,7 +148,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6" id="kab">
                           <input type="hidden" name="nmkota" id="nmkota" value="<?= $customers['customers_kota']; ?>">
                             <label for="nama" class="mb-0">Kota / Kabupaten / Kecamatan*</label>
-                            <?= "|".form_error('idkota', '<small class="text-danger">', '</small>'); ?>
+                            <?= form_error('idkota', '| <small class="text-danger">', '</small>'); ?>
                             <select class="form-control" name="idkota" id="idkota">
                                 <option id="first" value="<?= $customers['kota_id']; ?>" selected><?= $customers['customers_kota']; ?></option>
                             </select>
@@ -156,7 +156,7 @@
                         <div class="font-weight-normal small mt-2 mb-3">
 
                             <label for="nama" class="mb-0">Kurir*</label>
-                            <?= "|".form_error('kurir', '<small class="text-danger">', '</small>'); ?>
+                            <?= form_error('kurir', '| <small class="text-danger">', '</small>'); ?>
                             <select class="form-control" name="kurir" id="kurir" disabled>
                               <option value=""> Pilih Kurir</option>
                               <option value="jne">JNE</option>
@@ -170,7 +170,7 @@
 
                         <div class="form-group mb-4">
                             <label for="alamat" class="small mb-0">Alamat*</label>
-                            <?= "|".form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+                            <?= form_error('alamat', '| <small class="text-danger">', '</small>'); ?>
                             <input type="text" class="form-control form-control-sm border-top-0 border-left-0 border-right-0 rounded-0" name="alamat" id="alamat" placeholder="" required="" value="<?= $customers['customers_alamat']; ?>, <?= $customers['customers_kodepos']; ?>">
                         </div>
                       <button class="btn btn-info btn-lg w-100 mt-3 mb-2 text-white btn-checkout text-uppercase" id="placeorder" type="submit">Place Order</button>

@@ -16,7 +16,7 @@
         </div>
         <!-- .container end -->
 </section>
-
+<?php // FIXME: fix input file, if image where kd faktur && status rejected, cancel = null then show input file else hide input file?>
 <!-- Shop Cart
 ============================================= -->
 <section id="shopcart" class="shop shop-cart bg-white">

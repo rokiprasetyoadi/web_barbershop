@@ -59,6 +59,11 @@
             'field' => 'alamat',
             'label' => 'Alamat',
             'rules' => 'required|trim'
+          ],
+          [
+            'field' => 'service',
+            'label' => 'Service',
+            'rules' => 'required'
           ]
 
         ];

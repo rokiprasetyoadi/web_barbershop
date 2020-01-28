@@ -91,8 +91,9 @@ class Transaksi extends CI_Controller
             // hapus data cart setelah klik tombol placorder
             $this->db->where('c_cart_id', $this->session->userdata('cart_id'));
             $this->db->delete('tbl_cart_detail');
-            $id = $this->pembayaran->thanksP();
-            redirect('thanks/bro/'.$id['jual_nofak']);
+            // $id = $this->pembayaran->thanksP();
+            $id = $this->input->post('kodefaktur');
+            redirect('account/Order/bayar/'.$id);
         }
     }
 }

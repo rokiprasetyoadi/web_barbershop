@@ -1,8 +1,5 @@
 <!-- Page Title #1
 ============================================= -->
-
-
-
 <section id="page-title" class="page-title">
     <div class="container-fluid bg-overlay bg-overlay-dark">
         <div class="bg-section">

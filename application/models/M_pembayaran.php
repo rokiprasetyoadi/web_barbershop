@@ -150,11 +150,11 @@
         $this->db->where('jual_nofak', $faktur);
         $this->db->update('tbl_penjualan');
     }
-    public function Qbatal2($faktur)
-    {
-        $this->db->where('pembayaran_jual_id', $faktur);
-        $this->db->delete('tbl_pembayaran');
-    }
+    // public function Qbatal2($faktur)
+    // {
+    //     $this->db->where('pembayaran_jual_id', $faktur);
+    //     $this->db->delete('tbl_pembayaran');
+    // }
 
     public function expTglJual()
     {
@@ -164,11 +164,20 @@
         $this->db->where('jual_status', "Waiting for Payment");
         return $this->db->get('tbl_penjualan')->result_array();
     }
+    public function expTglCancel()
+    {
+        // cek order yang lebih dari tgl reject
+        $lama = 7;
+        $this->db->where('DATEDIFF(CURDATE(), jual_tgl_exp) >=', $lama);
+        $this->db->where('jual_status', "Canceled");
+        return $this->db->get('tbl_penjualan')->result_array();
+    }
     public function expTglReject()
     {
         // cek order yang lebih dari tgl reject
         $lama = 1;
         $this->db->where('DATEDIFF(CURDATE(), jual_tgl_exp) >=', $lama);
+        $this->db->where('jual_status', "Rejected");
         return $this->db->get('tbl_penjualan')->result_array();
     }
     public function Qperpanjang($faktur)
@@ -180,12 +189,12 @@
         $this->db->update('tbl_penjualan');
     }
 
-    public function thanksP()
-    {
-        $this->db->select('jual_nofak');
-        $this->db->from('tbl_penjualan');
-        $this->db->where('jual_customers_id', $this->session->userdata('id'));
-        $this->db->order_by('jual_tgl desc');
-        return $this->db->get()->row_array();
-    }
+    // public function thanksP()
+    // {
+    //     $this->db->select('jual_nofak');
+    //     $this->db->from('tbl_penjualan');
+    //     $this->db->where('jual_customers_id', $this->session->userdata('id'));
+    //     $this->db->order_by('jual_tgl desc');
+    //     return $this->db->get()->row_array();
+    // }
 }

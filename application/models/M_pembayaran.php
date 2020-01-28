@@ -144,17 +144,11 @@
 
     public function Qbatal($faktur)
     {
-        // FIXME: jika di tekan tombol batalkan maka akan merubah status ke canceled, menghapus data pembayaran, setelah lebih dari 1 hari menghapus data penjualan dan detil penjualan
         $this->db->set('jual_status', "Canceled");
         $this->db->set('jual_tgl_exp', date('Y-m-d h:i:sa'));
         $this->db->where('jual_nofak', $faktur);
         $this->db->update('tbl_penjualan');
     }
-    // public function Qbatal2($faktur)
-    // {
-    //     $this->db->where('pembayaran_jual_id', $faktur);
-    //     $this->db->delete('tbl_pembayaran');
-    // }
 
     public function expTglJual()
     {
@@ -188,13 +182,4 @@
         $this->db->where('jual_nofak', $faktur);
         $this->db->update('tbl_penjualan');
     }
-
-    // public function thanksP()
-    // {
-    //     $this->db->select('jual_nofak');
-    //     $this->db->from('tbl_penjualan');
-    //     $this->db->where('jual_customers_id', $this->session->userdata('id'));
-    //     $this->db->order_by('jual_tgl desc');
-    //     return $this->db->get()->row_array();
-    // }
 }

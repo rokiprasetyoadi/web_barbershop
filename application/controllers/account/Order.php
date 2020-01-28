@@ -34,13 +34,13 @@ class Order extends CI_Controller
         }
 
         // fungsi ketika tidak segera upload ulang bukti pembayaran dalam waktu 24 jam maka akan otomatis merubah status ke cancel
-        foreach ($$data1['selectreject'] as $sr) {
-            $paktur = [
-          'jual_nofak' => $dt['jual_nofak']
+        foreach ($data1['selectreject'] as $sr) {
+            $paktur2 = [
+          'jual_nofak' => $sr['jual_nofak']
         ];
             $this->db->set('jual_status', "Canceled");
             $this->db->set('jual_tgl_exp', date('Y-m-d h:i:sa'));
-            $this->db->where('jual_nofak', $paktur['jual_nofak']);
+            $this->db->where('jual_nofak', $paktur2['jual_nofak']);
             $this->db->update('tbl_penjualan');
         }
 
@@ -119,7 +119,6 @@ class Order extends CI_Controller
     public function batalPesan($faktur)
     {
         $this->M_pembayaran->Qbatal($faktur);
-        // $this->M_pembayaran->Qbatal2($faktur);
         $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data pemesanan <b>'.$faktur.'</b> telah di batalkan</div>');
         redirect('account/order');
     }

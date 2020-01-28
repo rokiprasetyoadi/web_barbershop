@@ -22,9 +22,7 @@
 <section>
     <!--One Half-->
     <div class="container " >
-      <?php foreach ($selectexp as $tgl): ?>
-      <?= form_hidden('paktur', $tgl['jual_nofak']); ?>
-    <?php endforeach; ?>r
+
         <div class="row">
             <h4 class="text-capitalize text--center mb-80">M y A c c o u n t</h4>
             <?= $this->session->flashdata('editprofile'); ?>
@@ -85,7 +83,6 @@
                                    <?php foreach ($notpaid as $np): ?>
                                    <tbody>
                                      <tr>
-                                       <?php // FIXME: alur proses batal pemesanan?>
                                        <td> <a href="<?= base_url('account/order/bayar/'.$np['jual_nofak']); ?>"><?= $np['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($np['jual_tgl'])); ?></td>
                                        <td><?= $np['jual_status']; ?></td>
@@ -109,7 +106,6 @@
                                    <?php foreach ($proses as $proses): ?>
                                    <tbody>
                                      <tr>
-                                       <?php // FIXME: alur proses batal pemesanan?>
                                        <td> <a href="<?= base_url('account/order/bayar/'.$proses['jual_nofak']); ?>"><?= $proses['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($proses['jual_tgl'])); ?></td>
                                        <td><?= $proses['jual_status']; ?></td>
@@ -132,7 +128,6 @@
                                    <?php foreach ($kirim as $kirim): ?>
                                    <tbody>
                                      <tr>
-                                       <?php // FIXME: alur kirim batal pemesanan?>
                                        <td> <a href="<?= base_url('account/order/bayar/'.$kirim['jual_nofak']); ?>"><?= $kirim['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($kirim['jual_tgl'])); ?></td>
                                        <td><?= $kirim['jual_status']; ?></td>
@@ -155,7 +150,6 @@
                                    <?php foreach ($terima as $terima): ?>
                                    <tbody>
                                      <tr>
-                                       <?php // FIXME: alur terima batal pemesanan?>
                                        <td> <a href="<?= base_url('account/order/bayar/'.$terima['jual_nofak']); ?>"><?= $terima['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($terima['jual_tgl'])); ?></td>
                                        <td><?= $terima['jual_status']; ?></td>
@@ -174,16 +168,17 @@
                                        <th>Tanggal Transaksi</th>
                                        <th>Status</th>
                                        <th>Total</th>
+                                       <th>Menu</th>
                                      </tr>
                                    </thead>
                                    <?php foreach ($batal as $batal): ?>
                                    <tbody>
                                      <tr>
-                                       <?php // FIXME: alur batal batal pemesanan?>
                                        <td> <a href="<?= base_url('account/order/bayar/'.$batal['jual_nofak']); ?>"><?= $batal['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($batal['jual_tgl'])); ?></td>
                                        <td><?= $batal['jual_status']; ?></td>
                                        <td><?php $hasil = $batal['jual_total'] + $batal['jual_biaya']; echo rupiah($hasil); ?></td>
+                                       <td> <a href="<?= base_url('account/order/perpanjangbayar/'.$batal['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin memperpanjgan masa pembayaran?')" class="btn btn-warning btn-sm">Perpanjang</a> </td>
                                      </tr>
                                    </tbody>
                                    <?php endforeach; ?>
@@ -198,18 +193,15 @@
                                        <th>Tanggal Transaksi</th>
                                        <th>Status</th>
                                        <th>Total</th>
-                                       <th>Menu</th>
                                      </tr>
                                    </thead>
                                    <?php foreach ($rejected as $rejected): ?>
                                    <tbody>
                                      <tr>
-                                       <?php // FIXME: alur rejected rejected pemesanan?>
                                        <td> <a href="<?= base_url('account/order/bayar/'.$rejected['jual_nofak']); ?>"><?= $rejected['jual_nofak']; ?></td></a>
                                        <td><?= date('d F Y', strtotime($rejected['jual_tgl'])); ?></td>
                                        <td><?= $rejected['jual_status']; ?></td>
                                        <td><?php $hasil = $rejected['jual_total'] + $rejected['jual_biaya']; echo rupiah($hasil); ?></td>
-                                       <td> <a href="<?= base_url('account/order/perpanjangbayar/'.$rejected['jual_nofak']); ?>" onclick="javascript:return confirm('yakin ingin memperpanjgan masa pembayaran?')" class="btn btn-warning btn-sm">Perpanjang</a> </td>
                                      </tr>
                                    </tbody>
                                    <?php endforeach; ?>

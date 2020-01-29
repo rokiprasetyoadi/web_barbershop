@@ -156,4 +156,4 @@ class Cart extends CI_Controller
     }
 }
 
-/* End of file Controllername.php */
+/* End of file Cart.php */

@@ -202,6 +202,13 @@
         </div>
 				<a class="text-dark" href="<?= base_url('account/order'); ?>"><< Kembali ke Order</a>
 			</div>
+    <?php } else { ?>
+      <div class="text-center mt-3">
+        <div class="alert alert-info">
+          <strong>Info!</strong> Bukti pembayaran sudah terupload.
+        </div>
+				<a class="text-dark" href="<?= base_url('account/order'); ?>"><< Kembali ke Order</a>
+			</div>
     <?php } ?>
 		</div>
 	</div>

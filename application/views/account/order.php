@@ -16,7 +16,6 @@
 </section>
 <!-- #page-title end -->
 
-
 <!-- Columns Section
 ============================================= -->
 <section>

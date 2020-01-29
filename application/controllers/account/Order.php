@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-// TODO: ketika admin me reject pesanan maka akan merubah status pembayaran ke reject dan jual_tgl_exp ke datetima() waktu reject admin
 class Order extends CI_Controller
 {
     public function __construct()
@@ -13,7 +12,7 @@ class Order extends CI_Controller
     public function index()
     {
         $this->session->set_flashdata('account-access', '<div class="alert alert-danger" role="alert"> Silahkan login terlebih dahulu untuk mengakses halaman ini</div>');
-        if ($this->session->userdata('email')==null) {
+        if ($this->session->userdata('email') == null) {
             redirect('login');
         }
 
@@ -54,6 +53,10 @@ class Order extends CI_Controller
             $this->db->delete('tbl_penjualan', ['jual_nofak' => $paktur2['jual_nofak']]);
             $this->db->delete('tbl_detailpenjualan', ['detailjual_nofak' => $paktur2['detailjual_nofak']]);
             $this->db->delete('tbl_pembayaran', ['pembayaran_jual_id' => $paktur2['pembayaran_jual_id']]);
+            if ($sc['pembayaran_bukti'] != "default.jpg" && $sc['pembayaran_bukti'] != null) {
+                $filename = explode(".", $sc['pembayaran_bukti'])[0];
+                return array_map('unlink', glob(FCPATH . "assets/upload/bukti_pembayaran/$filename.*"));
+            }
         }
 
 
@@ -90,9 +93,6 @@ class Order extends CI_Controller
         $data = [
         'pembayaran_bukti' => $this->_bukti()
       ];
-        // echo "<pre>";
-        // print_r($data);
-        // FIXME: update status penjualan menjadi process
         $this->db->where('pembayaran_jual_id', $this->input->post('kdfaktur'));
         $this->db->update('tbl_pembayaran', $data);
 

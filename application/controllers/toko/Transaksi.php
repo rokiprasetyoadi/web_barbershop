@@ -42,17 +42,17 @@ class Transaksi extends CI_Controller
             // jika rules terpenuhi akan menjalankan fungsi di bawah ini
 
             $data1 = [
-          'jual_nofak' => $this->input->post('kodefaktur'),
-          'jual_customers_id' => $this->session->userdata('id'),
-          'jual_kurir' => strtoupper($this->input->post('kurir')),
-          'jual_layanan' => $this->input->post('service1'),
-          'jual_biaya' => $this->input->post('cost1'),
-          'jual_penerima' => $this->input->post('nmkonsumen'),
-          'jual_alamat' => $this->input->post('alamat').' - '.$this->input->post('nmkota').' - '.$this->input->post('nmprovinsi'),
-          'jual_tlp' => $this->input->post('nohp'),
-          'jual_cart_total' => $this->input->post('tprice'),
-          'jual_total' => $total
-      ];
+                'jual_nofak' => $this->input->post('kodefaktur'),
+                'jual_customers_id' => $this->session->userdata('id'),
+                'jual_kurir' => strtoupper($this->input->post('kurir')),
+                'jual_layanan' => $this->input->post('service1'),
+                'jual_biaya' => $this->input->post('cost1'),
+                'jual_penerima' => $this->input->post('nmkonsumen'),
+                'jual_alamat' => $this->input->post('alamat').' - '.$this->input->post('nmkota').' - '.$this->input->post('nmprovinsi'),
+                'jual_tlp' => $this->input->post('nohp'),
+                'jual_cart_total' => $this->input->post('tprice'),
+                'jual_total' => $total
+            ];
             // input data ke tbl_penjualan dengan data yang sudah di tangkap di atas
             $this->db->insert('tbl_penjualan', $data1);
 
@@ -65,12 +65,12 @@ class Transaksi extends CI_Controller
             $no=0;
             foreach ($idc as $item) {
                 $barang = [
-            'detailjual_nofak' => $nofak,
-            'detailjual_barang_id' => $item['barang_id'],
-            'detailjual_subtotal' => $item['c_price'],
-            'detailjual_qty' => $item['qty'],
-            'detailjual_diskon' => 0,
-          ];
+                  'detailjual_nofak' => $nofak,
+                  'detailjual_barang_id' => $item['barang_id'],
+                  'detailjual_subtotal' => $item['c_price'],
+                  'detailjual_qty' => $item['qty'],
+                  'detailjual_diskon' => 0,
+                ];
                 $no++;
                 // var_dump($barang);
                 // memasukkan data ke tbl_detailpenjualan dengan data yang sudah di tangkap di atas
@@ -78,10 +78,10 @@ class Transaksi extends CI_Controller
             }
 
             $insertBayar = [
-        'pembayaran_customers_id' => $this->session->userdata('id'),
-        'pembayaran_jual_id' => $nofak,
-        'pembayaran_norek' => "9489137414"
-      ];
+              'pembayaran_customers_id' => $this->session->userdata('id'),
+              'pembayaran_jual_id' => $nofak,
+              'pembayaran_norek' => "9489137414"
+            ];
             // echo "<pre>";
             // print_r($insertBayar);
             // die;

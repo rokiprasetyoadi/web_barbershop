@@ -54,6 +54,10 @@ class Order extends CI_Controller
             $this->db->delete('tbl_penjualan', ['jual_nofak' => $paktur2['jual_nofak']]);
             $this->db->delete('tbl_detailpenjualan', ['detailjual_nofak' => $paktur2['detailjual_nofak']]);
             $this->db->delete('tbl_pembayaran', ['pembayaran_jual_id' => $paktur2['pembayaran_jual_id']]);
+            if ($sc['pembayaran_bukti'] != "default.jpg" && $sc['pembayaran_bukti'] != null) {
+                $filename = explode(".", $sc['pembayaran_bukti'])[0];
+                return array_map('unlink', glob(FCPATH . "assets/upload/bukti_pembayaran/$filename.*"));
+            }
         }
 
 

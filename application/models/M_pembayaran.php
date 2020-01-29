@@ -161,10 +161,13 @@
     public function expTglCancel()
     {
         // cek order yang lebih dari tgl reject
-        $lama = 7;
-        $this->db->where('DATEDIFF(CURDATE(), jual_tgl_exp) >=', $lama);
-        $this->db->where('jual_status', "Canceled");
-        return $this->db->get('tbl_penjualan')->result_array();
+        $lama = 1;
+        $this->db->select('*');
+        $this->db->from('tbl_penjualan');
+        $this->db->join('tbl_pembayaran', 'tbl_penjualan.jual_nofak = tbl_pembayaran.pembayaran_jual_id');
+        $this->db->where('DATEDIFF(CURDATE(), tbl_penjualan.jual_tgl_exp) >=', $lama);
+        $this->db->where('tbl_penjualan.jual_status', "Canceled");
+        return $this->db->get()->result_array();
     }
     public function expTglReject()
     {

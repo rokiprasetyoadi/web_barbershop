@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-// TODO: ketika admin me reject pesanan maka akan merubah status pembayaran ke reject dan jual_tgl_exp ke datetima() waktu reject admin
 class Order extends CI_Controller
 {
     public function __construct()
@@ -94,9 +93,6 @@ class Order extends CI_Controller
         $data = [
         'pembayaran_bukti' => $this->_bukti()
       ];
-        // echo "<pre>";
-        // print_r($data);
-        // FIXME: update status penjualan menjadi process
         $this->db->where('pembayaran_jual_id', $this->input->post('kdfaktur'));
         $this->db->update('tbl_pembayaran', $data);
 

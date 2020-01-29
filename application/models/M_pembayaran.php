@@ -109,7 +109,7 @@
     private function _deleteImage($id)
     {
         $pembayaran = $this->getById($id);
-        if ($pembayaran->pembayaran_bukti !="default.jpg") {
+        if ($pembayaran->pembayaran_bukti != "default.jpg") {
             $filename=explode(".", $pembayaran->pembayaran_bukti)[0];
             return array_map('unlink', glob(FCPATH."assets/upload/bukti_pembayaran/$filename.*"));
         }

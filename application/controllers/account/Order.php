@@ -13,7 +13,7 @@ class Order extends CI_Controller
     public function index()
     {
         $this->session->set_flashdata('account-access', '<div class="alert alert-danger" role="alert"> Silahkan login terlebih dahulu untuk mengakses halaman ini</div>');
-        if ($this->session->userdata('email')==null) {
+        if ($this->session->userdata('email') == null) {
             redirect('login');
         }
 

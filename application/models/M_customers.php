@@ -79,7 +79,7 @@
             'customers_id' => $cid
         ];
 
-        $token = base64_encode(random_bytes(32));
+        $token = base64_encode(random_bytes(32));     
         $customers_token = [
             'email' =>	$email,
             'token' => $token,
@@ -93,12 +93,12 @@
 
 
     public function _sendEmail($token, $type)
-    {
+    {   
         $config = [
             'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'nurphnx@gmail.com',
-            'smtp_pass' => 'Mz4inurrofanf00',
+            'smtp_host' => 'ssl://mail.zainurrofan.com',
+            'smtp_user' => 'service@zainurrofan.com',
+            'smtp_pass' => 'Zainur12345',
             'smtp_port' => 465,
             'mailtype' => 'html',
             'charset' => 'utf-8',
@@ -107,14 +107,20 @@
 
         $this->load->library('email', $config);
         $this->email->initialize($config);
-
+        
+        $link = base_url() .'home/verify?email='.$this->input->post('email').'&token='.urlencode($token);
+        
+        $data['url1'] = '<a href="' . $link . '" style="display:inline-block;background:#ffffff;color:#ba946b;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:14px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;border-radius:3px"> CONFIRM YOUR EMAIL </a>';
+        
+        $data['url2'] = '<a href="' . $link . '" style="display:inline-block;background:#ffffff;color:#ba946b;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:14px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;border-radius:3px" target="_blank"> CONFIRM YOUR EMAIL </a>';
+        
         $this->email->from('sevenhead@gmail.com', 'Sevenhead');
         $this->email->to($this->input->post('email', true));
+        $subjregist = $this->load->view('registration',$data,TRUE);
 
         if ($type == 'verify') {
-            $this->email->subject('Your registration');
-            $this->email->message('Click this link to verify your account :
-				<a href="'. base_url() .'home/verify?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Activation time is 5 minutes.');
+            $this->email->subject('Registration Confirmation | Sevenhead');
+            $this->email->message($subjregist);
         } elseif ($type == 'forgot') {
             $this->email->subject('Reset Password');
             $this->email->message('Click this link to reset your account password :

@@ -51,6 +51,7 @@ class Transaksi extends CI_Controller
                 'jual_alamat' => $this->input->post('alamat').' - '.$this->input->post('nmkota').' - '.$this->input->post('nmprovinsi'),
                 'jual_tlp' => $this->input->post('nohp'),
                 'jual_cart_total' => $this->input->post('tprice'),
+                'jual_tgl_exp' => date('Y-m-d H:i:s', time() + (60 * 60 * 24)),
                 'jual_total' => $total
             ];
             // input data ke tbl_penjualan dengan data yang sudah di tangkap di atas

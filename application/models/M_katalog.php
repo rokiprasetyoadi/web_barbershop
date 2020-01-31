@@ -93,8 +93,7 @@ class M_katalog extends CI_Model
         $this->db->where('c_cart_id', $this->input->post('c_cart_id'));
         $this->db->select('qty');
         $c = $this->db->get('tbl_cart_detail')->row_array();
-        $string = implode($c);
-        return $string;
+        return $c;
     }
     public function cartIdproduct()
     {

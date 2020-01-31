@@ -16,30 +16,30 @@
     {
         $rule=[
             [ // aturan untuk nama
-            'field'=>'nama',
-            'label'=>'Nama',
-            'rules'=>'required|trim'
+                'field'=>'nama',
+                'label'=>'Nama',
+                'rules'=>'required|trim'
             ],
 
             [ // aturan untuk email
-            'field'=>'email',
-            'label'=>'Email',
-            'rules'=>'required|trim|valid_email|is_unique[customers.customers_email]',
-            'errors'=>['is_unique'=>'This email has already been used']],
+                'field'=>'email',
+                'label'=>'Email',
+                'rules'=>'required|trim|valid_email|is_unique[customers.customers_email]',
+                'errors'=>['is_unique'=>'This email has already been used']],
 
             [ // aturan untuk password
-            'field'=>'password1',
-            'label'=>'Password',
-            'rules'=>'required|trim|min_length[6]|matches[password2]|alpha_numeric|password_check[1,1,1]',
-            'errors'=>
-            [
-            'min_length'=>'Password needs to have minimal 6 lenght!'
+                'field'=>'password1',
+                'label'=>'Password',
+                'rules'=>'required|trim|min_length[6]|matches[password2]|alpha_numeric|password_check[1,1,1]',
+                'errors'=>
+                [
+                'min_length'=>'Password needs to have minimal 6 lenght!'
             ]],
 
             [ // aturan konfirmasi password
-            'field'=>'password2',
-            'label'=>'Password',
-            'rules'=>'required|trim|matches[password1]'
+                'field'=>'password2',
+                'label'=>'Password',
+                'rules'=>'required|trim|matches[password1]'
             ]
         ];
         $this->form_validation->set_rules($rule);
@@ -50,15 +50,15 @@
         $rule =
         [
             [
-              'field' => 'password1',
-              'label' => 'Password',
-              'rules' => 'required|trim|min_length[6]|matches[password2]|alpha_numeric|password_check[1,1,1]',
-              'errors' => ['min_length' => 'Password needs to have minimal 6 length!']
+                'field' => 'password1',
+                'label' => 'Password',
+                'rules' => 'required|trim|min_length[6]|matches[password2]|alpha_numeric|password_check[1,1,1]',
+                'errors' => ['min_length' => 'Password needs to have minimal 6 length!']
             ],
             [
-              'field' => 'password2',
-              'label' => 'Repeat Password',
-              'rules' => 'required|trim|matches[password1]'
+                'field' => 'password2',
+                'label' => 'Repeat Password',
+                'rules' => 'required|trim|matches[password1]'
             ]
         ];
         $this->form_validation->set_rules($rule);
@@ -86,9 +86,9 @@
             'date_created' => time()
         ];
 
-        $this->_sendEmail($token, 'verify');
-        $this->db->insert('tbl_cart', $data2);
         $this->db->insert('customers_token', $customers_token);
+        $this->db->insert('tbl_cart', $data2);
+        $this->_sendEmail($token, 'verify');
     }
 
 

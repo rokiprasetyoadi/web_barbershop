@@ -117,8 +117,69 @@
 				</div>
 				<div class="row">
 				<div class="col-lg-12">
+					<?php 			
+						//Menampilkan secara manual dengan mengakses indexnya
+						$array1=explode("-",$ongkir['jual_tgl_exp']);
+						$tahun=$array1[0];
+						$bulan=$array1[1];
+						$sisa1=$array1[2];
+						$array2=explode(" ",$sisa1);
+						$tanggal=$array2[0];
+						$sisa2=$array2[1];
+						$array3=explode(":",$sisa2);
+						$jam=$array3[0];
+						$menit=$array3[1];
+						$detik=$array3[2];
+						switch($bulan)
+						{
+						case'01';
+						$bulan='Januari';
+						break;
+						case'02';
+						$bulan='Februari';
+						break;
+						case'03';
+						$bulan='Maret';
+						break;
+						case'04';
+						$bulan='April';
+						break;
+						case'05';
+						$bulan='Mei';
+						break;
+						case'06';
+						$bulan='Juni';
+						break;
+						case'07';
+						$bulan='Juli';
+						break;
+						case'08';
+						$bulan='Agustus';
+						break;
+						case'09';
+						$bulan='September';
+						break;
+						case'10';
+						$bulan='Oktober';
+						break;
+						case'11';
+						$bulan='November';
+						break;
+						case'12';
+						$bulan='Desember';
+						break;
+						}
+						
+						date_default_timezone_set('Asia/Jakarta');
+						$timi = strtotime($ongkir['jual_tgl_exp']);
+						$timexp = time();;
+						$time = $timi - $timexp;
+					?>
 					<p class="bg-info text-white text-center p-1 mb-1 mt-3">Segera lakukan pembayaran Anda
-					sebelum tanggal : <span class="font-weight-semi-bold"> 24 January 2020</span> jam <span class="font-weight-semi-bold"> 23:14</span></p>
+					sebelum tanggal : <span class="font-weight-semi-bold"> <?= $tanggal. ' - ' .$bulan. ' - ' .$tahun ?> </span> jam <span class="font-weight-semi-bold"> <?= $jam. ' : ' .$menit . ' : ' . $detik  ?></span></p>
+					<p class="bg-info text-white text-center p-1 mb-1 mt-3">Sisa waktu untuk melakukan pembayaran <span id="countdown" class="timer font-weight-semi-bold"></span></p>
+					<p class="bg-danger text-white text-center p-1 mb-1 mt-3">Jika tidak melakukan pembayaran sampai tanggal dan jam yang ditentukan, maka pemesanan dianggap batal</p>
+
 				</div>
 				</div>
 			</div>
@@ -184,10 +245,10 @@
 				<p class="mb-2">Setelah transfer , Segera <b>Konfirmasi Pembayaran. </b> Perbedaan nilai transfer akan
 					menghambat proses verifikasi!</p>
             <div class="col-12">
-    					<button class="btn btn-lg btn-info btn-konfirmasi mb-3" data-target="#myModal" data-toggle="modal">Konfirmasi Pembayaran</button>
+				<button class="btn btn-lg btn-info btn-konfirmasi mb-3" data-target="#myModal" data-toggle="modal">Konfirmasi Pembayaran</button>
             </div>
         <br/>
-				<p class="text-danger">Pemesanan dianggap batal jika tidak melakukan pembayaran selama 10 jam</p>
+				<p class="text-danger">Pemesanan dianggap batal jika tidak melakukan pembayaran selama 24 jam</p>
 				<!-- <p hidden class="font-weight-semi-bold">Jika invoice tidak masuk ke email kotak masuk utama, periksa ke kotak masuk Spam atau Update</p> -->
 				<a class="text-dark" href="<?= base_url('account/order'); ?>"><< Kembali ke Order</a>
 			</div>
@@ -249,29 +310,54 @@
 
 <!-- End Modal Confirm -->
 
-  <script src="<?= base_url(''); ?>/assets/thanks/e9a855169b08f75d5f2a6f3166db22e5.js" type="text/javascript"></script>
+	<script src="<?= base_url(''); ?>/assets/thanks/e9a855169b08f75d5f2a6f3166db22e5.js" type="text/javascript"></script>
 
-  <!-- <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script> -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105356626-3"></script> -->
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+	<!-- <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script> -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105356626-3"></script> -->
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-      gtag('config', 'UA-105356626-3');
-  </script>
+		gtag('config', 'UA-105356626-3');
+	</script>
 
-  <script>
-  	function toClip(el, text) {
-  		var copyText = $(el);
-  		copyText.select();
-  		document.execCommand("copy");
-  		if (text != '') {
-  			alert(text);
-  		}
-  	}
-    	fbq('track', 'Purchase');
-  </script>
+	<script>
+		function toClip(el, text) {
+			var copyText = $(el);
+			copyText.select();
+			document.execCommand("copy");
+			if (text != '') {
+				alert(text);
+			}
+		}
+			fbq('track', 'Purchase');
+	</script>
+
+    <script>
+        var initialTime = <?= $time ?>;//Place here the total of seconds you receive on your PHP code. ie: var initialTime = <? echo $remaining; ?>;
+
+        var seconds = initialTime;
+        function timer() {
+            var days        = Math.floor(seconds/24/60/60);
+            var hoursLeft   = Math.floor((seconds) - (days*86400));
+            var hours       = Math.floor(hoursLeft/3600);
+            var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+            var minutes     = Math.floor(minutesLeft/60);
+            var remainingSeconds = seconds % 60;
+            if (remainingSeconds < 10) {
+                remainingSeconds = "0" + remainingSeconds; 
+            }
+            document.getElementById('countdown').innerHTML = hours + " Jam " + minutes + " Menit " + remainingSeconds+ " Detik";
+            if (seconds == 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = "Completed";
+            } else {
+                seconds--;
+            }
+        }
+        var countdownTimer = setInterval('timer()', 1000);
+    </script>
 </body>
 </html>

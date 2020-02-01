@@ -72,6 +72,7 @@ class Order extends CI_Controller
 
         $this->temp->load('account/partials', 'account/order', $data);
     }
+
     public function bayar($id)
     {
         $data['customers'] = $this->db->get_where('customers', ['customers_email' => $this->session->userdata('email')])->row_array();
